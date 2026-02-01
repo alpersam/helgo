@@ -21,7 +21,7 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 
-import { ChatMessage, WeatherData, DaylightData, Itinerary, Intent, PlaceCategory } from '../types';
+import { ChatMessage, WeatherData, DaylightData, Itinerary, Intent, PlaceCategory, Place } from '../types';
 import {
   Header,
   InputBar,
@@ -44,9 +44,9 @@ import { ZURICH_LAT, ZURICH_LON } from '../lib/weather';
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 const HELGO_GREETINGS = [
-  "Hey! I'm Helgo, your Zürich micro-guide. What are you in the mood for?",
-  "Grüezi! Ready to explore Zürich? Tell me what you're looking for.",
-  "Hi there! Where do you want to go RIGHT NOW?",
+  "Hey, I'm Helgo — your Zürich micro-guide. What sounds nice right now?",
+  "Grüezi! Want a gentle suggestion for Zürich? Tell me your mood.",
+  "Hi there. Anything in particular you feel like doing today?",
 ];
 
 const HELGO_RESPONSES = [
@@ -59,6 +59,18 @@ const HELGO_CLARIFIERS = [
   "I can help with food, views, walks, parks, and museums. What are you in the mood for?",
   "Quick check: are you looking for a restaurant, a stroll, a viewpoint, or something indoors?",
   "Give me a vibe or category to work with — e.g., \"mexican restaurant\" or \"sunset walk\".",
+];
+
+const HELGO_PRELUDES = [
+  "Give me a second — I'll shape a quick two-stop plan.",
+  "Alright, let me curate something that fits the moment.",
+  "On it. I'll pull a short, easy-to-do plan for you.",
+];
+
+const HELGO_AFTERGLOWS = [
+  "Want me to refine it — calmer, or more scenic?",
+  "If you want a different mood, say the word.",
+  "Want a shorter route or something more atmospheric?",
 ];
 
 const FALLBACK_LOCATION = { lat: ZURICH_LAT, lon: ZURICH_LON };
@@ -78,7 +90,7 @@ const SUGGESTIONS = [
 ];
 
 const CATEGORY_LABELS: Record<PlaceCategory, string> = {
-  cafe: 'caf?s',
+  cafe: 'cafes',
   restaurant: 'restaurants',
   viewpoint: 'viewpoints',
   walk: 'walks',
@@ -86,6 +98,13 @@ const CATEGORY_LABELS: Record<PlaceCategory, string> = {
   museum: 'museums',
   market: 'markets',
   park: 'parks',
+  activity: 'activities',
+  shopping: 'shopping',
+  sport: 'sports',
+  wellness: 'wellness',
+  accommodation: 'stays',
+  event: 'events',
+  sightseeing: 'sights',
 };
 
 const CATEGORY_ICONS: Record<PlaceCategory, keyof typeof Ionicons.glyphMap> = {
@@ -97,6 +116,13 @@ const CATEGORY_ICONS: Record<PlaceCategory, keyof typeof Ionicons.glyphMap> = {
   museum: 'color-palette',
   market: 'storefront',
   park: 'leaf',
+  activity: 'sparkles',
+  shopping: 'bag',
+  sport: 'football',
+  wellness: 'leaf',
+  accommodation: 'bed',
+  event: 'calendar',
+  sightseeing: 'map',
 };
 
 
@@ -109,6 +135,7 @@ const ChatScreenContent: React.FC = () => {
   const [daylight, setDaylight] = useState<DaylightData | null>(null);
   const [userLocation, setUserLocation] = useState<{ lat: number; lon: number } | null>(null);
   const [followUps, setFollowUps] = useState<SuggestionChip[]>([]);
+  const lastIntentRef = useRef<Intent | null>(null);
   const scrollViewRef = useRef<ScrollView>(null);
 
   // Animated gradient blobs
@@ -260,6 +287,117 @@ const ChatScreenContent: React.FC = () => {
     );
   };
 
+  const mergeIntent = (current: Intent, previous: Intent | null): Intent => {
+    if (!previous) return current;
+    return {
+      ...current,
+      cuisine: current.cuisine.length > 0 ? current.cuisine : previous.cuisine,
+      categoryPreference:
+        current.categoryPreference.length > 0
+          ? current.categoryPreference
+          : previous.categoryPreference,
+      vibes: current.vibes.length > 0 ? current.vibes : previous.vibes,
+      constraints: Array.from(new Set([...previous.constraints, ...current.constraints])),
+      timeBudgetMins: current.timeBudgetMins ?? previous.timeBudgetMins,
+      groupContext: current.groupContext ?? previous.groupContext,
+      photoMode: current.photoMode !== 'none' ? current.photoMode : previous.photoMode,
+      indoorPreference:
+        current.indoorPreference !== 'no-preference'
+          ? current.indoorPreference
+          : previous.indoorPreference,
+    };
+  };
+
+  const buildQueryFromPlace = (place: Place) => {
+    const cuisineTags = [
+      'mexican',
+      'italian',
+      'sushi',
+      'burger',
+      'asian',
+      'swiss',
+      'vegan',
+      'brunch',
+      'coffee',
+    ];
+    const cuisine = place.tags.find(tag => cuisineTags.includes(tag));
+
+    let core = '';
+    switch (place.category) {
+      case 'restaurant':
+        core = cuisine ? `${cuisine} restaurant` : 'restaurant';
+        break;
+      case 'cafe':
+        core = 'cafe';
+        break;
+      case 'bar':
+        core = 'bar';
+        break;
+      case 'museum':
+        core = 'museum';
+        break;
+      case 'park':
+        core = 'park';
+        break;
+      case 'viewpoint':
+        core = 'viewpoint';
+        break;
+      case 'walk':
+        core = 'walk';
+        break;
+      case 'shopping':
+        core = 'shopping';
+        break;
+      case 'sport':
+        core = 'sport';
+        break;
+      case 'wellness':
+        core = 'spa';
+        break;
+      case 'event':
+        core = 'event';
+        break;
+      case 'sightseeing':
+        core = 'sightseeing';
+        break;
+      default:
+        core = 'things to do';
+        break;
+    }
+
+    const vibeParts: string[] = [];
+    if (place.tags.includes('quiet')) vibeParts.push('quiet');
+    if (place.tags.includes('romantic')) vibeParts.push('romantic');
+    if (place.tags.includes('view') || place.tags.includes('photo')) vibeParts.push('scenic');
+    if (place.tags.includes('green') || place.tags.includes('park')) vibeParts.push('green');
+
+    return [...vibeParts, core].join(' ');
+  };
+
+  const buildBridge = (intent: Intent) => {
+    const parts: string[] = [];
+    if (intent.cuisine.length > 0) {
+      parts.push(`Got it — keeping it ${intent.cuisine[0]}.`);
+    } else if (intent.categoryPreference.length > 0) {
+      parts.push(`Alright — focusing on ${CATEGORY_LABELS[intent.categoryPreference[0]]}.`);
+    } else if (intent.vibes.length > 0) {
+      parts.push(`Love the ${intent.vibes[0]} vibe.`);
+    } else if (intent.constraints.includes('quiet')) {
+      parts.push('Keeping it calm and low-key.');
+    } else if (intent.constraints.includes('budget')) {
+      parts.push('Keeping it budget-friendly.');
+    }
+
+    if (daylight?.isGoldenHour) {
+      parts.push('Golden hour is on.');
+    } else if (daylight?.isEvening) {
+      parts.push("It's a nice evening window.");
+    }
+
+    return parts.length > 0 ? parts.join(' ') : 'Okay — give me a second.';
+  };
+
+
   const submitText = async (text: string) => {
     if (!text.trim() || !weather || !daylight || isLoading) return;
 
@@ -274,9 +412,18 @@ const ChatScreenContent: React.FC = () => {
     setInputText('');
     setIsLoading(true);
 
+    const preludeMessage: ChatMessage = {
+      id: `assistant-prelude-${Date.now()}`,
+      type: 'assistant',
+      text: HELGO_PRELUDES[Math.floor(Math.random() * HELGO_PRELUDES.length)],
+      timestamp: new Date(),
+    };
+    setMessages(prev => [...prev, preludeMessage]);
+
     await new Promise(resolve => setTimeout(resolve, 600));
 
-    const intent = parseIntent(userMessage.text!);
+    const rawIntent = parseIntent(userMessage.text!);
+    const intent = mergeIntent(rawIntent, lastIntentRef.current);
     if (isAmbiguousIntent(intent)) {
       const clarifier: ChatMessage = {
         id: `assistant-clarify-${Date.now()}`,
@@ -289,6 +436,7 @@ const ChatScreenContent: React.FC = () => {
       setIsLoading(false);
       return;
     }
+    lastIntentRef.current = intent;
     const resolvedLocation = userLocation ?? FALLBACK_LOCATION;
     const userElevation = await getUserElevation(resolvedLocation.lat, resolvedLocation.lon);
     const latestDaylight = getDaylightData(resolvedLocation.lat, resolvedLocation.lon);
@@ -338,7 +486,7 @@ const ChatScreenContent: React.FC = () => {
     const assistantMessage: ChatMessage = {
       id: `assistant-${Date.now()}`,
       type: 'assistant',
-      text: HELGO_RESPONSES[Math.floor(Math.random() * HELGO_RESPONSES.length)],
+      text: `${buildBridge(intent)} ${HELGO_RESPONSES[Math.floor(Math.random() * HELGO_RESPONSES.length)]}`,
       itineraries,
       timestamp: new Date(),
     };
@@ -347,9 +495,20 @@ const ChatScreenContent: React.FC = () => {
     setFollowUps(buildFollowUps(intent, itineraries));
     setIsLoading(false);
 
+
     setTimeout(() => {
       scrollViewRef.current?.scrollToEnd({ animated: true });
     }, 100);
+
+    const afterglow: ChatMessage = {
+      id: `assistant-afterglow-${Date.now()}`,
+      type: 'assistant',
+      text: HELGO_AFTERGLOWS[Math.floor(Math.random() * HELGO_AFTERGLOWS.length)],
+      timestamp: new Date(),
+    };
+    setTimeout(() => {
+      setMessages(prev => [...prev, afterglow]);
+    }, 800);
   };
 
   const handleSend = async () => {
@@ -407,7 +566,15 @@ const ChatScreenContent: React.FC = () => {
           keyboardShouldPersistTaps="handled"
         >
           {messages.map((message, index) => (
-            <ChatBubble key={message.id} message={message} index={index} />
+            <ChatBubble
+              key={message.id}
+              message={message}
+              index={index}
+              onRequestSimilar={(place) => {
+                const query = buildQueryFromPlace(place);
+                submitText(query);
+              }}
+            />
           ))}
 
           {isLoading && (

@@ -15,9 +15,14 @@ import { PlaceCarousel } from './PlaceCarousel';
 interface ChatBubbleProps {
   message: ChatMessage;
   index?: number;
+  onRequestSimilar?: (place: Itinerary['anchor']) => void;
 }
 
-export const ChatBubble: React.FC<ChatBubbleProps> = ({ message, index = 0 }) => {
+export const ChatBubble: React.FC<ChatBubbleProps> = ({
+  message,
+  index = 0,
+  onRequestSimilar,
+}) => {
   const isUser = message.type === 'user';
   const appear = useSharedValue(0);
 
@@ -68,7 +73,7 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({ message, index = 0 }) =>
       </View>
       {message.itineraries && message.itineraries.length > 0 && (
         <View style={styles.carouselContainer}>
-          <PlaceCarousel itineraries={message.itineraries} />
+          <PlaceCarousel itineraries={message.itineraries} onRequestSimilar={onRequestSimilar} />
         </View>
       )}
     </Animated.View>

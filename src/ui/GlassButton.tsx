@@ -6,6 +6,7 @@ import {
   ViewStyle,
   TextStyle,
   Platform,
+  View,
 } from 'react-native';
 import Animated, {
   useSharedValue,
@@ -97,7 +98,7 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
       tint: 'dark',
     },
     secondary: {
-      bg: colors.glass.light,
+      bg: colors.white,
       text: colors.text.primary,
       tint: 'light',
     },
@@ -182,21 +183,22 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
       disabled={disabled}
       style={[animatedStyle, fullWidth && styles.fullWidth, style]}
     >
-      <GlassView
-        intensity="light"
-        tint={currentVariant.tint}
-        borderRadius={radius.pill}
-        shadow="sm"
-        style={{
-          ...styles.container,
-          paddingVertical: currentSize.paddingVertical,
-          paddingHorizontal: currentSize.paddingHorizontal,
-          backgroundColor: variant !== 'secondary' ? currentVariant.bg : undefined,
-          opacity: disabled ? 0.5 : 1,
-        }}
+      <View
+        style={[
+          styles.container,
+          {
+            paddingVertical: currentSize.paddingVertical,
+            paddingHorizontal: currentSize.paddingHorizontal,
+            backgroundColor: currentVariant.bg,
+            opacity: disabled ? 0.5 : 1,
+            width: fullWidth ? '100%' : undefined,
+            borderWidth: variant === 'secondary' ? 1 : 0,
+            borderColor: variant === 'secondary' ? colors.glass.lightBorder : 'transparent',
+          },
+        ]}
       >
         {content}
-      </GlassView>
+      </View>
     </AnimatedPressable>
   );
 };

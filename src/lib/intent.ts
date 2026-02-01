@@ -21,6 +21,13 @@ const CATEGORY_KEYWORDS: Record<PlaceCategory, string[]> = {
   museum: ['museum', 'gallery'],
   market: ['market', 'food hall', 'market hall'],
   park: ['park', 'garden', 'green'],
+  activity: ['activity', 'things to do', 'experience'],
+  shopping: ['shopping', 'shop', 'boutique', 'mall'],
+  sport: ['sport', 'gym', 'fitness', 'climb', 'swim', 'tennis'],
+  wellness: ['spa', 'wellness', 'sauna', 'massage', 'relax'],
+  accommodation: ['hotel', 'hostel', 'stay', 'accommodation'],
+  event: ['event', 'concert', 'festival', 'show', 'theatre'],
+  sightseeing: ['sight', 'sightseeing', 'attraction', 'landmark'],
 };
 
 const VIBE_KEYWORDS: Record<string, string[]> = {

@@ -8,13 +8,14 @@ import Animated, {
   Extrapolation,
   SharedValue,
 } from 'react-native-reanimated';
-import { Itinerary } from '../types';
+import { Itinerary, Place } from '../types';
 import { PlaceCard } from './PlaceCard';
 import { PlaceDetailSheet } from './PlaceDetailSheet';
 import { colors, spacing } from './theme';
 
 interface PlaceCarouselProps {
   itineraries: Itinerary[];
+  onRequestSimilar?: (place: Place) => void;
 }
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
@@ -24,7 +25,7 @@ const SNAP_INTERVAL = CARD_WIDTH + CARD_SPACING;
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList<Itinerary>);
 
-export const PlaceCarousel: React.FC<PlaceCarouselProps> = ({ itineraries }) => {
+export const PlaceCarousel: React.FC<PlaceCarouselProps> = ({ itineraries, onRequestSimilar }) => {
   const scrollX = useSharedValue(0);
   const [selectedItinerary, setSelectedItinerary] = useState<Itinerary | null>(null);
   const [sheetVisible, setSheetVisible] = useState(false);
@@ -42,7 +43,13 @@ export const PlaceCarousel: React.FC<PlaceCarouselProps> = ({ itineraries }) => 
 
   const handleCloseSheet = () => {
     setSheetVisible(false);
-    setTimeout(() => setSelectedItinerary(null), 300);
+    setTimeout(() => setSelectedItinerary(null), 380);
+  };
+
+  const handleRequestSimilar = (place: Place) => {
+    setSheetVisible(false);
+    setTimeout(() => setSelectedItinerary(null), 380);
+    onRequestSimilar?.(place);
   };
 
   const renderItem = ({ item, index }: { item: Itinerary; index: number }) => {
@@ -83,6 +90,7 @@ export const PlaceCarousel: React.FC<PlaceCarouselProps> = ({ itineraries }) => 
         itinerary={selectedItinerary}
         visible={sheetVisible}
         onClose={handleCloseSheet}
+        onRequestSimilar={handleRequestSimilar}
       />
     </View>
   );

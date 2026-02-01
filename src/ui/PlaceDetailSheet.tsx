@@ -25,15 +25,17 @@ import { Ionicons } from '@expo/vector-icons';
 import { Itinerary, PlaceCategory } from '../types';
 import { GlassButton } from './GlassButton';
 import { colors, spacing, radius, typography, animation, shadows } from './theme';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface PlaceDetailSheetProps {
   itinerary: Itinerary | null;
   visible: boolean;
   onClose: () => void;
+  onRequestSimilar?: (place: Itinerary['anchor']) => void;
 }
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
-const SHEET_HEIGHT = SCREEN_HEIGHT * 0.65;
+const SHEET_HEIGHT = SCREEN_HEIGHT * 0.7;
 
 const CATEGORY_PHOTOS: Record<PlaceCategory, string> = {
   cafe: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=70',
@@ -44,6 +46,13 @@ const CATEGORY_PHOTOS: Record<PlaceCategory, string> = {
   museum: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1200&q=70',
   market: 'https://images.unsplash.com/photo-1506807803488-8eafc15323c0?auto=format&fit=crop&w=1200&q=70',
   park: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=70',
+  activity: 'https://images.unsplash.com/photo-1529257414771-1960a42a3b87?auto=format&fit=crop&w=1200&q=70',
+  shopping: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=70',
+  sport: 'https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1200&q=70',
+  wellness: 'https://images.unsplash.com/photo-1519821172141-b5d8b0a6cd6d?auto=format&fit=crop&w=1200&q=70',
+  accommodation: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=70',
+  event: 'https://images.unsplash.com/photo-1472653431158-6364773b2a56?auto=format&fit=crop&w=1200&q=70',
+  sightseeing: 'https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?auto=format&fit=crop&w=1200&q=70',
 };
 
 const getDirectionsUrl = (name: string, lat: number, lon: number) => {
@@ -61,7 +70,9 @@ export const PlaceDetailSheet: React.FC<PlaceDetailSheetProps> = ({
   itinerary,
   visible,
   onClose,
+  onRequestSimilar,
 }) => {
+  const insets = useSafeAreaInsets();
   const translateY = useSharedValue(SHEET_HEIGHT);
   const backdropOpacity = useSharedValue(0);
 
@@ -122,6 +133,8 @@ export const PlaceDetailSheet: React.FC<PlaceDetailSheetProps> = ({
                 itinerary={itinerary}
                 onClose={onClose}
                 onOpenMaps={handleOpenMaps}
+                bottomInset={insets.bottom}
+                onRequestSimilar={onRequestSimilar}
               />
             </View>
           ) : (
@@ -131,6 +144,8 @@ export const PlaceDetailSheet: React.FC<PlaceDetailSheetProps> = ({
                   itinerary={itinerary}
                   onClose={onClose}
                   onOpenMaps={handleOpenMaps}
+                  bottomInset={insets.bottom}
+                  onRequestSimilar={onRequestSimilar}
                 />
               </View>
             </BlurView>
@@ -145,12 +160,16 @@ interface SheetContentProps {
   itinerary: Itinerary;
   onClose: () => void;
   onOpenMaps: () => void;
+  bottomInset: number;
+  onRequestSimilar?: (place: Itinerary['anchor']) => void;
 }
 
 const SheetContent: React.FC<SheetContentProps> = ({
   itinerary,
   onClose,
   onOpenMaps,
+  bottomInset,
+  onRequestSimilar,
 }) => {
   const { anchor, satellite, mainCharacterScore, metrics } = itinerary;
   const photoUrl = anchor.photoUrl ?? CATEGORY_PHOTOS[anchor.category];
@@ -167,21 +186,35 @@ const SheetContent: React.FC<SheetContentProps> = ({
     ? anchor.website.replace(/^https?:\/\//, '').replace(/\/$/, '')
     : undefined;
 
+  const handleOpenWebsite = () => {
+    if (!anchor.website) return;
+    let url = anchor.website.trim();
+    if (!/^https?:\/\//i.test(url)) {
+      url = `https://${url}`;
+    }
+    Linking.openURL(url);
+  };
+
+  const handleCallPhone = () => {
+    if (!anchor.phone) return;
+    const digits = anchor.phone.replace(/[^0-9+]/g, '');
+    if (digits.length === 0) return;
+    Linking.openURL(`tel:${digits}`);
+  };
+
   return (
     <ScrollView
       style={styles.contentScroll}
-      contentContainerStyle={styles.contentScrollContent}
+      contentContainerStyle={[
+        styles.contentScrollContent,
+        { paddingBottom: bottomInset },
+      ]}
       showsVerticalScrollIndicator={false}
     >
       {/* Handle */}
       <View style={styles.handleContainer}>
         <View style={styles.handle} />
       </View>
-
-      {/* Close button */}
-      <Pressable style={styles.closeButton} onPress={onClose}>
-        <Ionicons name="close" size={24} color={colors.text.secondary} />
-      </Pressable>
 
       {/* Photo */}
       <View style={styles.photoContainer}>
@@ -192,6 +225,10 @@ const SheetContent: React.FC<SheetContentProps> = ({
           <Text style={styles.photoLabelText}>{anchor.category}</Text>
         </View>
       </View>
+      {/* Close button */}
+      <Pressable style={styles.closeButton} onPress={onClose}>
+        <Ionicons name="close" size={24} color={colors.text.secondary} />
+      </Pressable>
 
       {/* Header */}
       <View style={styles.header}>
@@ -228,11 +265,6 @@ const SheetContent: React.FC<SheetContentProps> = ({
                 value={anchor.area.toUpperCase()}
               />
             )}
-            <InfoRow
-              icon="time"
-              label="Time"
-              value={`${anchor.durationMins} min`}
-            />
             {anchor.price && (
               <InfoRow
                 icon="cash"
@@ -252,6 +284,8 @@ const SheetContent: React.FC<SheetContentProps> = ({
                 icon="link"
                 label="Website"
                 value={formattedWebsite}
+                onPress={handleOpenWebsite}
+                isLink
               />
             )}
             {anchor.phone && (
@@ -259,6 +293,8 @@ const SheetContent: React.FC<SheetContentProps> = ({
                 icon="call"
                 label="Phone"
                 value={anchor.phone}
+                onPress={handleCallPhone}
+                isLink
               />
             )}
             <InfoRow
@@ -299,33 +335,6 @@ const SheetContent: React.FC<SheetContentProps> = ({
         </View>
       </View>
 
-      {/* Metrics */}
-      <View style={styles.metricsSection}>
-        <Text style={styles.sectionTitle}>Conditions now</Text>
-        <View style={styles.metricsGrid}>
-          <MetricCard
-            emoji={metrics.reflectionPotential.emoji}
-            label={metrics.reflectionPotential.label}
-            score={metrics.reflectionPotential.score}
-          />
-          <MetricCard
-            emoji={metrics.nightGlow.emoji}
-            label={metrics.nightGlow.label}
-            score={metrics.nightGlow.score}
-          />
-          <MetricCard
-            emoji={metrics.greenPocket.emoji}
-            label={metrics.greenPocket.label}
-            score={metrics.greenPocket.score}
-          />
-          <MetricCard
-            emoji={metrics.fogEscape.emoji}
-            label={metrics.fogEscape.label}
-            score={metrics.fogEscape.score}
-          />
-        </View>
-      </View>
-
       {/* Getting there */}
       {anchor.gettingThere && (
         <View style={styles.gettingThereSection}>
@@ -343,39 +352,48 @@ const SheetContent: React.FC<SheetContentProps> = ({
             icon="map"
             variant="primary"
             fullWidth
+            size="lg"
           />
         </View>
+        {onRequestSimilar && (
+          <View style={styles.actionButton}>
+            <GlassButton
+              onPress={() => onRequestSimilar(anchor)}
+              label="More like this"
+              icon="shuffle"
+              variant="secondary"
+              fullWidth
+              size="lg"
+            />
+          </View>
+        )}
       </View>
+      <View style={{ height: bottomInset }} />
     </ScrollView>
   );
 };
 
-const MetricCard: React.FC<{ emoji: string; label: string; score: number }> = ({
-  emoji,
-  label,
-  score,
-}) => (
-  <View style={styles.metricCard}>
-    <Text style={styles.metricEmoji}>{emoji}</Text>
-    <Text style={styles.metricLabel} numberOfLines={1}>{label}</Text>
-    <Text style={styles.metricScore}>{score}</Text>
-  </View>
-);
-
-const InfoRow: React.FC<{ icon: keyof typeof Ionicons.glyphMap; label: string; value: string }> = ({
-  icon,
-  label,
-  value,
-}) => (
-  <View style={styles.infoRow}>
+const InfoRow: React.FC<{
+  icon: keyof typeof Ionicons.glyphMap;
+  label: string;
+  value: string;
+  onPress?: () => void;
+  isLink?: boolean;
+}> = ({ icon, label, value, onPress, isLink }) => (
+  <Pressable style={styles.infoRow} onPress={onPress} disabled={!onPress}>
     <View style={styles.infoIcon}>
       <Ionicons name={icon} size={14} color={colors.primary} />
     </View>
     <View style={styles.infoText}>
       <Text style={styles.infoLabel}>{label}</Text>
-      <Text style={styles.infoValue}>{value}</Text>
+      <Text
+        style={[styles.infoValue, isLink && styles.infoLink]}
+        numberOfLines={1}
+      >
+        {value}
+      </Text>
     </View>
-  </View>
+  </Pressable>
 );
 
 const styles = StyleSheet.create({
@@ -428,7 +446,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contentScrollContent: {
-    paddingBottom: spacing.xl,
+    paddingBottom: spacing.xxxl + spacing.lg,
   },
   handle: {
     width: 40,
@@ -473,14 +491,15 @@ const styles = StyleSheet.create({
   },
   closeButton: {
     position: 'absolute',
-    top: spacing.md,
-    right: spacing.md,
+    top: spacing.sm,
+    right: spacing.lg,
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: colors.glass.lightSubtle,
+    backgroundColor: 'rgba(255, 255, 255, 0.85)',
     alignItems: 'center',
     justifyContent: 'center',
+    zIndex: 2,
   },
   header: {
     paddingHorizontal: spacing.xl,
@@ -582,8 +601,11 @@ const styles = StyleSheet.create({
     fontSize: typography.size.sm,
     color: colors.text.primary,
     fontWeight: typography.weight.semibold,
-    textTransform: 'capitalize',
     fontFamily: typography.family.semibold,
+  },
+  infoLink: {
+    textDecorationLine: 'underline',
+    color: colors.accent,
   },
   addressText: {
     fontSize: typography.size.sm,
@@ -652,42 +674,6 @@ const styles = StyleSheet.create({
     marginLeft: 17,
     marginVertical: spacing.xs,
   },
-  metricsSection: {
-    paddingHorizontal: spacing.xl,
-    marginBottom: spacing.lg,
-  },
-  metricsGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginHorizontal: -spacing.xs,
-  },
-  metricCard: {
-    width: '48%',
-    backgroundColor: colors.glass.lightSubtle,
-    borderRadius: radius.md,
-    padding: spacing.md,
-    margin: spacing.xs,
-    borderWidth: 1,
-    borderColor: colors.glass.lightBorder,
-    alignItems: 'center',
-  },
-  metricEmoji: {
-    fontSize: 20,
-    marginBottom: spacing.xs,
-  },
-  metricLabel: {
-    fontSize: typography.size.xs,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    marginBottom: spacing.xxs,
-    fontFamily: typography.family.regular,
-  },
-  metricScore: {
-    fontSize: typography.size.body,
-    fontWeight: typography.weight.bold,
-    color: colors.text.primary,
-    fontFamily: typography.family.bold,
-  },
   gettingThereSection: {
     paddingHorizontal: spacing.xl,
     marginBottom: spacing.lg,
@@ -699,11 +685,11 @@ const styles = StyleSheet.create({
     fontFamily: typography.family.regular,
   },
   actionsRow: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     paddingHorizontal: spacing.xl,
     gap: spacing.md,
   },
   actionButton: {
-    flex: 1,
+    width: '100%',
   },
 });

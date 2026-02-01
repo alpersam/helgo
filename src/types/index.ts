@@ -6,7 +6,14 @@ export type PlaceCategory =
   | 'bar'
   | 'museum'
   | 'market'
-  | 'park';
+  | 'park'
+  | 'activity'
+  | 'shopping'
+  | 'sport'
+  | 'wellness'
+  | 'accommodation'
+  | 'event'
+  | 'sightseeing';
 
 export type PlaceTag =
   | 'cozy' | 'hip' | 'lake' | 'oldtown' | 'quiet' | 'touristy'
