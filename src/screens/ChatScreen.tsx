@@ -20,7 +20,7 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 
-import { ChatMessage, WeatherData, DaylightData } from '../types';
+import { ChatMessage, WeatherData, DaylightData, Itinerary } from '../types';
 import {
   Header,
   InputBar,
@@ -185,15 +185,38 @@ const ChatScreenContent: React.FC = () => {
       daylight: latestDaylight,
     };
 
-    let itineraries;
+    let itineraries: Itinerary[] = [];
+    let dataError: string | undefined;
     if (
       intent.cuisine.length === 0 &&
       intent.vibes.length === 0 &&
       intent.categoryPreference.length === 0
     ) {
-      itineraries = generateGreetingItineraries(context, userElevation);
+      const result = await generateGreetingItineraries(context, userElevation);
+      if (result.status === 'error') {
+        dataError = result.error;
+      } else {
+        itineraries = result.itineraries;
+      }
     } else {
-      itineraries = generateItineraries(intent, context, userElevation);
+      const result = await generateItineraries(intent, context, userElevation);
+      if (result.status === 'error') {
+        dataError = result.error;
+      } else {
+        itineraries = result.itineraries;
+      }
+    }
+
+    if (dataError) {
+      const errorMessage: ChatMessage = {
+        id: `assistant-error-${Date.now()}`,
+        type: 'assistant',
+        text: "I'm having trouble loading fresh places right now. Please try again in a moment.",
+        timestamp: new Date(),
+      };
+      setMessages(prev => [...prev, errorMessage]);
+      setIsLoading(false);
+      return;
     }
 
     const assistantMessage: ChatMessage = {

@@ -40,6 +40,12 @@ export interface Place {
   area?: string;
   photoSpots?: PhotoSpot[];
   description?: string;
+  isOpen?: boolean;
+  popularity?: number; // 0-100
+  seasonality?: {
+    startMonth: number; // 1-12
+    endMonth: number; // 1-12
+  };
 }
 
 export interface WeatherData {
