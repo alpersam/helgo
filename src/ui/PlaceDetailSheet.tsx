@@ -171,7 +171,7 @@ const SheetContent: React.FC<SheetContentProps> = ({
   bottomInset,
   onRequestSimilar,
 }) => {
-  const { anchor, satellite, mainCharacterScore, metrics } = itinerary;
+  const { anchor, satellite } = itinerary;
   const photoUrl = anchor.photoUrl ?? CATEGORY_PHOTOS[anchor.category];
   const hasInfo =
     !!anchor.area ||
@@ -233,10 +233,6 @@ const SheetContent: React.FC<SheetContentProps> = ({
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.title}>{anchor.name}</Text>
-        <View style={styles.scoreRow}>
-          <Text style={styles.scoreLabel}>Main Character Score</Text>
-          <Text style={styles.scoreValue}>{mainCharacterScore}/100</Text>
-        </View>
       </View>
 
       {/* Description */}
@@ -510,22 +506,6 @@ const styles = StyleSheet.create({
     fontWeight: typography.weight.bold,
     color: colors.text.primary,
     marginBottom: spacing.xs,
-    fontFamily: typography.family.bold,
-  },
-  scoreRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  scoreLabel: {
-    fontSize: typography.size.sm,
-    color: colors.text.tertiary,
-    marginRight: spacing.sm,
-    fontFamily: typography.family.regular,
-  },
-  scoreValue: {
-    fontSize: typography.size.body,
-    fontWeight: typography.weight.bold,
-    color: colors.success,
     fontFamily: typography.family.bold,
   },
   description: {

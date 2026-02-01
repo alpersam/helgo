@@ -8,7 +8,7 @@ import Animated, {
   interpolate,
 } from 'react-native-reanimated';
 import { BlurView } from 'expo-blur';
-import { ChatMessage } from '../types';
+import { ChatMessage, Itinerary } from '../types';
 import { colors, spacing, radius, typography, animation, shadows } from './theme';
 import { PlaceCarousel } from './PlaceCarousel';
 
@@ -16,14 +16,14 @@ interface ChatBubbleProps {
   message: ChatMessage;
   index?: number;
   onRequestSimilar?: (place: Itinerary['anchor']) => void;
-  onAddToItinerary?: (place: Itinerary['anchor']) => void;
+  onSelectPlace?: (place: Itinerary['anchor']) => void;
 }
 
 export const ChatBubble: React.FC<ChatBubbleProps> = ({
   message,
   index = 0,
   onRequestSimilar,
-  onAddToItinerary,
+  onSelectPlace,
 }) => {
   const isUser = message.type === 'user';
   const appear = useSharedValue(0);
@@ -78,7 +78,7 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({
           <PlaceCarousel
             itineraries={message.itineraries}
             onRequestSimilar={onRequestSimilar}
-            onAddToItinerary={onAddToItinerary}
+            onSelectPlace={onSelectPlace}
           />
         </View>
       )}

@@ -3,12 +3,14 @@ import { View, Text, StyleSheet, Platform, Image } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { colors, spacing, radius, typography, shadows } from './theme';
+import { Pressable } from 'react-native';
+import { colors, spacing, radius, typography } from './theme';
 import { WeatherData } from '../types';
 
 interface HeaderProps {
   weather: WeatherData | null;
   locationLabel?: string;
+  onNewChat?: () => void;
 }
 
 const getWeatherIcon = (weather: WeatherData | null): keyof typeof Ionicons.glyphMap => {
@@ -19,7 +21,7 @@ const getWeatherIcon = (weather: WeatherData | null): keyof typeof Ionicons.glyp
   return 'sunny';
 };
 
-export const Header: React.FC<HeaderProps> = ({ weather, locationLabel }) => {
+export const Header: React.FC<HeaderProps> = ({ weather, locationLabel, onNewChat }) => {
   const insets = useSafeAreaInsets();
   const weatherIcon = getWeatherIcon(weather);
 
@@ -32,16 +34,23 @@ export const Header: React.FC<HeaderProps> = ({ weather, locationLabel }) => {
         )}
       </View>
 
-      <View style={styles.weatherPill}>
-        <Ionicons
-          name={weatherIcon}
-          size={18}
-          color={colors.semantic.glow}
-          style={styles.weatherIcon}
-        />
-        <Text style={styles.weatherTemp}>
-          {weather ? `${Math.round(weather.temperature)}°` : '--'}
-        </Text>
+      <View style={styles.rightSection}>
+        {onNewChat && (
+          <Pressable onPress={onNewChat} style={styles.newChatButton}>
+            <Ionicons name="add" size={22} color={colors.text.primary} />
+          </Pressable>
+        )}
+        <View style={styles.weatherPill}>
+          <Ionicons
+            name={weatherIcon}
+            size={18}
+            color={colors.semantic.glow}
+            style={styles.weatherIcon}
+          />
+          <Text style={styles.weatherTemp}>
+            {weather ? `${Math.round(weather.temperature)}°` : '--'}
+          </Text>
+        </View>
       </View>
     </View>
   );
@@ -102,6 +111,21 @@ const styles = StyleSheet.create({
     fontSize: typography.size.sm,
     color: colors.text.secondary,
     fontFamily: typography.family.regular,
+  },
+  rightSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  newChatButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.glass.lightSubtle,
+    borderWidth: 1,
+    borderColor: colors.glass.lightBorder,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   weatherPill: {
     flexDirection: 'row',

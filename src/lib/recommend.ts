@@ -1,43 +1,70 @@
 import {
   Place,
-  PlaceCategory,
   Intent,
   Itinerary,
   RecommendationContext,
   CreativeMetrics,
+  AreaFilter,
 } from '../types';
-import { computeAllMetrics } from './metrics';
-import { computeMainCharacterScore } from './mainCharacter';
+import { EmbeddingIndex, EnhancedScoredPlace, SessionState, TFIDFIndex } from '../types/recommendation';
 import { getPlaces, PlacesSource } from './places';
-
-function getDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
-  const R = 6371;
-  const dLat = ((lat2 - lat1) * Math.PI) / 180;
-  const dLon = ((lon2 - lon1) * Math.PI) / 180;
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos((lat1 * Math.PI) / 180) *
-      Math.cos((lat2 * Math.PI) / 180) *
-      Math.sin(dLon / 2) *
-      Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c;
-}
+import { getDistance } from './distance';
+import { buildTFIDFIndex } from './tfidf';
+import { createSession, recordNegativeInteraction, recordPositiveInteraction, recordShownPlaces } from './session';
+import { softmaxSelect } from './exploration';
+import { experientialDistance, isTooSimilar, mmrSelect } from './diversity';
+import { DEFAULT_SCORING_CONFIG, scorePlaceEnhanced, getScoringConfig } from './scoring';
+import { buildEmbeddingIndex } from './embeddings';
 
 function countSharedTags(a: Place, b: Place): number {
   const tags = new Set(a.tags);
   return b.tags.filter(tag => tags.has(tag)).length;
 }
 
-function isInSeason(
-  seasonality: { startMonth: number; endMonth: number },
-  date: Date
-): boolean {
-  const month = date.getMonth() + 1;
-  if (seasonality.startMonth <= seasonality.endMonth) {
-    return month >= seasonality.startMonth && month <= seasonality.endMonth;
+let tfidfIndex: TFIDFIndex | null = null;
+let sessionState: SessionState | null = null;
+let indexUpdatedAt: number | null = null;
+let embeddingIndex: EmbeddingIndex | null = null;
+
+function ensureRecommendationEngine(places: Place[], updatedAt?: Date) {
+  const updatedMs = updatedAt?.getTime() ?? null;
+  const shouldRebuild =
+    !tfidfIndex ||
+    (updatedMs !== null && (!indexUpdatedAt || updatedMs > indexUpdatedAt));
+
+  if (shouldRebuild) {
+    tfidfIndex = buildTFIDFIndex(places);
+    embeddingIndex = buildEmbeddingIndex(places);
+    indexUpdatedAt = updatedMs ?? Date.now();
   }
-  return month >= seasonality.startMonth || month <= seasonality.endMonth;
+
+  if (!sessionState) {
+    sessionState = createSession();
+  }
+}
+
+export async function initializeRecommendationEngine(): Promise<{ status: 'ready' | 'error'; error?: string }> {
+  const placesResult = await getPlaces();
+  if (placesResult.status === 'error') {
+    return { status: 'error', error: placesResult.error ?? 'Unable to load places' };
+  }
+
+  ensureRecommendationEngine(placesResult.places, placesResult.updatedAt);
+  return { status: 'ready' };
+}
+
+export function recordSessionPositiveInteraction(place: Place): void {
+  if (!sessionState) {
+    sessionState = createSession();
+  }
+  recordPositiveInteraction(sessionState, place);
+}
+
+export function recordSessionNegativeInteraction(place: Place): void {
+  if (!sessionState) {
+    sessionState = createSession();
+  }
+  recordNegativeInteraction(sessionState, place);
 }
 
 export function scorePlace(
@@ -45,99 +72,17 @@ export function scorePlace(
   intent: Intent,
   context: RecommendationContext
 ): number {
-  let score = 0;
-
-  if (intent.categoryPreference.length > 0) {
-    score += intent.categoryPreference.includes(place.category) ? 40 : -10;
-  }
-
-  for (const cuisine of intent.cuisine) {
-    if (place.tags.includes(cuisine as any)) {
-      score += 35;
-    }
-  }
-
-  for (const vibe of intent.vibes) {
-    if (place.tags.includes(vibe as any)) {
-      score += 20;
-    }
-  }
-
-  if (intent.constraints.includes('budget')) {
-    if (place.price === 'budget') score += 15;
-    if (place.price === 'high') score -= 10;
-  }
-
-  if (intent.constraints.includes('quiet') && place.tags.includes('quiet')) {
-    score += 10;
-  }
-
-  if (intent.constraints.includes('rain')) {
-    score += place.indoorOutdoor === 'indoor' ? 20 : -5;
-  }
-
-  if (intent.constraints.includes('family-friendly')) {
-    if (place.tags.includes('park') || place.tags.includes('green')) {
-      score += 10;
-    }
-  }
-
-  if (intent.indoorPreference !== 'no-preference') {
-    if (place.indoorOutdoor === intent.indoorPreference) score += 20;
-    if (place.indoorOutdoor === 'mixed') score += 10;
-    if (place.indoorOutdoor !== 'mixed' && place.indoorOutdoor !== intent.indoorPreference) score -= 10;
-  }
-
-  if (intent.timeBudgetMins) {
-    const diff = Math.abs(place.durationMins - intent.timeBudgetMins);
-    if (diff <= 30) score += 15;
-    else if (diff <= 60) score += 5;
-    else score -= 5;
-  }
-
-  if (intent.photoMode !== 'none') {
-    const hasPhoto = place.tags.includes('photo') || place.tags.includes('view') || !!place.photoSpots?.length;
-    score += hasPhoto ? 20 : -5;
-  }
-
-  const { weather, daylight, userLocation } = context;
-
-  if (place.isOpen === false) {
-    score -= 50;
-  }
-
-  if (place.popularity !== undefined) {
-    score += (place.popularity - 50) / 5;
-  }
-
-  if (place.seasonality && !isInSeason(place.seasonality, context.now)) {
-    score -= 15;
-  }
-
-  if (userLocation) {
-    const distanceKm = getDistance(userLocation.lat, userLocation.lon, place.lat, place.lon);
-    score += Math.max(0, 18 - distanceKm * 6);
-  }
-
-  if (weather.precipitation > 0.5 && place.indoorOutdoor === 'indoor') {
-    score += 15;
-  }
-
-  if (weather.precipitation < 0.2 && place.indoorOutdoor === 'outdoor') {
-    score += 10;
-  }
-
-  if (daylight.isEvening && (place.bestTimeOfDay === 'night' || place.bestTimeOfDay === 'sunset')) {
-    score += 10;
-  }
-
-  if (daylight.isGoldenHour && place.bestTimeOfDay === 'sunset') {
-    score += 10;
-  }
-
-  score += Math.min(place.tags.length * 2, 12);
-
-  return score;
+  const scored = scorePlaceEnhanced(
+    place,
+    intent,
+    context,
+    tfidfIndex,
+    sessionState,
+    embeddingIndex,
+    null,
+    DEFAULT_SCORING_CONFIG
+  );
+  return scored.score;
 }
 
 function isStrictCategoryLocation(intent: Intent): boolean {
@@ -160,6 +105,67 @@ function distanceOnlyScore(place: Place, context: RecommendationContext): number
     place.lon
   );
   return Math.max(0, 100 - distanceKm * 20);
+}
+
+function extractPostalCode(address: string | undefined): string | null {
+  if (!address) return null;
+  // Match Swiss postal codes (4 digits starting with 8 for Zurich)
+  const match = address.match(/\b(8\d{3})\b/);
+  return match ? match[1] : null;
+}
+
+function filterByArea(places: Place[], areaFilter: AreaFilter): Place[] {
+  let filtered = places;
+
+  // Filter by postal codes if specified
+  if (areaFilter.postalCodes && areaFilter.postalCodes.length > 0) {
+    filtered = places.filter(place => {
+      const postalCode = extractPostalCode(place.address);
+      return postalCode && areaFilter.postalCodes!.includes(postalCode);
+    });
+
+    // If postal code filtering returned results, use them
+    if (filtered.length > 0) {
+      console.info(`[area-filter] filtered to ${filtered.length} places in postal codes: ${areaFilter.postalCodes.join(', ')}`);
+      return filtered;
+    }
+
+    // Fall back to proximity-based filtering if no postal code matches
+    console.info('[area-filter] no postal code matches, falling back to proximity');
+  }
+
+  // Proximity-based filtering
+  if (areaFilter.centerLat !== undefined && areaFilter.centerLon !== undefined) {
+    const radiusKm = areaFilter.radiusKm ?? 1.0;
+    filtered = places.filter(place => {
+      const distanceKm = getDistance(
+        areaFilter.centerLat!,
+        areaFilter.centerLon!,
+        place.lat,
+        place.lon
+      );
+      return distanceKm <= radiusKm;
+    });
+
+    // If too few results, expand the radius
+    if (filtered.length < 3) {
+      const expandedRadius = radiusKm * 2;
+      filtered = places.filter(place => {
+        const distanceKm = getDistance(
+          areaFilter.centerLat!,
+          areaFilter.centerLon!,
+          place.lat,
+          place.lon
+        );
+        return distanceKm <= expandedRadius;
+      });
+      console.info(`[area-filter] expanded radius to ${expandedRadius}km, found ${filtered.length} places`);
+    } else {
+      console.info(`[area-filter] found ${filtered.length} places within ${radiusKm}km of ${areaFilter.areaName ?? 'center'}`);
+    }
+  }
+
+  return filtered.length > 0 ? filtered : places;
 }
 
 function buildAnchorReason(intent: Intent, anchor: Place): string {
@@ -220,8 +226,18 @@ function selectSatellite(
     }
   }
 
+  const satelliteScoringConfig = getScoringConfig(intent);
   const scored = pool.map(({ candidate, distance }) => {
-    let score = scorePlace(candidate, intent, context) + Math.max(0, 20 - distance * 15);
+    let score = scorePlaceEnhanced(
+      candidate,
+      intent,
+      context,
+      tfidfIndex,
+      sessionState,
+      embeddingIndex,
+      null,
+      satelliteScoringConfig
+    ).score + Math.max(0, 20 - distance * 15);
     if (candidate.category !== anchor.category) score += 8;
     if (countSharedTags(anchor, candidate) <= 2) score += 5;
     return { candidate, score, distance };
@@ -242,13 +258,20 @@ function selectSatellite(
   return { satellite: chosen, reason };
 }
 
+function emptyMetrics(): CreativeMetrics {
+  return {
+    fogEscape: { score: 0, label: 'Fog escape', emoji: '🌫️' },
+    reflectionPotential: { score: 0, label: 'Reflection', emoji: '💧' },
+    nightGlow: { score: 0, label: 'Night glow', emoji: '🌙' },
+    greenPocket: { score: 0, label: 'Green pocket', emoji: '🌿' },
+    windShelter: { score: 0, label: 'Wind shelter', emoji: '🛡️' },
+  };
+}
+
 function isSimilar(place: Place, selected: Place[]): boolean {
-  return selected.some(existing => {
-    const sharedTags = countSharedTags(place, existing);
-    const sameCategory = place.category === existing.category;
-    const sameArea = place.area && existing.area && place.area === existing.area;
-    return (sameCategory && sharedTags >= 3) || sameArea;
-  });
+  return selected.some(existing =>
+    isTooSimilar(place, existing, DEFAULT_SCORING_CONFIG.similarityThreshold)
+  );
 }
 
 const CUISINE_NAME_KEYWORDS: Record<string, string[]> = {
@@ -289,7 +312,7 @@ export async function generateItineraries(
   intent: Intent,
   context: RecommendationContext,
   userElevation: number,
-  options?: { limit?: number }
+  options?: { limit?: number; queryEmbedding?: number[] }
 ): Promise<RecommendationResult> {
   const placesResult = await getPlaces();
   if (placesResult.status === 'error') {
@@ -305,54 +328,131 @@ export async function generateItineraries(
   let candidates = places;
   const strictCategoryLocation = isStrictCategoryLocation(intent);
 
+  if (sessionState && sessionState.shownPlaces.size > 0) {
+    console.info('[repeat-filter] shownPlaces', sessionState.shownPlaces.size, 'candidates', candidates.length);
+    const unseen = candidates.filter(place => !sessionState!.shownPlaces.has(place.id));
+    console.info('[repeat-filter] unseen candidates', unseen.length);
+    if (unseen.length >= 3) {
+      candidates = unseen;
+      console.info('[repeat-filter] applied unseen filter');
+    } else {
+      console.info('[repeat-filter] not enough unseen, skipping filter');
+    }
+  } else {
+    console.info('[repeat-filter] no session state or empty shownPlaces');
+  }
+
   if (intent.categoryPreference.length > 0 && strictCategoryLocation) {
     candidates = candidates.filter(place => intent.categoryPreference.includes(place.category));
   }
   if (intent.cuisine.length > 0) {
-    const cuisineFiltered = places.filter(
-      place => place.category === 'restaurant' && matchesCuisine(place, intent.cuisine)
-    );
+    const allowCafe = intent.cuisine.includes('coffee');
+    const cuisineFiltered = candidates.filter(place => {
+      const isFoodCategory = place.category === 'restaurant' || (allowCafe && place.category === 'cafe');
+      return isFoodCategory && matchesCuisine(place, intent.cuisine);
+    });
     if (cuisineFiltered.length === 0) {
       return {
         status: 'error',
         itineraries: [],
-        error: `I couldn't find ${intent.cuisine.join('/')} restaurants in the dataset yet. Try another cuisine or ask for a restaurant.`,
+        error: `I couldn't find ${intent.cuisine.join('/')} restaurants or cafes in the dataset yet. Try another cuisine or ask for a different category.`,
         source: placesResult.source,
       };
     }
     candidates = cuisineFiltered;
   }
 
-  const scoredPlaces = candidates.map(place => ({
-    place,
-    score: strictCategoryLocation ? distanceOnlyScore(place, context) : scorePlace(place, intent, context),
-  }));
+  // Apply area filtering if specified
+  if (intent.areaFilter) {
+    const beforeCount = candidates.length;
+    candidates = filterByArea(candidates, intent.areaFilter);
+    console.info(`[area-filter] applied: ${beforeCount} -> ${candidates.length} candidates`);
+
+    if (candidates.length === 0) {
+      const areaName = intent.areaFilter.areaName ?? 'that area';
+      return {
+        status: 'error',
+        itineraries: [],
+        error: `I couldn't find anything matching your request in ${areaName}. Try a nearby area or broaden your search.`,
+        source: placesResult.source,
+      };
+    }
+  }
+
+  ensureRecommendationEngine(places, placesResult.updatedAt);
+  if (options?.queryEmbedding && embeddingIndex) {
+    console.info('[embeddings] using query embedding for scoring');
+  } else if (options?.queryEmbedding && !embeddingIndex) {
+    console.warn('[embeddings] query embedding provided but embedding index is missing');
+  } else if (!options?.queryEmbedding) {
+    console.info('[embeddings] no query embedding; using TF-IDF fallback');
+  }
+
+  // Use dynamic scoring config based on query type
+  const scoringConfig = getScoringConfig(intent);
+
+  const scoredPlaces: EnhancedScoredPlace[] = candidates.map(place => {
+    if (strictCategoryLocation) {
+      const distanceScore = distanceOnlyScore(place, context);
+      return {
+        place,
+        score: distanceScore,
+        breakdown: {
+          baseScore: 0,
+          semanticScore: 0,
+          contextScore: 0,
+          explorationBonus: 0,
+          diversityPenalty: 0,
+          sessionBoost: 0,
+          finalScore: distanceScore,
+        },
+        confidence: 0,
+        novelty: 0,
+        reason: 'Distance match',
+      };
+    }
+    return scorePlaceEnhanced(
+      place,
+      intent,
+      context,
+      tfidfIndex,
+      sessionState,
+      embeddingIndex,
+      options?.queryEmbedding ?? null,
+      scoringConfig
+    );
+  });
 
   scoredPlaces.sort((a, b) => b.score - a.score);
 
-  const selectedAnchors: Place[] = [];
-  const usedCategories = new Set<PlaceCategory>();
+  const candidatePool = scoredPlaces.slice(0, Math.min(20, scoredPlaces.length));
+  const softmaxPool = softmaxSelect(
+    candidatePool.map(candidate => ({ item: candidate, score: candidate.score })),
+    DEFAULT_SCORING_CONFIG.temperature,
+    Math.min(12, candidatePool.length)
+  );
+
+  const diversified = mmrSelect(
+    softmaxPool.map(candidate => ({ item: candidate, score: candidate.score })),
+    3,
+    DEFAULT_SCORING_CONFIG.diversityLambda,
+    (a, b) => 1 - experientialDistance(a.place, b.place)
+  );
+
+  const selectedAnchors: Place[] = diversified.map(item => item.place);
 
   for (const candidate of scoredPlaces) {
     if (selectedAnchors.length >= 3) break;
     if (isSimilar(candidate.place, selectedAnchors)) continue;
-    if (selectedAnchors.length < 2 || !usedCategories.has(candidate.place.category)) {
-      selectedAnchors.push(candidate.place);
-      usedCategories.add(candidate.place.category);
-    }
-  }
-
-  for (const candidate of scoredPlaces) {
-    if (selectedAnchors.length >= 3) break;
     if (!selectedAnchors.includes(candidate.place)) {
       selectedAnchors.push(candidate.place);
     }
   }
 
   const itineraries = selectedAnchors.map(anchor => {
-    const metrics = computeAllMetrics(anchor, context.weather, context.daylight, userElevation);
+    const metrics = emptyMetrics();
     const { satellite, reason } = selectSatellite(anchor, intent, context, places);
-    const mainCharacterScore = computeMainCharacterScore({ metrics, sun: context.daylight });
+    const mainCharacterScore = 0;
 
     return {
       anchor,
@@ -360,12 +460,17 @@ export async function generateItineraries(
       anchorReason: buildAnchorReason(intent, anchor),
       satelliteReason: reason,
       mainCharacterScore,
-      why: buildWhy(metrics),
+      why: '',
       metrics,
     };
   });
 
   itineraries.sort((a, b) => b.mainCharacterScore - a.mainCharacterScore);
+
+  if (sessionState) {
+    recordShownPlaces(sessionState, itineraries.map(itinerary => itinerary.anchor));
+    recordShownPlaces(sessionState, itineraries.map(itinerary => itinerary.satellite));
+  }
 
   const limit = options?.limit ?? 3;
   return {
@@ -392,22 +497,49 @@ export async function generateGreetingItineraries(
   }
 
   const places = placesResult.places;
-  const sample = [...places]
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 6);
+  ensureRecommendationEngine(places, placesResult.updatedAt);
 
-  const anchors: Place[] = [];
-  for (const candidate of sample) {
+  const scoredPlaces: EnhancedScoredPlace[] = places.map(place =>
+    scorePlaceEnhanced(
+      place,
+      { ...intentFallback, raw: '' },
+      context,
+      tfidfIndex,
+      sessionState,
+      embeddingIndex,
+      null,
+      DEFAULT_SCORING_CONFIG
+    )
+  );
+
+  scoredPlaces.sort((a, b) => b.score - a.score);
+  const candidatePool = scoredPlaces.slice(0, Math.min(16, scoredPlaces.length));
+  const softmaxPool = softmaxSelect(
+    candidatePool.map(candidate => ({ item: candidate, score: candidate.score })),
+    DEFAULT_SCORING_CONFIG.temperature,
+    Math.min(8, candidatePool.length)
+  );
+
+  const diversified = mmrSelect(
+    softmaxPool.map(candidate => ({ item: candidate, score: candidate.score })),
+    3,
+    DEFAULT_SCORING_CONFIG.diversityLambda,
+    (a, b) => 1 - experientialDistance(a.place, b.place)
+  );
+
+  const anchors: Place[] = diversified.map(item => item.place);
+
+  for (const candidate of scoredPlaces) {
     if (anchors.length >= 3) break;
-    if (!isSimilar(candidate, anchors)) {
-      anchors.push(candidate);
+    if (!isSimilar(candidate.place, anchors)) {
+      anchors.push(candidate.place);
     }
   }
 
   const itineraries = anchors.map(anchor => {
-    const metrics = computeAllMetrics(anchor, context.weather, context.daylight, userElevation);
+    const metrics = emptyMetrics();
     const { satellite, reason } = selectSatellite(anchor, { ...intentFallback, raw: '' }, context, places);
-    const mainCharacterScore = computeMainCharacterScore({ metrics, sun: context.daylight });
+    const mainCharacterScore = 0;
 
     return {
       anchor,
@@ -415,10 +547,15 @@ export async function generateGreetingItineraries(
       anchorReason: 'Perfect for right now',
       satelliteReason: reason,
       mainCharacterScore,
-      why: buildWhy(metrics),
+      why: '',
       metrics,
     };
   });
+
+  if (sessionState) {
+    recordShownPlaces(sessionState, itineraries.map(itinerary => itinerary.anchor));
+    recordShownPlaces(sessionState, itineraries.map(itinerary => itinerary.satellite));
+  }
 
   const limit = options?.limit ?? itineraries.length;
   return {

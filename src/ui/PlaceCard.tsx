@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Pressable, Platform } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Platform, ImageBackground } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -10,6 +10,7 @@ import Animated, {
 import * as Haptics from 'expo-haptics';
 import { BlurView } from 'expo-blur';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import { Itinerary } from '../types';
 import { colors, spacing, radius, typography, animation, shadows } from './theme';
 
@@ -18,7 +19,6 @@ interface PlaceCardProps {
   index: number;
   onPress: () => void;
   scale?: SharedValue<number>;
-  onAddToItinerary?: (place: Itinerary['anchor']) => void;
 }
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
@@ -28,9 +28,9 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
   index,
   onPress,
   scale,
-  onAddToItinerary,
 }) => {
-  const { anchor, satellite, mainCharacterScore, metrics } = itinerary;
+  const { anchor, satellite } = itinerary;
+  const photoUrl = anchor.photoUrl;
   const pressed = useSharedValue(0);
 
   const pressStyle = useAnimatedStyle(() => {
@@ -57,30 +57,8 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
     onPress();
   };
 
-  const getScoreColor = (score: number) => {
-    if (score >= 70) return colors.success;
-    if (score >= 40) return colors.semantic.glow;
-    return colors.text.tertiary;
-  };
-
   const cardContent = (
     <>
-      {/* Header */}
-      <View style={styles.header}>
-        <View style={styles.numberBadge}>
-          <Text style={styles.numberText}>{index + 1}</Text>
-        </View>
-        <View style={styles.scoreContainer}>
-          <Text style={styles.scoreLabel}>MAIN CHARACTER</Text>
-          <Text style={[styles.score, { color: getScoreColor(mainCharacterScore) }]}>
-            {mainCharacterScore}
-          </Text>
-        </View>
-      </View>
-
-      {/* Place Name */}
-      <Text style={styles.placeName} numberOfLines={1}>{anchor.name}</Text>
-
       {/* Tags */}
       <View style={styles.tagsRow}>
         {anchor.tags.slice(0, 3).map((tag, i) => (
@@ -108,37 +86,43 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
         <Text style={styles.flowReason}>{itinerary.satelliteReason}</Text>
       </View>
 
-      {/* Metrics */}
-      <View style={styles.metricsRow}>
-        <MetricPill
-          emoji={metrics.reflectionPotential.emoji}
-          label="Reflection"
-          score={metrics.reflectionPotential.score}
-        />
-        <MetricPill
-          emoji={metrics.nightGlow.emoji}
-          label="Glow"
-          score={metrics.nightGlow.score}
-        />
-        <MetricPill
-          emoji={metrics.greenPocket.emoji}
-          label="Green"
-          score={metrics.greenPocket.score}
-        />
-      </View>
-
       {/* CTA hint */}
       <View style={styles.ctaHint}>
         <Text style={styles.ctaText}>Tap for details</Text>
         <Ionicons name="chevron-forward" size={14} color={colors.text.muted} />
       </View>
-
-      {onAddToItinerary && (
-        <Pressable style={styles.addButton} onPress={() => onAddToItinerary(anchor)}>
-          <Text style={styles.addButtonText}>Add to itinerary</Text>
-        </Pressable>
-      )}
     </>
+  );
+
+  const mediaHeader = photoUrl ? (
+    <View style={styles.mediaHeader}>
+      <ImageBackground source={{ uri: photoUrl }} style={styles.imageBackground} imageStyle={styles.imageStyle}>
+        <LinearGradient
+          colors={['rgba(8, 12, 22, 0.1)', 'rgba(8, 12, 22, 0.65)']}
+          style={styles.imageOverlay}
+        />
+        <View style={styles.mediaTextWrap}>
+          <View style={styles.numberBadgeMedia}>
+            <Text style={styles.numberTextMedia}>{index + 1}</Text>
+          </View>
+          <Text style={styles.placeNameMedia} numberOfLines={1}>{anchor.name}</Text>
+          <View style={styles.tagsRowMedia}>
+            {anchor.tags.slice(0, 2).map((tag, i) => (
+              <View key={i} style={styles.tagMedia}>
+                <Text style={styles.tagTextMedia}>{tag}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+      </ImageBackground>
+    </View>
+  ) : (
+    <View style={styles.mediaFallback}>
+      <View style={styles.numberBadgeMedia}>
+        <Text style={styles.numberTextMedia}>{index + 1}</Text>
+      </View>
+      <Text style={styles.placeNameFallback} numberOfLines={1}>{anchor.name}</Text>
+    </View>
   );
 
   if (Platform.OS === 'web') {
@@ -150,7 +134,8 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
         style={[pressStyle]}
       >
         <View style={styles.cardWeb}>
-          {cardContent}
+          {mediaHeader}
+          <View style={styles.contentBelow}>{cardContent}</View>
         </View>
       </AnimatedPressable>
     );
@@ -165,23 +150,13 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
     >
       <BlurView intensity={35} tint="light" style={styles.blur}>
         <View style={styles.cardInner}>
-          {cardContent}
+          {mediaHeader}
+          <View style={styles.contentBelow}>{cardContent}</View>
         </View>
       </BlurView>
     </AnimatedPressable>
   );
 };
-
-const MetricPill: React.FC<{ emoji: string; label: string; score: number }> = ({
-  emoji,
-  label,
-  score,
-}) => (
-  <View style={styles.metricPill}>
-    <Text style={styles.metricEmoji}>{emoji}</Text>
-    <Text style={styles.metricScore}>{score}</Text>
-  </View>
-);
 
 const styles = StyleSheet.create({
   cardContainer: {
@@ -209,44 +184,74 @@ const styles = StyleSheet.create({
     padding: spacing.lg,
     ...shadows.lg,
   },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+  mediaHeader: {
+    borderRadius: radius.lg,
+    overflow: 'hidden',
     marginBottom: spacing.md,
+    backgroundColor: colors.glass.lightSubtle,
   },
-  numberBadge: {
-    width: 28,
-    height: 28,
-    borderRadius: radius.circle,
-    backgroundColor: colors.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
+  imageBackground: {
+    width: '100%',
+    height: 140,
+    justifyContent: 'flex-end',
   },
-  numberText: {
-    color: colors.white,
+  imageStyle: {
+    borderRadius: radius.lg,
+  },
+  imageOverlay: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  mediaTextWrap: {
+    padding: spacing.md,
+  },
+  placeNameMedia: {
+    fontSize: typography.size.lg,
     fontWeight: typography.weight.bold,
-    fontSize: typography.size.sm,
+    color: colors.white,
+    marginBottom: spacing.xs,
   },
-  scoreContainer: {
-    alignItems: 'flex-end',
+  tagsRowMedia: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.xs,
   },
-  scoreLabel: {
-    fontSize: 9,
-    fontWeight: typography.weight.semibold,
-    color: colors.text.muted,
-    letterSpacing: typography.letterSpacing.extraWide,
+  tagMedia: {
+    backgroundColor: 'rgba(255, 255, 255, 0.18)',
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    borderRadius: radius.pill,
   },
-  score: {
-    fontSize: typography.size.xl,
-    fontWeight: typography.weight.heavy,
-    marginTop: -2,
+  tagTextMedia: {
+    fontSize: typography.size.xs,
+    color: colors.white,
+    fontWeight: typography.weight.medium,
   },
-  placeName: {
+  placeNameFallback: {
     fontSize: typography.size.lg,
     fontWeight: typography.weight.bold,
     color: colors.text.primary,
     marginBottom: spacing.sm,
+  },
+  contentBelow: {
+    gap: spacing.md,
+  },
+  mediaFallback: {
+    marginBottom: spacing.sm,
+    gap: spacing.xs,
+  },
+  numberBadgeMedia: {
+    alignSelf: 'flex-start',
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    borderRadius: radius.pill,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.35)',
+  },
+  numberTextMedia: {
+    color: colors.white,
+    fontWeight: typography.weight.bold,
+    fontSize: typography.size.xs,
   },
   tagsRow: {
     flexDirection: 'row',
@@ -307,30 +312,6 @@ const styles = StyleSheet.create({
     marginTop: spacing.xs,
     marginLeft: spacing.lg,
   },
-  metricsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: spacing.md,
-  },
-  metricPill: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.glass.lightSubtle,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xs,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.glass.lightBorder,
-  },
-  metricEmoji: {
-    fontSize: 12,
-    marginRight: spacing.xs,
-  },
-  metricScore: {
-    fontSize: typography.size.xs,
-    fontWeight: typography.weight.semibold,
-    color: colors.text.secondary,
-  },
   ctaHint: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -340,18 +321,5 @@ const styles = StyleSheet.create({
     fontSize: typography.size.xs,
     color: colors.text.muted,
     fontFamily: typography.family.regular,
-  },
-  addButton: {
-    marginTop: spacing.md,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.glass.lightBorder,
-    paddingVertical: spacing.sm,
-    alignItems: 'center',
-  },
-  addButtonText: {
-    fontSize: typography.size.sm,
-    color: colors.text.secondary,
-    fontFamily: typography.family.semibold,
   },
 });

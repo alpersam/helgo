@@ -16,7 +16,7 @@ import { colors, spacing } from './theme';
 interface PlaceCarouselProps {
   itineraries: Itinerary[];
   onRequestSimilar?: (place: Place) => void;
-  onAddToItinerary?: (place: Place) => void;
+  onSelectPlace?: (place: Place) => void;
 }
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
@@ -29,7 +29,7 @@ const AnimatedFlatList = Animated.createAnimatedComponent(FlatList<Itinerary>);
 export const PlaceCarousel: React.FC<PlaceCarouselProps> = ({
   itineraries,
   onRequestSimilar,
-  onAddToItinerary,
+  onSelectPlace,
 }) => {
   const scrollX = useSharedValue(0);
   const [selectedItinerary, setSelectedItinerary] = useState<Itinerary | null>(null);
@@ -42,6 +42,7 @@ export const PlaceCarousel: React.FC<PlaceCarouselProps> = ({
   });
 
   const handleCardPress = (itinerary: Itinerary) => {
+    onSelectPlace?.(itinerary.anchor);
     setSelectedItinerary(itinerary);
     setSheetVisible(true);
   };
@@ -64,7 +65,6 @@ export const PlaceCarousel: React.FC<PlaceCarouselProps> = ({
         index={index}
         scrollX={scrollX}
         onPress={() => handleCardPress(item)}
-        onAddToItinerary={onAddToItinerary}
       />
     );
   };
@@ -107,7 +107,6 @@ interface CarouselItemProps {
   index: number;
   scrollX: SharedValue<number>;
   onPress: () => void;
-  onAddToItinerary?: (place: Place) => void;
 }
 
 const CarouselItem: React.FC<CarouselItemProps> = ({
@@ -115,7 +114,6 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
   index,
   scrollX,
   onPress,
-  onAddToItinerary,
 }) => {
   const inputRange = [
     (index - 1) * SNAP_INTERVAL,
@@ -159,7 +157,6 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
         itinerary={itinerary}
         index={index}
         onPress={onPress}
-        onAddToItinerary={onAddToItinerary}
       />
     </Animated.View>
   );

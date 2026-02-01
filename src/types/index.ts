@@ -38,6 +38,8 @@ export interface Place {
   lon: number;
   elevation?: number; // meters above sea level
   tags: PlaceTag[];
+  aiDescription?: string;
+  embedding?: number[];
   address?: string;
   website?: string;
   phone?: string;
@@ -129,6 +131,14 @@ export type GroupContext = 'solo' | 'couple' | 'friends' | 'family';
 export type PhotoMode = 'none' | 'casual' | 'focused';
 export type IndoorPreference = 'indoor' | 'outdoor' | 'mixed' | 'no-preference';
 
+export interface AreaFilter {
+  postalCodes?: string[];
+  centerLat?: number;
+  centerLon?: number;
+  radiusKm?: number;
+  areaName?: string;
+}
+
 export interface Intent {
   raw: string;
   cuisine: string[];
@@ -139,6 +149,7 @@ export interface Intent {
   groupContext?: GroupContext;
   photoMode: PhotoMode;
   indoorPreference: IndoorPreference;
+  areaFilter?: AreaFilter;
 }
 
 export interface RecommendationContext {

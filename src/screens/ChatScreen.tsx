@@ -7,8 +7,6 @@ import {
   Platform,
   Text,
   Dimensions,
-  Pressable,
-  Image,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -21,7 +19,6 @@ import Animated, {
   withRepeat,
   withTiming,
   Easing,
-  interpolate,
 } from 'react-native-reanimated';
 
 import { ChatMessage, WeatherData, DaylightData, Itinerary, Intent, PlaceCategory, Place } from '../types';
@@ -32,18 +29,23 @@ import {
   Chip,
   colors,
   spacing,
-  radius,
   typography,
-  shadows,
 } from '../ui';
 import {
   fetchWeather,
   getDaylightData,
-  getUserElevation,
   parseIntent,
   generateItineraries,
   generateGreetingItineraries,
+  initializeRecommendationEngine,
+  recordSessionPositiveInteraction,
+  getQueryEmbedding,
 } from '../lib';
+import {
+  generateResponse,
+  detectQueryType,
+  ResponseContext,
+} from '../lib/responseGenerator';
 import { ZURICH_LAT, ZURICH_LON } from '../lib/weather';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
@@ -55,17 +57,6 @@ const HELGO_GREETINGS = [
   "Welcome! I know Zurich well. What are you feeling?",
   "Hey! Looking for something specific or just exploring?",
   "Hoi! Ready to find your next spot in Zurich?",
-];
-
-const HELGO_RESPONSES = [
-  "Here are my top picks for you:",
-  "Perfect! Check these out:",
-  "Based on the vibes right now, try these:",
-  "Found some good options:",
-  "Here's what I'd recommend:",
-  "These should fit nicely:",
-  "Take a look at these:",
-  "Some spots that match:",
 ];
 
 const HELGO_CLARIFIERS = [
@@ -159,20 +150,12 @@ const ChatScreenContent: React.FC = () => {
   const [userLocation, setUserLocation] = useState<{ lat: number; lon: number } | null>(null);
   const [locationLabel, setLocationLabel] = useState<string | null>(null);
   const [followUps, setFollowUps] = useState<SuggestionChip[]>([]);
-  const [assistantMode, setAssistantMode] = useState<'chat' | 'itinerary'>('chat');
-  const [hasInteracted, setHasInteracted] = useState(false);
-  const [itineraryList, setItineraryList] = useState<Place[]>([]);
-  const [itineraryPanelHeight, setItineraryPanelHeight] = useState(0);
-  const [showRecap, setShowRecap] = useState(false);
-  const lastIntentRef = useRef<Intent | null>(null);
   const lastAnchorRef = useRef<Place | null>(null);
-  const itineraryPendingRef = useRef(false);
   const scrollViewRef = useRef<ScrollView>(null);
 
   // Animated gradient blobs
   const blob1X = useSharedValue(0);
   const blob2X = useSharedValue(SCREEN_WIDTH);
-  const recapOpacity = useSharedValue(0);
 
   useEffect(() => {
     blob1X.value = withRepeat(
@@ -198,13 +181,6 @@ const ChatScreenContent: React.FC = () => {
   useEffect(() => {
     initializeChat();
   }, []);
-
-  useEffect(() => {
-    recapOpacity.value = withTiming(showRecap ? 1 : 0, {
-      duration: showRecap ? 450 : 200,
-      easing: Easing.out(Easing.ease),
-    });
-  }, [showRecap]);
 
   const resolveUserLocation = async () => {
     try {
@@ -245,6 +221,7 @@ const ChatScreenContent: React.FC = () => {
 
   const initializeChat = async () => {
     setIsLoading(true);
+    await initializeRecommendationEngine();
     const { location, permissionDenied } = await resolveUserLocation();
     const weatherData = await fetchWeather(location.lat, location.lon);
     const sunData = getDaylightData(location.lat, location.lon);
@@ -276,8 +253,6 @@ const ChatScreenContent: React.FC = () => {
   const buildFollowUps = (intent: Intent, itineraries: Itinerary[]): SuggestionChip[] => {
     const suggestions: SuggestionChip[] = [];
     const anchor = itineraries[0]?.anchor;
-
-    suggestions.push({ label: 'Build itinerary', icon: 'map', autoSend: true });
 
     if (intent.cuisine.length > 0) {
       const cuisine = intent.cuisine[0];
@@ -339,46 +314,11 @@ const ChatScreenContent: React.FC = () => {
       !!intent.groupContext,
       intent.photoMode !== 'none',
       intent.indoorPreference !== 'no-preference',
+      !!intent.areaFilter, // Area filter is also a meaningful signal
     ].filter(Boolean).length;
 
     // Only ambiguous if we have zero signals - allow generic recs with minimal input
     return signals === 0;
-  };
-
-  const mergeIntent = (current: Intent, previous: Intent | null): Intent => {
-    if (!previous) return current;
-
-    // Detect if user is starting fresh (new category that conflicts with previous)
-    const foodCategories = new Set<PlaceCategory>(['restaurant', 'cafe', 'bar']);
-    const activityCategories = new Set<PlaceCategory>(['park', 'walk', 'viewpoint', 'museum', 'activity', 'sightseeing']);
-
-    const prevIsFood = previous.categoryPreference.some(c => foodCategories.has(c));
-    const currIsActivity = current.categoryPreference.some(c => activityCategories.has(c));
-    const currIsFood = current.categoryPreference.some(c => foodCategories.has(c));
-    const prevIsActivity = previous.categoryPreference.some(c => activityCategories.has(c));
-
-    // If switching from food to activity or vice versa, don't carry over cuisine
-    const isCategorySwitch = (prevIsFood && currIsActivity) || (prevIsActivity && currIsFood);
-
-    return {
-      ...current,
-      cuisine: current.cuisine.length > 0
-        ? current.cuisine
-        : (isCategorySwitch ? [] : previous.cuisine),
-      categoryPreference:
-        current.categoryPreference.length > 0
-          ? current.categoryPreference
-          : previous.categoryPreference,
-      vibes: current.vibes.length > 0 ? current.vibes : previous.vibes,
-      constraints: Array.from(new Set([...previous.constraints, ...current.constraints])),
-      timeBudgetMins: current.timeBudgetMins ?? previous.timeBudgetMins,
-      groupContext: current.groupContext ?? previous.groupContext,
-      photoMode: current.photoMode !== 'none' ? current.photoMode : previous.photoMode,
-      indoorPreference:
-        current.indoorPreference !== 'no-preference'
-          ? current.indoorPreference
-          : previous.indoorPreference,
-    };
   };
 
   const buildQueryFromPlace = (place: Place) => {
@@ -447,64 +387,6 @@ const ChatScreenContent: React.FC = () => {
     return [...vibeParts, core].join(' ');
   };
 
-  const buildBridge = (intent: Intent) => {
-    const parts: string[] = [];
-    if (intent.cuisine.length > 0) {
-      parts.push(`Got it — keeping it ${intent.cuisine[0]}.`);
-    } else if (intent.categoryPreference.length > 0) {
-      parts.push(`Alright — focusing on ${CATEGORY_LABELS[intent.categoryPreference[0]]}.`);
-    } else if (intent.vibes.length > 0) {
-      parts.push(`Love the ${intent.vibes[0]} vibe.`);
-    } else if (intent.constraints.includes('quiet')) {
-      parts.push('Keeping it calm and low-key.');
-    } else if (intent.constraints.includes('budget')) {
-      parts.push('Keeping it budget-friendly.');
-    }
-
-    if (daylight?.isGoldenHour) {
-      parts.push('Golden hour is on.');
-    } else if (daylight?.isEvening) {
-      parts.push("It's a nice evening window.");
-    }
-
-    return parts.length > 0 ? parts.join(' ') : 'Okay - give me a second.';
-  };
-
-  const addToItinerary = (place: Place) => {
-    setItineraryList(prev => {
-      if (prev.some(item => item.id === place.id)) return prev;
-      const hasRestaurant = prev.some(item => item.category === 'restaurant');
-      if (hasRestaurant && place.category === 'restaurant') {
-        const warning: ChatMessage = {
-          id: `assistant-itinerary-warn-${Date.now()}`,
-          type: 'assistant',
-          text: 'Your itinerary already has a restaurant. Add a nearby activity next.',
-          timestamp: new Date(),
-        };
-        setMessages(current => [...current, warning]);
-        return prev;
-      }
-      return [...prev, place];
-    });
-  };
-
-  const removeFromItinerary = (placeId: string) => {
-    setItineraryList(prev => prev.filter(item => item.id !== placeId));
-  };
-
-  const clearItinerary = () => {
-    setItineraryList([]);
-  };
-
-  const isItineraryRequest = (text: string) => {
-    const normalized = text.toLowerCase();
-    return (
-      normalized.includes('itinerary') ||
-      normalized.includes('plan') ||
-      normalized.includes('schedule')
-    );
-  };
-
   const resolveQueryLocation = (text: string) => {
     const normalized = text.toLowerCase();
     const proximityTriggers = [
@@ -546,34 +428,32 @@ const ChatScreenContent: React.FC = () => {
     return null;
   };
 
-  const buildItinerarySummary = () => {
-    if (itineraryList.length === 0) return 'Your itinerary is empty right now.';
-    const lines = itineraryList.map(
-      (place, index) => `${index + 1}. ${place.name} (${place.category})`
-    );
-    return `Here is your itinerary so far:\n${lines.join('\n')}`;
+  const startNewChat = () => {
+    setMessages([]);
+    setFollowUps([]);
+    setInputText('');
+    lastAnchorRef.current = null;
+    initializeChat();
   };
-
-  const pushItinerarySummary = () => {
-    const summaryText = buildItinerarySummary();
-    const summaryMessage: ChatMessage = {
-      id: `assistant-summary-${Date.now()}`,
-      type: 'assistant',
-      text: summaryText,
-      timestamp: new Date(),
-    };
-    setMessages(prev => [...prev, summaryMessage]);
-    setShowRecap(true);
-  };
-
-
 
   const submitText = async (text: string) => {
-    if (!text.trim() || !weather || !daylight || isLoading) return;
-    setHasInteracted(true);
+    console.info('[submitText] start', {
+      text: text.trim(),
+      hasWeather: !!weather,
+      hasDaylight: !!daylight,
+      isLoading,
+    });
+    if (!text.trim() || !weather || !daylight || isLoading) {
+      console.warn('[submitText] blocked', {
+        text: text.trim(),
+        hasWeather: !!weather,
+        hasDaylight: !!daylight,
+        isLoading,
+      });
+      return;
+    }
 
     const normalizedInput = text.trim().toLowerCase();
-    const stopPhrases = ['nothing else', 'nothing', 'no thanks', 'no thank you', 'done', 'that is all', 'all good'];
 
     const userMessage: ChatMessage = {
       id: `user-${Date.now()}`,
@@ -584,23 +464,6 @@ const ChatScreenContent: React.FC = () => {
 
     setMessages(prev => [...prev, userMessage]);
     setInputText('');
-    if (stopPhrases.some(phrase => normalizedInput.includes(phrase))) {
-      const wrapUp: ChatMessage = {
-        id: `assistant-wrap-${Date.now()}`,
-        type: 'assistant',
-        text: 'Got it. Here is your recap:',
-        timestamp: new Date(),
-      };
-      setMessages(prev => [...prev, wrapUp]);
-      setShowRecap(true);
-      setFollowUps([]);
-      setAssistantMode('chat');
-      itineraryPendingRef.current = false;
-      return;
-    }
-    if (showRecap) {
-      setShowRecap(false);
-    }
     setIsLoading(true);
 
     // Skip prelude for quick follow-ups and refinements
@@ -625,9 +488,24 @@ const ChatScreenContent: React.FC = () => {
       await new Promise(resolve => setTimeout(resolve, 300));
     }
 
-    const rawIntent = parseIntent(userMessage.text!);
-    const intent = mergeIntent(rawIntent, lastIntentRef.current);
-    const normalizedText = userMessage.text!.toLowerCase();
+    console.info('[submitText] parsing intent');
+    let intent: Intent;
+    try {
+      intent = parseIntent(userMessage.text!);
+      console.info('[submitText] intent parsed', {
+        cuisine: intent.cuisine,
+        categories: intent.categoryPreference,
+        vibes: intent.vibes,
+        constraints: intent.constraints,
+        indoorPreference: intent.indoorPreference,
+        photoMode: intent.photoMode,
+      });
+      console.info('[submitText] building nonFoodCategories');
+    } catch (error) {
+      console.error('[submitText] intent parsing failed', error);
+      setIsLoading(false);
+      return;
+    }
     const nonFoodCategories = new Set<PlaceCategory>([
       'park',
       'walk',
@@ -641,41 +519,15 @@ const ChatScreenContent: React.FC = () => {
       'wellness',
     ]);
 
-    const wantsItinerary =
-      itineraryPendingRef.current ||
-      assistantMode === 'itinerary' ||
-      isItineraryRequest(userMessage.text!);
-
-    if (rawIntent.categoryPreference.length > 0) {
-      intent.categoryPreference = rawIntent.categoryPreference;
-      if (rawIntent.categoryPreference.some(category => nonFoodCategories.has(category))) {
+    if (intent.categoryPreference.length > 0) {
+      if (intent.categoryPreference.some(category => nonFoodCategories.has(category))) {
         intent.cuisine = [];
       }
     }
-    const hasNonFoodCategory = intent.categoryPreference.some(category =>
-      nonFoodCategories.has(category)
-    );
-    const isNextActivityRequest =
-      normalizedText.includes('nearby') ||
-      normalizedText.includes('next') ||
-      normalizedText.includes('add ') ||
-      normalizedText.includes('another');
-    if (wantsItinerary && (hasNonFoodCategory || isNextActivityRequest)) {
-      intent.cuisine = [];
-    }
-    if (wantsItinerary && !lastIntentRef.current && isAmbiguousIntent(intent)) {
-      const askPref: ChatMessage = {
-        id: `assistant-intent-${Date.now()}`,
-        type: 'assistant',
-        text: 'Tell me what kind of plan you want (e.g., date night, sightseeing, food).',
-        timestamp: new Date(),
-      };
-      setMessages(prev => [...prev, askPref]);
-      setIsLoading(false);
-      return;
-    }
 
-    if (isAmbiguousIntent(intent)) {
+    const ambiguous = isAmbiguousIntent(intent);
+    console.info('[submitText] ambiguous check', { ambiguous });
+    if (ambiguous) {
       const clarifier: ChatMessage = {
         id: `assistant-clarify-${Date.now()}`,
         type: 'assistant',
@@ -687,31 +539,10 @@ const ChatScreenContent: React.FC = () => {
       setIsLoading(false);
       return;
     }
-    lastIntentRef.current = intent;
-
-    if (wantsItinerary && !intent.timeBudgetMins) {
-      itineraryPendingRef.current = true;
-      const askTime: ChatMessage = {
-        id: `assistant-time-${Date.now()}`,
-        type: 'assistant',
-        text: 'How much time do you have? (1 hour, 2 hours, or half day)',
-        timestamp: new Date(),
-      };
-      setMessages(prev => [...prev, askTime]);
-      setFollowUps([
-        { label: '1 hour', icon: 'time', autoSend: true },
-        { label: '2 hours', icon: 'time', autoSend: true },
-        { label: 'Half day', icon: 'time', autoSend: true },
-      ]);
-      setIsLoading(false);
-      return;
-    }
-    itineraryPendingRef.current = false;
-
     const resolvedLocation = userLocation ?? FALLBACK_LOCATION;
     const queryLocation = resolveQueryLocation(userMessage.text!);
     const effectiveLocation = queryLocation ?? resolvedLocation;
-    const userElevation = await getUserElevation(effectiveLocation.lat, effectiveLocation.lon);
+    console.info('[submitText] elevation start', effectiveLocation);
     const latestDaylight = getDaylightData(effectiveLocation.lat, effectiveLocation.lon);
     setDaylight(latestDaylight);
     const context = {
@@ -721,7 +552,7 @@ const ChatScreenContent: React.FC = () => {
       daylight: latestDaylight,
     };
 
-    const proposalLimit = assistantMode === 'itinerary' ? 8 : 3;
+    const proposalLimit = 3;
     let itineraries: Itinerary[] = [];
     let dataError: string | undefined;
     if (
@@ -729,14 +560,39 @@ const ChatScreenContent: React.FC = () => {
       intent.vibes.length === 0 &&
       intent.categoryPreference.length === 0
     ) {
-      const result = await generateGreetingItineraries(context, userElevation, { limit: proposalLimit });
+      const result = await generateGreetingItineraries(context, 0, { limit: proposalLimit });
       if (result.status === 'error') {
         dataError = result.error;
       } else {
         itineraries = result.itineraries;
       }
     } else {
-      const result = await generateItineraries(intent, context, userElevation, { limit: proposalLimit });
+      let queryEmbedding: number[] | null = null;
+      try {
+        console.info('[embeddings] request start');
+        queryEmbedding = await getQueryEmbedding(userMessage.text!, 6000);
+        console.info('[embeddings] request done', { hasEmbedding: !!queryEmbedding });
+      } catch (error) {
+        console.warn('Query embedding failed:', error);
+      }
+
+      if (!queryEmbedding) {
+        const errorMessage: ChatMessage = {
+          id: `assistant-error-${Date.now()}`,
+          type: 'assistant',
+          text: 'Embedding service is unavailable right now. Please try again.',
+          timestamp: new Date(),
+        };
+        setMessages(prev => [...prev, errorMessage]);
+        setFollowUps([]);
+        setIsLoading(false);
+        return;
+      }
+
+      const result = await generateItineraries(intent, context, 0, {
+        limit: proposalLimit,
+        queryEmbedding,
+      });
       if (result.status === 'error') {
         dataError = result.error;
       } else {
@@ -757,31 +613,39 @@ const ChatScreenContent: React.FC = () => {
       return;
     }
 
+    // Generate contextual response using the response generator
+    const queryType = detectQueryType(intent, isQuickFollowUp);
+    const responseContext: ResponseContext = {
+      intent,
+      itineraries,
+      weather,
+      daylight: latestDaylight,
+      isFollowUp: isQuickFollowUp,
+      queryType,
+    };
+    const responseText = generateResponse(responseContext);
+
     const assistantMessage: ChatMessage = {
       id: `assistant-${Date.now()}`,
       type: 'assistant',
-      text: `${buildBridge(intent)} ${HELGO_RESPONSES[Math.floor(Math.random() * HELGO_RESPONSES.length)]}`,
+      text: responseText,
       itineraries,
       timestamp: new Date(),
     };
 
     setMessages(prev => [...prev, assistantMessage]);
-    if (!wantsItinerary) {
-      setFollowUps(buildFollowUps(intent, itineraries));
-    }
+    setFollowUps(buildFollowUps(intent, itineraries));
     setIsLoading(false);
     if (itineraries[0]) {
       lastAnchorRef.current = itineraries[0].anchor;
     }
-
 
     setTimeout(() => {
       scrollViewRef.current?.scrollToEnd({ animated: true });
     }, 100);
 
     // Only show afterglow occasionally and not for quick follow-ups
-    const shouldShowAfterglow = !wantsItinerary && !isQuickFollowUp && Math.random() > 0.5;
-    if (shouldShowAfterglow) {
+    if (!isQuickFollowUp && Math.random() > 0.5) {
       const afterglow: ChatMessage = {
         id: `assistant-afterglow-${Date.now()}`,
         type: 'assistant',
@@ -792,26 +656,6 @@ const ChatScreenContent: React.FC = () => {
         setMessages(prev => [...prev, afterglow]);
       }, 800);
     }
-
-    if (wantsItinerary) {
-      const nextMessage: ChatMessage = {
-        id: `assistant-next-${Date.now()}`,
-        type: 'assistant',
-        text: 'What should we add next? (Try a park, view, museum, or something nearby.)',
-        timestamp: new Date(),
-      };
-      setTimeout(() => {
-        setMessages(prev => [...prev, nextMessage]);
-        setFollowUps([
-          { label: 'Nearby park', icon: 'leaf', autoSend: true },
-          { label: 'Best view', icon: 'eye', autoSend: true },
-          { label: 'Museum', icon: 'color-palette', autoSend: true },
-          { label: 'Walk', icon: 'walk', autoSend: true },
-          { label: 'Surprise me', icon: 'sparkles', autoSend: true },
-        ]);
-      }, 600);
-    }
-
   };
 
   const handleSend = async () => {
@@ -826,14 +670,13 @@ const ChatScreenContent: React.FC = () => {
     setInputText(suggestion);
   };
 
+  const handlePlaceSelect = (place: Place) => {
+    recordSessionPositiveInteraction(place);
+    lastAnchorRef.current = place;
+  };
+
   // Calculate header height for scroll padding
   const headerHeight = insets.top + 70;
-  const itineraryPadding =
-    assistantMode === 'itinerary' ? itineraryPanelHeight + spacing.md : 0;
-  const recapStyle = useAnimatedStyle(() => ({
-    opacity: recapOpacity.value,
-    transform: [{ translateY: interpolate(recapOpacity.value, [0, 1], [12, 0]) }],
-  }));
 
   return (
     <View style={styles.container}>
@@ -856,7 +699,7 @@ const ChatScreenContent: React.FC = () => {
       <Animated.View style={[styles.blob, styles.blob2, blob2Style]} />
 
       {/* Header */}
-      <Header weather={weather} locationLabel={locationLabel ?? undefined} />
+      <Header weather={weather} locationLabel={locationLabel ?? undefined} onNewChat={startNewChat} />
 
       {/* Chat content */}
       <KeyboardAvoidingView
@@ -864,108 +707,16 @@ const ChatScreenContent: React.FC = () => {
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         keyboardVerticalOffset={0}
       >
-        {assistantMode === 'itinerary' && (
-          <View
-            style={[styles.itineraryOverlay, { top: headerHeight + spacing.sm }]}
-            onLayout={(event) => setItineraryPanelHeight(event.nativeEvent.layout.height)}
-          >
-            <View style={styles.itineraryPanel}>
-              <View style={styles.itineraryHeader}>
-                <Text style={styles.itineraryTitle}>Your itinerary</Text>
-                {itineraryList.length > 0 && (
-                  <View style={styles.itineraryActions}>
-                    <Pressable onPress={pushItinerarySummary} style={styles.summaryButton}>
-                      <Text style={styles.summaryButtonText}>Summary</Text>
-                    </Pressable>
-                    <Pressable onPress={clearItinerary} style={styles.clearButton}>
-                      <Text style={styles.clearButtonText}>Clear</Text>
-                    </Pressable>
-                  </View>
-                )}
-              </View>
-              {itineraryList.length === 0 ? (
-                <Text style={styles.itineraryEmpty}>
-                  Add a restaurant first, then nearby parks, events, or sights.
-                </Text>
-              ) : (
-                itineraryList.map((place, index) => (
-                  <View key={place.id} style={styles.itineraryRow}>
-                    <Text style={styles.itineraryIndex}>{index + 1}.</Text>
-                    <View style={styles.itineraryInfo}>
-                      <Text style={styles.itineraryName}>{place.name}</Text>
-                      <Text style={styles.itineraryMeta}>{place.category}</Text>
-                    </View>
-                    <Pressable
-                      onPress={() => removeFromItinerary(place.id)}
-                      style={styles.removeButton}
-                    >
-                      <Ionicons name="close" size={16} color={colors.text.tertiary} />
-                    </Pressable>
-                  </View>
-                ))
-              )}
-            </View>
-          </View>
-        )}
         <ScrollView
           ref={scrollViewRef}
           style={styles.messagesContainer}
           contentContainerStyle={[
             styles.messagesContent,
-            { paddingTop: headerHeight + spacing.md + itineraryPadding },
+            { paddingTop: headerHeight + spacing.md },
           ]}
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"
         >
-          {!hasInteracted && (
-            <View style={styles.modeSelector}>
-              <Chip
-                label="Chat"
-                icon="chatbubble-ellipses"
-                variant={assistantMode === 'chat' ? 'accent' : 'default'}
-                onPress={() => setAssistantMode('chat')}
-              />
-              <Chip
-                label="Itinerary"
-                icon="map"
-                variant={assistantMode === 'itinerary' ? 'accent' : 'default'}
-                onPress={() => setAssistantMode('itinerary')}
-              />
-            </View>
-          )}
-          {showRecap && (
-            <Animated.View style={[styles.recapPanel, recapStyle]}>
-              <Text style={styles.recapTitle}>Your planned activities</Text>
-              {itineraryList.length === 0 ? (
-                <Text style={styles.recapEmpty}>
-                  You haven't added any activities yet. Tap "Add to itinerary" on a place card to build your list.
-                </Text>
-              ) : (
-                itineraryList.map((place) => (
-                  <View key={`recap-${place.id}`} style={styles.recapCard}>
-                    {place.photoUrl ? (
-                      <Image source={{ uri: place.photoUrl }} style={styles.recapImage} />
-                    ) : (
-                      <View style={styles.recapImagePlaceholder}>
-                        <Ionicons name="image" size={24} color={colors.text.tertiary} />
-                      </View>
-                    )}
-                    <View style={styles.recapInfo}>
-                      <Text style={styles.recapName}>{place.name}</Text>
-                      <Text style={styles.recapLocation}>
-                        {place.address || place.area || 'Zurich'}
-                      </Text>
-                      {place.description ? (
-                        <Text style={styles.recapDescription} numberOfLines={2}>
-                          {place.description}
-                        </Text>
-                      ) : null}
-                    </View>
-                  </View>
-                ))
-              )}
-            </Animated.View>
-          )}
           {messages.map((message, index) => (
             <ChatBubble
               key={message.id}
@@ -975,7 +726,7 @@ const ChatScreenContent: React.FC = () => {
                 const query = buildQueryFromPlace(place);
                 submitText(query);
               }}
-              onAddToItinerary={assistantMode === 'itinerary' ? addToItinerary : undefined}
+              onSelectPlace={handlePlaceSelect}
             />
           ))}
 
@@ -1145,173 +896,6 @@ const styles = StyleSheet.create({
   suggestionsContent: {
     paddingHorizontal: spacing.md,
     gap: spacing.sm,
-  },
-  modeSelector: {
-    flexDirection: 'row',
-    gap: spacing.sm,
-    paddingHorizontal: spacing.md,
-    paddingTop: spacing.sm,
-    paddingBottom: spacing.md,
-  },
-  itineraryPanel: {
-    padding: spacing.md,
-    borderRadius: radius.lg,
-    backgroundColor: 'rgba(248, 246, 242, 0.96)',
-    borderWidth: 1,
-    borderColor: colors.glass.lightBorder,
-  },
-  itineraryOverlay: {
-    position: 'absolute',
-    left: spacing.md,
-    right: spacing.md,
-    zIndex: 2,
-  },
-  itineraryHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: spacing.sm,
-  },
-  itineraryTitle: {
-    fontSize: typography.size.md,
-    fontWeight: typography.weight.semibold,
-    color: colors.text.primary,
-    fontFamily: typography.family.semibold,
-  },
-  itineraryEmpty: {
-    fontSize: typography.size.sm,
-    color: colors.text.secondary,
-    fontFamily: typography.family.regular,
-  },
-  itineraryRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: spacing.xs,
-  },
-  itineraryIndex: {
-    width: 20,
-    fontSize: typography.size.sm,
-    color: colors.text.tertiary,
-    fontFamily: typography.family.regular,
-  },
-  itineraryInfo: {
-    flex: 1,
-  },
-  itineraryName: {
-    fontSize: typography.size.sm,
-    color: colors.text.primary,
-    fontFamily: typography.family.semibold,
-  },
-  itineraryMeta: {
-    fontSize: typography.size.xs,
-    color: colors.text.tertiary,
-    textTransform: 'capitalize',
-    fontFamily: typography.family.regular,
-  },
-  clearButton: {
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xs,
-    borderRadius: radius.pill,
-    backgroundColor: colors.white,
-    borderWidth: 1,
-    borderColor: colors.glass.lightBorder,
-  },
-  clearButtonText: {
-    fontSize: typography.size.xs,
-    color: colors.text.secondary,
-    fontFamily: typography.family.regular,
-  },
-  itineraryActions: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.xs,
-  },
-  summaryButton: {
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xs,
-    borderRadius: radius.pill,
-    backgroundColor: colors.primary,
-    borderWidth: 1,
-    borderColor: colors.primary,
-  },
-  summaryButtonText: {
-    fontSize: typography.size.xs,
-    color: colors.white,
-    fontFamily: typography.family.semibold,
-  },
-  recapPanel: {
-    marginHorizontal: spacing.md,
-    marginBottom: spacing.lg,
-    padding: spacing.md,
-    borderRadius: radius.lg,
-    backgroundColor: colors.white,
-    borderWidth: 1,
-    borderColor: colors.glass.lightBorder,
-    ...shadows.sm,
-  },
-  recapTitle: {
-    fontSize: typography.size.md,
-    color: colors.text.primary,
-    fontFamily: typography.family.semibold,
-    marginBottom: spacing.sm,
-  },
-  recapCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: spacing.sm,
-    borderRadius: radius.md,
-    backgroundColor: colors.glass.lightSubtle,
-    borderWidth: 1,
-    borderColor: colors.glass.lightBorder,
-    marginBottom: spacing.sm,
-    gap: spacing.sm,
-  },
-  recapImage: {
-    width: 72,
-    height: 72,
-    borderRadius: radius.md,
-    backgroundColor: colors.glass.lightBorder,
-  },
-  recapImagePlaceholder: {
-    width: 72,
-    height: 72,
-    borderRadius: radius.md,
-    backgroundColor: colors.glass.lightBorder,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  recapInfo: {
-    flex: 1,
-  },
-  recapName: {
-    fontSize: typography.size.sm,
-    color: colors.text.primary,
-    fontFamily: typography.family.semibold,
-    marginBottom: 2,
-  },
-  recapLocation: {
-    fontSize: typography.size.xs,
-    color: colors.text.secondary,
-    fontFamily: typography.family.regular,
-    marginBottom: 2,
-  },
-  recapDescription: {
-    fontSize: typography.size.xs,
-    color: colors.text.tertiary,
-    fontFamily: typography.family.regular,
-    lineHeight: typography.size.xs * typography.lineHeight.normal,
-  },
-  recapEmpty: {
-    fontSize: typography.size.sm,
-    color: colors.text.secondary,
-    fontFamily: typography.family.regular,
-  },
-  removeButton: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   followUpContainer: {
     marginBottom: spacing.sm,

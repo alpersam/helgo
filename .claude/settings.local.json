@@ -11,7 +11,8 @@
       "Bash(npx expo install react-dom react-native-web @expo/metro-runtime)",
       "Bash(timeout:*)",
       "Bash(ping:*)",
-      "WebFetch(domain:docs.swmansion.com)"
+      "WebFetch(domain:docs.swmansion.com)",
+      "Bash(node -e:*)"
     ]
   }
 }
