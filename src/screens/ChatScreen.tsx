@@ -7,6 +7,8 @@ import {
   Platform,
   Text,
   Dimensions,
+  Pressable,
+  Image,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -19,6 +21,7 @@ import Animated, {
   withRepeat,
   withTiming,
   Easing,
+  interpolate,
 } from 'react-native-reanimated';
 
 import { ChatMessage, WeatherData, DaylightData, Itinerary, Intent, PlaceCategory, Place } from '../types';
@@ -29,7 +32,9 @@ import {
   Chip,
   colors,
   spacing,
+  radius,
   typography,
+  shadows,
 } from '../ui';
 import {
   fetchWeather,
@@ -134,14 +139,22 @@ const ChatScreenContent: React.FC = () => {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [daylight, setDaylight] = useState<DaylightData | null>(null);
   const [userLocation, setUserLocation] = useState<{ lat: number; lon: number } | null>(null);
+  const [locationLabel, setLocationLabel] = useState<string | null>(null);
   const [followUps, setFollowUps] = useState<SuggestionChip[]>([]);
+  const [assistantMode, setAssistantMode] = useState<'chat' | 'itinerary'>('chat');
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const [itineraryList, setItineraryList] = useState<Place[]>([]);
+  const [itineraryPanelHeight, setItineraryPanelHeight] = useState(0);
+  const [showRecap, setShowRecap] = useState(false);
   const lastIntentRef = useRef<Intent | null>(null);
+  const lastAnchorRef = useRef<Place | null>(null);
   const itineraryPendingRef = useRef(false);
   const scrollViewRef = useRef<ScrollView>(null);
 
   // Animated gradient blobs
   const blob1X = useSharedValue(0);
   const blob2X = useSharedValue(SCREEN_WIDTH);
+  const recapOpacity = useSharedValue(0);
 
   useEffect(() => {
     blob1X.value = withRepeat(
@@ -168,11 +181,19 @@ const ChatScreenContent: React.FC = () => {
     initializeChat();
   }, []);
 
+  useEffect(() => {
+    recapOpacity.value = withTiming(showRecap ? 1 : 0, {
+      duration: showRecap ? 450 : 200,
+      easing: Easing.out(Easing.ease),
+    });
+  }, [showRecap]);
+
   const resolveUserLocation = async () => {
     try {
       const { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
         setUserLocation(FALLBACK_LOCATION);
+        setLocationLabel('Zurich');
         return { location: FALLBACK_LOCATION, permissionDenied: true };
       }
 
@@ -184,10 +205,22 @@ const ChatScreenContent: React.FC = () => {
         lon: position.coords.longitude,
       };
       setUserLocation(resolved);
+      try {
+        const [place] = await Location.reverseGeocodeAsync({
+          latitude: resolved.lat,
+          longitude: resolved.lon,
+        });
+        const city = place?.city || place?.subregion || 'Zurich';
+        const district = place?.district ? `, ${place.district}` : '';
+        setLocationLabel(`${city}${district}`);
+      } catch {
+        setLocationLabel('Zurich');
+      }
       return { location: resolved, permissionDenied: false };
     } catch (error) {
       console.warn('Location fetch failed, using fallback:', error);
       setUserLocation(FALLBACK_LOCATION);
+      setLocationLabel('Zurich');
       return { location: FALLBACK_LOCATION, permissionDenied: true };
     }
   };
@@ -400,6 +433,32 @@ const ChatScreenContent: React.FC = () => {
     return parts.length > 0 ? parts.join(' ') : 'Okay - give me a second.';
   };
 
+  const addToItinerary = (place: Place) => {
+    setItineraryList(prev => {
+      if (prev.some(item => item.id === place.id)) return prev;
+      const hasRestaurant = prev.some(item => item.category === 'restaurant');
+      if (hasRestaurant && place.category === 'restaurant') {
+        const warning: ChatMessage = {
+          id: `assistant-itinerary-warn-${Date.now()}`,
+          type: 'assistant',
+          text: 'Your itinerary already has a restaurant. Add a nearby activity next.',
+          timestamp: new Date(),
+        };
+        setMessages(current => [...current, warning]);
+        return prev;
+      }
+      return [...prev, place];
+    });
+  };
+
+  const removeFromItinerary = (placeId: string) => {
+    setItineraryList(prev => prev.filter(item => item.id !== placeId));
+  };
+
+  const clearItinerary = () => {
+    setItineraryList([]);
+  };
+
   const isItineraryRequest = (text: string) => {
     const normalized = text.toLowerCase();
     return (
@@ -409,42 +468,67 @@ const ChatScreenContent: React.FC = () => {
     );
   };
 
-  const formatDuration = (mins: number) => {
-    if (mins < 60) return `${mins} min`;
-    const hours = Math.floor(mins / 60);
-    const rest = mins % 60;
-    return rest > 0 ? `${hours}h ${rest}m` : `${hours}h`;
+  const resolveQueryLocation = (text: string) => {
+    const normalized = text.toLowerCase();
+    const proximityTriggers = [
+      'around the restaurant',
+      'around there',
+      'near there',
+      'nearby',
+      'around it',
+      'around this',
+      'close to it',
+      'near it',
+      'around the place',
+    ];
+
+    if (proximityTriggers.some(trigger => normalized.includes(trigger))) {
+      const anchor = lastAnchorRef.current;
+      if (anchor) {
+        return { lat: anchor.lat, lon: anchor.lon };
+      }
+    }
+
+    const locationOverrides: Array<{ keywords: string[]; lat: number; lon: number }> = [
+      { keywords: ['center', 'city center', 'city centre', 'downtown', 'central'], lat: ZURICH_LAT, lon: ZURICH_LON },
+      { keywords: ['old town', 'oldtown', 'altstadt'], lat: 47.3717, lon: 8.5423 },
+      { keywords: ['hb', 'hauptbahnhof', 'main station'], lat: 47.3779, lon: 8.5402 },
+      { keywords: ['enge'], lat: 47.3649, lon: 8.5316 },
+      { keywords: ['seefeld'], lat: 47.3576, lon: 8.5537 },
+      { keywords: ['wiedikon'], lat: 47.3702, lon: 8.5195 },
+      { keywords: ['oerlikon', 'oerliken'], lat: 47.4105, lon: 8.5446 },
+      { keywords: ['langstrasse', 'kreis 4', 'district 4'], lat: 47.3781, lon: 8.5262 },
+    ];
+
+    for (const entry of locationOverrides) {
+      if (entry.keywords.some(keyword => normalized.includes(keyword))) {
+        return { lat: entry.lat, lon: entry.lon };
+      }
+    }
+
+    return null;
   };
 
-  const buildItineraryText = (intent: Intent, itineraries: Itinerary[]) => {
-    const totalMins = intent.timeBudgetMins ?? 120;
-    const stops: Array<{ title: string; note?: string }> = [];
-    if (itineraries[0]) {
-      stops.push({ title: itineraries[0].anchor.name, note: itineraries[0].anchorReason });
-      stops.push({ title: itineraries[0].satellite.name, note: itineraries[0].satelliteReason });
-    }
-    if (itineraries[1]) {
-      stops.push({ title: itineraries[1].anchor.name, note: itineraries[1].anchorReason });
-    }
+  const buildItinerarySummary = () => {
+    if (itineraryList.length === 0) return 'Your itinerary is empty right now.';
+    const lines = itineraryList.map(
+      (place, index) => `${index + 1}. ${place.name} (${place.category})`
+    );
+    return `Here is your itinerary so far:\n${lines.join('\n')}`;
+  };
 
-    const allocations =
-      stops.length === 2 ? [0.6, 0.4] : stops.length === 3 ? [0.45, 0.2, 0.35] : [1];
-
-    let cursor = 0;
-    const lines = stops.map((stop, index) => {
-      const mins = Math.max(20, Math.round(totalMins * (allocations[index] ?? 0.3)));
-      const window = `${formatDuration(cursor)}-${formatDuration(cursor + mins)}`;
-      cursor += mins;
-      return `- ${window} - ${stop.title}${stop.note ? ` (${stop.note})` : ''}`;
-    });
-
-    return `Here's a ${formatDuration(totalMins)} plan:\n${lines.join('\n')}`;
+  const pushItinerarySummary = () => {
+    setShowRecap(true);
   };
 
 
 
   const submitText = async (text: string) => {
     if (!text.trim() || !weather || !daylight || isLoading) return;
+    setHasInteracted(true);
+
+    const normalizedInput = text.trim().toLowerCase();
+    const stopPhrases = ['nothing else', 'nothing', 'no thanks', 'no thank you', 'done', 'that is all', 'all good'];
 
     const userMessage: ChatMessage = {
       id: `user-${Date.now()}`,
@@ -455,6 +539,23 @@ const ChatScreenContent: React.FC = () => {
 
     setMessages(prev => [...prev, userMessage]);
     setInputText('');
+    if (stopPhrases.some(phrase => normalizedInput.includes(phrase))) {
+      const wrapUp: ChatMessage = {
+        id: `assistant-wrap-${Date.now()}`,
+        type: 'assistant',
+        text: 'Got it. Here is your recap:',
+        timestamp: new Date(),
+      };
+      setMessages(prev => [...prev, wrapUp]);
+      setShowRecap(true);
+      setFollowUps([]);
+      setAssistantMode('chat');
+      itineraryPendingRef.current = false;
+      return;
+    }
+    if (showRecap) {
+      setShowRecap(false);
+    }
     setIsLoading(true);
 
     const preludeMessage: ChatMessage = {
@@ -469,28 +570,42 @@ const ChatScreenContent: React.FC = () => {
 
     const rawIntent = parseIntent(userMessage.text!);
     const intent = mergeIntent(rawIntent, lastIntentRef.current);
-
-    const wantsItinerary = itineraryPendingRef.current || isItineraryRequest(userMessage.text!);
-    if (wantsItinerary && lastIntentRef.current) {
-      if (!intent.timeBudgetMins) {
-        itineraryPendingRef.current = true;
-        const askTime: ChatMessage = {
-          id: `assistant-time-${Date.now()}`,
-          type: 'assistant',
-          text: 'How much time do you have- (1 hour, 2 hours, or half day)',
-          timestamp: new Date(),
-        };
-        setMessages(prev => [...prev, askTime]);
-        setFollowUps([
-          { label: '1 hour', icon: 'time', autoSend: true },
-          { label: '2 hours', icon: 'time', autoSend: true },
-          { label: 'Half day', icon: 'time', autoSend: true },
-        ]);
-        setIsLoading(false);
-        return;
+    const normalizedText = userMessage.text!.toLowerCase();
+    const nonFoodCategories = new Set<PlaceCategory>([
+      'park',
+      'walk',
+      'viewpoint',
+      'museum',
+      'event',
+      'activity',
+      'sightseeing',
+      'shopping',
+      'sport',
+      'wellness',
+    ]);
+    if (rawIntent.categoryPreference.length > 0) {
+      intent.categoryPreference = rawIntent.categoryPreference;
+      if (rawIntent.categoryPreference.some(category => nonFoodCategories.has(category))) {
+        intent.cuisine = [];
       }
-      itineraryPendingRef.current = false;
-    } else if (wantsItinerary && !lastIntentRef.current) {
+    }
+    const hasNonFoodCategory = intent.categoryPreference.some(category =>
+      nonFoodCategories.has(category)
+    );
+    const isNextActivityRequest =
+      normalizedText.includes('nearby') ||
+      normalizedText.includes('next') ||
+      normalizedText.includes('add ') ||
+      normalizedText.includes('another');
+    if (wantsItinerary && (hasNonFoodCategory || isNextActivityRequest)) {
+      intent.cuisine = [];
+    }
+
+    const wantsItinerary =
+      itineraryPendingRef.current ||
+      assistantMode === 'itinerary' ||
+      isItineraryRequest(userMessage.text!);
+    if (wantsItinerary && !lastIntentRef.current && isAmbiguousIntent(intent)) {
       const askPref: ChatMessage = {
         id: `assistant-intent-${Date.now()}`,
         type: 'assistant',
@@ -515,17 +630,40 @@ const ChatScreenContent: React.FC = () => {
       return;
     }
     lastIntentRef.current = intent;
+
+    if (wantsItinerary && !intent.timeBudgetMins) {
+      itineraryPendingRef.current = true;
+      const askTime: ChatMessage = {
+        id: `assistant-time-${Date.now()}`,
+        type: 'assistant',
+        text: 'How much time do you have? (1 hour, 2 hours, or half day)',
+        timestamp: new Date(),
+      };
+      setMessages(prev => [...prev, askTime]);
+      setFollowUps([
+        { label: '1 hour', icon: 'time', autoSend: true },
+        { label: '2 hours', icon: 'time', autoSend: true },
+        { label: 'Half day', icon: 'time', autoSend: true },
+      ]);
+      setIsLoading(false);
+      return;
+    }
+    itineraryPendingRef.current = false;
+
     const resolvedLocation = userLocation ?? FALLBACK_LOCATION;
-    const userElevation = await getUserElevation(resolvedLocation.lat, resolvedLocation.lon);
-    const latestDaylight = getDaylightData(resolvedLocation.lat, resolvedLocation.lon);
+    const queryLocation = resolveQueryLocation(userMessage.text!);
+    const effectiveLocation = queryLocation ?? resolvedLocation;
+    const userElevation = await getUserElevation(effectiveLocation.lat, effectiveLocation.lon);
+    const latestDaylight = getDaylightData(effectiveLocation.lat, effectiveLocation.lon);
     setDaylight(latestDaylight);
     const context = {
-      userLocation: resolvedLocation,
+      userLocation: effectiveLocation,
       now: new Date(),
       weather,
       daylight: latestDaylight,
     };
 
+    const proposalLimit = assistantMode === 'itinerary' ? 8 : 3;
     let itineraries: Itinerary[] = [];
     let dataError: string | undefined;
     if (
@@ -533,14 +671,14 @@ const ChatScreenContent: React.FC = () => {
       intent.vibes.length === 0 &&
       intent.categoryPreference.length === 0
     ) {
-      const result = await generateGreetingItineraries(context, userElevation);
+      const result = await generateGreetingItineraries(context, userElevation, { limit: proposalLimit });
       if (result.status === 'error') {
         dataError = result.error;
       } else {
         itineraries = result.itineraries;
       }
     } else {
-      const result = await generateItineraries(intent, context, userElevation);
+      const result = await generateItineraries(intent, context, userElevation, { limit: proposalLimit });
       if (result.status === 'error') {
         dataError = result.error;
       } else {
@@ -570,35 +708,48 @@ const ChatScreenContent: React.FC = () => {
     };
 
     setMessages(prev => [...prev, assistantMessage]);
-    setFollowUps(buildFollowUps(intent, itineraries));
+    if (!wantsItinerary) {
+      setFollowUps(buildFollowUps(intent, itineraries));
+    }
     setIsLoading(false);
+    if (itineraries[0]) {
+      lastAnchorRef.current = itineraries[0].anchor;
+    }
 
 
     setTimeout(() => {
       scrollViewRef.current?.scrollToEnd({ animated: true });
     }, 100);
 
-    const afterglow: ChatMessage = {
-      id: `assistant-afterglow-${Date.now()}`,
-      type: 'assistant',
-      text: HELGO_AFTERGLOWS[Math.floor(Math.random() * HELGO_AFTERGLOWS.length)],
-      timestamp: new Date(),
-    };
-    setTimeout(() => {
-      setMessages(prev => [...prev, afterglow]);
-    }, 800);
-
-    if (wantsItinerary) {
-      const itineraryText = buildItineraryText(intent, itineraries);
-      const itineraryMessage: ChatMessage = {
-        id: `assistant-itinerary-${Date.now()}`,
+    if (!wantsItinerary) {
+      const afterglow: ChatMessage = {
+        id: `assistant-afterglow-${Date.now()}`,
         type: 'assistant',
-        text: itineraryText,
+        text: HELGO_AFTERGLOWS[Math.floor(Math.random() * HELGO_AFTERGLOWS.length)],
         timestamp: new Date(),
       };
       setTimeout(() => {
-        setMessages(prev => [...prev, itineraryMessage]);
-      }, 500);
+        setMessages(prev => [...prev, afterglow]);
+      }, 800);
+    }
+
+    if (wantsItinerary) {
+      const nextMessage: ChatMessage = {
+        id: `assistant-next-${Date.now()}`,
+        type: 'assistant',
+        text: 'What should we add next? (Try a park, view, museum, or something nearby.)',
+        timestamp: new Date(),
+      };
+      setTimeout(() => {
+        setMessages(prev => [...prev, nextMessage]);
+        setFollowUps([
+          { label: 'Nearby park', icon: 'leaf', autoSend: true },
+          { label: 'Best view', icon: 'eye', autoSend: true },
+          { label: 'Museum', icon: 'color-palette', autoSend: true },
+          { label: 'Walk', icon: 'walk', autoSend: true },
+          { label: 'Surprise me', icon: 'sparkles', autoSend: true },
+        ]);
+      }, 600);
     }
 
   };
@@ -617,6 +768,12 @@ const ChatScreenContent: React.FC = () => {
 
   // Calculate header height for scroll padding
   const headerHeight = insets.top + 70;
+  const itineraryPadding =
+    assistantMode === 'itinerary' ? itineraryPanelHeight + spacing.md : 0;
+  const recapStyle = useAnimatedStyle(() => ({
+    opacity: recapOpacity.value,
+    transform: [{ translateY: interpolate(recapOpacity.value, [0, 1], [12, 0]) }],
+  }));
 
   return (
     <View style={styles.container}>
@@ -639,7 +796,7 @@ const ChatScreenContent: React.FC = () => {
       <Animated.View style={[styles.blob, styles.blob2, blob2Style]} />
 
       {/* Header */}
-      <Header weather={weather} />
+      <Header weather={weather} locationLabel={locationLabel ?? undefined} />
 
       {/* Chat content */}
       <KeyboardAvoidingView
@@ -647,16 +804,108 @@ const ChatScreenContent: React.FC = () => {
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         keyboardVerticalOffset={0}
       >
+        {assistantMode === 'itinerary' && (
+          <View
+            style={[styles.itineraryOverlay, { top: headerHeight + spacing.sm }]}
+            onLayout={(event) => setItineraryPanelHeight(event.nativeEvent.layout.height)}
+          >
+            <View style={styles.itineraryPanel}>
+              <View style={styles.itineraryHeader}>
+                <Text style={styles.itineraryTitle}>Your itinerary</Text>
+                {itineraryList.length > 0 && (
+                  <View style={styles.itineraryActions}>
+                    <Pressable onPress={pushItinerarySummary} style={styles.summaryButton}>
+                      <Text style={styles.summaryButtonText}>Summary</Text>
+                    </Pressable>
+                    <Pressable onPress={clearItinerary} style={styles.clearButton}>
+                      <Text style={styles.clearButtonText}>Clear</Text>
+                    </Pressable>
+                  </View>
+                )}
+              </View>
+              {itineraryList.length === 0 ? (
+                <Text style={styles.itineraryEmpty}>
+                  Add a restaurant first, then nearby parks, events, or sights.
+                </Text>
+              ) : (
+                itineraryList.map((place, index) => (
+                  <View key={place.id} style={styles.itineraryRow}>
+                    <Text style={styles.itineraryIndex}>{index + 1}.</Text>
+                    <View style={styles.itineraryInfo}>
+                      <Text style={styles.itineraryName}>{place.name}</Text>
+                      <Text style={styles.itineraryMeta}>{place.category}</Text>
+                    </View>
+                    <Pressable
+                      onPress={() => removeFromItinerary(place.id)}
+                      style={styles.removeButton}
+                    >
+                      <Ionicons name="close" size={16} color={colors.text.tertiary} />
+                    </Pressable>
+                  </View>
+                ))
+              )}
+            </View>
+          </View>
+        )}
         <ScrollView
           ref={scrollViewRef}
           style={styles.messagesContainer}
           contentContainerStyle={[
             styles.messagesContent,
-            { paddingTop: headerHeight + spacing.md },
+            { paddingTop: headerHeight + spacing.md + itineraryPadding },
           ]}
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"
         >
+          {!hasInteracted && (
+            <View style={styles.modeSelector}>
+              <Chip
+                label="Chat"
+                icon="chatbubble-ellipses"
+                variant={assistantMode === 'chat' ? 'accent' : 'default'}
+                onPress={() => setAssistantMode('chat')}
+              />
+              <Chip
+                label="Itinerary"
+                icon="map"
+                variant={assistantMode === 'itinerary' ? 'accent' : 'default'}
+                onPress={() => setAssistantMode('itinerary')}
+              />
+            </View>
+          )}
+          {showRecap && (
+            <Animated.View style={[styles.recapPanel, recapStyle]}>
+              <Text style={styles.recapTitle}>Your planned activities</Text>
+              {itineraryList.length === 0 ? (
+                <Text style={styles.recapEmpty}>
+                  You haven't added any activities yet. Tap "Add to itinerary" on a place card to build your list.
+                </Text>
+              ) : (
+                itineraryList.map((place) => (
+                  <View key={`recap-${place.id}`} style={styles.recapCard}>
+                    {place.photoUrl ? (
+                      <Image source={{ uri: place.photoUrl }} style={styles.recapImage} />
+                    ) : (
+                      <View style={styles.recapImagePlaceholder}>
+                        <Ionicons name="image" size={24} color={colors.text.tertiary} />
+                      </View>
+                    )}
+                    <View style={styles.recapInfo}>
+                      <Text style={styles.recapName}>{place.name}</Text>
+                      <Text style={styles.recapLocation}>
+                        {place.address || place.area || 'Zurich'}
+                      </Text>
+                      {place.description ? (
+                        <Text style={styles.recapDescription} numberOfLines={2}>
+                          {place.description}
+                        </Text>
+                      ) : null}
+                    </View>
+                  </View>
+                ))
+              )}
+            </Animated.View>
+          )}
           {messages.map((message, index) => (
             <ChatBubble
               key={message.id}
@@ -666,6 +915,7 @@ const ChatScreenContent: React.FC = () => {
                 const query = buildQueryFromPlace(place);
                 submitText(query);
               }}
+              onAddToItinerary={assistantMode === 'itinerary' ? addToItinerary : undefined}
             />
           ))}
 
@@ -834,6 +1084,173 @@ const styles = StyleSheet.create({
   suggestionsContent: {
     paddingHorizontal: spacing.md,
     gap: spacing.sm,
+  },
+  modeSelector: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+    paddingHorizontal: spacing.md,
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.md,
+  },
+  itineraryPanel: {
+    padding: spacing.md,
+    borderRadius: radius.lg,
+    backgroundColor: 'rgba(248, 246, 242, 0.96)',
+    borderWidth: 1,
+    borderColor: colors.glass.lightBorder,
+  },
+  itineraryOverlay: {
+    position: 'absolute',
+    left: spacing.md,
+    right: spacing.md,
+    zIndex: 2,
+  },
+  itineraryHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: spacing.sm,
+  },
+  itineraryTitle: {
+    fontSize: typography.size.md,
+    fontWeight: typography.weight.semibold,
+    color: colors.text.primary,
+    fontFamily: typography.family.semibold,
+  },
+  itineraryEmpty: {
+    fontSize: typography.size.sm,
+    color: colors.text.secondary,
+    fontFamily: typography.family.regular,
+  },
+  itineraryRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: spacing.xs,
+  },
+  itineraryIndex: {
+    width: 20,
+    fontSize: typography.size.sm,
+    color: colors.text.tertiary,
+    fontFamily: typography.family.regular,
+  },
+  itineraryInfo: {
+    flex: 1,
+  },
+  itineraryName: {
+    fontSize: typography.size.sm,
+    color: colors.text.primary,
+    fontFamily: typography.family.semibold,
+  },
+  itineraryMeta: {
+    fontSize: typography.size.xs,
+    color: colors.text.tertiary,
+    textTransform: 'capitalize',
+    fontFamily: typography.family.regular,
+  },
+  clearButton: {
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    borderRadius: radius.pill,
+    backgroundColor: colors.white,
+    borderWidth: 1,
+    borderColor: colors.glass.lightBorder,
+  },
+  clearButtonText: {
+    fontSize: typography.size.xs,
+    color: colors.text.secondary,
+    fontFamily: typography.family.regular,
+  },
+  itineraryActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.xs,
+  },
+  summaryButton: {
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    borderRadius: radius.pill,
+    backgroundColor: colors.primary,
+    borderWidth: 1,
+    borderColor: colors.primary,
+  },
+  summaryButtonText: {
+    fontSize: typography.size.xs,
+    color: colors.white,
+    fontFamily: typography.family.semibold,
+  },
+  recapPanel: {
+    marginHorizontal: spacing.md,
+    marginBottom: spacing.lg,
+    padding: spacing.md,
+    borderRadius: radius.lg,
+    backgroundColor: colors.white,
+    borderWidth: 1,
+    borderColor: colors.glass.lightBorder,
+    ...shadows.sm,
+  },
+  recapTitle: {
+    fontSize: typography.size.md,
+    color: colors.text.primary,
+    fontFamily: typography.family.semibold,
+    marginBottom: spacing.sm,
+  },
+  recapCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: spacing.sm,
+    borderRadius: radius.md,
+    backgroundColor: colors.glass.lightSubtle,
+    borderWidth: 1,
+    borderColor: colors.glass.lightBorder,
+    marginBottom: spacing.sm,
+    gap: spacing.sm,
+  },
+  recapImage: {
+    width: 72,
+    height: 72,
+    borderRadius: radius.md,
+    backgroundColor: colors.glass.lightBorder,
+  },
+  recapImagePlaceholder: {
+    width: 72,
+    height: 72,
+    borderRadius: radius.md,
+    backgroundColor: colors.glass.lightBorder,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  recapInfo: {
+    flex: 1,
+  },
+  recapName: {
+    fontSize: typography.size.sm,
+    color: colors.text.primary,
+    fontFamily: typography.family.semibold,
+    marginBottom: 2,
+  },
+  recapLocation: {
+    fontSize: typography.size.xs,
+    color: colors.text.secondary,
+    fontFamily: typography.family.regular,
+    marginBottom: 2,
+  },
+  recapDescription: {
+    fontSize: typography.size.xs,
+    color: colors.text.tertiary,
+    fontFamily: typography.family.regular,
+    lineHeight: typography.size.xs * typography.lineHeight.normal,
+  },
+  recapEmpty: {
+    fontSize: typography.size.sm,
+    color: colors.text.secondary,
+    fontFamily: typography.family.regular,
+  },
+  removeButton: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   followUpContainer: {
     marginBottom: spacing.sm,

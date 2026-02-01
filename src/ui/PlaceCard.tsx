@@ -18,6 +18,7 @@ interface PlaceCardProps {
   index: number;
   onPress: () => void;
   scale?: SharedValue<number>;
+  onAddToItinerary?: (place: Itinerary['anchor']) => void;
 }
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
@@ -27,6 +28,7 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
   index,
   onPress,
   scale,
+  onAddToItinerary,
 }) => {
   const { anchor, satellite, mainCharacterScore, metrics } = itinerary;
   const pressed = useSharedValue(0);
@@ -130,6 +132,12 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
         <Text style={styles.ctaText}>Tap for details</Text>
         <Ionicons name="chevron-forward" size={14} color={colors.text.muted} />
       </View>
+
+      {onAddToItinerary && (
+        <Pressable style={styles.addButton} onPress={() => onAddToItinerary(anchor)}>
+          <Text style={styles.addButtonText}>Add to itinerary</Text>
+        </Pressable>
+      )}
     </>
   );
 
@@ -331,5 +339,19 @@ const styles = StyleSheet.create({
   ctaText: {
     fontSize: typography.size.xs,
     color: colors.text.muted,
+    fontFamily: typography.family.regular,
+  },
+  addButton: {
+    marginTop: spacing.md,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.glass.lightBorder,
+    paddingVertical: spacing.sm,
+    alignItems: 'center',
+  },
+  addButtonText: {
+    fontSize: typography.size.sm,
+    color: colors.text.secondary,
+    fontFamily: typography.family.semibold,
   },
 });

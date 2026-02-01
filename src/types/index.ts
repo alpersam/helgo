@@ -20,7 +20,7 @@ export type PlaceTag =
   | 'romantic' | 'cheap' | 'view' | 'photo' | 'park' | 'green'
   | 'narrow' | 'bridge' | 'city' | 'street' | 'mexican' | 'italian'
   | 'sushi' | 'burger' | 'asian' | 'swiss' | 'brunch' | 'coffee'
-  | 'cocktails' | 'beer' | 'wine' | 'vegan' | 'historic';
+  | 'cocktails' | 'beer' | 'wine' | 'vegan' | 'historic' | 'turkish';
 
 export type IndoorOutdoor = 'indoor' | 'outdoor' | 'mixed';
 export type PriceLevel = 'budget' | 'mid' | 'high';

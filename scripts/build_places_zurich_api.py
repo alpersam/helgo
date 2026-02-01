@@ -62,6 +62,7 @@ ALLOWED_TAGS = {
     "wine",
     "vegan",
     "historic",
+    "turkish",
 }
 
 
@@ -167,6 +168,8 @@ def tags_from_categories(categories: List[str]) -> List[str]:
             tags.append("coffee")
         if "brunch" in value:
             tags.append("brunch")
+        if "turk" in value or "kebab" in value or "dÃ¶ner" in value:
+            tags.append("turkish")
         if "bar" in value or "cocktail" in value or "nightlife" in value:
             tags.append("cocktails")
         if "wine" in value:

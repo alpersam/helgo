@@ -8,6 +8,7 @@ import { WeatherData } from '../types';
 
 interface HeaderProps {
   weather: WeatherData | null;
+  locationLabel?: string;
 }
 
 const getWeatherIcon = (weather: WeatherData | null): keyof typeof Ionicons.glyphMap => {
@@ -18,7 +19,7 @@ const getWeatherIcon = (weather: WeatherData | null): keyof typeof Ionicons.glyp
   return 'sunny';
 };
 
-export const Header: React.FC<HeaderProps> = ({ weather }) => {
+export const Header: React.FC<HeaderProps> = ({ weather, locationLabel }) => {
   const insets = useSafeAreaInsets();
   const weatherIcon = getWeatherIcon(weather);
 
@@ -26,6 +27,9 @@ export const Header: React.FC<HeaderProps> = ({ weather }) => {
     <View style={[styles.container, { paddingTop: insets.top + spacing.sm }]}>
       <View style={styles.leftSection}>
         <Image source={require('../../assets/logo.png')} style={styles.logoImage} />
+        {locationLabel && (
+          <Text style={styles.locationText}>{locationLabel}</Text>
+        )}
       </View>
 
       <View style={styles.weatherPill}>
@@ -92,6 +96,12 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     resizeMode: 'contain',
+  },
+  locationText: {
+    marginLeft: spacing.sm,
+    fontSize: typography.size.sm,
+    color: colors.text.secondary,
+    fontFamily: typography.family.regular,
   },
   weatherPill: {
     flexDirection: 'row',

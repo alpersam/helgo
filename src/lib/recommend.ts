@@ -140,6 +140,28 @@ export function scorePlace(
   return score;
 }
 
+function isStrictCategoryLocation(intent: Intent): boolean {
+  return (
+    intent.vibes.length === 0 &&
+    intent.constraints.length === 0 &&
+    !intent.timeBudgetMins &&
+    !intent.groupContext &&
+    intent.photoMode === 'none' &&
+    intent.indoorPreference === 'no-preference'
+  );
+}
+
+function distanceOnlyScore(place: Place, context: RecommendationContext): number {
+  if (!context.userLocation) return 0;
+  const distanceKm = getDistance(
+    context.userLocation.lat,
+    context.userLocation.lon,
+    place.lat,
+    place.lon
+  );
+  return Math.max(0, 100 - distanceKm * 20);
+}
+
 function buildAnchorReason(intent: Intent, anchor: Place): string {
   if (intent.vibes.length > 0) {
     return `Matches your ${intent.vibes[0]} vibe`;
@@ -242,15 +264,7 @@ const CUISINE_NAME_KEYWORDS: Record<string, string[]> = {
 };
 
 function matchesCuisine(place: Place, cuisines: string[]): boolean {
-  const name = place.name.toLowerCase();
-  return cuisines.some(cuisine => {
-    if (place.tags.includes(cuisine as any)) {
-      return true;
-    }
-    const keywords = CUISINE_NAME_KEYWORDS[cuisine];
-    if (!keywords) return false;
-    return keywords.some(keyword => name.includes(keyword));
-  });
+  return cuisines.some(cuisine => place.tags.includes(cuisine as any));
 }
 
 const intentFallback: Intent = {
@@ -274,7 +288,8 @@ export type RecommendationResult = {
 export async function generateItineraries(
   intent: Intent,
   context: RecommendationContext,
-  userElevation: number
+  userElevation: number,
+  options?: { limit?: number }
 ): Promise<RecommendationResult> {
   const placesResult = await getPlaces();
   if (placesResult.status === 'error') {
@@ -288,6 +303,11 @@ export async function generateItineraries(
 
   const places = placesResult.places;
   let candidates = places;
+  const strictCategoryLocation = isStrictCategoryLocation(intent);
+
+  if (intent.categoryPreference.length > 0 && strictCategoryLocation) {
+    candidates = candidates.filter(place => intent.categoryPreference.includes(place.category));
+  }
   if (intent.cuisine.length > 0) {
     const cuisineFiltered = places.filter(
       place => place.category === 'restaurant' && matchesCuisine(place, intent.cuisine)
@@ -305,7 +325,7 @@ export async function generateItineraries(
 
   const scoredPlaces = candidates.map(place => ({
     place,
-    score: scorePlace(place, intent, context),
+    score: strictCategoryLocation ? distanceOnlyScore(place, context) : scorePlace(place, intent, context),
   }));
 
   scoredPlaces.sort((a, b) => b.score - a.score);
@@ -347,9 +367,10 @@ export async function generateItineraries(
 
   itineraries.sort((a, b) => b.mainCharacterScore - a.mainCharacterScore);
 
+  const limit = options?.limit ?? 3;
   return {
     status: 'ready',
-    itineraries: itineraries.slice(0, 3),
+    itineraries: itineraries.slice(0, limit),
     source: placesResult.source,
     updatedAt: placesResult.updatedAt,
   };
@@ -357,7 +378,8 @@ export async function generateItineraries(
 
 export async function generateGreetingItineraries(
   context: RecommendationContext,
-  userElevation: number
+  userElevation: number,
+  options?: { limit?: number }
 ): Promise<RecommendationResult> {
   const placesResult = await getPlaces();
   if (placesResult.status === 'error') {
@@ -398,9 +420,10 @@ export async function generateGreetingItineraries(
     };
   });
 
+  const limit = options?.limit ?? itineraries.length;
   return {
     status: 'ready',
-    itineraries,
+    itineraries: itineraries.slice(0, limit),
     source: placesResult.source,
     updatedAt: placesResult.updatedAt,
   };

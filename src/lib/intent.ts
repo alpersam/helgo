@@ -10,6 +10,7 @@ const CUISINE_KEYWORDS: Record<string, string[]> = {
   vegan: ['vegan', 'vegetarian', 'plant-based'],
   brunch: ['brunch', 'breakfast', 'eggs'],
   coffee: ['coffee', 'café', 'cafe', 'espresso', 'latte'],
+  turkish: ['turkish', 'turk', 'kebab', 'doner', 'döner', 'pide', 'lahmacun'],
 };
 
 const CATEGORY_KEYWORDS: Record<PlaceCategory, string[]> = {
@@ -167,3 +168,4 @@ export function parseIntent(userText: string): Intent {
     indoorPreference: detectIndoorPreference(text),
   };
 }
+

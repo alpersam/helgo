@@ -27,8 +27,8 @@
       "lat": 47.3660215,
       "lon": 8.5424915,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Schiffsteg Bürkliplatz, 8001, Zürich",
       "website": "https://www.white-pearl-yachting.ch/events",
@@ -47,10 +47,10 @@
       "lat": 47.377959,
       "lon": 8.532896,
       "tags": [
-        "cocktails",
         "city",
         "brunch",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Lagerstrasse 22, 8004, Zürich",
       "website": "https://cafeeuropa.ch/",
@@ -88,8 +88,8 @@
       "lat": 47.3485,
       "lon": 8.4918,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "brunch"
       ],
       "address": "Station Uetliberg, 8143, Uetliberg / Zürich",
@@ -109,8 +109,8 @@
       "lat": 47.36309,
       "lon": 8.495577,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Döltschiweg 234, 8055, Zürich",
       "website": "https://zurich.fivehotelsandresorts.com/eat-drink/cinque-studio/",
@@ -129,10 +129,10 @@
       "lat": 47.36309,
       "lon": 8.495577,
       "tags": [
-        "sushi",
-        "cocktails",
+        "asian",
         "city",
-        "asian"
+        "cocktails",
+        "sushi"
       ],
       "address": "Döltschiweg 234, 8055, Zürich",
       "website": "https://thepenthouse.co/zurich/",
@@ -151,8 +151,8 @@
       "lat": 47.377171,
       "lon": 8.540757,
       "tags": [
-        "city",
         "italian",
+        "city",
         "brunch"
       ],
       "address": "Bahnhofplatz 15, 8001, Zürich",
@@ -193,8 +193,8 @@
       "lat": 47.372613,
       "lon": 8.543246,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Stüssihofstatt 3, 8001, Zürich",
       "website": "https://koenigstuhl.ch/",
@@ -253,8 +253,8 @@
       "lat": 47.369789860196,
       "lon": 8.5341422711639,
       "tags": [
-        "vegan",
         "city",
+        "vegan",
         "burger"
       ],
       "address": "Brandschenkestrasse 5, 8001, Zürich",
@@ -275,10 +275,10 @@
       "lon": 8.5223238920371,
       "tags": [
         "asian",
-        "coffee",
         "city",
-        "vegan",
-        "brunch"
+        "brunch",
+        "coffee",
+        "vegan"
       ],
       "address": "Weststrasse 70, 8003, Zürich",
       "website": "http://www.hikari.ch/",
@@ -297,8 +297,8 @@
       "lat": 47.375452447713,
       "lon": 8.5439713,
       "tags": [
-        "city",
         "asian",
+        "city",
         "burger"
       ],
       "address": "Niederdorfstrasse 60, 8001, Zürich",
@@ -337,8 +337,8 @@
       "lat": 47.40932666425,
       "lon": 8.5465247141494,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Schaffhauserstrasse 345, 8050, Zürich",
       "website": "https://www.bindella.ch/gastronomie/santa-lucia-oerlikon",
@@ -377,8 +377,8 @@
       "lat": 47.38405081814,
       "lon": 8.5297339392885,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Luisenstrasse 31, 8005, Zürich",
       "website": "https://www.bindella.ch/gastronomie/santa-lucia-limmatplatz",
@@ -397,9 +397,9 @@
       "lat": 47.365226495165,
       "lon": 8.5462404641961,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Sechseläutenplatz 1, 8001, Zürich",
       "website": "https://www.lulu-zh.ch/de/restaurant/",
@@ -438,8 +438,8 @@
       "lat": 47.385445002623,
       "lon": 8.5487531460249,
       "tags": [
-        "brunch",
         "city",
+        "brunch",
         "vegan"
       ],
       "address": "Rigiplatz 1, 8006,  Zürich",
@@ -459,8 +459,8 @@
       "lat": 47.388188,
       "lon": 8.51427,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Turbinenstrasse 20, 8005, Zürich",
       "website": "https://atelier-five.ch/",
@@ -500,10 +500,10 @@
       "lat": 47.371807,
       "lon": 8.521599,
       "tags": [
-        "cocktails",
         "city",
-        "burger",
-        "brunch"
+        "brunch",
+        "cocktails",
+        "burger"
       ],
       "address": "Zweierstrasse 106, 8003, Zürich",
       "website": "https://www.lous-restaurant.ch/",
@@ -522,8 +522,8 @@
       "lat": 47.370255,
       "lon": 8.540041,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Waaggasse 7, 8001, Zürich",
       "website": "https://www.mandarinoriental.com/en/zurich/savoy/dine/orsini?src=loc.local_listing.mozrh.ggl",
@@ -542,8 +542,8 @@
       "lat": 47.369769,
       "lon": 8.539772,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Poststrasse 12,, 8001, Zürich",
       "website": null,
@@ -562,8 +562,8 @@
       "lat": 47.374393,
       "lon": 8.535549,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Löwenstrasse 25, 8001, Zürich",
       "website": "https://astra-kitchenbar.ch/",
@@ -582,8 +582,8 @@
       "lat": 47.371762,
       "lon": 8.534769,
       "tags": [
-        "city",
         "italian",
+        "city",
         "vegan"
       ],
       "address": "Talacker 41, 8001, Zürich",
@@ -603,8 +603,8 @@
       "lat": 47.372152,
       "lon": 8.534629,
       "tags": [
-        "cocktails",
         "city",
+        "cocktails",
         "beer"
       ],
       "address": "Talstrasse 82, 8001, Zürich",
@@ -624,8 +624,8 @@
       "lat": 47.388833,
       "lon": 8.528308,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Sihlquai 274, 8005, Zürich",
       "website": "https://haus-am-fluss.ch/",
@@ -644,11 +644,11 @@
       "lat": 47.395929,
       "lon": 8.596567,
       "tags": [
+        "park",
         "city",
         "green",
-        "park",
-        "vegan",
-        "brunch"
+        "brunch",
+        "vegan"
       ],
       "address": "Zürichstrasse 137, 8600, Dübendorf",
       "website": "https://waldkantine.ch/de/",
@@ -667,11 +667,11 @@
       "lat": 47.226144,
       "lon": 8.819738,
       "tags": [
-        "cocktails",
+        "park",
         "city",
         "green",
-        "park",
-        "brunch"
+        "brunch",
+        "cocktails"
       ],
       "address": "Tiefenaustrasse 7, 8640, Rapperswil",
       "website": "https://lennox-restaurant.ch/",
@@ -690,9 +690,9 @@
       "lat": 47.372768,
       "lon": 8.573081,
       "tags": [
-        "sushi",
+        "asian",
         "city",
-        "asian"
+        "sushi"
       ],
       "address": "Kurhausstrasse 65, 8032, Zürich",
       "website": "https://www.thedoldergrand.com/mikuriya/",
@@ -750,11 +750,11 @@
       "lat": 47.4535,
       "lon": 8.561,
       "tags": [
-        "burger",
+        "park",
+        "swiss",
         "city",
         "green",
-        "park",
-        "swiss"
+        "burger"
       ],
       "address": "The Circle 1, 8058, Flughafen Zürich",
       "website": "https://www.hyatt.com/de-DE/hotel/switzerland/hyatt-place-zurich-airport-the-circle/zrhzz/dining",
@@ -811,9 +811,9 @@
       "lat": 47.36309,
       "lon": 8.495577,
       "tags": [
-        "sushi",
+        "asian",
         "city",
-        "asian"
+        "sushi"
       ],
       "address": "Döltschiweg 234, 8055, Zürich",
       "website": "https://www.fivehotelsandresorts.com/",
@@ -832,8 +832,8 @@
       "lat": 47.378345,
       "lon": 8.535776,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Europaallee 4, 8004, Zürich",
       "website": "https://www.vito.ch/europaallee",
@@ -852,11 +852,11 @@
       "lat": 47.373583,
       "lon": 8.537233,
       "tags": [
-        "cocktails",
+        "park",
         "city",
         "green",
-        "park",
-        "vegan"
+        "vegan",
+        "cocktails"
       ],
       "address": "Sihlstrasse 9, 8001, Zürich",
       "website": "https://www.restaurant-enja.ch/",
@@ -875,8 +875,8 @@
       "lat": 47.372,
       "lon": 8.5413,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Schweizergasse 11, 8001, Zürich",
       "website": "https://www.roofgarden.ch/",
@@ -895,8 +895,8 @@
       "lat": 47.365499,
       "lon": 8.536029,
       "tags": [
-        "brunch",
         "city",
+        "brunch",
         "vegan"
       ],
       "address": "Stockerstrasse 17, 8002, Zürich",
@@ -916,9 +916,9 @@
       "lat": 47.371089,
       "lon": 8.549101,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Heimplatz 5, 8001, Zürich",
       "website": "https://www.kunsthausbar.ch/",
@@ -937,8 +937,8 @@
       "lat": 47.365709,
       "lon": 8.538329,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "brunch"
       ],
       "address": "Claridenstrasse 3, 8002, Zürich",
@@ -958,8 +958,8 @@
       "lat": 47.3879362,
       "lon": 8.4989451,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Hohlstrasse 430, 8048, Zürich",
       "website": "https://www.xn--nni-hoa.ch/",
@@ -998,9 +998,9 @@
       "lat": 47.357726,
       "lon": 8.533274,
       "tags": [
+        "swiss",
         "city",
         "green",
-        "swiss",
         "park"
       ],
       "address": "Seestrasse 125, 8002, Zürich",
@@ -1020,10 +1020,10 @@
       "lat": 47.380288,
       "lon": 8.534458,
       "tags": [
-        "cocktails",
-        "city",
         "swiss",
-        "brunch"
+        "city",
+        "brunch",
+        "cocktails"
       ],
       "address": "Zollstrasse 37, 8005, Zürich",
       "website": "https://www.restaurant-stadtkaeserei.ch/",
@@ -1042,9 +1042,9 @@
       "lat": 47.301226,
       "lon": 8.562541,
       "tags": [
-        "cocktails",
         "city",
-        "brunch"
+        "brunch",
+        "cocktails"
       ],
       "address": "Seestrasse 182, 8800, Thalwil",
       "website": "https://alexlakezurich.com/de/essen-trinken/alex-restaurant",
@@ -1063,8 +1063,8 @@
       "lat": 47.37214,
       "lon": 8.53193,
       "tags": [
-        "brunch",
         "city",
+        "brunch",
         "vegan"
       ],
       "address": "Selnaustrasse 25, 8001, Zürich",
@@ -1147,10 +1147,10 @@
       "lat": 47.371556,
       "lon": 8.536285,
       "tags": [
-        "cocktails",
+        "swiss",
         "city",
         "italian",
-        "swiss"
+        "cocktails"
       ],
       "address": "Pelikanplatz, 8001, Zürich",
       "website": "https://kaufleuten.ch/restaurant/",
@@ -1169,11 +1169,11 @@
       "lat": 47.356208,
       "lon": 8.534654,
       "tags": [
-        "burger",
-        "cocktails",
+        "italian",
         "city",
         "brunch",
-        "italian"
+        "cocktails",
+        "burger"
       ],
       "address": "Mythenquai 59, 8002, Zürich",
       "website": "http://www.samigo.ch",
@@ -1211,8 +1211,8 @@
       "lat": 47.381883,
       "lon": 8.533477,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Konradstrasse 71, 8005, Zürich",
       "website": "https://na081.ch/zurich/",
@@ -1250,8 +1250,8 @@
       "lat": 47.372457,
       "lon": 8.537686,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "St. Annagasse 2, 8001, Zürich",
       "website": "https://www.ristorante-ornellaia.ch",
@@ -1270,9 +1270,9 @@
       "lat": 47.421311,
       "lon": 8.431675,
       "tags": [
+        "swiss",
         "city",
         "green",
-        "swiss",
         "park"
       ],
       "address": "Haslernstrasse 28, 8104, Weiningen",
@@ -1311,8 +1311,8 @@
       "lat": 47.226815,
       "lon": 8.816246,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Hauptplatz 4, 8640, Rapperswil",
       "website": "https://www.falkenburg-rapperswil.ch",
@@ -1369,8 +1369,8 @@
       "lat": 47.3790236,
       "lon": 8.5410057,
       "tags": [
-        "brunch",
         "city",
+        "brunch",
         "vegan"
       ],
       "address": "Museumsstrasse 2, 8001, Zürich",
@@ -1390,8 +1390,8 @@
       "lat": 47.374027,
       "lon": 8.546207,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Chorgasse 20, 8001, Zürich",
       "website": "https://www.rechberg1837.com/",
@@ -1411,9 +1411,9 @@
       "lon": 8.544642,
       "tags": [
         "asian",
-        "cocktails",
-        "city",
         "beer",
+        "city",
+        "cocktails",
         "sushi"
       ],
       "address": "Seestrasse 30, 8802, Kilchberg",
@@ -1433,8 +1433,8 @@
       "lat": 47.385474,
       "lon": 8.578044,
       "tags": [
-        "city",
         "asian",
+        "city",
         "brunch"
       ],
       "address": "Zürichbergstrasse 221, 8044, Zürich",
@@ -1454,9 +1454,9 @@
       "lat": 47.372169,
       "lon": 8.518794,
       "tags": [
-        "sushi",
+        "asian",
         "city",
-        "asian"
+        "sushi"
       ],
       "address": "Zentralstrasse 53, 8003, Zürich",
       "website": "https://ooki.tokyo/",
@@ -1475,8 +1475,8 @@
       "lat": 47.36085,
       "lon": 8.566561,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Freiestrasse 213, 8032, Zürich",
       "website": "https://www.antiquario.ch",
@@ -1495,8 +1495,8 @@
       "lat": 47.375402,
       "lon": 8.516916,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Sihlfeldstrasse 58, 8003, Zürich",
       "website": "https://www.lilys.ch",
@@ -1535,8 +1535,8 @@
       "lat": 47.340524,
       "lon": 8.538036,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Seestrasse 457, 8038, Zürich",
       "website": "https://www.woeschi.ch",
@@ -1555,8 +1555,8 @@
       "lat": 47.29395,
       "lon": 8.570116,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Seestrasse 100, 8800, Thalwil",
       "website": "https://www.portofino-am-see.ch",
@@ -1575,12 +1575,12 @@
       "lat": 47.383841,
       "lon": 8.492709,
       "tags": [
-        "cocktails",
-        "city",
-        "green",
         "park",
         "swiss",
-        "italian"
+        "city",
+        "italian",
+        "green",
+        "cocktails"
       ],
       "address": "Buckhauserstrasse 34, 8048, Zürich-Altstetten",
       "website": "http://www.buckhuser.ch/de",
@@ -1599,12 +1599,12 @@
       "lat": 47.414942,
       "lon": 8.589219,
       "tags": [
-        "burger",
-        "cocktails",
-        "city",
-        "brunch",
         "swiss",
-        "italian"
+        "city",
+        "italian",
+        "brunch",
+        "cocktails",
+        "burger"
       ],
       "address": "Bahnhofstrasse 6, 8304, Wallisellen",
       "website": "https://www.sign.ch",
@@ -1643,11 +1643,11 @@
       "lat": 47.38838,
       "lon": 8.55339,
       "tags": [
-        "coffee",
-        "city",
-        "brunch",
         "swiss",
-        "italian"
+        "city",
+        "italian",
+        "brunch",
+        "coffee"
       ],
       "address": "Germaniastrasse 99, 8044, Zürich",
       "website": "https://www.restaurantrigiblick.ch/",
@@ -1667,8 +1667,8 @@
       "lon": 8.498938,
       "tags": [
         "city",
-        "coffee",
-        "brunch"
+        "brunch",
+        "coffee"
       ],
       "address": "Letzigraben 101, 8003, Zürich",
       "website": "https://www.walterbuchmann.ch/hubertus",
@@ -1687,8 +1687,8 @@
       "lat": 47.376421,
       "lon": 8.526456,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Molkenstrasse 15, 8004, Zürich",
       "website": "https://www.bankzuerich.ch/",
@@ -1707,8 +1707,8 @@
       "lat": 47.388341,
       "lon": 8.483769,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Badenerstrasse 705, 8048, Zürich",
       "website": "https://www.krone-altstetten.ch/",
@@ -1727,8 +1727,8 @@
       "lat": 47.37244,
       "lon": 8.539856,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Rennweg 7, 8001, Zürich",
       "website": "https://www.widderhotel.com/de/essen-trinken/widder-garden",
@@ -1747,8 +1747,8 @@
       "lat": 47.379805,
       "lon": 8.48939,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Freilagerstrasse 53, 8047, Zürich",
       "website": "https://restaurant-freilager.ch/",
@@ -1767,8 +1767,8 @@
       "lat": 47.195471,
       "lon": 9.313247,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "brunch"
       ],
       "address": "Früeweidstrasse 8, 9657, Unterwasser",
@@ -1808,10 +1808,10 @@
       "lat": 47.376062,
       "lon": 8.52887,
       "tags": [
-        "vegan",
         "city",
+        "brunch",
         "coffee",
-        "brunch"
+        "vegan"
       ],
       "address": "Müllerstrasse 64, 8004, Zürich",
       "website": "https://www.vegelateria.ch",
@@ -1850,8 +1850,8 @@
       "lat": 47.367421,
       "lon": 8.579229,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "brunch"
       ],
       "address": "Degenriedstrasse 135, 8032, Zürich",
@@ -1909,8 +1909,8 @@
       "lat": 47.375652,
       "lon": 8.539802,
       "tags": [
-        "brunch",
         "city",
+        "brunch",
         "vegan"
       ],
       "address": "Bahnhofstrasse 88, 8001, Zürich",
@@ -1930,10 +1930,10 @@
       "lat": 47.375465,
       "lon": 8.527275,
       "tags": [
-        "cocktails",
-        "city",
         "swiss",
-        "brunch"
+        "city",
+        "brunch",
+        "cocktails"
       ],
       "address": "Stauffacherstrasse 60, 8004, Zürich",
       "website": "https://www.restaurantvolkshaus.ch/",
@@ -1952,10 +1952,10 @@
       "lat": 47.372204,
       "lon": 8.537178,
       "tags": [
-        "cocktails",
         "city",
-        "beer",
-        "burger"
+        "cocktails",
+        "burger",
+        "beer"
       ],
       "address": "Pelikanstrasse 8, 8001, Zürich",
       "website": "https://www.jamesjoyce.ch",
@@ -1994,8 +1994,8 @@
       "lat": 47.372354,
       "lon": 8.540002,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Rennweg 1, 8001, Zürich",
       "website": "https://www.widderhotel.com/de/restaurants/boucherie-august/",
@@ -2014,8 +2014,8 @@
       "lat": 47.375051,
       "lon": 8.544458,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Zähringerstrasse 21, 8001, Zürich",
       "website": "https://walliser-keller.ch/",
@@ -2035,8 +2035,8 @@
       "lon": 8.516274,
       "tags": [
         "city",
-        "coffee",
-        "brunch"
+        "brunch",
+        "coffee"
       ],
       "address": "Zypressenstrasse 115, 8004, Zürich",
       "website": "http://cafedubonheur.ch/",
@@ -2055,8 +2055,8 @@
       "lat": 47.30862,
       "lon": 8.509822,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "brunch"
       ],
       "address": "Felsenegg 1, 8143, Stallikon / Zürich",
@@ -2076,11 +2076,11 @@
       "lat": 47.399537,
       "lon": 8.572665,
       "tags": [
+        "park",
+        "swiss",
         "city",
         "green",
-        "park",
-        "brunch",
-        "swiss"
+        "brunch"
       ],
       "address": "Hüttenkopfstrasse 70, 8051, Zürich",
       "website": "https://www.wirtschaft-ziegelhuette.ch",
@@ -2118,8 +2118,8 @@
       "lat": 47.385025,
       "lon": 8.520317,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Geroldstrasse 5, 8005, Zürich",
       "website": "https://www.geroldchuchi.ch/",
@@ -2138,8 +2138,8 @@
       "lat": 47.351938,
       "lon": 8.561174,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Seefeldstrasse 223, 8008, Zürich",
       "website": "https://blaue-ente.ch",
@@ -2198,8 +2198,8 @@
       "lat": 47.451662941253,
       "lon": 8.5607994846053,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Airside Center, 8060, Flughafen-Zürich",
       "website": "https://www.chaletsuisse-zrh.ch",
@@ -2218,8 +2218,8 @@
       "lat": 47.384101,
       "lon": 8.496403,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Badenerstrasse 571, 8048, Zürich",
       "website": "https://www.restaurant-turbinenbraeu.ch/",
@@ -2257,8 +2257,8 @@
       "lat": 47.38254,
       "lon": 8.529604,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Langstrasse 197, 8005, Zürich",
       "website": "https://lilys.ch/eatery/original",
@@ -2353,8 +2353,8 @@
       "lat": 47.367551,
       "lon": 8.545719,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Rämistrasse 4, 8001, Zürich",
       "website": "https://www.kronenhalle.com/",
@@ -2373,8 +2373,8 @@
       "lat": 47.383294,
       "lon": 8.530181,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Langstrasse 215, 8005, Zürich",
       "website": "https://www.restaurant-cinque.ch",
@@ -2412,9 +2412,9 @@
       "lat": 47.376373,
       "lon": 8.529295,
       "tags": [
-        "cocktails",
+        "italian",
         "city",
-        "italian"
+        "cocktails"
       ],
       "address": "Zeughausstrasse 61, 8004, Zürich",
       "website": "https://www.ristorante-italia.ch",
@@ -2433,8 +2433,8 @@
       "lat": 47.372961,
       "lon": 8.536522,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Sihlstrasse 31, 8001, Zürich",
       "website": "http://www.glockenhof.ch",
@@ -2453,8 +2453,8 @@
       "lat": 47.362891,
       "lon": 8.547255,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "brunch"
       ],
       "address": "Utoquai 45, 8008, Zürich",
@@ -2474,8 +2474,8 @@
       "lat": 47.399962,
       "lon": 8.515406,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Waidbadstrasse 45, 8037, Zürich",
       "website": "https://www.diewaid.ch",
@@ -2495,11 +2495,11 @@
       "lon": 8.541168,
       "tags": [
         "asian",
-        "cocktails",
+        "park",
         "city",
         "green",
-        "park",
         "brunch",
+        "cocktails",
         "sushi"
       ],
       "address": "Seestrasse 559, 8038, Zürich",
@@ -2519,8 +2519,8 @@
       "lat": 47.377785,
       "lon": 8.54385,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Stampfenbachstrasse 8, 8001, Zürich",
       "website": "https://www.commihalle.ch/",
@@ -2539,8 +2539,8 @@
       "lat": 47.365968,
       "lon": 8.548859,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Mühlebachstrasse 2, 8008, Zürich",
       "website": "https://www.commercio.ch",
@@ -2559,8 +2559,8 @@
       "lat": 47.368952,
       "lon": 8.538439,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Bleicherweg 1a, 8001, Zürich",
       "website": "https://www.restaurant-coco.ch",
@@ -2599,8 +2599,8 @@
       "lat": 47.364542,
       "lon": 8.520783,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Uetlibergstrasse 22, 8045, Zürich",
       "website": "https://www.cheznhan.ch",
@@ -2619,8 +2619,8 @@
       "lat": 47.372228,
       "lon": 8.538842,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Augustinergasse 25, 8001, Zürich",
       "website": "https://www.bindella.ch/de/cantinetta-antinori.html",
@@ -2677,8 +2677,8 @@
       "lat": 47.277501,
       "lon": 9.023307,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Hüttenberg, 8727, Walde",
       "website": "https://www.huettenberg-walde.ch/",
@@ -2697,10 +2697,10 @@
       "lat": 47.377193,
       "lon": 8.522855,
       "tags": [
-        "cocktails",
         "city",
         "brunch",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Stauffacherstrasse 141, 8004, Zürich",
       "website": "https://www.fuerdich.ch",
@@ -2739,10 +2739,10 @@
       "lat": 47.184415,
       "lon": 8.995441,
       "tags": [
-        "city",
         "swiss",
-        "coffee",
-        "brunch"
+        "city",
+        "brunch",
+        "coffee"
       ],
       "address": "Reckplatzstrasse 21, 8717, Benken",
       "website": "https://www.bretzelstube.ch/",
@@ -2761,9 +2761,9 @@
       "lat": 47.373304,
       "lon": 8.53675,
       "tags": [
-        "brunch",
-        "city",
         "swiss",
+        "city",
+        "brunch",
         "vegan"
       ],
       "address": "Sihlstrasse 28, 8001, Zürich",
@@ -2783,8 +2783,8 @@
       "lat": 47.378672,
       "lon": 8.547908,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Universitätstrasse 15, 8006, Zürich",
       "website": "https://hotpasta.ch/",
@@ -2822,8 +2822,8 @@
       "lat": 47.376412,
       "lon": 8.539229,
       "tags": [
-        "sushi",
-        "city"
+        "city",
+        "sushi"
       ],
       "address": "Bahnhofstrasse 87, 8001, Zürich",
       "website": "https://www.hotelstgotthard.ch/de/kulinarik/hummerbar/",
@@ -2842,9 +2842,9 @@
       "lat": 47.369289,
       "lon": 8.544491,
       "tags": [
-        "cocktails",
+        "italian",
         "city",
-        "italian"
+        "cocktails"
       ],
       "address": "Rössligasse 7, 8001, Zürich",
       "website": "https://www.ilgattopardo.ch",
@@ -2863,8 +2863,8 @@
       "lat": 47.372466,
       "lon": 8.545473,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Neumarkt 2, 8001, Zürich",
       "website": "https://www.restaurant-kantorei.ch/",
@@ -2883,10 +2883,10 @@
       "lat": 47.371556,
       "lon": 8.536285,
       "tags": [
-        "cocktails",
-        "city",
         "swiss",
-        "coffee"
+        "city",
+        "coffee",
+        "cocktails"
       ],
       "address": "Pelikanplatz, 8001, Zürich",
       "website": "https://www.kaufleuten.ch",
@@ -2905,8 +2905,8 @@
       "lat": 47.372285,
       "lon": 8.540641,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Strehlgasse 24, 8001, Zürich",
       "website": "https://www.kindli.ch/restaurant",
@@ -2926,9 +2926,9 @@
       "lon": 8.553722,
       "tags": [
         "asian",
+        "swiss",
         "city",
         "brunch",
-        "swiss",
         "sushi"
       ],
       "address": "Bellerivestrasse 170, 8008, Zürich",
@@ -2948,8 +2948,8 @@
       "lat": 47.388774,
       "lon": 8.518929,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Schiffbaustrasse 4, 8005, Zürich",
       "website": "https://www.lasalle-restaurant.ch/",
@@ -3008,8 +3008,8 @@
       "lat": 47.387863,
       "lon": 8.518645,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Pfingstweidstrasse 6, 8005, Zürich",
       "website": "https://www.les-halles.ch/",
@@ -3028,11 +3028,11 @@
       "lat": 47.378445,
       "lon": 8.533856,
       "tags": [
-        "burger",
+        "city",
+        "brunch",
         "coffee",
         "cocktails",
-        "city",
-        "brunch"
+        "burger"
       ],
       "address": "Europaallee 15, 8004, Zürich",
       "website": "https://www.loftfive.ch",
@@ -3051,8 +3051,8 @@
       "lat": 47.382515,
       "lon": 8.540326,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "brunch"
       ],
       "address": "Neumühlequai 42, 8006, Zürich",
@@ -3110,10 +3110,10 @@
       "lat": 47.36823,
       "lon": 8.541297,
       "tags": [
-        "sushi",
-        "cocktails",
+        "asian",
         "city",
-        "asian"
+        "cocktails",
+        "sushi"
       ],
       "address": "Fraumünsterstrasse 12, 8001, Zürich",
       "website": "https://www.metropol-restaurant.ch",
@@ -3151,8 +3151,8 @@
       "lat": 47.4395255,
       "lon": 8.5688655,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "brunch"
       ],
       "address": "Walter Mittelholzerstrasse 8, 8152, Glattbrugg",
@@ -3212,8 +3212,8 @@
       "lat": 47.193486,
       "lon": 8.851502,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Hafenstrasse 4, 8853, Lachen",
       "website": "https://www.marinalachen.ch/en/food-and-drink/osteria-vista/",
@@ -3232,8 +3232,8 @@
       "lat": 47.136607,
       "lon": 9.106662,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Hauptstrasse 23, 8872, Weesen",
       "website": "https://www.parkhotelschwert.ch/de/Brasserie-du-Lac",
@@ -3252,8 +3252,8 @@
       "lat": 47.365985,
       "lon": 8.533419,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Dreikönigstrasse 25, 8002, Zürich",
       "website": null,
@@ -3272,8 +3272,8 @@
       "lat": 47.382455,
       "lon": 8.567144,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "brunch"
       ],
       "address": "Orellistrasse 21, 8044, Zürich",
@@ -3312,8 +3312,8 @@
       "lat": 47.382069,
       "lon": 8.587926,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Tobelhofstrasse 236, 8044, Zürich",
       "website": "https://chaesalp.ch/",
@@ -3351,8 +3351,8 @@
       "lat": 47.371909,
       "lon": 8.525645,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Gartenhofstrasse 1, 8004, Zürich",
       "website": "https://www.gartenhof.net",
@@ -3371,8 +3371,8 @@
       "lat": 47.370857,
       "lon": 8.543202,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": " Limmatquai 42, 8001, Zürich",
       "website": "https://www.haus-zum-rueden.ch",
@@ -3410,8 +3410,8 @@
       "lat": 47.370596,
       "lon": 8.543866,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Römergasse 9, 8001, Zürich",
       "website": "https://www.le-dezaley.ch",
@@ -3430,8 +3430,8 @@
       "lat": 47.226093,
       "lon": 8.814641,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Marktgasse 25, 8640, Rapperswil-Jona",
       "website": "https://www.seerestaurant-steinbock.ch",
@@ -3450,8 +3450,8 @@
       "lat": 47.410841,
       "lon": 8.549477,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Thurgauerstrasse 7, 8050, Zürich",
       "website": "https://www.musical.ch/en/theater11zuerich-restaurant",
@@ -3470,8 +3470,8 @@
       "lat": 47.371508,
       "lon": 8.545721,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Untere Zäune 15, 8001, Zürich",
       "website": "https://www.gruenesglas.ch",
@@ -3490,8 +3490,8 @@
       "lat": 47.370687,
       "lon": 8.54019,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "In Gassen 16, 8001, Zürich",
       "website": "https://www.zumkropf.ch",
@@ -3510,8 +3510,8 @@
       "lat": 47.226129,
       "lon": 8.814755,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Seequai, 8640, Rapperswil SG",
       "website": "https://www.lascala.ch",
@@ -3530,8 +3530,8 @@
       "lat": 47.371186,
       "lon": 8.541746,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "brunch"
       ],
       "address": "Weinplatz 2, 8001, Zürich",
@@ -3551,9 +3551,9 @@
       "lat": 47.376182,
       "lon": 8.540213,
       "tags": [
-        "sushi",
+        "asian",
         "city",
-        "asian"
+        "sushi"
       ],
       "address": "Schützengasse 5, 8001, Zürich",
       "website": "https://www.sala-of-tokyo.ch/",
@@ -3572,9 +3572,9 @@
       "lat": 47.225536,
       "lon": 8.816877,
       "tags": [
-        "sushi",
+        "asian",
         "city",
-        "asian"
+        "sushi"
       ],
       "address": "Untere Bahnhofstrasse 5, 8640, Rapperswil",
       "website": "http://www.asian-food.ch/sayori/rapperswil/index.php",
@@ -3593,8 +3593,8 @@
       "lat": 47.373118,
       "lon": 8.54179,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Schipfe 16, 8001, Zürich",
       "website": "https://www.stadt-zuerich.ch/schipfe",
@@ -3613,8 +3613,8 @@
       "lat": 47.295489,
       "lon": 8.565923,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Bahnhofstrasse 16, 8800, Thalwil",
       "website": "https://www.sedartis.ch",
@@ -3633,8 +3633,8 @@
       "lat": 47.225399,
       "lon": 8.943753,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Bahnhofstrasse 1, 8716, Schmerikon",
       "website": "https://www.seehofschmerikon.ch",
@@ -3653,8 +3653,8 @@
       "lat": 47.373738,
       "lon": 8.553185,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Plattenstrasse 26, 8032, Zürich",
       "website": "https://www.plattenhof.ch",
@@ -3673,8 +3673,8 @@
       "lat": 47.319225,
       "lon": 8.578865,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Seestrasse 120, 8700, Küsnacht",
       "website": "https://sonne.ch/",
@@ -3693,8 +3693,8 @@
       "lat": 47.499379,
       "lon": 8.727405,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Marktgasse 49, 8400, Winterthur",
       "website": "https://www.kronewinterthur.ch",
@@ -3752,9 +3752,9 @@
       "lat": 47.371516,
       "lon": 8.540126,
       "tags": [
-        "cocktails",
-        "city",
         "asian",
+        "city",
+        "cocktails",
         "wine"
       ],
       "address": "Augustinergasse 3, 8001, Zürich",
@@ -3774,9 +3774,9 @@
       "lat": 47.403362,
       "lon": 8.515915,
       "tags": [
+        "swiss",
         "city",
         "green",
-        "swiss",
         "park"
       ],
       "address": "Waidbadstrasse 151, 8037, Zürich",
@@ -3796,8 +3796,8 @@
       "lat": 47.228312,
       "lon": 8.819155,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Engelplatz 4, 8640, Rapperswil",
       "website": "https://www.thaiorchid.ch",
@@ -3835,10 +3835,10 @@
       "lat": 47.35809,
       "lon": 8.553849,
       "tags": [
-        "cocktails",
-        "city",
         "italian",
-        "brunch"
+        "city",
+        "brunch",
+        "cocktails"
       ],
       "address": "Seefeldstrasse 124, 8008, Zürich",
       "website": "https://www.ristorante-toto.ch",
@@ -3857,8 +3857,8 @@
       "lat": 47.370973,
       "lon": 8.541172,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Schlüsselgasse 8, 8001, Zürich",
       "website": "http://www.veltlinerkeller.ch/",
@@ -3877,9 +3877,9 @@
       "lat": 47.375427,
       "lon": 8.529303,
       "tags": [
-        "cocktails",
-        "city",
         "swiss",
+        "city",
+        "cocktails",
         "beer"
       ],
       "address": "Müllerstrasse 51, 8004, Zürich",
@@ -3899,8 +3899,8 @@
       "lat": 47.370373,
       "lon": 8.539923,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Bahnhofstrasse 28a, 8001, Zürich",
       "website": "https://www.zeughauskeller.ch/",
@@ -3919,8 +3919,8 @@
       "lat": 47.382602,
       "lon": 8.54046,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Neumühlequai 42, 8006, Zürich",
       "website": "https://www.whiteelephant.ch",
@@ -3977,8 +3977,8 @@
       "lat": 47.37024,
       "lon": 8.540312,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Münsterhof 8, 8001, Zürich",
       "website": "https://zunfthaus-zur-waag.ch",
@@ -3997,8 +3997,8 @@
       "lat": 47.372346,
       "lon": 8.544576,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Rindermarkt 12, 8001, Zürich",
       "website": "https://www.oepfelchammer.ch",
@@ -4017,8 +4017,8 @@
       "lat": 47.370637,
       "lon": 8.543231,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Limmatquai 40, 8001, Zürich",
       "website": "https://www.zunfthaus-zimmerleuten.ch/",
@@ -4037,8 +4037,8 @@
       "lat": 47.364953,
       "lon": 8.547887,
       "tags": [
-        "brunch",
         "city",
+        "brunch",
         "vegan"
       ],
       "address": "Seefeldstrasse 2, 8008, Zürich",
@@ -4058,10 +4058,10 @@
       "lat": 47.367778,
       "lon": 8.544484,
       "tags": [
-        "cocktails",
-        "city",
         "italian",
-        "brunch"
+        "city",
+        "brunch",
+        "cocktails"
       ],
       "address": "Limmatquai 3, 8001, Zürich",
       "website": "https://terrasse-zuerich.ch/",
@@ -4080,8 +4080,8 @@
       "lat": 47.368312,
       "lon": 8.545888,
       "tags": [
-        "city",
         "italian",
+        "city",
         "vegan"
       ],
       "address": "Oberdorfstrasse 2, 8001, Zürich",
@@ -4101,8 +4101,8 @@
       "lat": 47.229054,
       "lon": 8.824502,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Alte Jonastrasse 33, 8640, Rapperswil-Jona",
       "website": "https://www.mundartbeiz.ch",
@@ -4121,8 +4121,8 @@
       "lat": 47.249214,
       "lon": 8.646701,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "brunch"
       ],
       "address": "Austrasse 59, 8804, Au",
@@ -4162,8 +4162,8 @@
       "lat": 47.2198519,
       "lon": 8.8434325,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "brunch"
       ],
       "address": "Blaubrunnerstrasse 70, 8645, Jona",
@@ -4183,10 +4183,10 @@
       "lat": 47.343803,
       "lon": 8.772844,
       "tags": [
-        "vegan",
-        "city",
         "swiss",
-        "brunch"
+        "city",
+        "brunch",
+        "vegan"
       ],
       "address": "Dorfstrasse 23, 8607, Seegräben",
       "website": "https://www.juckerfarm.ch",
@@ -4205,8 +4205,8 @@
       "lat": 47.167841,
       "lon": 8.727515,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Chaltenbodenstrasse 16, 8834, Schindellegi",
       "website": "https://www.48grad.ch/",
@@ -4225,8 +4225,8 @@
       "lat": 47.225688,
       "lon": 8.815356,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Fischmarktplatz, 8640, Rapperswil",
       "website": "https://www.dieci.ch/de/restaurant-rapperswil",
@@ -4284,10 +4284,10 @@
       "lat": 47.367792,
       "lon": 8.545158,
       "tags": [
-        "cocktails",
         "city",
+        "brunch",
         "coffee",
-        "brunch"
+        "cocktails"
       ],
       "address": "Limmatquai 2, 8001, Zürich",
       "website": "https://www.odeon.ch",
@@ -4326,8 +4326,8 @@
       "lat": 47.378024,
       "lon": 8.540705,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "brunch"
       ],
       "address": "Bahnhofplatz 15, 8001, Zürich",
@@ -7424,9 +7424,9 @@
       "lat": 47.249179,
       "lon": 8.647441,
       "tags": [
-        "lake",
         "green",
-        "park"
+        "park",
+        "lake"
       ],
       "address": "Halbinsel Au, 8804, Wädenswil",
       "website": "https://aukonsortium.ch/halbinselau/",
@@ -7711,9 +7711,9 @@
       "lat": 47.5789571,
       "lon": 8.5816947,
       "tags": [
-        "lake",
         "green",
-        "park"
+        "park",
+        "lake"
       ],
       "address": "Steubisallmend 3, 8416, Flaach",
       "website": "https://www.naturzentrum-thurauen.ch",
@@ -7884,9 +7884,9 @@
       "lat": 47.217775,
       "lon": 8.778867,
       "tags": [
-        "lake",
         "green",
-        "park"
+        "park",
+        "lake"
       ],
       "address": "Insel Ufnau, 8808, Pfäffikon",
       "website": "https://www.inselufnau.ch/",
@@ -8573,8 +8573,8 @@
       "lat": 47.364332,
       "lon": 8.554574,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Forchstrasse 2, 8008, Zürich",
       "website": "https://www.royal-panda.ch/",
@@ -8593,9 +8593,9 @@
       "lat": 47.279486,
       "lon": 8.512489,
       "tags": [
+        "swiss",
         "city",
         "green",
-        "swiss",
         "park"
       ],
       "address": "Naturfreundeweg 8, 8135, Langnau am Albis",
@@ -8695,9 +8695,9 @@
       "lat": 47.3774848,
       "lon": 8.5401509,
       "tags": [
-        "cocktails",
+        "wine",
         "city",
-        "wine"
+        "cocktails"
       ],
       "address": "Bahnhofplatz 15, 8001, Zürich",
       "website": "https://www.aupremier.ch/",
@@ -8716,9 +8716,9 @@
       "lat": 47.361625,
       "lon": 8.551378,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Seefeldstrasse 63, 8008, Zürich",
       "website": "https://flor-cafebar.ch/",
@@ -8737,9 +8737,9 @@
       "lat": 47.388672,
       "lon": 8.530334,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Wasserwerkstrasse 127A, 8037, Zürich",
       "website": "http://www.nude-zurich.com/",
@@ -8758,8 +8758,8 @@
       "lat": 47.374796451376,
       "lon": 8.5436734124636,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Schmidgasse 6, 8001, Zürich",
       "website": "https://www.chachachalovesyou.ch/",
@@ -8778,9 +8778,9 @@
       "lat": 47.369731,
       "lon": 8.539787,
       "tags": [
-        "cocktails",
+        "asian",
         "city",
-        "asian"
+        "cocktails"
       ],
       "address": "Poststrasse 12, 8001, Zürich",
       "website": "https://www.mandarinoriental.com/en/zurich/savoy/dine/1838?src=loc.local_listing.mozrh.ggl",
@@ -8799,8 +8799,8 @@
       "lat": 47.363713,
       "lon": 8.547619,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Dufourstrasse 24, 8008, Zürich",
       "website": "https://drinxbar.ch/",
@@ -8858,8 +8858,8 @@
       "lat": 47.37535,
       "lon": 8.516575,
       "tags": [
-        "cocktails",
-        "wine"
+        "wine",
+        "cocktails"
       ],
       "address": "Bertastrasse 1, 8003, Zürich",
       "website": "https://sacchi.bar/",
@@ -8916,9 +8916,9 @@
       "lat": 47.377084,
       "lon": 8.543634,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Central 1, 8001, Zürich",
       "website": "https://www.central.ch",
@@ -8937,10 +8937,10 @@
       "lat": 47.368513,
       "lon": 8.536883,
       "tags": [
-        "cocktails",
-        "city",
         "italian",
-        "coffee"
+        "city",
+        "coffee",
+        "cocktails"
       ],
       "address": "Bleicherweg 10, 8002, Zürich",
       "website": "https://www.lastanza.ch",
@@ -8959,8 +8959,8 @@
       "lat": 47.368828,
       "lon": 8.537569,
       "tags": [
-        "cocktails",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Bleicherweg 8, 8001, Zürich",
       "website": "https://www.leraymond.bar",
@@ -8998,8 +8998,8 @@
       "lat": 47.373255,
       "lon": 8.538119,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Bahnhofstrasse 61, 8001, Zürich",
       "website": "https://www.aurora-restaurant.ch",
@@ -9018,8 +9018,8 @@
       "lat": 47.360776,
       "lon": 8.551604,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Seefeldstrasse 82, 8008, Zürich",
       "website": "http://www.razzia-zuerich.ch",
@@ -9038,8 +9038,8 @@
       "lat": 47.38389,
       "lon": 8.52896,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Gasometerstrasse 24, 8005, Zürich",
       "website": "https://www.josef.ch",
@@ -9058,8 +9058,8 @@
       "lat": 47.371762,
       "lon": 8.534769,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Talacker 41, 8001, Zürich",
       "website": "http://www.talacker41.ch",
@@ -9078,9 +9078,9 @@
       "lat": 47.370344,
       "lon": 8.537754,
       "tags": [
-        "cocktails",
+        "wine",
         "city",
-        "wine"
+        "cocktails"
       ],
       "address": "Talacker 16, 8001, Zürich",
       "website": "https://atelierbar.ch",
@@ -9118,8 +9118,8 @@
       "lat": 47.227652,
       "lon": 8.825688,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Neue Jonastrasse 72, 8640, Rapperswil",
       "website": "https://www.bottega-club.ch",
@@ -9138,10 +9138,10 @@
       "lat": 47.386021,
       "lon": 8.517188,
       "tags": [
-        "cocktails",
         "city",
         "brunch",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Maagplatz 5, 8005, Zürich",
       "website": "https://clouds.ch/",
@@ -9160,11 +9160,11 @@
       "lat": 47.371459,
       "lon": 8.537801,
       "tags": [
-        "cocktails",
+        "swiss",
         "city",
-        "brunch",
         "wine",
-        "swiss"
+        "brunch",
+        "cocktails"
       ],
       "address": "Bahnhofstrasse 41, 8001, Zürich",
       "website": "https://www.carlton.ch",
@@ -9202,8 +9202,8 @@
       "lat": 47.375681,
       "lon": 8.540063,
       "tags": [
-        "cocktails",
         "city",
+        "cocktails",
         "beer"
       ],
       "address": "Beatengasse 11, 8001, Zürich",
@@ -9243,8 +9243,8 @@
       "lat": 47.370752,
       "lon": 8.523815,
       "tags": [
-        "cocktails",
         "city",
+        "cocktails",
         "beer"
       ],
       "address": "Birmensdorferstrasse 83, 8003, Zürich",
@@ -9340,8 +9340,8 @@
       "lat": 47.3790827,
       "lon": 8.5478805,
       "tags": [
-        "cocktails",
         "city",
+        "cocktails",
         "beer"
       ],
       "address": "Universitätsstrasse 23, 8006, Zürich",
@@ -9361,8 +9361,8 @@
       "lat": 47.372296,
       "lon": 8.544277,
       "tags": [
-        "cocktails",
         "city",
+        "cocktails",
         "beer"
       ],
       "address": "Rindermarkt 6, 8001, Zürich",
@@ -9401,8 +9401,8 @@
       "lat": 47.375999,
       "lon": 8.546687,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Leonhardstrasse 34, 8092, Zürich",
       "website": "https://www.bqm-bar.ch",
@@ -9460,8 +9460,8 @@
       "lat": 47.36983,
       "lon": 8.533639,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Selnaustrasse 2, 8001, Zürich",
       "website": "https://www.2akt.ch",
@@ -9480,8 +9480,8 @@
       "lat": 47.389523,
       "lon": 8.521725,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Heinrichstrasse 262, 8005, Zürich",
       "website": "https://www.4akt.ch",
@@ -9540,8 +9540,8 @@
       "lat": 47.377908,
       "lon": 8.527082,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Brauerstrasse 42, 8004, Zürich",
       "website": "https://www.stube.me/",
@@ -9693,8 +9693,8 @@
       "lat": 47.226129,
       "lon": 8.814755,
       "tags": [
-        "cocktails",
-        "wine"
+        "wine",
+        "cocktails"
       ],
       "address": "Seequai, 8640, Rapperswil",
       "website": "https://lascala.ch/bar/",
@@ -9790,8 +9790,8 @@
       "lat": 47.225694,
       "lon": 8.815371,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Fischmarktplatz 1, 8640, Rapperswil",
       "website": "https://www.dieci.ch/de/restaurant-rapperswil",
@@ -9868,8 +9868,8 @@
       "lat": 47.375602,
       "lon": 8.524514,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Kanzleistrasse 76, 8004, Zürich",
       "website": "https://www.sport-bar.ch",
@@ -9888,8 +9888,8 @@
       "lat": 47.380803,
       "lon": 8.525709,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Schöneggplatz 9, 8004, Zürich",
       "website": "https://www.piccologiardino.ch",
@@ -9965,8 +9965,8 @@
       "lat": 47.383312,
       "lon": 8.539341,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Wasserwerkstrasse 21, 8006, Zürich",
       "website": "https://www.dynamo.ch",
@@ -10063,8 +10063,8 @@
       "lat": 47.362924,
       "lon": 8.513157,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Räffelstrasse 17, 8045, Zürich",
       "website": "https://www.binzundkunz.ch",
@@ -10121,9 +10121,9 @@
       "lat": 47.376129,
       "lon": 8.543881,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Limmatquai 138, 8001, Zürich",
       "website": "https://www.franzos.ch",
@@ -10161,8 +10161,8 @@
       "lat": 47.379194280619,
       "lon": 8.5445147306284,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Weinbergstrasse 30F1, 8006, Zürich",
       "website": "https://www.kleinefreiheit.ch",
@@ -10220,9 +10220,9 @@
       "lat": 47.371335,
       "lon": 8.516336,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Aemtlerstrasse 16, 8003, Zürich",
       "website": "https://www.cafe-pluesch.ch",
@@ -10241,9 +10241,9 @@
       "lat": 47.498901,
       "lon": 8.727264,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Spitalgasse 1, 8400, Winterthur",
       "website": "https://www.kafisatz.ch",
@@ -10262,8 +10262,8 @@
       "lat": 47.374308515032,
       "lon": 8.5336798936162,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Gessner-Allee 11, 8001, Zürich",
       "website": "http://www.ellokal.ch",
@@ -10320,8 +10320,8 @@
       "lat": 47.368385,
       "lon": 8.54203,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Stadthausquai 12, 8001, Zürich",
       "website": "https://www.barfussbar.ch",
@@ -10359,8 +10359,8 @@
       "lat": 47.382602,
       "lon": 8.54046,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Neumühlequai 42, 8006, Zürich",
       "website": "https://www.lenoxbar.ch/",
@@ -10379,8 +10379,8 @@
       "lat": 47.369291,
       "lon": 8.544011,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Kirchgasse 4, 8001, Zürich",
       "website": "https://hotel-altstadt.ch/bar/",
@@ -10399,8 +10399,8 @@
       "lat": 47.176646,
       "lon": 8.50768,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "General-Guisan-Strasse 4, 6303, Zug",
       "website": "https://www.67sportsbar.ch",
@@ -10457,9 +10457,9 @@
       "lat": 47.371556,
       "lon": 8.536285,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Pelikanplatz, 8001, Zürich",
       "website": "https://kaufleuten.ch/pelikanbar/",
@@ -10592,8 +10592,8 @@
       "lat": 47.375783,
       "lon": 8.51696,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Badenerstrasse 230, 8004, Zürich",
       "website": "https://www.lochergut.net",
@@ -10612,8 +10612,8 @@
       "lat": 47.376815,
       "lon": 8.538892,
       "tags": [
-        "cocktails",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Lintheschergasse 23, 8001, Zürich",
       "website": "http://www.konrad.bar",
@@ -10651,10 +10651,10 @@
       "lat": 47.385108,
       "lon": 8.531477,
       "tags": [
-        "cocktails",
         "city",
+        "brunch",
         "coffee",
-        "brunch"
+        "cocktails"
       ],
       "address": "Limmatplatz 7, 8005, Zürich",
       "website": "https://www.lang-zh.ch/",
@@ -10673,8 +10673,8 @@
       "lat": 47.380061,
       "lon": 8.527745,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Langstrasse 135, 8004, Zürich",
       "website": "https://www.fat-tony.ch",
@@ -10731,9 +10731,9 @@
       "lat": 47.375418,
       "lon": 8.543598,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Limmatquai 118, 8001, Zürich",
       "website": "http://www.grande-zurich.ch",
@@ -10828,10 +10828,10 @@
       "lat": 47.388487,
       "lon": 8.520687,
       "tags": [
-        "cocktails",
         "city",
         "green",
-        "park"
+        "park",
+        "cocktails"
       ],
       "address": "Hardstrasse 260, 8005, Zürich",
       "website": "https://www.aya-bar.ch/",
@@ -10850,8 +10850,8 @@
       "lat": 47.36388,
       "lon": 8.54783,
       "tags": [
-        "cocktails",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Dufourstrasse 23, 8008, Zürich",
       "website": "https://thestudio.ringier.ch/",
@@ -10889,9 +10889,9 @@
       "lat": 47.385169,
       "lon": 8.519063,
       "tags": [
-        "cocktails",
+        "swiss",
         "city",
-        "swiss"
+        "cocktails"
       ],
       "address": "Geroldstrasse 23, 8005, Zürich",
       "website": "https://www.fraugerold.ch/winter-garten",
@@ -10929,9 +10929,9 @@
       "lat": 47.419703,
       "lon": 8.434839,
       "tags": [
-        "cocktails",
-        "city",
         "swiss",
+        "city",
+        "cocktails",
         "beer"
       ],
       "address": "Zürcherstrasse 1, 8104, Weiningen",
@@ -10951,8 +10951,8 @@
       "lat": 47.386361,
       "lon": 8.528018,
       "tags": [
-        "cocktails",
         "city",
+        "cocktails",
         "beer"
       ],
       "address": "Fabrikstrasse 23, 8005, Zürich",
@@ -10992,9 +10992,9 @@
       "lat": 47.375597,
       "lon": 8.544109,
       "tags": [
-        "cocktails",
+        "swiss",
         "city",
-        "swiss"
+        "cocktails"
       ],
       "address": "Niederdorfstrasse 66, 8001, Zürich",
       "website": "https://www.graebli-bar.ch",
@@ -11051,8 +11051,8 @@
       "lat": 47.386091,
       "lon": 8.517271,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Hardstrasse 201, 8005, Zürich",
       "website": "https://www.hotelrivingtonandsons.ch",
@@ -11071,10 +11071,10 @@
       "lat": 47.374664,
       "lon": 8.539108,
       "tags": [
-        "cocktails",
-        "city",
         "asian",
-        "brunch"
+        "city",
+        "brunch",
+        "cocktails"
       ],
       "address": "Bahnhofstrasse 74, 8001, Zürich",
       "website": "https://www.ooo-zh.ch",
@@ -11093,9 +11093,9 @@
       "lat": 47.375826,
       "lon": 8.543866,
       "tags": [
-        "cocktails",
+        "swiss",
         "city",
-        "swiss"
+        "cocktails"
       ],
       "address": "Limmatquai 132, 8001, Zürich",
       "website": "https://bierhalle-wolf.ch/",
@@ -11133,9 +11133,9 @@
       "lat": 47.374524,
       "lon": 8.522112,
       "tags": [
-        "cocktails",
+        "wine",
         "city",
-        "wine"
+        "cocktails"
       ],
       "address": "Badenerstrasse 156, 8004, Zürich",
       "website": "https://www.vagabundo.ch/",
@@ -11173,9 +11173,9 @@
       "lat": 47.390729,
       "lon": 8.510124,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Pfingstweidstrasse 100, 8005, Zürich",
       "website": "https://www.routetwentysix.ch/",
@@ -11232,8 +11232,8 @@
       "lat": 47.373231,
       "lon": 8.532682,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Sihlstrasse 50, 8001, Zürich",
       "website": "https://www.george-grill.ch",
@@ -11252,8 +11252,8 @@
       "lat": 47.391693,
       "lon": 8.511777,
       "tags": [
-        "cocktails",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Förrlibuckstrasse 109, 8005, Zürich",
       "website": "https://www.mehrspur.ch",
@@ -11272,8 +11272,8 @@
       "lat": 47.478839,
       "lon": 8.310525,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Haselstrasse 2, 5400, Baden",
       "website": "https://www.grandcasinobaden.ch/",
@@ -11292,9 +11292,9 @@
       "lat": 47.358135,
       "lon": 8.547893,
       "tags": [
-        "cocktails",
+        "italian",
         "city",
-        "italian"
+        "cocktails"
       ],
       "address": "Seefeldquai 51, 8008, Zürich",
       "website": "https://www.restaurant-kiosk.ch",
@@ -11351,8 +11351,8 @@
       "lat": 47.370801,
       "lon": 8.543775,
       "tags": [
-        "cocktails",
-        "wine"
+        "wine",
+        "cocktails"
       ],
       "address": "Nägelihof 3, 8001, Zürich",
       "website": "https://www.bar-lephilosophe.ch/",
@@ -11371,8 +11371,8 @@
       "lat": 47.372231,
       "lon": 8.539917,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Widdergasse 6, 8001, Zürich",
       "website": "https://www.widderhotel.com/de/restaurants/widder-bar/",
@@ -11391,9 +11391,9 @@
       "lat": 47.373377,
       "lon": 8.543257,
       "tags": [
-        "cocktails",
+        "wine",
         "city",
-        "wine"
+        "cocktails"
       ],
       "address": "Niederdorfstrasse 13, 8001, Zürich",
       "website": "http://www.hirschen-zuerich.ch",
@@ -11412,8 +11412,8 @@
       "lat": 47.37299,
       "lon": 8.543818,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Niederdorfstrasse 10, 8001, Zürich",
       "website": "https://www.brasserie-louis.ch",
@@ -11432,8 +11432,8 @@
       "lat": 47.391926,
       "lon": 8.518795,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Hardturmstrasse 66, 8005, Zürich",
       "website": "https://www.spheres.cc",
@@ -11452,8 +11452,8 @@
       "lat": 47.268018,
       "lon": 8.640484,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Seestrasse 595, 8706, Meilen",
       "website": "https://www.loewen-meilen.ch",
@@ -11472,9 +11472,9 @@
       "lat": 47.371883,
       "lon": 8.542614,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Limmatquai 61, 8001, Zürich",
       "website": "http://www.rathauscafe.ch",
@@ -11493,8 +11493,8 @@
       "lat": 47.374283,
       "lon": 8.544464,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Mühlegasse 15, 8001, Zürich",
       "website": "https://www.predigerhof.ch",
@@ -11513,9 +11513,9 @@
       "lat": 47.193486,
       "lon": 8.851502,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Hafenstrasse 4, 8853, Lachen",
       "website": "https://www.marinalachen.ch/de/essen-and-trinken/lago-lounge/",
@@ -11534,8 +11534,8 @@
       "lat": 47.365512,
       "lon": 8.547342,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Sechseläutenplatz 10, 8001, Zürich",
       "website": "https://www.brasserie-schiller.ch",
@@ -11554,8 +11554,8 @@
       "lat": 47.371541,
       "lon": 8.532899,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Badweg 10, 8001, Zürich",
       "website": "https://www.rimini.ch",
@@ -11593,8 +11593,8 @@
       "lat": 47.375144,
       "lon": 8.534926,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Gessnerallee 8, 8001, Zürich",
       "website": null,
@@ -11613,10 +11613,10 @@
       "lat": 47.373517,
       "lon": 8.543945,
       "tags": [
-        "sushi",
-        "cocktails",
+        "asian",
         "city",
-        "asian"
+        "cocktails",
+        "sushi"
       ],
       "address": "Spitalgasse 3, 8001, Zürich",
       "website": "https://www.barfuesser.ch",
@@ -11635,10 +11635,10 @@
       "lat": 47.386803,
       "lon": 8.533881,
       "tags": [
-        "cocktails",
         "city",
         "green",
-        "park"
+        "park",
+        "cocktails"
       ],
       "address": "Wasserwerkstrasse 89A, 8037, Zürich",
       "website": "https://www.stazioneparadiso.ch",
@@ -11657,9 +11657,9 @@
       "lat": 47.3617,
       "lon": 8.536701,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Mythenquai 9, 8002, Zürich",
       "website": "https://www.seebadenge.ch/wp/barkiosk",
@@ -11678,9 +11678,9 @@
       "lat": 47.376312,
       "lon": 8.535695,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Gessnerallee 17, 8001, Zürich",
       "website": "https://www.riozurich.ch",
@@ -11699,9 +11699,9 @@
       "lat": 47.391225,
       "lon": 8.535997,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Kornhausstrasse 57, 8037, Zürich",
       "website": "https://www.kafischnaps.ch",
@@ -11720,8 +11720,8 @@
       "lat": 47.374238,
       "lon": 8.539406,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Uraniastrasse 9, 8001, Zürich",
       "website": "https://www.jules-verne.ch",
@@ -11740,8 +11740,8 @@
       "lat": 47.385169,
       "lon": 8.519063,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Geroldstrasse 23, 8005, Zürich",
       "website": "https://www.fraugerold.ch",
@@ -11779,8 +11779,8 @@
       "lat": 47.365923,
       "lon": 8.546716,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Theaterstrasse 9, 8001, Zürich",
       "website": "https://www.collana-bar-caffe.ch/",
@@ -11799,8 +11799,8 @@
       "lat": 47.367861,
       "lon": 8.542393,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Stadthausquai 2, 8001, Zürich",
       "website": "https://www.bauschaenzli.com",
@@ -11879,8 +11879,8 @@
       "lat": 47.416239,
       "lon": 8.591636,
       "tags": [
-        "cocktails",
         "city",
+        "cocktails",
         "burger"
       ],
       "address": "Zentralstrasse 4, 8304, Wallisellen",
@@ -11941,8 +11941,8 @@
       "lat": 47.376282,
       "lon": 8.53861,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "burger"
       ],
       "address": "Lintheschergasse 15, 8001, Zürich",
@@ -12022,8 +12022,8 @@
       "lat": 47.32662,
       "lon": 8.529149,
       "tags": [
-        "city",
         "italian",
+        "city",
         "burger"
       ],
       "address": "Zürichstrasse 105, 8134, Adliswil",
@@ -13190,9 +13190,9 @@
       "lat": 47.385558,
       "lon": 8.519937,
       "tags": [
-        "cocktails",
+        "asian",
         "city",
-        "asian"
+        "cocktails"
       ],
       "address": "Geroldstrasse 15, 8005, Zürich",
       "website": "https://www.bar-studio.ch/",
@@ -13211,8 +13211,8 @@
       "lat": 47.38328,
       "lon": 8.528361,
       "tags": [
-        "city",
         "asian",
+        "city",
         "vegan"
       ],
       "address": "Neugasse 76, 8005, Zürich",
@@ -13232,8 +13232,8 @@
       "lat": 47.380755,
       "lon": 8.504059,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Badenerstrasse 457, 8003, Zürich",
       "website": "http://ooki.tokyo/",
@@ -13252,8 +13252,8 @@
       "lat": 47.2295968,
       "lon": 8.8365823,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "St. Gallerstrasse 30, 8645, Jona",
       "website": "https://www.loasia.ch/de/",
@@ -13272,8 +13272,8 @@
       "lat": 47.362891,
       "lon": 8.547255,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Utoquai 45, 8008, Zürich",
       "website": "https://www.lareserve-zurich.com/restaurants/la-muna/",
@@ -13292,8 +13292,8 @@
       "lat": 47.390316,
       "lon": 8.517239,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Giessereistrasse 18, 8005, Zürich",
       "website": "https://www.restaurant-angkor.ch",
@@ -13312,8 +13312,8 @@
       "lat": 47.379187,
       "lon": 8.532261,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Europaallee 48, 8004, Zürich",
       "website": "https://www.miss-miu.ch",
@@ -13332,9 +13332,9 @@
       "lat": 47.361839,
       "lon": 8.550687,
       "tags": [
-        "sushi",
+        "asian",
         "city",
-        "asian"
+        "sushi"
       ],
       "address": "Seefeldstrasse 62, 8008, Zürich",
       "website": "http://ginger-restaurant.ch/",
@@ -13353,9 +13353,9 @@
       "lat": 47.370564,
       "lon": 8.535787,
       "tags": [
-        "sushi",
+        "asian",
         "city",
-        "asian"
+        "sushi"
       ],
       "address": "Talstrasse 62, 8001, Zürich",
       "website": "https://www.edomae.ch",
@@ -13374,9 +13374,9 @@
       "lat": 47.374105,
       "lon": 8.525102,
       "tags": [
-        "sushi",
+        "asian",
         "city",
-        "asian"
+        "sushi"
       ],
       "address": "Badenerstrasse 101, 8004, Zürich",
       "website": "https://www.nooch.ch/zuerich-badenerstrasse",
@@ -13395,9 +13395,9 @@
       "lat": 47.370859,
       "lon": 8.543476,
       "tags": [
-        "sushi",
+        "asian",
         "city",
-        "asian"
+        "sushi"
       ],
       "address": "Nägelihof 1, 8001, Zürich",
       "website": "https://www.negishi.ch/zuerich-niederdorf",
@@ -13416,9 +13416,9 @@
       "lat": 47.222831,
       "lon": 8.823102,
       "tags": [
-        "green",
-        "city",
         "asian",
+        "city",
+        "green",
         "park"
       ],
       "address": "Oberseestrasse 42, 8640, Rapperswil",
@@ -13438,8 +13438,8 @@
       "lat": 47.38376,
       "lon": 8.528469,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Gasometerstrasse 7, 8005, Zürich",
       "website": "https://www.cochinchin.ch",
@@ -13458,8 +13458,8 @@
       "lat": 47.36506,
       "lon": 8.532857,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Alfred Escher-Strasse 11, 8002, Zürich",
       "website": "https://www.veesbistro.ch",
@@ -13478,8 +13478,8 @@
       "lat": 47.381869,
       "lon": 8.532717,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Josefstrasse 48, 8005, Zürich",
       "website": "https://wesleys-kitchen.ch/",
@@ -13498,8 +13498,8 @@
       "lat": 47.374971,
       "lon": 8.528924,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Bäckerstrasse 37, 8004, Zürich",
       "website": "http://www.ikoo.ch",
@@ -13518,9 +13518,9 @@
       "lat": 47.408614,
       "lon": 8.537603,
       "tags": [
+        "swiss",
         "city",
         "italian",
-        "swiss",
         "asian"
       ],
       "address": "Birchstrasse 108, 8050, Zürich-Oerlikon",
@@ -13540,8 +13540,8 @@
       "lat": 47.410509,
       "lon": 8.548421,
       "tags": [
-        "city",
         "asian",
+        "city",
         "vegan"
       ],
       "address": "Wallisellenstrasse 11, 8050, Zürich",
@@ -13561,8 +13561,8 @@
       "lat": 47.354878,
       "lon": 8.551695,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Bellerivestrasse 138, 8008, Zürich",
       "website": "https://chinagarten-zuerich.ch/",
@@ -13581,8 +13581,8 @@
       "lat": 47.372992,
       "lon": 8.532753,
       "tags": [
-        "city",
-        "asian"
+        "asian",
+        "city"
       ],
       "address": "Sihlstrasse 97, 8001, Zürich",
       "website": "http://www.saigon.ch",
@@ -14877,8 +14877,8 @@
       "lat": 47.377819,
       "lon": 8.527274,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Brauerstrasse 36, 8004, Zürich",
       "website": "https://www.stereo-bar.ch/",
@@ -14897,8 +14897,8 @@
       "lat": 47.363861,
       "lon": 8.532296,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Tessinerplatz 9, 8002, Zürich",
       "website": "https://choupette.zuerich/",
@@ -14917,8 +14917,8 @@
       "lat": 47.378441,
       "lon": 8.528828,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Zwinglistrasse 22, 8004, Zürich",
       "website": "https://www.otro.bar/",
@@ -14937,9 +14937,9 @@
       "lat": 47.372436554362,
       "lon": 8.5203572509261,
       "tags": [
-        "cocktails",
+        "wine",
         "city",
-        "wine"
+        "cocktails"
       ],
       "address": "Weststrasse 112, 8003, Zürich",
       "website": "http://corwineandpintxos.com/",
@@ -14958,9 +14958,9 @@
       "lat": 47.378866630322,
       "lon": 8.5318037625659,
       "tags": [
-        "cocktails",
+        "wine",
         "city",
-        "wine"
+        "cocktails"
       ],
       "address": "Lagerstrasse 48, 8004, Zürich",
       "website": "http://www.yamas.ch/",
@@ -14979,9 +14979,9 @@
       "lat": 47.372848046135,
       "lon": 8.5457812153443,
       "tags": [
-        "cocktails",
+        "wine",
         "city",
-        "wine"
+        "cocktails"
       ],
       "address": "Neumarkt 5, 8001, Zürich",
       "website": "https://hundertwein.ch/",
@@ -15000,9 +15000,9 @@
       "lat": 47.374033515058,
       "lon": 8.5181293441744,
       "tags": [
-        "cocktails",
+        "wine",
         "city",
-        "wine"
+        "cocktails"
       ],
       "address": "Weststrasse 169, 8003, Zürich",
       "website": "http://www.169west.ch/",
@@ -15021,9 +15021,9 @@
       "lat": 47.386324115865,
       "lon": 8.5291226092208,
       "tags": [
-        "cocktails",
+        "wine",
         "city",
-        "wine"
+        "cocktails"
       ],
       "address": "Quellenstrasse 49, 8005, Zürich",
       "website": "https://familiebetrieb.ch/",
@@ -15042,9 +15042,9 @@
       "lat": 47.37928423671,
       "lon": 8.5253841871759,
       "tags": [
-        "cocktails",
+        "wine",
         "city",
-        "wine"
+        "cocktails"
       ],
       "address": "Nietengasse 1, 8001, Zürich",
       "website": "https://www.gamper-bar.ch/",
@@ -15063,8 +15063,8 @@
       "lat": 47.371501517752,
       "lon": 8.5203184269907,
       "tags": [
-        "cocktails",
         "city",
+        "cocktails",
         "beer"
       ],
       "address": "Zweierstrasse 124, 8003, Zürich",
@@ -15103,9 +15103,9 @@
       "lat": 47.376235182128,
       "lon": 8.5370428767081,
       "tags": [
-        "cocktails",
-        "city",
         "italian",
+        "city",
+        "cocktails",
         "wine"
       ],
       "address": "Löwenstrasse 42, 8001, Zürich",
@@ -15125,8 +15125,8 @@
       "lat": 47.379453,
       "lon": 8.531604,
       "tags": [
-        "cocktails",
         "city",
+        "cocktails",
         "beer"
       ],
       "address": "Gustav-Gull-Platz 10, 8004, Zürich",
@@ -15146,10 +15146,10 @@
       "lat": 47.382726,
       "lon": 8.539906,
       "tags": [
-        "cocktails",
         "city",
         "green",
-        "park"
+        "park",
+        "cocktails"
       ],
       "address": "Kloster Fahr-Weg, 8006, Zürich",
       "website": "https://gump-letten.ch/de/",
@@ -15168,9 +15168,9 @@
       "lat": 47.395173,
       "lon": 8.479122,
       "tags": [
-        "cocktails",
-        "city",
         "italian",
+        "city",
+        "cocktails",
         "beer"
       ],
       "address": "Vulkanstrasse 130, 8048, Zürich-Altstetten",
@@ -15207,9 +15207,9 @@
       "lat": 47.184101,
       "lon": 8.836953,
       "tags": [
-        "cocktails",
+        "swiss",
         "city",
-        "swiss"
+        "cocktails"
       ],
       "address": "Burgweg 22, 8852, Altendorf",
       "website": "https://www.johannisburg.ch/",
@@ -15228,8 +15228,8 @@
       "lat": 47.227665,
       "lon": 8.825188,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Neue Jonastrasse 66, 8640, Rapperswil",
       "website": "https://www.marriott.com/hotels/travel/zrhox-moxy-rapperswil/",
@@ -15248,8 +15248,8 @@
       "lat": 47.376168,
       "lon": 8.54138,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Beatenplatz 4, 8001, Zürich",
       "website": "https://dupont.ch/",
@@ -15268,10 +15268,10 @@
       "lat": 47.4122862,
       "lon": 8.542828,
       "tags": [
-        "cocktails",
         "city",
         "green",
-        "park"
+        "park",
+        "cocktails"
       ],
       "address": "Max Frisch Platz 25a, 8050, Zürich",
       "website": "https://www.zumfrischenmax.ch",
@@ -15290,8 +15290,8 @@
       "lat": 47.372021,
       "lon": 8.543655,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Marktgasse 17, 8001, Zürich",
       "website": "https://www.igniv.com/zrich",
@@ -15310,8 +15310,8 @@
       "lat": 47.371266,
       "lon": 8.541794,
       "tags": [
-        "cocktails",
-        "city"
+        "city",
+        "cocktails"
       ],
       "address": "Weinplatz 2, 8001, Zürich",
       "website": "https://storchen.ch/de/restaurants-bars/barchetta",
@@ -15330,10 +15330,10 @@
       "lat": 47.367112,
       "lon": 8.539343,
       "tags": [
-        "cocktails",
+        "swiss",
         "city",
         "italian",
-        "swiss"
+        "cocktails"
       ],
       "address": "Talstrasse 1, 8001, Zürich",
       "website": "https://www.baurs-zurich.ch",
@@ -15352,9 +15352,9 @@
       "lat": 47.373723,
       "lon": 8.542981,
       "tags": [
-        "cocktails",
         "city",
-        "coffee"
+        "coffee",
+        "cocktails"
       ],
       "address": "Limmatquai 86, 8001, Zürich",
       "website": "https://www.01bar.ch",
@@ -15373,8 +15373,8 @@
       "lat": 47.382887,
       "lon": 8.528711,
       "tags": [
-        "cocktails",
         "city",
+        "cocktails",
         "beer"
       ],
       "address": "Luisenstrasse 7, 8005, Zürich",
@@ -15394,9 +15394,9 @@
       "lat": 47.367384,
       "lon": 8.545854,
       "tags": [
-        "cocktails",
+        "swiss",
         "city",
-        "swiss"
+        "cocktails"
       ],
       "address": "Freieckgasse 7, 8001, Zürich",
       "website": "https://www.rosalys.ch",
@@ -15434,9 +15434,9 @@
       "lat": 47.376387,
       "lon": 8.540071,
       "tags": [
-        "cocktails",
+        "wine",
         "city",
-        "wine"
+        "cocktails"
       ],
       "address": "Schützengasse 12, 8002, Zürich",
       "website": "https://www.d-vino.ch",
@@ -15493,9 +15493,9 @@
       "lat": 47.366179,
       "lon": 8.547723,
       "tags": [
+        "italian",
         "city",
         "green",
-        "italian",
         "park"
       ],
       "address": "Stadelhoferplatz, 8001, Zürich",
@@ -15535,8 +15535,8 @@
       "lat": 47.381651,
       "lon": 8.49532,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Flüelastrasse 31, 8047, Zürich",
       "website": "https://www.minimum.ch",
@@ -16971,8 +16971,8 @@
       "lat": 47.3516954,
       "lon": 8.560916,
       "tags": [
-        "brunch",
         "city",
+        "brunch",
         "coffee"
       ],
       "address": "Seefeldstrasse 231, 8008, Zürich",
@@ -16993,8 +16993,8 @@
       "lon": 8.543685,
       "tags": [
         "city",
-        "coffee",
-        "brunch"
+        "brunch",
+        "coffee"
       ],
       "address": "Stampfenbachstrasse 30, 8006, Zürich",
       "website": "https://www.baeckereiwuest.ch",
@@ -17211,8 +17211,8 @@
       "lat": 47.37295228241,
       "lon": 8.5249428349475,
       "tags": [
-        "brunch",
         "city",
+        "brunch",
         "coffee"
       ],
       "address": "Gartenhofstrasse 24, 8004, Zürich",
@@ -17232,8 +17232,8 @@
       "lat": 47.392509273127,
       "lon": 8.5110828460347,
       "tags": [
-        "brunch",
         "city",
+        "brunch",
         "coffee"
       ],
       "address": " Förrlibuckstrasse 160, 8005, Zürich",
@@ -17253,8 +17253,8 @@
       "lat": 47.354863763913,
       "lon": 8.5581259288362,
       "tags": [
-        "brunch",
         "city",
+        "brunch",
         "coffee"
       ],
       "address": "Wildbachstrasse 68, 8008, Zürich",
@@ -17351,8 +17351,8 @@
       "lat": 47.226732,
       "lon": 8.815822,
       "tags": [
-        "brunch",
         "city",
+        "brunch",
         "coffee"
       ],
       "address": "Strehlgasse 4, 8640, Rapperswil SG",
@@ -17373,8 +17373,8 @@
       "lon": 8.539159,
       "tags": [
         "city",
-        "coffee",
-        "brunch"
+        "brunch",
+        "coffee"
       ],
       "address": "Bahnhofstrasse 21, 8001, Zürich",
       "website": "https://www.spruengli.ch",
@@ -17393,8 +17393,8 @@
       "lat": 47.373094,
       "lon": 8.534363,
       "tags": [
-        "brunch",
         "city",
+        "brunch",
         "coffee"
       ],
       "address": "Löwenstrasse 1, 8001, Zürich",
@@ -17414,8 +17414,8 @@
       "lat": 47.378543,
       "lon": 8.509165,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "brunch"
       ],
       "address": "Badenerstrasse 357, 8003, Zürich",
@@ -17436,8 +17436,8 @@
       "lon": 8.536109,
       "tags": [
         "city",
-        "coffee",
-        "brunch"
+        "brunch",
+        "coffee"
       ],
       "address": "Nordstrasse 88, 8037, Zürich",
       "website": "http://www.desamis.ch",
@@ -17477,8 +17477,8 @@
       "lon": 8.543608,
       "tags": [
         "city",
-        "coffee",
-        "brunch"
+        "brunch",
+        "coffee"
       ],
       "address": "Niederdorfstrasse 1, 8001, Zürich",
       "website": "https://www.cafe-henrici.ch",
@@ -17926,9 +17926,9 @@
       "lat": 47.378436,
       "lon": 8.539962,
       "tags": [
-        "vegan",
         "city",
-        "coffee"
+        "coffee",
+        "vegan"
       ],
       "address": "Museumstrasse 1, 8001, Zürich",
       "website": "https://www.bakerybakery.ch/",
@@ -18107,8 +18107,8 @@
       "lat": 47.372316,
       "lon": 8.542959,
       "tags": [
-        "city",
         "italian",
+        "city",
         "coffee"
       ],
       "address": "Limmatquai 66, 8001, Zürich",
@@ -18758,9 +18758,9 @@
       "lat": 47.28521606433,
       "lon": 8.9939813514453,
       "tags": [
+        "swiss",
         "city",
         "green",
-        "swiss",
         "park"
       ],
       "address": "Au 730, 8735, St. Gallenkappel",
@@ -19001,8 +19001,8 @@
       "lat": 47.37476,
       "lon": 8.517336,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Weststrasse 192, 8003, Zürich",
       "website": "https://www.graziezurigo.ch/",
@@ -19021,8 +19021,8 @@
       "lat": 47.386869410178,
       "lon": 8.5209654583397,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Neue Hard 10, 8005, Zürich",
       "website": "https://www.restaurantkantine.ch/",
@@ -19041,8 +19041,8 @@
       "lat": 47.367463332263,
       "lon": 8.5676851288349,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Hitzigweg 15, 8032, Zürich",
       "website": "https://www.sonnenberg-zurich.ch/",
@@ -19061,8 +19061,8 @@
       "lat": 47.371718351007,
       "lon": 8.5433034644181,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Limmatquai 54, 8001, Zürich",
       "website": "https://ristorante-zafferano.ch/",
@@ -19140,8 +19140,8 @@
       "lat": 47.135835715114,
       "lon": 8.7467785386695,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Alpstrasse 6, 8840, Einsiedeln",
       "website": "https://www.milchmanufaktur.ch",
@@ -19237,8 +19237,8 @@
       "lat": 47.3530142,
       "lon": 8.5506015,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "vegan"
       ],
       "address": "Bellerivestrasse 160, 8008, Zürich",
@@ -19277,8 +19277,8 @@
       "lat": 47.3326286,
       "lon": 8.5443278,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Seestrasse 30, 8802, Kilchberg",
       "website": "https://www.hafenbeiz.ch",
@@ -19354,8 +19354,8 @@
       "lat": 47.352287,
       "lon": 8.508398,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Uetlibergstrasse 341, 8045, Zürich",
       "website": "http://www.albisguetli.ch",
@@ -19431,8 +19431,8 @@
       "lat": 47.2033725,
       "lon": 8.7898408372727,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Seedammstrasse 3, 8808, Pfäffikon",
       "website": "https://seedamm-plaza.ch/de/essen-ausgehen/restaurant-olea",
@@ -19470,8 +19470,8 @@
       "lat": 47.373913,
       "lon": 8.528368,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Stauffacherstrasse 37, 8004, Zürich",
       "website": "https://www.rosso-arancio.ch",
@@ -19490,8 +19490,8 @@
       "lat": 47.217775,
       "lon": 8.778867,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Insel Ufnau, 8808, Pfäffikon",
       "website": "https://www.inselufnau.ch/",
@@ -19510,8 +19510,8 @@
       "lat": 47.367278,
       "lon": 8.545563,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Theaterstrasse 22, 8001, Zürich",
       "website": "https://www.sternengrill.ch/restaurant-mit-seeblick",
@@ -19549,8 +19549,8 @@
       "lat": 47.376444,
       "lon": 8.544161,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Limmatquai 142, 8001, Zürich",
       "website": "https://www.weinstube1923.ch",
@@ -19569,8 +19569,8 @@
       "lat": 47.368861,
       "lon": 8.545618,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "vegan"
       ],
       "address": "Oberdorfstrasse 20, 8001, Zürich",
@@ -19837,8 +19837,8 @@
       "lat": 47.239821,
       "lon": 8.804619,
       "tags": [
-        "city",
-        "wine"
+        "wine",
+        "city"
       ],
       "address": "Zürcherstrasse 275, 8645, Rapperswil-Jona",
       "website": "https://hoecklistein.ch/",
@@ -19857,8 +19857,8 @@
       "lat": 47.388696,
       "lon": 8.520129,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Hardstrasse 259, 8005, Zürich",
       "website": "https://www.piu-ristorante.ch/piu-schiffbau",
@@ -19896,8 +19896,8 @@
       "lat": 47.37973,
       "lon": 8.5372,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Zollstrasse 2, 8005, Zürich",
       "website": "https://www.vorbahnhof.ch",
@@ -19916,8 +19916,8 @@
       "lat": 47.463549,
       "lon": 8.553205,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Flughafen Zürich, 8058, Zürich-Flughafen",
       "website": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-zurich-airport/restaurant-bar/filini",
@@ -19936,8 +19936,8 @@
       "lat": 47.451351,
       "lon": 8.583697,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Kirchgasse 16, 8302, Kloten",
       "website": "https://www.baraccazermatt.ch",
@@ -19956,8 +19956,8 @@
       "lat": 47.225654,
       "lon": 8.816362,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Fischmarktstrasse 4, 8640, Rapperswil",
       "website": "https://www.marcospastabar.com/",
@@ -19976,8 +19976,8 @@
       "lat": 47.372381,
       "lon": 8.54393,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Rindermarkt 1, 8001, Zürich",
       "website": "https://www.raclette-factory.ch",
@@ -19996,8 +19996,8 @@
       "lat": 47.382296,
       "lon": 8.588136,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Tobelhofstrasse 236, 8044, Zürich",
       "website": "https://www.tobelhof.ch",
@@ -20016,8 +20016,8 @@
       "lat": 47.375051,
       "lon": 8.544458,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Zähringerstrasse 21, 8001, Zürich",
       "website": "https://www.fonduegondel.ch",
@@ -20056,8 +20056,8 @@
       "lat": 47.386982,
       "lon": 8.501441,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Hohlstrasse 449, 8048, Zürich",
       "website": "https://www.daangela.ch",
@@ -20076,8 +20076,8 @@
       "lat": 47.66619,
       "lon": 8.615053,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "8847, Dachsen",
       "website": "https://www.schlosslaufen.ch/de/restaurant/",
@@ -20192,8 +20192,8 @@
       "lat": 47.373809,
       "lon": 8.529698,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Lutherstrasse 4, 8004, Zürich",
       "website": "https://pucis.ch/",
@@ -20251,8 +20251,8 @@
       "lat": 47.36067,
       "lon": 8.549992,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Mainaustrasse 23, 8008, Zürich",
       "website": "https://www.bindella.ch/de/amalfi.html",
@@ -20271,8 +20271,8 @@
       "lat": 47.37006,
       "lon": 8.539826,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Waaggasse 5, 8001, Zürich",
       "website": "https://www.bindella.ch/de/santa-lucia-paradeplatz.html",
@@ -20291,8 +20291,8 @@
       "lat": 47.364507,
       "lon": 8.547412,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Dufourstrasse 1, 8008, Zürich",
       "website": "https://www.bindella.ch/de/conti.html",
@@ -20311,8 +20311,8 @@
       "lat": 47.370685,
       "lon": 8.540643,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "In Gassen 6, 8001, Zürich",
       "website": "https://www.bindella.ch/gastronomie/bindella-zuerich",
@@ -20331,8 +20331,8 @@
       "lat": 47.373487,
       "lon": 8.543635,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Niederdorfstrasse 15, 8001, Zürich",
       "website": "https://www.bindella.ch/gastronomie/vallocaia",
@@ -20351,8 +20351,8 @@
       "lat": 47.372988,
       "lon": 8.543659,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Niederdorfstrasse 7, 8001, Zürich",
       "website": "https://www.bindella.ch/gastronomie/trattoria-sempre",
@@ -20371,8 +20371,8 @@
       "lat": 47.376936,
       "lon": 8.534873,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Kasernenstrasse 95, 8004, Zürich",
       "website": "https://www.piu-ristorante.ch",
@@ -20391,8 +20391,8 @@
       "lat": 47.372206,
       "lon": 8.543744,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Marktgasse 21, 8001, Zürich",
       "website": "https://www.bindella.ch/de/santa-lucia-niederdorf.html",
@@ -20411,8 +20411,8 @@
       "lat": 47.366393,
       "lon": 8.546744,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Theaterstrasse 10, 8001, Zürich",
       "website": "https://www.bindella.ch/de/santa-lucia-corso.html",
@@ -20431,8 +20431,8 @@
       "lat": 47.372906,
       "lon": 8.54366,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Niederdorfstrasse 5, 8001, Zürich",
       "website": "https://www.spaghetti-factory.ch",
@@ -20451,8 +20451,8 @@
       "lat": 47.382455,
       "lon": 8.567144,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Orellistrasse 21, 8044, Zürich",
       "website": "https://chalet-zueriberg.ch/",
@@ -20471,8 +20471,8 @@
       "lat": 47.244426,
       "lon": 9.0619028,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Alp Egg 5, 8737, Uetliburg SG ",
       "website": "https://alp-egg.ch/",
@@ -20491,8 +20491,8 @@
       "lat": 47.370019,
       "lon": 8.54035,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Münsterhof 6, 8001, Zürich",
       "website": "https://www.muensterhoefli.ch/",
@@ -20511,8 +20511,8 @@
       "lat": 47.387604,
       "lon": 8.526029,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Limmatstrasse 231, 8005, Zürich",
       "website": "https://www.restaurant-maha.ch",
@@ -20531,8 +20531,8 @@
       "lat": 47.376697,
       "lon": 8.538837,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Lintheschergasse 21, 8001, Zürich",
       "website": "https://www.walliserkanne-zuerich.ch",
@@ -20551,8 +20551,8 @@
       "lat": 47.374501,
       "lon": 8.516811,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Sihlfeldstrasse 45, 8003, Zürich",
       "website": "https://www.santozurigo.ch/",
@@ -20609,8 +20609,8 @@
       "lat": 47.37126,
       "lon": 8.537618,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Nüschelerstrasse 6, 8001, Zürich",
       "website": "http://www.labottegadimario.ch/",
@@ -20629,8 +20629,8 @@
       "lat": 47.369047,
       "lon": 8.543959,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Limmatquai 16, 8001, Zürich",
       "website": "https://www.molino.ch/de/pizzeria-ristorante-molino-select",
@@ -20649,8 +20649,8 @@
       "lat": 47.36088,
       "lon": 8.54789,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Bellerivestrasse 2, 8008, Zürich",
       "website": "https://ristorantefrascati.ch/",
@@ -20669,8 +20669,8 @@
       "lat": 47.422517,
       "lon": 8.559131,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Dufaux-Strasse 1, 8152, Glattpark/Zürich",
       "website": "https://www.kamehagrandzuerich.com/restaurants-bar-lounges/lunico/",
@@ -20689,8 +20689,8 @@
       "lat": 47.379821,
       "lon": 8.543378,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Stampfenbachstrasse 38, 8006, Zürich",
       "website": "https://www.casaferlin.ch",
@@ -20729,8 +20729,8 @@
       "lat": 47.367213,
       "lon": 8.544765,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Bellevue, 8001, Zürich",
       "website": "https://extrafahrten.vbz.ch/genuss-linie/fondue-tram-2024-2025/",
@@ -20768,8 +20768,8 @@
       "lat": 47.375348,
       "lon": 8.545875,
       "tags": [
-        "city",
         "swiss",
+        "city",
         "vegan"
       ],
       "address": "Hirschengraben 64, 8001, Zürich",
@@ -20789,8 +20789,8 @@
       "lat": 47.391053,
       "lon": 8.509905,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Pfingstweidstrasse 102, 8005, Zürich",
       "website": "https://www.ribelli-restaurant.com/de/zurich/",
@@ -20867,8 +20867,8 @@
       "lat": 47.409735,
       "lon": 8.546034,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Schaffhauserstrasse 353 , 8050, Zürich",
       "website": "https://pucis.ch/",
@@ -20925,8 +20925,8 @@
       "lat": 47.387163,
       "lon": 8.528489,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Fabrikstrasse 12, 8005, Zürich",
       "website": "https://www.restaurantalpenrose.ch",
@@ -20945,8 +20945,8 @@
       "lat": 47.36666,
       "lon": 8.541522,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Bürkliplatz, 8001, Zürich",
       "website": "http://www.zsg.ch",
@@ -20965,8 +20965,8 @@
       "lat": 47.362484,
       "lon": 8.526751,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Brandschenkestrasse 177, 8002, Zürich-Enge",
       "website": "https://www.bederhof.ch",
@@ -20985,8 +20985,8 @@
       "lat": 47.319225,
       "lon": 8.578865,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Seestrasse 120, 8700, Küsnacht",
       "website": "https://sonne.ch/de/Restaurant-und-Bar",
@@ -21005,8 +21005,8 @@
       "lat": 47.373078,
       "lon": 8.531637,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Stauffacherquai 1, 8004, Zürich",
       "website": "https://hotel-helvetia.ch/restaurant",
@@ -21025,8 +21025,8 @@
       "lat": 47.225513,
       "lon": 8.992255,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Rickenstrasse 55, 8730, Uznach",
       "website": "https://www.aussicht.ch/",
@@ -21045,8 +21045,8 @@
       "lat": 47.262867,
       "lon": 8.966526,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "8638, Goldingen",
       "website": "https://www.atzmaennig.ch/de/gastronomie/bergrestaurant-atzmaennig-harz/",
@@ -21065,8 +21065,8 @@
       "lat": 47.214387983193,
       "lon": 8.8060396503884,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Hurdnerstrasse 137, 8640, Hurden",
       "website": "https://purhurden.ch/",
@@ -21085,8 +21085,8 @@
       "lat": 47.238881,
       "lon": 8.718663,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Seestrasse 48, 8712, Stäfa",
       "website": "https://www.schuetzenhaus-staefa.ch",
@@ -21105,8 +21105,8 @@
       "lat": 47.373134,
       "lon": 8.543482,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Rosengasse 10, 8001, Zürich",
       "website": "https://www.hotel-adler.ch",
@@ -21125,8 +21125,8 @@
       "lat": 47.262819,
       "lon": 8.966558,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "8638, Goldingen",
       "website": "https://www.atzmaennig.ch",
@@ -21145,8 +21145,8 @@
       "lat": 47.264364,
       "lon": 8.655994,
       "tags": [
-        "city",
-        "italian"
+        "italian",
+        "city"
       ],
       "address": "Seestrasse 856, 8706, Obermeilen",
       "website": "https://www.hirschen-meilen.ch",
@@ -21165,8 +21165,8 @@
       "lat": 47.258535,
       "lon": 8.989309,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "8735, Rüeterswil",
       "website": "https://www.alp-altschwand.ch",
@@ -21280,8 +21280,8 @@
       "lat": 47.384191,
       "lon": 8.574713,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Klosterweg 36, 8044, Zürich",
       "website": "https://www.zoo.ch/de/essen-trinken/restaurant-altes-kloesterli",
@@ -21300,8 +21300,8 @@
       "lat": 47.374936,
       "lon": 8.582388,
       "tags": [
-        "city",
-        "swiss"
+        "swiss",
+        "city"
       ],
       "address": "Adlisbergstrasse 75, 8044, Zürich",
       "website": "https://www.adlisberg.ch",
