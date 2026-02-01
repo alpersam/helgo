@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Platform } from 'react-native';
+import { View, Text, StyleSheet, Platform, Image } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -25,13 +25,7 @@ export const Header: React.FC<HeaderProps> = ({ weather }) => {
   const content = (
     <View style={[styles.container, { paddingTop: insets.top + spacing.sm }]}>
       <View style={styles.leftSection}>
-        <View style={styles.logoContainer}>
-          <Text style={styles.logo}>H</Text>
-        </View>
-        <View style={styles.titleContainer}>
-          <Text style={styles.title}>Helgo</Text>
-          <Text style={styles.subtitle}>Zürich micro-guide</Text>
-        </View>
+        <Image source={require('../../assets/logo.png')} style={styles.logoImage} />
       </View>
 
       <View style={styles.weatherPill}>
@@ -94,36 +88,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  logoContainer: {
-    width: 42,
-    height: 42,
-    borderRadius: radius.lg,
-    backgroundColor: colors.accent,
-    alignItems: 'center',
-    justifyContent: 'center',
-    ...shadows.md,
-  },
-  logo: {
-    color: colors.white,
-    fontSize: typography.size.xl,
-    fontWeight: typography.weight.bold,
-    fontFamily: typography.family.bold,
-  },
-  titleContainer: {
-    marginLeft: spacing.md,
-  },
-  title: {
-    fontSize: typography.size.lg,
-    fontWeight: typography.weight.bold,
-    color: colors.text.primary,
-    letterSpacing: typography.letterSpacing.tight,
-    fontFamily: typography.family.bold,
-  },
-  subtitle: {
-    fontSize: typography.size.sm,
-    color: colors.text.tertiary,
-    marginTop: -2,
-    fontFamily: typography.family.regular,
+  logoImage: {
+    width: 56,
+    height: 56,
+    resizeMode: 'contain',
   },
   weatherPill: {
     flexDirection: 'row',

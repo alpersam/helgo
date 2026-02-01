@@ -180,7 +180,23 @@ function selectSatellite(
   }));
 
   const nearby = withDistance.filter(entry => entry.distance <= 1);
-  const pool = nearby.length > 0 ? nearby : withDistance;
+  let pool = nearby.length > 0 ? nearby : withDistance;
+
+  if (anchor.category === 'restaurant') {
+    const diverseNearby = pool.filter(
+      entry =>
+        entry.candidate.category !== 'restaurant' &&
+        countSharedTags(anchor, entry.candidate) <= 1
+    );
+    if (diverseNearby.length > 0) {
+      pool = diverseNearby;
+    } else {
+      const nonRestaurant = pool.filter(entry => entry.candidate.category !== 'restaurant');
+      if (nonRestaurant.length > 0) {
+        pool = nonRestaurant;
+      }
+    }
+  }
 
   const scored = pool.map(({ candidate, distance }) => {
     let score = scorePlace(candidate, intent, context) + Math.max(0, 20 - distance * 15);
