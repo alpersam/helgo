@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-expo-app@latest:*)",
+      "Bash(robocopy:*)",
+      "Bash(powershell:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx expo export:*)",
+      "Bash(npm install:*)",
+      "Bash(npx expo start:*)",
+      "Bash(npx expo install react-dom react-native-web @expo/metro-runtime)",
+      "Bash(timeout:*)",
+      "Bash(ping:*)",
+      "WebFetch(domain:docs.swmansion.com)"
+    ]
+  }
+}
