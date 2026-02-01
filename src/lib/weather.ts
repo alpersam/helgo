@@ -50,9 +50,12 @@ function calculateSunPosition(lat: number, lon: number, date: Date): SunData {
   };
 }
 
-export async function fetchWeather(): Promise<WeatherData> {
+export async function fetchWeather(
+  lat: number = ZURICH_LAT,
+  lon: number = ZURICH_LON
+): Promise<WeatherData> {
   try {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${ZURICH_LAT}&longitude=${ZURICH_LON}&current=temperature_2m,relative_humidity_2m,precipitation,cloud_cover,wind_speed_10m&timezone=Europe/Zurich`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,precipitation,cloud_cover,wind_speed_10m&timezone=Europe/Zurich`;
 
     const response = await fetch(url);
     const data = await response.json();
@@ -90,9 +93,25 @@ export function getSunData(): SunData {
 }
 
 // User's approximate location (defaults to Zürich center)
-export function getUserElevation(): number {
-  // Zürich city center is ~408m
-  return 408;
+export async function getUserElevation(
+  lat: number = ZURICH_LAT,
+  lon: number = ZURICH_LON
+): Promise<number> {
+  try {
+    const url = `https://api.open-meteo.com/v1/elevation?latitude=${lat}&longitude=${lon}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    const elevation = Array.isArray(data?.elevation) ? data.elevation[0] : data?.elevation;
+
+    if (typeof elevation === 'number' && !Number.isNaN(elevation)) {
+      return elevation;
+    }
+
+    return 408;
+  } catch (error) {
+    console.warn('Elevation fetch failed, using defaults:', error);
+    return 408;
+  }
 }
 
 export { ZURICH_LAT, ZURICH_LON };

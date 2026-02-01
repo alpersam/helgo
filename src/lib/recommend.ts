@@ -91,7 +91,12 @@ export function scorePlace(
     score += hasPhoto ? 20 : -5;
   }
 
-  const { weather, daylight } = context;
+  const { weather, daylight, userLocation } = context;
+
+  if (userLocation) {
+    const distanceKm = getDistance(userLocation.lat, userLocation.lon, place.lat, place.lon);
+    score += Math.max(0, 18 - distanceKm * 6);
+  }
 
   if (weather.precipitation > 0.5 && place.indoorOutdoor === 'indoor') {
     score += 15;
