@@ -1,0 +1,771 @@
+{
+  "places": [
+    {
+      "id": "cafe-henrici",
+      "name": "Café Henrici",
+      "category": "cafe",
+      "lat": 47.3697,
+      "lon": 8.5412,
+      "tags": [
+        "cozy",
+        "oldtown",
+        "coffee",
+        "brunch",
+        "historic"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=cafe+henrici+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Cafe+Henrici+Zurich",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "price": "budget",
+      "bestTimeOfDay": "morning",
+      "area": "kreis1",
+      "description": "Historic café in Niederdorf with classic Swiss charm",
+      "elevation": 410
+    },
+    {
+      "id": "milchbar",
+      "name": "Milchbar",
+      "category": "cafe",
+      "lat": 47.3654,
+      "lon": 8.5247,
+      "tags": [
+        "hip",
+        "coffee",
+        "brunch",
+        "quiet",
+        "photo"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=milchbar+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Milchbar+Zurich",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "price": "budget",
+      "bestTimeOfDay": "morning",
+      "area": "kreis4",
+      "photoSpots": [
+        {
+          "lat": 47.3654,
+          "lon": 8.5247
+        }
+      ],
+      "description": "Trendy café in Kreis 4 with excellent coffee",
+      "elevation": 408
+    },
+    {
+      "id": "cafe-schober",
+      "name": "Café Schober",
+      "category": "cafe",
+      "lat": 47.3716,
+      "lon": 8.5446,
+      "tags": [
+        "cozy",
+        "oldtown",
+        "romantic",
+        "historic",
+        "coffee"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=cafe+schober+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Cafe+Schober+Zurich",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "price": "budget",
+      "bestTimeOfDay": "morning",
+      "area": "kreis1",
+      "description": "Legendary chocolate house since 1842",
+      "elevation": 415
+    },
+    {
+      "id": "sprüngli-paradeplatz",
+      "name": "Sprüngli Paradeplatz",
+      "category": "cafe",
+      "lat": 47.3696,
+      "lon": 8.5391,
+      "tags": [
+        "touristy",
+        "coffee",
+        "historic",
+        "city",
+        "swiss"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=sprungli+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Sprungli+Paradeplatz+Zurich",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "price": "budget",
+      "bestTimeOfDay": "morning",
+      "area": "hb",
+      "description": "Iconic Swiss confectionery and café",
+      "elevation": 408
+    },
+    {
+      "id": "mame-coffee",
+      "name": "MAME Coffee",
+      "category": "cafe",
+      "lat": 47.3773,
+      "lon": 8.5404,
+      "tags": [
+        "hip",
+        "coffee",
+        "quiet",
+        "photo"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=mame+coffee+zurich",
+      "mapsUrl": "https://maps.google.com/?q=MAME+Coffee+Zurich",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "price": "budget",
+      "bestTimeOfDay": "morning",
+      "area": "kreis4",
+      "photoSpots": [
+        {
+          "lat": 47.3773,
+          "lon": 8.5404
+        }
+      ],
+      "description": "World-class specialty coffee roasters",
+      "elevation": 420
+    },
+    {
+      "id": "el-lokal",
+      "name": "El Lokal",
+      "category": "restaurant",
+      "lat": 47.3654,
+      "lon": 8.5286,
+      "tags": [
+        "mexican",
+        "hip",
+        "cocktails",
+        "cheap"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=el+lokal+zurich",
+      "mapsUrl": "https://maps.google.com/?q=El+Lokal+Zurich",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "price": "mid",
+      "bestTimeOfDay": "night",
+      "area": "kreis4",
+      "description": "Authentic Mexican tacos and mezcal",
+      "elevation": 410
+    },
+    {
+      "id": "tres-kilos",
+      "name": "Tres Kilos",
+      "category": "restaurant",
+      "lat": 47.3751,
+      "lon": 8.5324,
+      "tags": [
+        "mexican",
+        "hip",
+        "cheap",
+        "city"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=tres+kilos+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Tres+Kilos+Zurich",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "price": "mid",
+      "bestTimeOfDay": "night",
+      "area": "kreis4",
+      "description": "Street-style tacos near Langstrasse",
+      "elevation": 412
+    },
+    {
+      "id": "santa-lucia",
+      "name": "Ristorante Santa Lucia",
+      "category": "restaurant",
+      "lat": 47.3701,
+      "lon": 8.5417,
+      "tags": [
+        "italian",
+        "cozy",
+        "oldtown",
+        "romantic"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=santa+lucia+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Santa+Lucia+Zurich",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "price": "mid",
+      "bestTimeOfDay": "night",
+      "area": "kreis1",
+      "description": "Classic Italian in the heart of Niederdorf",
+      "elevation": 410
+    },
+    {
+      "id": "bindella-orso",
+      "name": "Ristorante Bindella Orso",
+      "category": "restaurant",
+      "lat": 47.3673,
+      "lon": 8.5401,
+      "tags": [
+        "italian",
+        "wine",
+        "city",
+        "romantic"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=bindella+orso+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Bindella+Orso+Zurich",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "price": "mid",
+      "bestTimeOfDay": "night",
+      "area": "hb",
+      "description": "Refined Italian with excellent wines",
+      "elevation": 408
+    },
+    {
+      "id": "yooji-sushi",
+      "name": "Yooji's",
+      "category": "restaurant",
+      "lat": 47.3652,
+      "lon": 8.5482,
+      "tags": [
+        "sushi",
+        "asian",
+        "hip",
+        "city",
+        "lake"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=yoojis+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Yoojis+Seefeld+Zurich",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "price": "mid",
+      "bestTimeOfDay": "night",
+      "area": "kreis4",
+      "description": "Fresh sushi with lake views",
+      "elevation": 406
+    },
+    {
+      "id": "hiltl",
+      "name": "Hiltl",
+      "category": "restaurant",
+      "lat": 47.3738,
+      "lon": 8.5386,
+      "tags": [
+        "vegan",
+        "city",
+        "historic",
+        "hip"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=hiltl+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Hiltl+Zurich",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "price": "mid",
+      "bestTimeOfDay": "night",
+      "area": "kreis4",
+      "description": "World's oldest vegetarian restaurant",
+      "elevation": 412
+    },
+    {
+      "id": "zeughauskeller",
+      "name": "Zeughauskeller",
+      "category": "restaurant",
+      "lat": 47.3697,
+      "lon": 8.5398,
+      "tags": [
+        "swiss",
+        "historic",
+        "touristy",
+        "beer",
+        "oldtown"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=zeughauskeller+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Zeughauskeller+Zurich",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "price": "mid",
+      "bestTimeOfDay": "night",
+      "area": "kreis1",
+      "description": "Classic Swiss fare in a medieval armory",
+      "elevation": 408
+    },
+    {
+      "id": "burgermeister",
+      "name": "Burgermeister",
+      "category": "restaurant",
+      "lat": 47.3755,
+      "lon": 8.5254,
+      "tags": [
+        "burger",
+        "hip",
+        "cheap",
+        "beer"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=burgermeister+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Burgermeister+Zurich",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "price": "mid",
+      "bestTimeOfDay": "night",
+      "area": "kreis4",
+      "description": "Legendary burgers in Kreis 5",
+      "elevation": 415
+    },
+    {
+      "id": "clouds",
+      "name": "Clouds Kitchen",
+      "category": "restaurant",
+      "lat": 47.3864,
+      "lon": 8.518,
+      "tags": [
+        "view",
+        "city",
+        "romantic",
+        "cocktails",
+        "photo"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=clouds+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Clouds+Kitchen+Zurich",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "price": "mid",
+      "bestTimeOfDay": "night",
+      "area": "hb",
+      "photoSpots": [
+        {
+          "lat": 47.3864,
+          "lon": 8.518
+        }
+      ],
+      "description": "Panoramic dining at Prime Tower",
+      "elevation": 530
+    },
+    {
+      "id": "frau-gerolds-garten",
+      "name": "Frau Gerolds Garten",
+      "category": "restaurant",
+      "lat": 47.3901,
+      "lon": 8.518,
+      "tags": [
+        "hip",
+        "green",
+        "beer",
+        "photo",
+        "city"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=frau+gerolds+garten",
+      "mapsUrl": "https://maps.google.com/?q=Frau+Gerolds+Garten+Zurich",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "price": "mid",
+      "bestTimeOfDay": "night",
+      "area": "kreis4",
+      "photoSpots": [
+        {
+          "lat": 47.3901,
+          "lon": 8.518
+        }
+      ],
+      "description": "Urban garden with food stalls and vibes",
+      "elevation": 410
+    },
+    {
+      "id": "lindenhof",
+      "name": "Lindenhof",
+      "category": "viewpoint",
+      "lat": 47.3726,
+      "lon": 8.5407,
+      "tags": [
+        "view",
+        "oldtown",
+        "quiet",
+        "photo",
+        "historic",
+        "green"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=lindenhof+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Lindenhof+Zurich",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "area": "kreis1",
+      "photoSpots": [
+        {
+          "lat": 47.3726,
+          "lon": 8.5407
+        }
+      ],
+      "description": "Historic hilltop with river and rooftop views",
+      "elevation": 428
+    },
+    {
+      "id": "polyterrasse",
+      "name": "Polyterrasse ETH",
+      "category": "viewpoint",
+      "lat": 47.3763,
+      "lon": 8.5478,
+      "tags": [
+        "view",
+        "photo",
+        "city",
+        "quiet"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=polyterrasse+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Polyterrasse+ETH+Zurich",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "area": "hb",
+      "photoSpots": [
+        {
+          "lat": 47.3763,
+          "lon": 8.5478
+        }
+      ],
+      "description": "ETH terrace with sweeping city panorama",
+      "elevation": 450
+    },
+    {
+      "id": "uetliberg",
+      "name": "Uetliberg Summit",
+      "category": "viewpoint",
+      "lat": 47.3497,
+      "lon": 8.4915,
+      "tags": [
+        "view",
+        "green",
+        "photo",
+        "quiet",
+        "park"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=uetliberg+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Uetliberg+Zurich",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "photoSpots": [
+        {
+          "lat": 47.3497,
+          "lon": 8.4915
+        }
+      ],
+      "description": "Zürich's house mountain with alpine views",
+      "elevation": 871
+    },
+    {
+      "id": "kaferberg",
+      "name": "Käferberg Viewpoint",
+      "category": "viewpoint",
+      "lat": 47.4012,
+      "lon": 8.5231,
+      "tags": [
+        "view",
+        "quiet",
+        "green",
+        "photo"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=kaferberg+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Kaferberg+Zurich",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "photoSpots": [
+        {
+          "lat": 47.4012,
+          "lon": 8.5231
+        }
+      ],
+      "description": "Peaceful northern heights with forest",
+      "elevation": 580
+    },
+    {
+      "id": "weinberg-park",
+      "name": "Weinberg Park",
+      "category": "viewpoint",
+      "lat": 47.3782,
+      "lon": 8.5321,
+      "tags": [
+        "view",
+        "green",
+        "park",
+        "quiet",
+        "city"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=weinberg+park+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Weinberg+Park+Zurich",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "area": "hb",
+      "photoSpots": [
+        {
+          "lat": 47.3782,
+          "lon": 8.5321
+        }
+      ],
+      "description": "Hidden garden with city views",
+      "elevation": 445
+    },
+    {
+      "id": "limmat-walk",
+      "name": "Limmat River Walk",
+      "category": "walk",
+      "lat": 47.3705,
+      "lon": 8.5421,
+      "tags": [
+        "lake",
+        "oldtown",
+        "photo",
+        "romantic",
+        "street"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=limmat+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Limmat+Zurich",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "area": "kreis1",
+      "photoSpots": [
+        {
+          "lat": 47.3705,
+          "lon": 8.5421
+        }
+      ],
+      "description": "Stroll along the river through old town",
+      "elevation": 405
+    },
+    {
+      "id": "seepromenade",
+      "name": "Lake Promenade",
+      "category": "walk",
+      "lat": 47.3643,
+      "lon": 8.5458,
+      "tags": [
+        "lake",
+        "view",
+        "romantic",
+        "photo",
+        "green"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=seepromenade+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Seepromenade+Zurich",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "area": "lake",
+      "photoSpots": [
+        {
+          "lat": 47.3643,
+          "lon": 8.5458
+        }
+      ],
+      "description": "Lakeside walk with Alps on clear days",
+      "elevation": 408
+    },
+    {
+      "id": "niederdorf-stroll",
+      "name": "Niederdorf Stroll",
+      "category": "walk",
+      "lat": 47.3718,
+      "lon": 8.5448,
+      "tags": [
+        "oldtown",
+        "narrow",
+        "photo",
+        "touristy",
+        "street",
+        "historic"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=niederdorf+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Niederdorf+Zurich",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "area": "kreis1",
+      "photoSpots": [
+        {
+          "lat": 47.3718,
+          "lon": 8.5448
+        }
+      ],
+      "description": "Wander cobbled lanes of the old town",
+      "elevation": 412
+    },
+    {
+      "id": "langstrasse-night",
+      "name": "Langstrasse Night Walk",
+      "category": "walk",
+      "lat": 47.3753,
+      "lon": 8.5287,
+      "tags": [
+        "hip",
+        "city",
+        "street",
+        "cocktails",
+        "photo"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=langstrasse+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Langstrasse+Zurich",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "area": "kreis4",
+      "photoSpots": [
+        {
+          "lat": 47.3753,
+          "lon": 8.5287
+        }
+      ],
+      "description": "Zürich's vibrant nightlife strip",
+      "elevation": 418
+    },
+    {
+      "id": "rieterpark",
+      "name": "Rieterpark",
+      "category": "walk",
+      "lat": 47.3575,
+      "lon": 8.5245,
+      "tags": [
+        "green",
+        "park",
+        "quiet",
+        "view",
+        "romantic"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=rieterpark+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Rieterpark+Zurich",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "photoSpots": [
+        {
+          "lat": 47.3575,
+          "lon": 8.5245
+        }
+      ],
+      "description": "Hillside English garden with villa",
+      "elevation": 440
+    },
+    {
+      "id": "arboretum",
+      "name": "Arboretum",
+      "category": "walk",
+      "lat": 47.3588,
+      "lon": 8.5401,
+      "tags": [
+        "green",
+        "park",
+        "lake",
+        "quiet",
+        "romantic"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=arboretum+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Arboretum+Zurich",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "area": "lake",
+      "description": "Botanical park at the lake",
+      "elevation": 406
+    },
+    {
+      "id": "josefwiese",
+      "name": "Josefwiese",
+      "category": "walk",
+      "lat": 47.3882,
+      "lon": 8.5269,
+      "tags": [
+        "green",
+        "hip",
+        "park",
+        "cheap",
+        "city"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=josefwiese+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Josefwiese+Zurich",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "area": "kreis4",
+      "description": "Local hangout in industrial Kreis 5",
+      "elevation": 415
+    },
+    {
+      "id": "quaibrucke",
+      "name": "Quaibrücke",
+      "category": "viewpoint",
+      "lat": 47.3664,
+      "lon": 8.5448,
+      "tags": [
+        "bridge",
+        "lake",
+        "view",
+        "photo",
+        "city"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=quaibrucke+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Quaibrucke+Zurich",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "area": "lake",
+      "photoSpots": [
+        {
+          "lat": 47.3664,
+          "lon": 8.5448
+        }
+      ],
+      "description": "Iconic bridge with lake and Alps view",
+      "elevation": 406
+    },
+    {
+      "id": "munsterbrucke",
+      "name": "Münsterbrücke",
+      "category": "viewpoint",
+      "lat": 47.3699,
+      "lon": 8.5427,
+      "tags": [
+        "bridge",
+        "oldtown",
+        "view",
+        "photo",
+        "historic"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=munsterbrucke+zurich",
+      "mapsUrl": "https://maps.google.com/?q=Munsterbrucke+Zurich",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "area": "kreis1",
+      "photoSpots": [
+        {
+          "lat": 47.3699,
+          "lon": 8.5427
+        }
+      ],
+      "description": "Bridge between the twin churches",
+      "elevation": 407
+    },
+    {
+      "id": "jules-verne",
+      "name": "Jules Verne Panoramabar",
+      "category": "restaurant",
+      "lat": 47.3497,
+      "lon": 8.4915,
+      "tags": [
+        "view",
+        "cocktails",
+        "romantic",
+        "quiet",
+        "photo"
+      ],
+      "tiktokUrl": "https://www.tiktok.com/search?q=jules+verne+uetliberg",
+      "mapsUrl": "https://maps.google.com/?q=Jules+Verne+Panoramabar+Uetliberg",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "price": "mid",
+      "bestTimeOfDay": "night",
+      "photoSpots": [
+        {
+          "lat": 47.3497,
+          "lon": 8.4915
+        }
+      ],
+      "description": "Mountaintop bar with sunset views",
+      "elevation": 850
+    }
+  ]
+}

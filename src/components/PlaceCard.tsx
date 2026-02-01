@@ -12,11 +12,11 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({ itinerary, index }) => {
   const { anchor, satellite, mainCharacterScore, metrics } = itinerary;
 
   const openMaps = () => {
-    Linking.openURL(anchor.maps_url);
+    Linking.openURL(anchor.mapsUrl);
   };
 
   const openTikTok = () => {
-    Linking.openURL(anchor.tiktok_url);
+    Linking.openURL(anchor.tiktokUrl);
   };
 
   const getScoreColor = (score: number) => {

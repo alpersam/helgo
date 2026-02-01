@@ -67,7 +67,7 @@ export const PlaceDetailSheet: React.FC<PlaceDetailSheetProps> = ({
       if (Platform.OS !== 'web') {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
       }
-      Linking.openURL(itinerary.anchor.maps_url);
+      Linking.openURL(itinerary.anchor.mapsUrl);
     }
   };
 
@@ -76,7 +76,7 @@ export const PlaceDetailSheet: React.FC<PlaceDetailSheetProps> = ({
       if (Platform.OS !== 'web') {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
       }
-      Linking.openURL(itinerary.anchor.tiktok_url);
+      Linking.openURL(itinerary.anchor.tiktokUrl);
     }
   };
 
