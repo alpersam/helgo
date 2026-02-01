@@ -1,7 +1,7 @@
 import { Intent, IndoorPreference, PhotoMode, PlaceCategory } from '../types';
 
 const CUISINE_KEYWORDS: Record<string, string[]> = {
-  mexican: ['mexican', 'taco', 'tacos', 'burrito', 'mezcal'],
+  mexican: ['mexican', 'taco', 'tacos', 'burrito', 'mezcal', 'tex-mex', 'tex mex', 'taqueria'],
   italian: ['italian', 'pasta', 'pizza', 'risotto'],
   sushi: ['sushi', 'japanese', 'ramen'],
   asian: ['asian', 'thai', 'vietnamese', 'chinese', 'korean'],

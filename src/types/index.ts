@@ -31,7 +31,11 @@ export interface Place {
   lon: number;
   elevation?: number; // meters above sea level
   tags: PlaceTag[];
-  tiktokUrl: string;
+  address?: string;
+  website?: string;
+  phone?: string;
+  photoUrl?: string;
+  gettingThere?: string;
   mapsUrl: string;
   indoorOutdoor: IndoorOutdoor;
   durationMins: number;

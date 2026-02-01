@@ -12,6 +12,7 @@ import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import * as Location from 'expo-location';
+import { Ionicons } from '@expo/vector-icons';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -20,7 +21,7 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 
-import { ChatMessage, WeatherData, DaylightData, Itinerary } from '../types';
+import { ChatMessage, WeatherData, DaylightData, Itinerary, Intent, PlaceCategory } from '../types';
 import {
   Header,
   InputBar,
@@ -54,7 +55,19 @@ const HELGO_RESPONSES = [
   "Based on the vibes right now, try these:",
 ];
 
+const HELGO_CLARIFIERS = [
+  "I can help with food, views, walks, parks, and museums. What are you in the mood for?",
+  "Quick check: are you looking for a restaurant, a stroll, a viewpoint, or something indoors?",
+  "Give me a vibe or category to work with — e.g., \"mexican restaurant\" or \"sunset walk\".",
+];
+
 const FALLBACK_LOCATION = { lat: ZURICH_LAT, lon: ZURICH_LON };
+
+type SuggestionChip = {
+  label: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  autoSend?: boolean;
+};
 
 const SUGGESTIONS = [
   { label: 'Cute café', icon: 'cafe' as const },
@@ -64,6 +77,29 @@ const SUGGESTIONS = [
   { label: 'Quiet spot', icon: 'leaf' as const },
 ];
 
+const CATEGORY_LABELS: Record<PlaceCategory, string> = {
+  cafe: 'caf?s',
+  restaurant: 'restaurants',
+  viewpoint: 'viewpoints',
+  walk: 'walks',
+  bar: 'bars',
+  museum: 'museums',
+  market: 'markets',
+  park: 'parks',
+};
+
+const CATEGORY_ICONS: Record<PlaceCategory, keyof typeof Ionicons.glyphMap> = {
+  cafe: 'cafe',
+  restaurant: 'restaurant',
+  viewpoint: 'eye',
+  walk: 'walk',
+  bar: 'wine',
+  museum: 'color-palette',
+  market: 'storefront',
+  park: 'leaf',
+};
+
+
 const ChatScreenContent: React.FC = () => {
   const insets = useSafeAreaInsets();
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -72,6 +108,7 @@ const ChatScreenContent: React.FC = () => {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [daylight, setDaylight] = useState<DaylightData | null>(null);
   const [userLocation, setUserLocation] = useState<{ lat: number; lon: number } | null>(null);
+  const [followUps, setFollowUps] = useState<SuggestionChip[]>([]);
   const scrollViewRef = useRef<ScrollView>(null);
 
   // Animated gradient blobs
@@ -157,13 +194,79 @@ const ChatScreenContent: React.FC = () => {
     setIsLoading(false);
   };
 
-  const handleSend = async () => {
-    if (!inputText.trim() || !weather || !daylight) return;
+  const buildFollowUps = (intent: Intent, itineraries: Itinerary[]): SuggestionChip[] => {
+    const suggestions: SuggestionChip[] = [];
+    const anchor = itineraries[0]?.anchor;
+
+    if (intent.cuisine.length > 0) {
+      const cuisine = intent.cuisine[0];
+      suggestions.push({
+        label: `More ${cuisine} spots`,
+        icon: 'restaurant',
+        autoSend: true,
+      });
+    }
+
+    const preferredCategory = intent.categoryPreference[0] ?? anchor?.category;
+    if (preferredCategory) {
+      suggestions.push({
+        label: `More ${CATEGORY_LABELS[preferredCategory]}`,
+        icon: CATEGORY_ICONS[preferredCategory],
+        autoSend: true,
+      });
+    }
+
+    if (intent.indoorPreference !== 'indoor') {
+      suggestions.push({ label: 'Indoor instead', icon: 'home', autoSend: true });
+    }
+    if (intent.indoorPreference !== 'outdoor') {
+      suggestions.push({ label: 'Outdoor instead', icon: 'sunny', autoSend: true });
+    }
+
+    if (!intent.constraints.includes('budget')) {
+      suggestions.push({ label: 'Budget-friendly', icon: 'cash', autoSend: true });
+    }
+
+    if (intent.photoMode === 'none') {
+      suggestions.push({ label: 'Something photogenic', icon: 'camera', autoSend: true });
+    }
+
+    if (intent.vibes.length === 0) {
+      suggestions.push({ label: 'Cozy vibes', icon: 'heart', autoSend: true });
+    }
+
+    suggestions.push({ label: 'Surprise me', icon: 'sparkles', autoSend: true });
+
+    const seen = new Set<string>();
+    return suggestions
+      .filter(item => {
+        if (seen.has(item.label)) return false;
+        seen.add(item.label);
+        return true;
+      })
+      .slice(0, 6);
+  };
+
+  const isAmbiguousIntent = (intent: Intent) => {
+    return (
+      intent.cuisine.length === 0 &&
+      intent.categoryPreference.length === 0 &&
+      intent.vibes.length === 0 &&
+      intent.constraints.length === 0 &&
+      !intent.timeBudgetMins &&
+      !intent.groupContext &&
+      intent.photoMode === 'none' &&
+      intent.indoorPreference === 'no-preference'
+    );
+  };
+
+  const submitText = async (text: string) => {
+    if (!text.trim() || !weather || !daylight || isLoading) return;
 
     const userMessage: ChatMessage = {
       id: `user-${Date.now()}`,
       type: 'user',
-      text: inputText.trim(),
+      text: text.trim(),
       timestamp: new Date(),
     };
 
@@ -174,6 +277,18 @@ const ChatScreenContent: React.FC = () => {
     await new Promise(resolve => setTimeout(resolve, 600));
 
     const intent = parseIntent(userMessage.text!);
+    if (isAmbiguousIntent(intent)) {
+      const clarifier: ChatMessage = {
+        id: `assistant-clarify-${Date.now()}`,
+        type: 'assistant',
+        text: HELGO_CLARIFIERS[Math.floor(Math.random() * HELGO_CLARIFIERS.length)],
+        timestamp: new Date(),
+      };
+      setMessages(prev => [...prev, clarifier]);
+      setFollowUps([]);
+      setIsLoading(false);
+      return;
+    }
     const resolvedLocation = userLocation ?? FALLBACK_LOCATION;
     const userElevation = await getUserElevation(resolvedLocation.lat, resolvedLocation.lon);
     const latestDaylight = getDaylightData(resolvedLocation.lat, resolvedLocation.lon);
@@ -211,10 +326,11 @@ const ChatScreenContent: React.FC = () => {
       const errorMessage: ChatMessage = {
         id: `assistant-error-${Date.now()}`,
         type: 'assistant',
-        text: "I'm having trouble loading fresh places right now. Please try again in a moment.",
+        text: dataError,
         timestamp: new Date(),
       };
       setMessages(prev => [...prev, errorMessage]);
+      setFollowUps([]);
       setIsLoading(false);
       return;
     }
@@ -228,6 +344,7 @@ const ChatScreenContent: React.FC = () => {
     };
 
     setMessages(prev => [...prev, assistantMessage]);
+    setFollowUps(buildFollowUps(intent, itineraries));
     setIsLoading(false);
 
     setTimeout(() => {
@@ -235,7 +352,15 @@ const ChatScreenContent: React.FC = () => {
     }, 100);
   };
 
-  const handleSuggestionPress = (suggestion: string) => {
+  const handleSend = async () => {
+    await submitText(inputText);
+  };
+
+  const handleSuggestionPress = (suggestion: string, autoSend = false) => {
+    if (autoSend) {
+      submitText(suggestion);
+      return;
+    }
     setInputText(suggestion);
   };
 
@@ -315,6 +440,25 @@ const ChatScreenContent: React.FC = () => {
               />
             ))}
           </ScrollView>
+
+          {followUps.length > 0 && (
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.followUpContent}
+              style={styles.followUpContainer}
+            >
+              {followUps.map((suggestion, index) => (
+                <Chip
+                  key={`followup-${index}`}
+                  label={suggestion.label}
+                  icon={suggestion.icon}
+                  variant="accent"
+                  onPress={() => handleSuggestionPress(suggestion.label, suggestion.autoSend)}
+                />
+              ))}
+            </ScrollView>
+          )}
 
           {/* Input bar */}
           <InputBar
@@ -428,6 +572,13 @@ const styles = StyleSheet.create({
     marginBottom: spacing.sm,
   },
   suggestionsContent: {
+    paddingHorizontal: spacing.md,
+    gap: spacing.sm,
+  },
+  followUpContainer: {
+    marginBottom: spacing.sm,
+  },
+  followUpContent: {
     paddingHorizontal: spacing.md,
     gap: spacing.sm,
   },

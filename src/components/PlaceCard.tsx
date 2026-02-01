@@ -15,9 +15,6 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({ itinerary, index }) => {
     Linking.openURL(anchor.mapsUrl);
   };
 
-  const openTikTok = () => {
-    Linking.openURL(anchor.tiktokUrl);
-  };
 
   const getScoreColor = (score: number) => {
     if (score >= 70) return '#4CAF50';
@@ -94,9 +91,6 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({ itinerary, index }) => {
       <View style={styles.buttonsRow}>
         <TouchableOpacity style={styles.mapButton} onPress={openMaps}>
           <Text style={styles.mapButtonText}>📍 Open Maps</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.tiktokButton} onPress={openTikTok}>
-          <Text style={styles.tiktokButtonText}>🎬 TikTok</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -217,18 +211,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   mapButtonText: {
-    color: '#FFF',
-    fontWeight: '600',
-    fontSize: 14,
-  },
-  tiktokButton: {
-    flex: 1,
-    backgroundColor: '#1A1A2E',
-    borderRadius: 10,
-    paddingVertical: 12,
-    alignItems: 'center',
-  },
-  tiktokButtonText: {
     color: '#FFF',
     fontWeight: '600',
     fontSize: 14,

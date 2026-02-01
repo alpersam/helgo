@@ -8,6 +8,8 @@ import {
   Linking,
   Platform,
   Dimensions,
+  Image,
+  ScrollView,
 } from 'react-native';
 import Animated, {
   useSharedValue,
@@ -20,7 +22,7 @@ import Animated, {
 import * as Haptics from 'expo-haptics';
 import { BlurView } from 'expo-blur';
 import { Ionicons } from '@expo/vector-icons';
-import { Itinerary } from '../types';
+import { Itinerary, PlaceCategory } from '../types';
 import { GlassButton } from './GlassButton';
 import { colors, spacing, radius, typography, animation, shadows } from './theme';
 
@@ -32,6 +34,28 @@ interface PlaceDetailSheetProps {
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 const SHEET_HEIGHT = SCREEN_HEIGHT * 0.65;
+
+const CATEGORY_PHOTOS: Record<PlaceCategory, string> = {
+  cafe: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=70',
+  restaurant: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=70',
+  viewpoint: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=70',
+  walk: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=70',
+  bar: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=70',
+  museum: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1200&q=70',
+  market: 'https://images.unsplash.com/photo-1506807803488-8eafc15323c0?auto=format&fit=crop&w=1200&q=70',
+  park: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=70',
+};
+
+const getDirectionsUrl = (name: string, lat: number, lon: number) => {
+  const encodedName = encodeURIComponent(name);
+  if (Platform.OS === 'ios') {
+    return `maps://?daddr=${lat},${lon}`;
+  }
+  if (Platform.OS === 'android') {
+    return `geo:0,0?q=${lat},${lon}(${encodedName})`;
+  }
+  return `https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}`;
+};
 
 export const PlaceDetailSheet: React.FC<PlaceDetailSheetProps> = ({
   itinerary,
@@ -67,16 +91,9 @@ export const PlaceDetailSheet: React.FC<PlaceDetailSheetProps> = ({
       if (Platform.OS !== 'web') {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
       }
-      Linking.openURL(itinerary.anchor.mapsUrl);
-    }
-  };
-
-  const handleOpenTikTok = () => {
-    if (itinerary) {
-      if (Platform.OS !== 'web') {
-        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-      }
-      Linking.openURL(itinerary.anchor.tiktokUrl);
+      Linking.openURL(
+        getDirectionsUrl(itinerary.anchor.name, itinerary.anchor.lat, itinerary.anchor.lon)
+      );
     }
   };
 
@@ -105,7 +122,6 @@ export const PlaceDetailSheet: React.FC<PlaceDetailSheetProps> = ({
                 itinerary={itinerary}
                 onClose={onClose}
                 onOpenMaps={handleOpenMaps}
-                onOpenTikTok={handleOpenTikTok}
               />
             </View>
           ) : (
@@ -115,7 +131,6 @@ export const PlaceDetailSheet: React.FC<PlaceDetailSheetProps> = ({
                   itinerary={itinerary}
                   onClose={onClose}
                   onOpenMaps={handleOpenMaps}
-                  onOpenTikTok={handleOpenTikTok}
                 />
               </View>
             </BlurView>
@@ -130,19 +145,34 @@ interface SheetContentProps {
   itinerary: Itinerary;
   onClose: () => void;
   onOpenMaps: () => void;
-  onOpenTikTok: () => void;
 }
 
 const SheetContent: React.FC<SheetContentProps> = ({
   itinerary,
   onClose,
   onOpenMaps,
-  onOpenTikTok,
 }) => {
   const { anchor, satellite, mainCharacterScore, metrics } = itinerary;
+  const photoUrl = anchor.photoUrl ?? CATEGORY_PHOTOS[anchor.category];
+  const hasInfo =
+    !!anchor.area ||
+    !!anchor.price ||
+    !!anchor.bestTimeOfDay ||
+    !!anchor.address ||
+    !!anchor.gettingThere ||
+    !!anchor.website ||
+    !!anchor.phone;
+
+  const formattedWebsite = anchor.website
+    ? anchor.website.replace(/^https?:\/\//, '').replace(/\/$/, '')
+    : undefined;
 
   return (
-    <>
+    <ScrollView
+      style={styles.contentScroll}
+      contentContainerStyle={styles.contentScrollContent}
+      showsVerticalScrollIndicator={false}
+    >
       {/* Handle */}
       <View style={styles.handleContainer}>
         <View style={styles.handle} />
@@ -152,6 +182,16 @@ const SheetContent: React.FC<SheetContentProps> = ({
       <Pressable style={styles.closeButton} onPress={onClose}>
         <Ionicons name="close" size={24} color={colors.text.secondary} />
       </Pressable>
+
+      {/* Photo */}
+      <View style={styles.photoContainer}>
+        <Image source={{ uri: photoUrl }} style={styles.photo} />
+        <View style={styles.photoOverlay} />
+        <View style={styles.photoLabel}>
+          <Ionicons name="location" size={16} color={colors.white} />
+          <Text style={styles.photoLabelText}>{anchor.category}</Text>
+        </View>
+      </View>
 
       {/* Header */}
       <View style={styles.header}>
@@ -175,6 +215,63 @@ const SheetContent: React.FC<SheetContentProps> = ({
           </View>
         ))}
       </View>
+
+      {/* Info */}
+      {hasInfo && (
+        <View style={styles.infoSection}>
+          <Text style={styles.sectionTitle}>About this place</Text>
+          <View style={styles.infoGrid}>
+            {anchor.area && (
+              <InfoRow
+                icon="navigate"
+                label="Area"
+                value={anchor.area.toUpperCase()}
+              />
+            )}
+            <InfoRow
+              icon="time"
+              label="Time"
+              value={`${anchor.durationMins} min`}
+            />
+            {anchor.price && (
+              <InfoRow
+                icon="cash"
+                label="Price"
+                value={anchor.price}
+              />
+            )}
+            {anchor.bestTimeOfDay && (
+              <InfoRow
+                icon="sunny"
+                label="Best time"
+                value={anchor.bestTimeOfDay}
+              />
+            )}
+            {anchor.website && formattedWebsite && (
+              <InfoRow
+                icon="link"
+                label="Website"
+                value={formattedWebsite}
+              />
+            )}
+            {anchor.phone && (
+              <InfoRow
+                icon="call"
+                label="Phone"
+                value={anchor.phone}
+              />
+            )}
+            <InfoRow
+              icon={anchor.indoorOutdoor === 'indoor' ? 'home' : 'leaf'}
+              label="Setting"
+              value={anchor.indoorOutdoor}
+            />
+          </View>
+          {anchor.address && (
+            <Text style={styles.addressText}>{anchor.address}</Text>
+          )}
+        </View>
+      )}
 
       {/* Itinerary */}
       <View style={styles.itinerarySection}>
@@ -229,28 +326,27 @@ const SheetContent: React.FC<SheetContentProps> = ({
         </View>
       </View>
 
+      {/* Getting there */}
+      {anchor.gettingThere && (
+        <View style={styles.gettingThereSection}>
+          <Text style={styles.sectionTitle}>How to get there</Text>
+          <Text style={styles.gettingThereText}>{anchor.gettingThere}</Text>
+        </View>
+      )}
+
       {/* Action buttons */}
       <View style={styles.actionsRow}>
         <View style={styles.actionButton}>
           <GlassButton
             onPress={onOpenMaps}
-            label="Open Maps"
+            label="Directions"
             icon="map"
             variant="primary"
             fullWidth
           />
         </View>
-        <View style={styles.actionButton}>
-          <GlassButton
-            onPress={onOpenTikTok}
-            label="TikTok"
-            icon="logo-tiktok"
-            variant="accent"
-            fullWidth
-          />
-        </View>
       </View>
-    </>
+    </ScrollView>
   );
 };
 
@@ -263,6 +359,22 @@ const MetricCard: React.FC<{ emoji: string; label: string; score: number }> = ({
     <Text style={styles.metricEmoji}>{emoji}</Text>
     <Text style={styles.metricLabel} numberOfLines={1}>{label}</Text>
     <Text style={styles.metricScore}>{score}</Text>
+  </View>
+);
+
+const InfoRow: React.FC<{ icon: keyof typeof Ionicons.glyphMap; label: string; value: string }> = ({
+  icon,
+  label,
+  value,
+}) => (
+  <View style={styles.infoRow}>
+    <View style={styles.infoIcon}>
+      <Ionicons name={icon} size={14} color={colors.primary} />
+    </View>
+    <View style={styles.infoText}>
+      <Text style={styles.infoLabel}>{label}</Text>
+      <Text style={styles.infoValue}>{value}</Text>
+    </View>
   </View>
 );
 
@@ -312,11 +424,51 @@ const styles = StyleSheet.create({
     paddingTop: spacing.sm,
     paddingBottom: spacing.md,
   },
+  contentScroll: {
+    flex: 1,
+  },
+  contentScrollContent: {
+    paddingBottom: spacing.xl,
+  },
   handle: {
     width: 40,
     height: 5,
     borderRadius: 3,
     backgroundColor: colors.glass.lightBorder,
+  },
+  photoContainer: {
+    marginHorizontal: spacing.xl,
+    marginBottom: spacing.lg,
+    borderRadius: radius.lg,
+    overflow: 'hidden',
+    height: 180,
+    ...shadows.sm,
+  },
+  photo: {
+    width: '100%',
+    height: '100%',
+  },
+  photoOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0,0,0,0.2)',
+  },
+  photoLabel: {
+    position: 'absolute',
+    bottom: spacing.md,
+    left: spacing.md,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0.45)',
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    borderRadius: radius.pill,
+  },
+  photoLabelText: {
+    color: colors.white,
+    fontSize: typography.size.sm,
+    fontWeight: typography.weight.medium,
+    marginLeft: spacing.xs,
+    textTransform: 'capitalize',
   },
   closeButton: {
     position: 'absolute',
@@ -380,6 +532,54 @@ const styles = StyleSheet.create({
     fontSize: typography.size.sm,
     color: colors.primary,
     fontWeight: typography.weight.medium,
+  },
+  infoSection: {
+    paddingHorizontal: spacing.xl,
+    marginBottom: spacing.lg,
+  },
+  infoGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+    marginBottom: spacing.sm,
+  },
+  infoRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.glass.lightSubtle,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.glass.lightBorder,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.md,
+    width: '48%',
+  },
+  infoIcon: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: 'rgba(255, 107, 107, 0.12)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: spacing.sm,
+  },
+  infoText: {
+    flex: 1,
+  },
+  infoLabel: {
+    fontSize: typography.size.xs,
+    color: colors.text.tertiary,
+    marginBottom: 2,
+  },
+  infoValue: {
+    fontSize: typography.size.sm,
+    color: colors.text.primary,
+    fontWeight: typography.weight.semibold,
+    textTransform: 'capitalize',
+  },
+  addressText: {
+    fontSize: typography.size.sm,
+    color: colors.text.secondary,
   },
   itinerarySection: {
     paddingHorizontal: spacing.xl,
@@ -472,6 +672,15 @@ const styles = StyleSheet.create({
     fontSize: typography.size.body,
     fontWeight: typography.weight.bold,
     color: colors.text.primary,
+  },
+  gettingThereSection: {
+    paddingHorizontal: spacing.xl,
+    marginBottom: spacing.lg,
+  },
+  gettingThereText: {
+    fontSize: typography.size.sm,
+    color: colors.text.secondary,
+    lineHeight: typography.size.sm * typography.lineHeight.relaxed,
   },
   actionsRow: {
     flexDirection: 'row',

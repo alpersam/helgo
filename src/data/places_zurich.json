@@ -1,771 +1,5234 @@
 {
   "places": [
     {
-      "id": "cafe-henrici",
-      "name": "Café Henrici",
+      "id": "osm-node-73653071-moana",
+      "name": "moana",
       "category": "cafe",
-      "lat": 47.3697,
-      "lon": 8.5412,
+      "lat": 47.3439521,
+      "lon": 8.5297852,
       "tags": [
-        "cozy",
-        "oldtown",
-        "coffee",
-        "brunch",
-        "historic"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=cafe+henrici+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Cafe+Henrici+Zurich",
-      "indoorOutdoor": "indoor",
-      "durationMins": 60,
-      "price": "budget",
-      "bestTimeOfDay": "morning",
-      "area": "kreis1",
-      "description": "Historic café in Niederdorf with classic Swiss charm",
-      "elevation": 410
-    },
-    {
-      "id": "milchbar",
-      "name": "Milchbar",
-      "category": "cafe",
-      "lat": 47.3654,
-      "lon": 8.5247,
-      "tags": [
-        "hip",
-        "coffee",
-        "brunch",
-        "quiet",
-        "photo"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=milchbar+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Milchbar+Zurich",
-      "indoorOutdoor": "indoor",
-      "durationMins": 60,
-      "price": "budget",
-      "bestTimeOfDay": "morning",
-      "area": "kreis4",
-      "photoSpots": [
-        {
-          "lat": 47.3654,
-          "lon": 8.5247
-        }
-      ],
-      "description": "Trendy café in Kreis 4 with excellent coffee",
-      "elevation": 408
-    },
-    {
-      "id": "cafe-schober",
-      "name": "Café Schober",
-      "category": "cafe",
-      "lat": 47.3716,
-      "lon": 8.5446,
-      "tags": [
-        "cozy",
-        "oldtown",
-        "romantic",
-        "historic",
         "coffee"
       ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=cafe+schober+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Cafe+Schober+Zurich",
+      "address": "Albisstrasse 44",
+      "website": "http://www.moanacafebar.ch/",
+      "phone": "+41 43 399 00 19",
+      "mapsUrl": "https://maps.google.com/?q=47.3439521,8.5297852",
       "indoorOutdoor": "indoor",
       "durationMins": 60,
-      "price": "budget",
       "bestTimeOfDay": "morning",
-      "area": "kreis1",
-      "description": "Legendary chocolate house since 1842",
-      "elevation": 415
+      "description": null,
+      "area": null
     },
     {
-      "id": "sprüngli-paradeplatz",
-      "name": "Sprüngli Paradeplatz",
-      "category": "cafe",
-      "lat": 47.3696,
-      "lon": 8.5391,
+      "id": "osm-node-73670930-o-callaghans-shamrock-pub",
+      "name": "O'Callaghans Shamrock Pub",
+      "category": "bar",
+      "lat": 47.3389071,
+      "lon": 8.5303237,
       "tags": [
-        "touristy",
-        "coffee",
-        "historic",
-        "city",
-        "swiss"
+        "beer",
+        "cocktails"
       ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=sprungli+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Sprungli+Paradeplatz+Zurich",
-      "indoorOutdoor": "indoor",
-      "durationMins": 60,
-      "price": "budget",
-      "bestTimeOfDay": "morning",
-      "area": "hb",
-      "description": "Iconic Swiss confectionery and café",
-      "elevation": 408
-    },
-    {
-      "id": "mame-coffee",
-      "name": "MAME Coffee",
-      "category": "cafe",
-      "lat": 47.3773,
-      "lon": 8.5404,
-      "tags": [
-        "hip",
-        "coffee",
-        "quiet",
-        "photo"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=mame+coffee+zurich",
-      "mapsUrl": "https://maps.google.com/?q=MAME+Coffee+Zurich",
-      "indoorOutdoor": "indoor",
-      "durationMins": 60,
-      "price": "budget",
-      "bestTimeOfDay": "morning",
-      "area": "kreis4",
-      "photoSpots": [
-        {
-          "lat": 47.3773,
-          "lon": 8.5404
-        }
-      ],
-      "description": "World-class specialty coffee roasters",
-      "elevation": 420
-    },
-    {
-      "id": "el-lokal",
-      "name": "El Lokal",
-      "category": "restaurant",
-      "lat": 47.3654,
-      "lon": 8.5286,
-      "tags": [
-        "mexican",
-        "hip",
-        "cocktails",
-        "cheap"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=el+lokal+zurich",
-      "mapsUrl": "https://maps.google.com/?q=El+Lokal+Zurich",
+      "address": null,
+      "website": "http://www.shamrock-irishpub.ch/",
+      "phone": "+41 44 482 10 62",
+      "mapsUrl": "https://maps.google.com/?q=47.3389071,8.5303237",
       "indoorOutdoor": "indoor",
       "durationMins": 90,
-      "price": "mid",
       "bestTimeOfDay": "night",
-      "area": "kreis4",
-      "description": "Authentic Mexican tacos and mezcal",
-      "elevation": 410
+      "description": null,
+      "area": null
     },
     {
-      "id": "tres-kilos",
-      "name": "Tres Kilos",
-      "category": "restaurant",
-      "lat": 47.3751,
-      "lon": 8.5324,
+      "id": "osm-node-73677373-mellow-bar",
+      "name": "Mellow Bar",
+      "category": "bar",
+      "lat": 47.3406107,
+      "lon": 8.5298134,
       "tags": [
-        "mexican",
-        "hip",
-        "cheap",
-        "city"
+        "beer",
+        "cocktails"
       ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=tres+kilos+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Tres+Kilos+Zurich",
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3406107,8.5298134",
       "indoorOutdoor": "indoor",
       "durationMins": 90,
-      "price": "mid",
       "bestTimeOfDay": "night",
-      "area": "kreis4",
-      "description": "Street-style tacos near Langstrasse",
-      "elevation": 412
+      "description": null,
+      "area": null
     },
     {
-      "id": "santa-lucia",
-      "name": "Ristorante Santa Lucia",
+      "id": "osm-node-75025846-il-grappolo",
+      "name": "Il Grappolo",
       "category": "restaurant",
-      "lat": 47.3701,
-      "lon": 8.5417,
+      "lat": 47.3361381,
+      "lon": 8.5322408,
+      "tags": [
+        "italian"
+      ],
+      "address": "Widmerstrasse 64, 8038, Zürich",
+      "website": "https://www.restaurant-ilgrappolo.ch/",
+      "phone": "+41 44 481 70 60",
+      "mapsUrl": "https://maps.google.com/?q=47.3361381,8.5322408",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-80087517-yan-ruyi",
+      "name": "Yan-Ruyi",
+      "category": "restaurant",
+      "lat": 47.3441094,
+      "lon": 8.53266,
+      "tags": [
+        "asian"
+      ],
+      "address": null,
+      "website": "http://ruyi-restaurant.ch/",
+      "phone": "+41 44 481 67 27",
+      "mapsUrl": "https://maps.google.com/?q=47.3441094,8.53266",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-83370553-boom",
+      "name": "Boom",
+      "category": "restaurant",
+      "lat": 47.3266149,
+      "lon": 8.5292088,
+      "tags": [
+        "burger"
+      ],
+      "address": "Zürichstrasse 105, 8134",
+      "website": "https://ibiszurich.ch/restaurant-boom/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3266149,8.5292088",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-103122838-ziegel-oh-lac",
+      "name": "Ziegel oh Lac",
+      "category": "restaurant",
+      "lat": 47.3435586,
+      "lon": 8.5368559,
+      "tags": [],
+      "address": "Seestrasse 407, 8038, Zürich",
+      "website": "https://www.ziegelohlac.ch/",
+      "phone": "+41 44 481 62 42",
+      "mapsUrl": "https://maps.google.com/?q=47.3435586,8.5368559",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-104241910-ortsmuseum-wollishofen",
+      "name": "Ortsmuseum Wollishofen",
+      "category": "museum",
+      "lat": 47.3382614,
+      "lon": 8.5373086,
+      "tags": [
+        "historic"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3382614,8.5373086",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-104247187-ubs-restaurant-flur",
+      "name": "UBS Restaurant Flur",
+      "category": "restaurant",
+      "lat": 47.382807,
+      "lon": 8.4929412,
+      "tags": [],
+      "address": "Flurstrasse 70, 8048, Zürich",
+      "website": "https://www.zfv.ch/de/essen-gehen/ubs-restaurant-flur",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.382807,8.4929412",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-104274210-freihof-pizzeria-etna",
+      "name": "Freihof Pizzeria Etna",
+      "category": "restaurant",
+      "lat": 47.383491,
+      "lon": 8.4995953,
+      "tags": [
+        "italian"
+      ],
+      "address": "Badenerstrasse 540",
+      "website": "https://www.freihofetna.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.383491,8.4995953",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-104274551-shilla",
+      "name": "Shilla",
+      "category": "restaurant",
+      "lat": 47.3814984,
+      "lon": 8.5025715,
+      "tags": [
+        "asian"
+      ],
+      "address": null,
+      "website": "https://www.shilla.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3814984,8.5025715",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-104274852-letzigrund",
+      "name": "Letzigrund",
+      "category": "restaurant",
+      "lat": 47.3825781,
+      "lon": 8.5012681,
+      "tags": [],
+      "address": "Badenerstrasse 526, 8048, Zürich",
+      "website": "https://restaurantletzigrund.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3825781,8.5012681",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-104275299-pizza-z-ri",
+      "name": "Pizza Züri",
+      "category": "restaurant",
+      "lat": 47.3842422,
+      "lon": 8.4978272,
+      "tags": [
+        "italian"
+      ],
+      "address": null,
+      "website": "https://pizzazueri.ch",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3842422,8.4978272",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-104276014-turbinenhalle",
+      "name": "Turbinenhalle",
+      "category": "restaurant",
+      "lat": 47.3841009,
+      "lon": 8.4964028,
+      "tags": [
+        "burger"
+      ],
+      "address": "Badenerstrasse 571, 8048, Zürich",
+      "website": "https://www.restaurant-turbinenbraeu.ch/",
+      "phone": "+41 43 311 57 67",
+      "mapsUrl": "https://maps.google.com/?q=47.3841009,8.4964028",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-105443906-gabbiano",
+      "name": "Gabbiano",
+      "category": "restaurant",
+      "lat": 47.409767,
+      "lon": 8.5374793,
       "tags": [
         "italian",
-        "cozy",
-        "oldtown",
-        "romantic"
+        "burger"
       ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=santa+lucia+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Santa+Lucia+Zurich",
+      "address": "Regensbergstrasse 186, 8050, Zürich",
+      "website": "https://www.gabbiano-exp.ch/",
+      "phone": "+41 43 321 23 93",
+      "mapsUrl": "https://maps.google.com/?q=47.409767,8.5374793",
       "indoorOutdoor": "indoor",
       "durationMins": 90,
-      "price": "mid",
       "bestTimeOfDay": "night",
-      "area": "kreis1",
-      "description": "Classic Italian in the heart of Niederdorf",
-      "elevation": 410
+      "description": null,
+      "area": null
     },
     {
-      "id": "bindella-orso",
-      "name": "Ristorante Bindella Orso",
-      "category": "restaurant",
-      "lat": 47.3673,
-      "lon": 8.5401,
-      "tags": [
-        "italian",
-        "wine",
-        "city",
-        "romantic"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=bindella+orso+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Bindella+Orso+Zurich",
-      "indoorOutdoor": "indoor",
-      "durationMins": 90,
-      "price": "mid",
-      "bestTimeOfDay": "night",
-      "area": "hb",
-      "description": "Refined Italian with excellent wines",
-      "elevation": 408
-    },
-    {
-      "id": "yooji-sushi",
-      "name": "Yooji's",
-      "category": "restaurant",
-      "lat": 47.3652,
-      "lon": 8.5482,
-      "tags": [
-        "sushi",
-        "asian",
-        "hip",
-        "city",
-        "lake"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=yoojis+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Yoojis+Seefeld+Zurich",
-      "indoorOutdoor": "indoor",
-      "durationMins": 90,
-      "price": "mid",
-      "bestTimeOfDay": "night",
-      "area": "kreis4",
-      "description": "Fresh sushi with lake views",
-      "elevation": 406
-    },
-    {
-      "id": "hiltl",
-      "name": "Hiltl",
-      "category": "restaurant",
-      "lat": 47.3738,
-      "lon": 8.5386,
-      "tags": [
-        "vegan",
-        "city",
-        "historic",
-        "hip"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=hiltl+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Hiltl+Zurich",
-      "indoorOutdoor": "indoor",
-      "durationMins": 90,
-      "price": "mid",
-      "bestTimeOfDay": "night",
-      "area": "kreis4",
-      "description": "World's oldest vegetarian restaurant",
-      "elevation": 412
-    },
-    {
-      "id": "zeughauskeller",
+      "id": "osm-node-105459350-zeughauskeller",
       "name": "Zeughauskeller",
       "category": "restaurant",
-      "lat": 47.3697,
-      "lon": 8.5398,
-      "tags": [
-        "swiss",
-        "historic",
-        "touristy",
-        "beer",
-        "oldtown"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=zeughauskeller+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Zeughauskeller+Zurich",
+      "lat": 47.3703727,
+      "lon": 8.5399233,
+      "tags": [],
+      "address": "Bahnhofstrasse, 28a, 8001, Zürich",
+      "website": "https://www.zeughauskeller.ch/",
+      "phone": "+41 44 220 15 15",
+      "mapsUrl": "https://maps.google.com/?q=47.3703727,8.5399233",
       "indoorOutdoor": "indoor",
       "durationMins": 90,
-      "price": "mid",
       "bestTimeOfDay": "night",
-      "area": "kreis1",
-      "description": "Classic Swiss fare in a medieval armory",
-      "elevation": 408
+      "description": null,
+      "area": null
     },
     {
-      "id": "burgermeister",
-      "name": "Burgermeister",
+      "id": "osm-node-105460220-spr-ngli-caf-bar",
+      "name": "Sprüngli Café-Bar",
+      "category": "cafe",
+      "lat": 47.3692939,
+      "lon": 8.5392157,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Bahnhofstrasse 21, 8001, Zürich",
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3692939,8.5392157",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-105506327-zum-alten-l-wen",
+      "name": "Zum Alten Löwen",
       "category": "restaurant",
-      "lat": 47.3755,
-      "lon": 8.5254,
-      "tags": [
-        "burger",
-        "hip",
-        "cheap",
-        "beer"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=burgermeister+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Burgermeister+Zurich",
+      "lat": 47.3849796,
+      "lon": 8.5482469,
+      "tags": [],
+      "address": "Universitätstrasse 111, 8006, Zürich",
+      "website": "https://www.altenloewen.ch/",
+      "phone": "+41 43 343 11 69",
+      "mapsUrl": "https://maps.google.com/?q=47.3849796,8.5482469",
       "indoorOutdoor": "indoor",
       "durationMins": 90,
-      "price": "mid",
       "bestTimeOfDay": "night",
-      "area": "kreis4",
-      "description": "Legendary burgers in Kreis 5",
-      "elevation": 415
+      "description": null,
+      "area": null
     },
     {
-      "id": "clouds",
-      "name": "Clouds Kitchen",
+      "id": "osm-node-112965994-cafe-medina",
+      "name": "Cafe Medina",
       "category": "restaurant",
-      "lat": 47.3864,
-      "lon": 8.518,
-      "tags": [
-        "view",
-        "city",
-        "romantic",
-        "cocktails",
-        "photo"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=clouds+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Clouds+Kitchen+Zurich",
+      "lat": 47.3420405,
+      "lon": 8.5304612,
+      "tags": [],
+      "address": "Albisstrasse 72",
+      "website": "http://www.cafemedina.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3420405,8.5304612",
       "indoorOutdoor": "indoor",
       "durationMins": 90,
-      "price": "mid",
       "bestTimeOfDay": "night",
-      "area": "hb",
-      "photoSpots": [
-        {
-          "lat": 47.3864,
-          "lon": 8.518
-        }
-      ],
-      "description": "Panoramic dining at Prime Tower",
-      "elevation": 530
+      "description": null,
+      "area": null
     },
     {
-      "id": "frau-gerolds-garten",
-      "name": "Frau Gerolds Garten",
+      "id": "osm-node-119247298-haus-hiltl",
+      "name": "Haus Hiltl",
       "category": "restaurant",
-      "lat": 47.3901,
-      "lon": 8.518,
-      "tags": [
-        "hip",
-        "green",
-        "beer",
-        "photo",
-        "city"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=frau+gerolds+garten",
-      "mapsUrl": "https://maps.google.com/?q=Frau+Gerolds+Garten+Zurich",
+      "lat": 47.3733042,
+      "lon": 8.5367495,
+      "tags": [],
+      "address": "Sihlstrasse 28, 8001, Zürich",
+      "website": "https://hiltl.ch/",
+      "phone": "+41 44 227 70 00",
+      "mapsUrl": "https://maps.google.com/?q=47.3733042,8.5367495",
       "indoorOutdoor": "indoor",
       "durationMins": 90,
-      "price": "mid",
       "bestTimeOfDay": "night",
-      "area": "kreis4",
-      "photoSpots": [
-        {
-          "lat": 47.3901,
-          "lon": 8.518
-        }
-      ],
-      "description": "Urban garden with food stalls and vibes",
-      "elevation": 410
+      "description": null,
+      "area": null
     },
     {
-      "id": "lindenhof",
-      "name": "Lindenhof",
-      "category": "viewpoint",
-      "lat": 47.3726,
-      "lon": 8.5407,
+      "id": "osm-node-140392627-museum-f-r-gestaltung",
+      "name": "Museum für Gestaltung",
+      "category": "museum",
+      "lat": 47.3829824,
+      "lon": 8.5357988,
       "tags": [
-        "view",
-        "oldtown",
-        "quiet",
-        "photo",
-        "historic",
-        "green"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=lindenhof+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Lindenhof+Zurich",
-      "indoorOutdoor": "outdoor",
-      "durationMins": 45,
-      "bestTimeOfDay": "sunset",
-      "area": "kreis1",
-      "photoSpots": [
-        {
-          "lat": 47.3726,
-          "lon": 8.5407
-        }
-      ],
-      "description": "Historic hilltop with river and rooftop views",
-      "elevation": 428
-    },
-    {
-      "id": "polyterrasse",
-      "name": "Polyterrasse ETH",
-      "category": "viewpoint",
-      "lat": 47.3763,
-      "lon": 8.5478,
-      "tags": [
-        "view",
-        "photo",
-        "city",
-        "quiet"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=polyterrasse+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Polyterrasse+ETH+Zurich",
-      "indoorOutdoor": "outdoor",
-      "durationMins": 45,
-      "bestTimeOfDay": "sunset",
-      "area": "hb",
-      "photoSpots": [
-        {
-          "lat": 47.3763,
-          "lon": 8.5478
-        }
-      ],
-      "description": "ETH terrace with sweeping city panorama",
-      "elevation": 450
-    },
-    {
-      "id": "uetliberg",
-      "name": "Uetliberg Summit",
-      "category": "viewpoint",
-      "lat": 47.3497,
-      "lon": 8.4915,
-      "tags": [
-        "view",
-        "green",
-        "photo",
-        "quiet",
-        "park"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=uetliberg+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Uetliberg+Zurich",
-      "indoorOutdoor": "outdoor",
-      "durationMins": 45,
-      "bestTimeOfDay": "sunset",
-      "photoSpots": [
-        {
-          "lat": 47.3497,
-          "lon": 8.4915
-        }
-      ],
-      "description": "Zürich's house mountain with alpine views",
-      "elevation": 871
-    },
-    {
-      "id": "kaferberg",
-      "name": "Käferberg Viewpoint",
-      "category": "viewpoint",
-      "lat": 47.4012,
-      "lon": 8.5231,
-      "tags": [
-        "view",
-        "quiet",
-        "green",
-        "photo"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=kaferberg+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Kaferberg+Zurich",
-      "indoorOutdoor": "outdoor",
-      "durationMins": 45,
-      "bestTimeOfDay": "sunset",
-      "photoSpots": [
-        {
-          "lat": 47.4012,
-          "lon": 8.5231
-        }
-      ],
-      "description": "Peaceful northern heights with forest",
-      "elevation": 580
-    },
-    {
-      "id": "weinberg-park",
-      "name": "Weinberg Park",
-      "category": "viewpoint",
-      "lat": 47.3782,
-      "lon": 8.5321,
-      "tags": [
-        "view",
-        "green",
-        "park",
-        "quiet",
-        "city"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=weinberg+park+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Weinberg+Park+Zurich",
-      "indoorOutdoor": "outdoor",
-      "durationMins": 45,
-      "bestTimeOfDay": "sunset",
-      "area": "hb",
-      "photoSpots": [
-        {
-          "lat": 47.3782,
-          "lon": 8.5321
-        }
-      ],
-      "description": "Hidden garden with city views",
-      "elevation": 445
-    },
-    {
-      "id": "limmat-walk",
-      "name": "Limmat River Walk",
-      "category": "walk",
-      "lat": 47.3705,
-      "lon": 8.5421,
-      "tags": [
-        "lake",
-        "oldtown",
-        "photo",
-        "romantic",
-        "street"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=limmat+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Limmat+Zurich",
-      "indoorOutdoor": "outdoor",
-      "durationMins": 75,
-      "bestTimeOfDay": "afternoon",
-      "area": "kreis1",
-      "photoSpots": [
-        {
-          "lat": 47.3705,
-          "lon": 8.5421
-        }
-      ],
-      "description": "Stroll along the river through old town",
-      "elevation": 405
-    },
-    {
-      "id": "seepromenade",
-      "name": "Lake Promenade",
-      "category": "walk",
-      "lat": 47.3643,
-      "lon": 8.5458,
-      "tags": [
-        "lake",
-        "view",
-        "romantic",
-        "photo",
-        "green"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=seepromenade+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Seepromenade+Zurich",
-      "indoorOutdoor": "outdoor",
-      "durationMins": 75,
-      "bestTimeOfDay": "afternoon",
-      "area": "lake",
-      "photoSpots": [
-        {
-          "lat": 47.3643,
-          "lon": 8.5458
-        }
-      ],
-      "description": "Lakeside walk with Alps on clear days",
-      "elevation": 408
-    },
-    {
-      "id": "niederdorf-stroll",
-      "name": "Niederdorf Stroll",
-      "category": "walk",
-      "lat": 47.3718,
-      "lon": 8.5448,
-      "tags": [
-        "oldtown",
-        "narrow",
-        "photo",
-        "touristy",
-        "street",
         "historic"
       ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=niederdorf+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Niederdorf+Zurich",
-      "indoorOutdoor": "outdoor",
-      "durationMins": 75,
+      "address": "Ausstellungsstrasse 60, 8005, Zürich",
+      "website": "https://www.museum-gestaltung.ch",
+      "phone": "+41-43-446-67-67",
+      "mapsUrl": "https://maps.google.com/?q=47.3829824,8.5357988",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
       "bestTimeOfDay": "afternoon",
-      "area": "kreis1",
-      "photoSpots": [
-        {
-          "lat": 47.3718,
-          "lon": 8.5448
-        }
-      ],
-      "description": "Wander cobbled lanes of the old town",
-      "elevation": 412
+      "description": null,
+      "area": null,
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Museum_f%C3%BCr_Gestaltung._Z%C3%BCrich.jpg"
     },
     {
-      "id": "langstrasse-night",
-      "name": "Langstrasse Night Walk",
-      "category": "walk",
-      "lat": 47.3753,
-      "lon": 8.5287,
+      "id": "osm-node-244500321-aussichtsturm",
+      "name": "Aussichtsturm",
+      "category": "viewpoint",
+      "lat": 47.4146551,
+      "lon": 8.5388198,
       "tags": [
-        "hip",
-        "city",
-        "street",
-        "cocktails",
+        "view",
         "photo"
       ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=langstrasse+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Langstrasse+Zurich",
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4146551,8.5388198",
       "indoorOutdoor": "outdoor",
-      "durationMins": 75,
-      "bestTimeOfDay": "afternoon",
-      "area": "kreis4",
-      "photoSpots": [
-        {
-          "lat": 47.3753,
-          "lon": 8.5287
-        }
-      ],
-      "description": "Zürich's vibrant nightlife strip",
-      "elevation": 418
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
     },
     {
-      "id": "rieterpark",
-      "name": "Rieterpark",
-      "category": "walk",
-      "lat": 47.3575,
-      "lon": 8.5245,
+      "id": "osm-node-250554254-kafi-feli",
+      "name": "Kafi Öfeli",
+      "category": "cafe",
+      "lat": 47.3845988,
+      "lon": 8.4772959,
       "tags": [
-        "green",
-        "park",
-        "quiet",
+        "coffee"
+      ],
+      "address": "Rautistrasse 281, 8048, Zürich",
+      "website": "https://www.kafi-oefeli.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3845988,8.4772959",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-252407018-ristorante-culmann",
+      "name": "Ristorante Culmann",
+      "category": "restaurant",
+      "lat": 47.3794422,
+      "lon": 8.5470198,
+      "tags": [
+        "italian"
+      ],
+      "address": "Culmannstrasse 1, 8006, Zürich",
+      "website": "https://www.culmann.ch/",
+      "phone": "+41 44 251 36 51",
+      "mapsUrl": "https://maps.google.com/?q=47.3794422,8.5470198",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-252407019-la-fontana",
+      "name": "La Fontana",
+      "category": "restaurant",
+      "lat": 47.3797201,
+      "lon": 8.5469255,
+      "tags": [
+        "italian"
+      ],
+      "address": null,
+      "website": "https://www.instagram.com/la_fontana_zurich/",
+      "phone": "+41 44 261 80 44",
+      "mapsUrl": "https://maps.google.com/?q=47.3797201,8.5469255",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-253207101-il-postino",
+      "name": "Il Postino",
+      "category": "restaurant",
+      "lat": 47.400103,
+      "lon": 8.5436425,
+      "tags": [
+        "italian"
+      ],
+      "address": "Schaffhauserstrasse 188, 8057, Zürich",
+      "website": "https://www.ilpostino.ch/",
+      "phone": "+41 44 350 66 66",
+      "mapsUrl": "https://maps.google.com/?q=47.400103,8.5436425",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-256339532-peking-garden",
+      "name": "Peking Garden",
+      "category": "restaurant",
+      "lat": 47.3910962,
+      "lon": 8.4888858,
+      "tags": [
+        "asian"
+      ],
+      "address": "Hohlstrasse 560, 8048, Zürich",
+      "website": "https://www.peking-garden.ch/pg_restaurant/zuerich-altstetten/",
+      "phone": "+41 44 433 28 28",
+      "mapsUrl": "https://maps.google.com/?q=47.3910962,8.4888858",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-256437327-waldhaus-katzensee",
+      "name": "Waldhaus Katzensee",
+      "category": "restaurant",
+      "lat": 47.4292515,
+      "lon": 8.4893752,
+      "tags": [],
+      "address": null,
+      "website": "https://waldhaus-katzensee.ch/",
+      "phone": "+41 44 371 30 03",
+      "mapsUrl": "https://maps.google.com/?q=47.4292515,8.4893752",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-261651356-oberhof",
+      "name": "Oberhof",
+      "category": "restaurant",
+      "lat": 47.3734628,
+      "lon": 8.553472,
+      "tags": [],
+      "address": "Zürichbergstrasse 24, 8032, Zürich",
+      "website": "https://www.restaurant-oberhof.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3734628,8.553472",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-261914358-dar",
+      "name": "Dar",
+      "category": "restaurant",
+      "lat": 47.3693682,
+      "lon": 8.5239637,
+      "tags": [],
+      "address": "Weststrasse 20, 8003, Zürich",
+      "website": "https://www.restaurantdar.com/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3693682,8.5239637",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-262378050-rosengarten",
+      "name": "Rosengarten",
+      "category": "restaurant",
+      "lat": 47.3697879,
+      "lon": 8.5563885,
+      "tags": [],
+      "address": "Gemeindestrasse 60, 8032, Zürich",
+      "website": "https://www.rosengarten.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3697879,8.5563885",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-265776667-grain",
+      "name": "Grain",
+      "category": "restaurant",
+      "lat": 47.3761503,
+      "lon": 8.559374,
+      "tags": [],
+      "address": null,
+      "website": "https://grain.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3761503,8.559374",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-266312456-wirtschaft-ziegelh-tte",
+      "name": "Wirtschaft Ziegelhütte",
+      "category": "restaurant",
+      "lat": 47.3995321,
+      "lon": 8.5727756,
+      "tags": [],
+      "address": "Hüttenkopfstrasse 70, 8050, Zürich",
+      "website": "https://wirtschaft-ziegelhuette.ch/",
+      "phone": "+41 44 322 40 03",
+      "mapsUrl": "https://maps.google.com/?q=47.3995321,8.5727756",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-266630292-gebeta-thiopische-und-eritreische-spezialit-ten",
+      "name": "Gebeta äthiopische und eritreische Spezialitäten",
+      "category": "restaurant",
+      "lat": 47.3773106,
+      "lon": 8.5130089,
+      "tags": [],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3773106,8.5130089",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-266630294-l-g-re",
+      "name": "Légère",
+      "category": "bar",
+      "lat": 47.3763377,
+      "lon": 8.5143811,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Badenerstrasse 181, 8003, Zürich",
+      "website": "https://www.legerezurich.ch/",
+      "phone": "+41 44 554 33 14",
+      "mapsUrl": "https://maps.google.com/?q=47.3763377,8.5143811",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-266630369-taverne-da-angelo",
+      "name": "Taverne da Angelo",
+      "category": "restaurant",
+      "lat": 47.3761581,
+      "lon": 8.5147672,
+      "tags": [
+        "italian"
+      ],
+      "address": null,
+      "website": "http://www.taverne-da-angelo.ch/",
+      "phone": "+41 44 451 04 67",
+      "mapsUrl": "https://maps.google.com/?q=47.3761581,8.5147672",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-266630370-lok-lak-asian-eatery",
+      "name": "Lok Lak Asian Eatery",
+      "category": "restaurant",
+      "lat": 47.3783291,
+      "lon": 8.5096105,
+      "tags": [],
+      "address": "Badenerstrasse 355, 8003, Zürich",
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3783291,8.5096105",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-266864392-restaurant-waldmannsburg",
+      "name": "Restaurant Waldmannsburg",
+      "category": "restaurant",
+      "lat": 47.3791543,
+      "lon": 8.6166817,
+      "tags": [],
+      "address": null,
+      "website": "https://www.waldmannsburg.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3791543,8.6166817",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-266864505-pizzeria-il-faro",
+      "name": "Pizzeria Il Faro",
+      "category": "restaurant",
+      "lat": 47.3968938,
+      "lon": 8.6138054,
+      "tags": [],
+      "address": "Zürichstrasse 30, 8600, Zürich",
+      "website": "https://ilfaro.ch/",
+      "phone": "+41 44 802 11 02",
+      "mapsUrl": "https://maps.google.com/?q=47.3968938,8.6138054",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-266864554-club-p1",
+      "name": "Club P1",
+      "category": "bar",
+      "lat": 47.4010079,
+      "lon": 8.6056519,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Neugutstrasse 88, 8600, Dübendorf",
+      "website": "https://www.p1-club.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4010079,8.6056519",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-267022405-tasteria",
+      "name": "Tasteria",
+      "category": "restaurant",
+      "lat": 47.4145066,
+      "lon": 8.5330149,
+      "tags": [],
+      "address": "Robert-Maillart-Strasse 14, 8050, Zürich",
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4145066,8.5330149",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-267023274-kai-sushi",
+      "name": "Kai Sushi",
+      "category": "restaurant",
+      "lat": 47.4143917,
+      "lon": 8.539455,
+      "tags": [
+        "sushi"
+      ],
+      "address": "Ellen-Widmann-Weg 2, 8050, Zürich",
+      "website": "https://kaisushi.ch/de/standorte/kai-sushi-oerlikon/",
+      "phone": "+41 43 538 42 47",
+      "mapsUrl": "https://maps.google.com/?q=47.4143917,8.539455",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-267049751-imone",
+      "name": "Imone",
+      "category": "restaurant",
+      "lat": 47.3639501,
+      "lon": 8.5201156,
+      "tags": [
+        "asian",
+        "asian"
+      ],
+      "address": "Uetlibergstrasse 38, 8045, Zürich",
+      "website": "https://imonezurich.com/",
+      "phone": "+41 43 333 19 68",
+      "mapsUrl": "https://maps.google.com/?q=47.3639501,8.5201156",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-267345309-soho",
+      "name": "Soho",
+      "category": "restaurant",
+      "lat": 47.3884346,
+      "lon": 8.5208041,
+      "tags": [],
+      "address": "Hardstrasse 260, 8005, Zürich",
+      "website": "https://www.soho-zurich.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3884346,8.5208041",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-267345323-big-ben-westside-pub",
+      "name": "Big Ben Westside Pub",
+      "category": "bar",
+      "lat": 47.3872345,
+      "lon": 8.519462,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Hardstrasse 234, 8005, Zürich",
+      "website": "https://www.bigbenwestside.ch/",
+      "phone": "+41 44 271 02 66",
+      "mapsUrl": "https://maps.google.com/?q=47.3872345,8.519462",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-267345815-billiardino",
+      "name": "Billiardino",
+      "category": "bar",
+      "lat": 47.388361,
+      "lon": 8.5223501,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Heinrichstrasse 245, Zürich",
+      "website": "https://www.billiardino.ch/",
+      "phone": "+41439603333",
+      "mapsUrl": "https://maps.google.com/?q=47.388361,8.5223501",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": "Billardsport und Restaurant",
+      "area": null
+    },
+    {
+      "id": "osm-node-267879344-shangrila-tibet",
+      "name": "Shangrila Tibet",
+      "category": "restaurant",
+      "lat": 47.3697414,
+      "lon": 8.5100698,
+      "tags": [
+        "asian"
+      ],
+      "address": "Birmensdorferstrasse 297, 8055, Zürich",
+      "website": "https://www.shangrila-tibet.ch/",
+      "phone": "+41 44 462 04 12",
+      "mapsUrl": "https://maps.google.com/?q=47.3697414,8.5100698",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-267879346-walter-buchmann",
+      "name": "Walter Buchmann",
+      "category": "cafe",
+      "lat": 47.3625839,
+      "lon": 8.5191037,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Eichstrasse 29, 8045, Zürich",
+      "website": "https://www.walterbuchmann.ch/binz",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3625839,8.5191037",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-267879347-anamira",
+      "name": "AnaMiRa",
+      "category": "restaurant",
+      "lat": 47.3641859,
+      "lon": 8.5204226,
+      "tags": [
+        "italian"
+      ],
+      "address": null,
+      "website": "https://anamira.ch",
+      "phone": "+41 44 463 90 90",
+      "mapsUrl": "https://maps.google.com/?q=47.3641859,8.5204226",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-267879348-hopfenau",
+      "name": "Hopfenau",
+      "category": "restaurant",
+      "lat": 47.3651417,
+      "lon": 8.5200023,
+      "tags": [],
+      "address": "Hopfenstrasse 19, 8045, Zürich",
+      "website": "https://hopfenau.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3651417,8.5200023",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-267879350-jane-fine-food",
+      "name": "Jane Fine Food",
+      "category": "restaurant",
+      "lat": 47.3673432,
+      "lon": 8.5200355,
+      "tags": [],
+      "address": null,
+      "website": "https://janefindefood.com",
+      "phone": "+41 43 321 21 71",
+      "mapsUrl": "https://maps.google.com/?q=47.3673432,8.5200355",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-267879351-swaad",
+      "name": "Swaad",
+      "category": "restaurant",
+      "lat": 47.3592215,
+      "lon": 8.5162289,
+      "tags": [
+        "asian"
+      ],
+      "address": "Uetlibergstrasse 166, 8045, Zürich",
+      "website": "http://www.swaad.ch/",
+      "phone": "+41 43 333 13 15",
+      "mapsUrl": "https://maps.google.com/?q=47.3592215,8.5162289",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-268411248-hotel-seegarten",
+      "name": "Hotel Seegarten",
+      "category": "restaurant",
+      "lat": 47.3613874,
+      "lon": 8.549412,
+      "tags": [],
+      "address": "Seegartenstrasse 14, 8008, Zürich",
+      "website": "https://www.hotel-seegarten.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3613874,8.549412",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-268474472-drinx-bar-db",
+      "name": "Drinx Bar db",
+      "category": "bar",
+      "lat": 47.3637126,
+      "lon": 8.547619,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Dufourstrasse 24, 8008, Zürich",
+      "website": "https://www.drinxbar.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3637126,8.547619",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-268488025-cafe-black",
+      "name": "Cafe Black",
+      "category": "cafe",
+      "lat": 47.3617349,
+      "lon": 8.5485487,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Färberstrasse 6, 8008, Zürich",
+      "website": "https://black1966.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3617349,8.5485487",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-270794627-sol",
+      "name": "Sol",
+      "category": "bar",
+      "lat": 47.3652823,
+      "lon": 8.5648541,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Asylstrasse 125",
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3652823,8.5648541",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-270795412-villa-b-cklin",
+      "name": "Villa Böcklin",
+      "category": "cafe",
+      "lat": 47.364072,
+      "lon": 8.5606338,
+      "tags": [
+        "coffee"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.364072,8.5606338",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-270795664-alters-pflegewohnheim-neum-nster",
+      "name": "Alters- & Pflegewohnheim Neumünster",
+      "category": "cafe",
+      "lat": 47.3629817,
+      "lon": 8.5594513,
+      "tags": [
+        "coffee"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3629817,8.5594513",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-270799257-caf-berner",
+      "name": "Café Berner",
+      "category": "cafe",
+      "lat": 47.3695588,
+      "lon": 8.5540543,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Hottingerstrasse 33, 8032, Zürich",
+      "website": "https://www.walterbuchmann.ch/berner",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3695588,8.5540543",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-270799706-m-hlebach",
+      "name": "Mühlebach",
+      "category": "cafe",
+      "lat": 47.3639923,
+      "lon": 8.5517729,
+      "tags": [
+        "coffee"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3639923,8.5517729",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-270799850-hotel-hechtplatz-bar",
+      "name": "Hotel Hechtplatz Bar",
+      "category": "bar",
+      "lat": 47.3682148,
+      "lon": 8.5452505,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3682148,8.5452505",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-270800553-oberdorf-beck",
+      "name": "Oberdorf Beck",
+      "category": "cafe",
+      "lat": 47.3686693,
+      "lon": 8.545625,
+      "tags": [
+        "coffee"
+      ],
+      "address": null,
+      "website": null,
+      "phone": "+41 44 252 49 19",
+      "mapsUrl": "https://maps.google.com/?q=47.3686693,8.545625",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-270803095-conditorei-schober",
+      "name": "Conditorei schober",
+      "category": "cafe",
+      "lat": 47.3708689,
+      "lon": 8.5418241,
+      "tags": [
+        "coffee"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3708689,8.5418241",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-270938826-old-fashion-bar",
+      "name": "Old Fashion Bar",
+      "category": "bar",
+      "lat": 47.3686626,
+      "lon": 8.5407519,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": null,
+      "website": "https://old-fashion-bar.ch/",
+      "phone": "+41 44 225 18 86",
+      "mapsUrl": "https://maps.google.com/?q=47.3686626,8.5407519",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-271203888-bar-lounge-tietzes",
+      "name": "Bar Lounge Tietzes",
+      "category": "bar",
+      "lat": 47.3440548,
+      "lon": 8.5670721,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3440548,8.5670721",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-271222013-pflegezentrum-rehalp",
+      "name": "Pflegezentrum Rehalp",
+      "category": "cafe",
+      "lat": 47.3515572,
+      "lon": 8.5778661,
+      "tags": [
+        "coffee"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3515572,8.5778661",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-271224408-cafeteria",
+      "name": "Cafeteria",
+      "category": "cafe",
+      "lat": 47.3583262,
+      "lon": 8.5707217,
+      "tags": [
+        "coffee"
+      ],
+      "address": null,
+      "website": "https://www.qth.ch/cafeteria/",
+      "phone": "+41 79 597 87 00",
+      "mapsUrl": "https://maps.google.com/?q=47.3583262,8.5707217",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-271225393-stiftung-perla-park",
+      "name": "Stiftung Perla Park",
+      "category": "cafe",
+      "lat": 47.3608126,
+      "lon": 8.5659833,
+      "tags": [
+        "coffee"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3608126,8.5659833",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-271411937-the-lion",
+      "name": "The Lion",
+      "category": "bar",
+      "lat": 47.3740381,
+      "lon": 8.5393693,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Oetenbachgasse 8001, Zürich",
+      "website": "https://thelion.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3740381,8.5393693",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-271411938-starbucks",
+      "name": "Starbucks",
+      "category": "cafe",
+      "lat": 47.3736638,
+      "lon": 8.5392193,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Rennweg 48, 8001, Zürich",
+      "website": "https://www.starbucks.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3736638,8.5392193",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-271411939-confiserie-honold",
+      "name": "Confiserie Honold",
+      "category": "cafe",
+      "lat": 47.3736029,
+      "lon": 8.538956,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Rennweg 53, 8001, Zürich",
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3736029,8.538956",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-272354078-belcafe",
+      "name": "Belcafe",
+      "category": "cafe",
+      "lat": 47.3670907,
+      "lon": 8.5451486,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Bellevueplatz 1, 8001, Zürich",
+      "website": "https://www.belcafe.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3670907,8.5451486",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-273371550-nachtflug",
+      "name": "Nachtflug",
+      "category": "bar",
+      "lat": 47.3725876,
+      "lon": 8.5434068,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Stüssihofstatt 4",
+      "website": "https://www.n8flug.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3725876,8.5434068",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-273502894-valentino",
+      "name": "Valentino",
+      "category": "cafe",
+      "lat": 47.3601706,
+      "lon": 8.550781,
+      "tags": [
+        "coffee"
+      ],
+      "address": null,
+      "website": "https://www.valentino-pizza-pasta.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3601706,8.550781",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-274986987-oak-bar",
+      "name": "Oak Bar",
+      "category": "bar",
+      "lat": 47.3675501,
+      "lon": 8.5375522,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3675501,8.5375522",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-276483741-starbucks",
+      "name": "Starbucks",
+      "category": "cafe",
+      "lat": 47.3661724,
+      "lon": 8.5469837,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Theaterstrasse 8, 8001, Zürich",
+      "website": "https://www.starbucks.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3661724,8.5469837",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-279180952-schminkbar",
+      "name": "Schminkbar",
+      "category": "bar",
+      "lat": 47.375762,
+      "lon": 8.5402732,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.375762,8.5402732",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-279180955-nelson",
+      "name": "Nelson",
+      "category": "bar",
+      "lat": 47.3757612,
+      "lon": 8.5400722,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Beatengasse 8001, Zürich",
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3757612,8.5400722",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-283458329-caf-felix",
+      "name": "Café Felix",
+      "category": "cafe",
+      "lat": 47.3752928,
+      "lon": 8.538374,
+      "tags": [
+        "coffee"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3752928,8.538374",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-283458330-piazzetta",
+      "name": "Piazzetta",
+      "category": "cafe",
+      "lat": 47.3763896,
+      "lon": 8.539384,
+      "tags": [
+        "coffee"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3763896,8.539384",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-283458332-baryton",
+      "name": "Baryton",
+      "category": "bar",
+      "lat": 47.37605,
+      "lon": 8.5383251,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Schweizergasse 8, 8001, Zürich",
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.37605,8.5383251",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-283689479-4-akt",
+      "name": "4. Akt",
+      "category": "bar",
+      "lat": 47.3895233,
+      "lon": 8.5217251,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Heinrichstrasse 262, 8005, Zürich",
+      "website": "https://4akt.ch/",
+      "phone": "+41 44 271 03 68",
+      "mapsUrl": "https://maps.google.com/?q=47.3895233,8.5217251",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-297710735-almodo-bar",
+      "name": "Almodo Bar",
+      "category": "bar",
+      "lat": 47.3669773,
+      "lon": 8.5333873,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": null,
+      "website": "https://almodobar.com/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3669773,8.5333873",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-297710736-barfly-z",
+      "name": "Barfly'z",
+      "category": "bar",
+      "lat": 47.365884,
+      "lon": 8.5367894,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Gotthardstrasse 21",
+      "website": "https://barflyz.ch/",
+      "phone": "+41 44 202 00 11",
+      "mapsUrl": "https://maps.google.com/?q=47.365884,8.5367894",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-297747293-seebad-enge",
+      "name": "Seebad Enge",
+      "category": "bar",
+      "lat": 47.3617348,
+      "lon": 8.5370495,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3617348,8.5370495",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-298172595-plaza-bar",
+      "name": "Plaza Bar",
+      "category": "bar",
+      "lat": 47.3741673,
+      "lon": 8.524726,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Badenerstrasse 109, 8004, Zürich",
+      "website": "https://www.plaza-zurich.ch/programm-bar",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3741673,8.524726",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-300697122-kweer",
+      "name": "KWEER",
+      "category": "bar",
+      "lat": 47.3735537,
+      "lon": 8.5446241,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Spitalgasse 14, 8001, Zürich",
+      "website": "https://kweerbar.ch",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3735537,8.5446241",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-301815443-st-jakob-beck",
+      "name": "St. Jakob Beck",
+      "category": "cafe",
+      "lat": 47.3738054,
+      "lon": 8.5278402,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Kanzleistrasse 18, 8004, Zürich",
+      "website": "https://www.st-jakob.ch/de/kontakt/kanzleistrasse.html",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3738054,8.5278402",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-305017101-starbucks",
+      "name": "Starbucks",
+      "category": "cafe",
+      "lat": 47.3647025,
+      "lon": 8.5317713,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Seestrasse 19, 8002, Zürich",
+      "website": "https://www.starbucks.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3647025,8.5317713",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-305586752-sph-res",
+      "name": "Sphères",
+      "category": "bar",
+      "lat": 47.3919262,
+      "lon": 8.5187946,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Hardturmstrasse 66, 8005, Zürich",
+      "website": "https://www.spheres.cc",
+      "phone": "+41444406622",
+      "mapsUrl": "https://maps.google.com/?q=47.3919262,8.5187946",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-305674981-b-rkliplatz",
+      "name": "Bürkliplatz",
+      "category": "viewpoint",
+      "lat": 47.3661525,
+      "lon": 8.5415251,
+      "tags": [
         "view",
-        "romantic"
+        "photo"
       ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=rieterpark+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Rieterpark+Zurich",
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3661525,8.5415251",
       "indoorOutdoor": "outdoor",
-      "durationMins": 75,
-      "bestTimeOfDay": "afternoon",
-      "photoSpots": [
-        {
-          "lat": 47.3575,
-          "lon": 8.5245
-        }
-      ],
-      "description": "Hillside English garden with villa",
-      "elevation": 440
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
     },
     {
-      "id": "arboretum",
-      "name": "Arboretum",
-      "category": "walk",
-      "lat": 47.3588,
-      "lon": 8.5401,
+      "id": "osm-node-309750020-b-rkliplatz",
+      "name": "Bürkliplatz",
+      "category": "viewpoint",
+      "lat": 47.3663553,
+      "lon": 8.542193,
       "tags": [
-        "green",
-        "park",
-        "lake",
-        "quiet",
-        "romantic"
+        "view",
+        "photo"
       ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=arboretum+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Arboretum+Zurich",
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3663553,8.542193",
       "indoorOutdoor": "outdoor",
-      "durationMins": 75,
-      "bestTimeOfDay": "afternoon",
-      "area": "lake",
-      "description": "Botanical park at the lake",
-      "elevation": 406
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
     },
     {
-      "id": "josefwiese",
-      "name": "Josefwiese",
-      "category": "walk",
-      "lat": 47.3882,
-      "lon": 8.5269,
-      "tags": [
-        "green",
-        "hip",
-        "park",
-        "cheap",
-        "city"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=josefwiese+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Josefwiese+Zurich",
-      "indoorOutdoor": "outdoor",
-      "durationMins": 75,
-      "bestTimeOfDay": "afternoon",
-      "area": "kreis4",
-      "description": "Local hangout in industrial Kreis 5",
-      "elevation": 415
-    },
-    {
-      "id": "quaibrucke",
+      "id": "osm-node-309750022-quaibr-cke",
       "name": "Quaibrücke",
       "category": "viewpoint",
-      "lat": 47.3664,
-      "lon": 8.5448,
-      "tags": [
-        "bridge",
-        "lake",
-        "view",
-        "photo",
-        "city"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=quaibrucke+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Quaibrucke+Zurich",
-      "indoorOutdoor": "outdoor",
-      "durationMins": 45,
-      "bestTimeOfDay": "sunset",
-      "area": "lake",
-      "photoSpots": [
-        {
-          "lat": 47.3664,
-          "lon": 8.5448
-        }
-      ],
-      "description": "Iconic bridge with lake and Alps view",
-      "elevation": 406
-    },
-    {
-      "id": "munsterbrucke",
-      "name": "Münsterbrücke",
-      "category": "viewpoint",
-      "lat": 47.3699,
-      "lon": 8.5427,
-      "tags": [
-        "bridge",
-        "oldtown",
-        "view",
-        "photo",
-        "historic"
-      ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=munsterbrucke+zurich",
-      "mapsUrl": "https://maps.google.com/?q=Munsterbrucke+Zurich",
-      "indoorOutdoor": "outdoor",
-      "durationMins": 45,
-      "bestTimeOfDay": "sunset",
-      "area": "kreis1",
-      "photoSpots": [
-        {
-          "lat": 47.3699,
-          "lon": 8.5427
-        }
-      ],
-      "description": "Bridge between the twin churches",
-      "elevation": 407
-    },
-    {
-      "id": "jules-verne",
-      "name": "Jules Verne Panoramabar",
-      "category": "restaurant",
-      "lat": 47.3497,
-      "lon": 8.4915,
+      "lat": 47.3666263,
+      "lon": 8.5424316,
       "tags": [
         "view",
-        "cocktails",
-        "romantic",
-        "quiet",
         "photo"
       ],
-      "tiktokUrl": "https://www.tiktok.com/search?q=jules+verne+uetliberg",
-      "mapsUrl": "https://maps.google.com/?q=Jules+Verne+Panoramabar+Uetliberg",
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3666263,8.5424316",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-310134153-machiavelli",
+      "name": "Machiavelli",
+      "category": "bar",
+      "lat": 47.4207708,
+      "lon": 8.5495305,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4207708,8.5495305",
       "indoorOutdoor": "indoor",
       "durationMins": 90,
-      "price": "mid",
       "bestTimeOfDay": "night",
-      "photoSpots": [
-        {
-          "lat": 47.3497,
-          "lon": 8.4915
-        }
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-310788830-sport",
+      "name": "Sport",
+      "category": "bar",
+      "lat": 47.3756046,
+      "lon": 8.5245573,
+      "tags": [
+        "beer",
+        "cocktails"
       ],
-      "description": "Mountaintop bar with sunset views",
-      "elevation": 850
+      "address": null,
+      "website": "https://www.sport-bar.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3756046,8.5245573",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-313199597-garibaldi",
+      "name": "Garibaldi",
+      "category": "bar",
+      "lat": 47.3648388,
+      "lon": 8.5323564,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Gotthardstrasse 62, 8002, Zürich",
+      "website": "https://garibaldi.bar/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3648388,8.5323564",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-313218499-elisaburg",
+      "name": "Elisaburg",
+      "category": "bar",
+      "lat": 47.3724091,
+      "lon": 8.5232069,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Elisabethenstrasse 3, 8004, Zürich",
+      "website": "https://www.elisaburg.ch/",
+      "phone": "+41 77 455 12 90",
+      "mapsUrl": "https://maps.google.com/?q=47.3724091,8.5232069",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-315566479-neumarkt",
+      "name": "Neumarkt",
+      "category": "bar",
+      "lat": 47.3725811,
+      "lon": 8.5456297,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": null,
+      "website": "https://neumarkt-zurich.ch",
+      "phone": "+41 44 244 02 90",
+      "mapsUrl": "https://maps.google.com/?q=47.3725811,8.5456297",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-315863116-dali-s-bar",
+      "name": "Dali's Bar",
+      "category": "bar",
+      "lat": 47.3748228,
+      "lon": 8.5178061,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": null,
+      "website": "https://www.dalis.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3748228,8.5178061",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-315864627-bar-stadio",
+      "name": "Bar Stadio",
+      "category": "bar",
+      "lat": 47.3748899,
+      "lon": 8.5185444,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3748899,8.5185444",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-316831490-raygrodski",
+      "name": "Raygrodski",
+      "category": "bar",
+      "lat": 47.374717,
+      "lon": 8.5167506,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Sihlfeldstrasse 49",
+      "website": "https://www.raygrodski.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.374717,8.5167506",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-317023457-2-akt",
+      "name": "2. Akt",
+      "category": "bar",
+      "lat": 47.3698304,
+      "lon": 8.5336387,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Selnaustrasse 2, 8001, Zürich",
+      "website": "https://2akt.ch/",
+      "phone": "+41 44 201 65 64",
+      "mapsUrl": "https://maps.google.com/?q=47.3698304,8.5336387",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-317216403-cabare",
+      "name": "CaBaRe",
+      "category": "cafe",
+      "lat": 47.4138889,
+      "lon": 8.4774567,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Rütihofstrasse 40, 8049, Zürich",
+      "website": "https://cabare.ch/",
+      "phone": "+41 44 558 80 80",
+      "mapsUrl": "https://maps.google.com/?q=47.4138889,8.4774567",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-317454772-brick",
+      "name": "Brick",
+      "category": "bar",
+      "lat": 47.3754357,
+      "lon": 8.5244774,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Langstrasse 21, 8004, Zürich",
+      "website": "http://brickbar.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3754357,8.5244774",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-317768650-starbucks",
+      "name": "Starbucks",
+      "category": "cafe",
+      "lat": 47.3765801,
+      "lon": 8.5441952,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Limmatquai 144, 8001, Zürich",
+      "website": "https://www.starbucks.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3765801,8.5441952",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-317768690-gr-bli-bar",
+      "name": "Gräbli-Bar",
+      "category": "bar",
+      "lat": 47.3755965,
+      "lon": 8.5441089,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Niederdorfstrasse 66, 8001, Zürich",
+      "website": "http://www.graebli-bar.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3755965,8.5441089",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-317773504-kontiki",
+      "name": "Kontiki",
+      "category": "bar",
+      "lat": 47.3738276,
+      "lon": 8.5437708,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Niederdorfstrasse 24",
+      "website": "https://www.kontikibar.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3738276,8.5437708",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-318132779-play-bar",
+      "name": "Play Bar",
+      "category": "bar",
+      "lat": 47.3762277,
+      "lon": 8.5146317,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": null,
+      "website": "https://playbar.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3762277,8.5146317",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-320526598-la-catedral",
+      "name": "La Catedral",
+      "category": "bar",
+      "lat": 47.3707577,
+      "lon": 8.5238038,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Birmensdorferstrasse 83, 8003, Zürich",
+      "website": "https://www.lacatedral.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3707577,8.5238038",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-321364221-bqm-kulturcaf-bar",
+      "name": "bQm Kulturcafé & Bar",
+      "category": "cafe",
+      "lat": 47.3759249,
+      "lon": 8.5466398,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Leonhardstrasse 34, 8092, Zürich",
+      "website": "https://www.bqm-bar.ch/",
+      "phone": "+41 44 632 75 03",
+      "mapsUrl": "https://maps.google.com/?q=47.3759249,8.5466398",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-321364282-tannenbar",
+      "name": "Tannenbar",
+      "category": "cafe",
+      "lat": 47.3773953,
+      "lon": 8.5478673,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Tannenstrasse",
+      "website": "https://ethz.ch/de/campus/erleben/gastronomie-und-einkaufen/gastronomie/restaurants-und-cafeterias/zentrum/tannenbar.html",
+      "phone": "+41 44 632 62 55",
+      "mapsUrl": "https://maps.google.com/?q=47.3773953,8.5478673",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-322796194-zivilschutzmuseum",
+      "name": "Zivilschutzmuseum",
+      "category": "museum",
+      "lat": 47.3919593,
+      "lon": 8.5269784,
+      "tags": [
+        "historic"
+      ],
+      "address": "Habsburgstrasse 17, 8037, Zürich",
+      "website": "https://www.stadt-zuerich.ch/pd/de/index/schutz_u_rettung_zuerich/zivilschutz/zivilschutz-museum.html",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3919593,8.5269784",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-331179800-rathaus-caf",
+      "name": "Rathaus-Café",
+      "category": "cafe",
+      "lat": 47.3720795,
+      "lon": 8.5426076,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Limmatquai 61",
+      "website": "https://www.rathauscafe.ch/",
+      "phone": "+41 44 261 07 70",
+      "mapsUrl": "https://maps.google.com/?q=47.3720795,8.5426076",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-343068234-caff-handelshof",
+      "name": "Caffé Handelshof",
+      "category": "cafe",
+      "lat": 47.3730817,
+      "lon": 8.5355865,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Uraniastrasse 35, 8001, Zürich",
+      "website": "https://handelshof.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3730817,8.5355865",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-343347643-cranberry",
+      "name": "Cranberry",
+      "category": "bar",
+      "lat": 47.3721619,
+      "lon": 8.5432079,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Metzgergasse 3, 8001, Zürich",
+      "website": "https://www.cranberry.ch/",
+      "phone": "+41 44 261 27 72",
+      "mapsUrl": "https://maps.google.com/?q=47.3721619,8.5432079",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-343347885-gran-caf-motta",
+      "name": "Gran Café Motta",
+      "category": "cafe",
+      "lat": 47.372316,
+      "lon": 8.5429593,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Limmatquai 66",
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.372316,8.5429593",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-343391110-wystube-iseb-hnli",
+      "name": "Wystube Isebähnli",
+      "category": "bar",
+      "lat": 47.3731637,
+      "lon": 8.5448384,
+      "tags": [
+        "beer",
+        "cocktails"
+      ],
+      "address": "Froschaugasse 26",
+      "website": "https://www.isebaehnli.com",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3731637,8.5448384",
+      "indoorOutdoor": "indoor",
+      "durationMins": 90,
+      "bestTimeOfDay": "night",
+      "description": "wine bar",
+      "area": null
+    },
+    {
+      "id": "osm-node-364410129-pl-sch",
+      "name": "Plüsch",
+      "category": "cafe",
+      "lat": 47.3713351,
+      "lon": 8.5163363,
+      "tags": [
+        "coffee"
+      ],
+      "address": null,
+      "website": "https://www.cafe-pluesch.ch/",
+      "phone": "+41 43 810 16 26",
+      "mapsUrl": "https://maps.google.com/?q=47.3713351,8.5163363",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-370657577-le-pain-quotidien",
+      "name": "Le Pain Quotidien",
+      "category": "cafe",
+      "lat": 47.3683702,
+      "lon": 8.5605979,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Römerhofplatz 5, 8032, Zürich",
+      "website": "http://www.lepainquotidien.ch/",
+      "phone": "+41 44 251 62 60",
+      "mapsUrl": "https://maps.google.com/?q=47.3683702,8.5605979",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-370822646-schurter",
+      "name": "Schurter",
+      "category": "cafe",
+      "lat": 47.3763302,
+      "lon": 8.5440373,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Niederdorfstrasse 90, 8001, Zürich",
+      "website": "https://jung.ag/zuercherspezialitaeten/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3763302,8.5440373",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-370843777-caf-conditorei-1842",
+      "name": "Café & Conditorei 1842",
+      "category": "cafe",
+      "lat": 47.3714893,
+      "lon": 8.5443699,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Napfgasse 4, 8001, Zürich",
+      "website": "https://www.cafe1842.ch",
+      "phone": "+41 44 2515150",
+      "mapsUrl": "https://maps.google.com/?q=47.3714893,8.5443699",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-370844160-andorra",
+      "name": "Andorra",
+      "category": "cafe",
+      "lat": 47.3712636,
+      "lon": 8.5443044,
+      "tags": [
+        "coffee"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3712636,8.5443044",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-371239795-ortsmuseum-weid",
+      "name": "Ortsmuseum Weid",
+      "category": "museum",
+      "lat": 47.4145838,
+      "lon": 8.4561452,
+      "tags": [
+        "historic"
+      ],
+      "address": "Weidstrasse 13, 8103, Unterengstringen",
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4145838,8.4561452",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-387612083-piccolo-giardino",
+      "name": "Piccolo Giardino",
+      "category": "cafe",
+      "lat": 47.380803,
+      "lon": 8.5257086,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Schöneggplatz 9",
+      "website": "https://www.piccologiardino.ch/",
+      "phone": "+41 43 317 91 10",
+      "mapsUrl": "https://maps.google.com/?q=47.380803,8.5257086",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-387909747-kafischnaps",
+      "name": "Kafischnaps",
+      "category": "cafe",
+      "lat": 47.3912249,
+      "lon": 8.5359972,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Kornhausstrasse 57, 8037, Zürich",
+      "website": "https://www.kafischnaps.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3912249,8.5359972",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-418745367-alumni-lounge",
+      "name": "Alumni Lounge",
+      "category": "cafe",
+      "lat": 47.4082566,
+      "lon": 8.506734,
+      "tags": [
+        "coffee"
+      ],
+      "address": null,
+      "website": "https://alumnilounge.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4082566,8.506734",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-423795654-ortsmuseum-h-ngg",
+      "name": "Ortsmuseum Höngg",
+      "category": "museum",
+      "lat": 47.4030844,
+      "lon": 8.5001755,
+      "tags": [
+        "historic"
+      ],
+      "address": null,
+      "website": "https://museum-hoengg.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4030844,8.5001755",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-429333071-karlsturm",
+      "name": "Karlsturm",
+      "category": "viewpoint",
+      "lat": 47.3701486,
+      "lon": 8.5436792,
+      "tags": [
+        "view",
+        "photo"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3701486,8.5436792",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-432883512-bar-kiosk-flussbad-unterer-letten",
+      "name": "Bar & Kiosk Flussbad Unterer Letten",
+      "category": "cafe",
+      "lat": 47.3893649,
+      "lon": 8.5297423,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Zürich",
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3893649,8.5297423",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-442522931-bistro-park-stadelhofen",
+      "name": "Bistro Park Stadelhofen",
+      "category": "cafe",
+      "lat": 47.3662927,
+      "lon": 8.5477565,
+      "tags": [
+        "coffee"
+      ],
+      "address": "Stadelhoferplatz 1, 8001, Zürich",
+      "website": "https://www.commercio.ch/bistro-park-stadelhofen/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3662927,8.5477565",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-451722224-museum-rietberg",
+      "name": "Museum Rietberg",
+      "category": "museum",
+      "lat": 47.3589183,
+      "lon": 8.5297352,
+      "tags": [
+        "historic"
+      ],
+      "address": "Gablerstrasse 15, 8002, Zürich",
+      "website": "https://www.rietberg.ch/",
+      "phone": "+41 44 415 31 31",
+      "mapsUrl": "https://maps.google.com/?q=47.3589183,8.5297352",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": "Das Museum Rietberg ist ein Museum für Kunst aus Asien, Afrika, Amerika und Ozeanien. Eintrittspreise: CHF 18 / 14 (reduziert)",
+      "area": null
+    },
+    {
+      "id": "osm-node-489786062-uhrenmuseum-beyer-z-rich",
+      "name": "Uhrenmuseum Beyer Zürich",
+      "category": "museum",
+      "lat": 47.3709245,
+      "lon": 8.5385422,
+      "tags": [
+        "historic"
+      ],
+      "address": "Bahnhofstrasse 31, 8001, Zürich",
+      "website": "https://www.beyer-ch.com/de/uhrenmuseum/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3709245,8.5385422",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-503707620-ortsmuseum-altstetten",
+      "name": "Ortsmuseum Altstetten",
+      "category": "museum",
+      "lat": 47.388622,
+      "lon": 8.480677,
+      "tags": [
+        "historic"
+      ],
+      "address": "Dachslernstrasse 20, 8048, Zürich",
+      "website": "http://www.ortsmuseum-altstetten.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.388622,8.480677",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-540307935-haus-konstruktiv",
+      "name": "Haus Konstruktiv",
+      "category": "museum",
+      "lat": 47.3891301,
+      "lon": 8.5252692,
+      "tags": [
+        "historic"
+      ],
+      "address": "Limmatstrasse 268, 8005, Zürich",
+      "website": "https://hauskonstruktiv.ch/",
+      "phone": "+41 44 217 70 80",
+      "mapsUrl": "https://maps.google.com/?q=47.3891301,8.5252692",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-567497557-f-hrlibuck",
+      "name": "Föhrlibuck",
+      "category": "viewpoint",
+      "lat": 47.4072082,
+      "lon": 8.6106819,
+      "tags": [
+        "view",
+        "photo"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4072082,8.6106819",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-693318547-wow-museum",
+      "name": "WOW Museum",
+      "category": "museum",
+      "lat": 47.3750223,
+      "lon": 8.5403296,
+      "tags": [
+        "historic"
+      ],
+      "address": "Werdmühlestrasse 10, 8001, Zürich",
+      "website": "https://www.wow-museum.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3750223,8.5403296",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-893470198-museum-der-kulturen",
+      "name": "Museum der Kulturen",
+      "category": "museum",
+      "lat": 47.3719674,
+      "lon": 8.5447371,
+      "tags": [
+        "historic"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3719674,8.5447371",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-1031293132-lindenhof",
+      "name": "Lindenhof",
+      "category": "viewpoint",
+      "lat": 47.3730646,
+      "lon": 8.5413876,
+      "tags": [
+        "view",
+        "photo"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3730646,8.5413876",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-1360734728-coninx-museum",
+      "name": "Coninx-Museum",
+      "category": "museum",
+      "lat": 47.3691331,
+      "lon": 8.5665933,
+      "tags": [
+        "historic"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3691331,8.5665933",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-1572577178-ortsmuseum-albisrieden",
+      "name": "Ortsmuseum Albisrieden",
+      "category": "museum",
+      "lat": 47.3743026,
+      "lon": 8.4831441,
+      "tags": [
+        "historic"
+      ],
+      "address": "Triemlistrasse 2",
+      "website": "http://www.ortsmuseum-albisrieden.ch/",
+      "phone": "+41 79 365 74 48",
+      "mapsUrl": "https://maps.google.com/?q=47.3743026,8.4831441",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-1584068320-polyterrasse",
+      "name": "Polyterrasse",
+      "category": "viewpoint",
+      "lat": 47.3760957,
+      "lon": 8.5465161,
+      "tags": [
+        "view",
+        "photo"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3760957,8.5465161",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-1835546662-altes-kirchlein-witikon",
+      "name": "altes Kirchlein Witikon",
+      "category": "viewpoint",
+      "lat": 47.357441,
+      "lon": 8.5945044,
+      "tags": [
+        "view",
+        "photo"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.357441,8.5945044",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-1855509127-naturhistorisches-museum",
+      "name": "Naturhistorisches Museum",
+      "category": "museum",
+      "lat": 47.3751766,
+      "lon": 8.5479602,
+      "tags": [
+        "historic"
+      ],
+      "address": "Karl-Schmid-Strasse 4, 8006, Zürich",
+      "website": "https://www.nmz.uzh.ch/",
+      "phone": "+41 44 634 38 38",
+      "mapsUrl": "https://maps.google.com/?q=47.3751766,8.5479602",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-1855509137-arch-ologisches-museum",
+      "name": "Archäologisches Museum",
+      "category": "museum",
+      "lat": 47.3753485,
+      "lon": 8.5489128,
+      "tags": [
+        "historic"
+      ],
+      "address": null,
+      "website": "https://www.archaeologische-sammlung.uzh.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3753485,8.5489128",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-1972940287-ortsmuseum-schwamendingen",
+      "name": "Ortsmuseum Schwamendingen",
+      "category": "museum",
+      "lat": 47.4011271,
+      "lon": 8.578153,
+      "tags": [
+        "historic"
+      ],
+      "address": "Probsteistrasse 10, 8051",
+      "website": "http://www.schwamendingen.info/",
+      "phone": "+41 44 822 27 76",
+      "mapsUrl": "https://maps.google.com/?q=47.4011271,8.578153",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-2326150629-focus-terra",
+      "name": "Focus Terra",
+      "category": "museum",
+      "lat": 47.3783567,
+      "lon": 8.5474566,
+      "tags": [
+        "historic"
+      ],
+      "address": "Sonneggstrasse 5, 8092, Zürich",
+      "website": "https://focusterra.ethz.ch/",
+      "phone": "+41 44 632 62 81",
+      "mapsUrl": "https://maps.google.com/?q=47.3783567,8.5474566",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-2463960533-helvetiaplatz",
+      "name": "Helvetiaplatz",
+      "category": "market",
+      "lat": 47.3760634,
+      "lon": 8.5268416,
+      "tags": [
+        "city"
+      ],
+      "address": null,
+      "website": "https://www.zuercher-maerkte.ch/helvetiaplatz.html",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3760634,8.5268416",
+      "indoorOutdoor": "indoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-2800733826-kunsthalle-z-rich",
+      "name": "Kunsthalle Zürich",
+      "category": "museum",
+      "lat": 47.3894008,
+      "lon": 8.5248893,
+      "tags": [
+        "historic"
+      ],
+      "address": "Limmatstrasse 270, 8005, Zürich",
+      "website": "https://www.kunsthallezurich.ch",
+      "phone": "+41 44 272 15 15",
+      "mapsUrl": "https://maps.google.com/?q=47.3894008,8.5248893",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-2959909845-thomas-mann-archiv",
+      "name": "Thomas-Mann-Archiv",
+      "category": "museum",
+      "lat": 47.3759166,
+      "lon": 8.5480257,
+      "tags": [
+        "historic"
+      ],
+      "address": "Rämistrasse 101, 8092, Zürich",
+      "website": "https://tma.ethz.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3759166,8.5480257",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-3398938386-gasi-museum",
+      "name": "Gasi-Museum",
+      "category": "museum",
+      "lat": 47.4020853,
+      "lon": 8.4637798,
+      "tags": [
+        "historic"
+      ],
+      "address": null,
+      "website": "https://www.tgvzu.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4020853,8.4637798",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-3653699178-museum-f-r-gestaltung-schaudepot",
+      "name": "Museum für Gestaltung - Schaudepot",
+      "category": "museum",
+      "lat": 47.3902291,
+      "lon": 8.512069,
+      "tags": [
+        "historic"
+      ],
+      "address": null,
+      "website": "https://www.museum-gestaltung.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3902291,8.512069",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-3761303190-fall-tsche-buch",
+      "name": "Fallätsche Buch",
+      "category": "viewpoint",
+      "lat": 47.3352394,
+      "lon": 8.5021074,
+      "tags": [
+        "view",
+        "photo"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3352394,8.5021074",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-3854575000-rigiblick",
+      "name": "Rigiblick",
+      "category": "viewpoint",
+      "lat": 47.3861471,
+      "lon": 8.554326,
+      "tags": [
+        "view",
+        "photo"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3861471,8.554326",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-3854575757-monte-diggelmann",
+      "name": "Monte Diggelmann",
+      "category": "viewpoint",
+      "lat": 47.3932559,
+      "lon": 8.5495392,
+      "tags": [
+        "view",
+        "photo"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3932559,8.5495392",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-3856298289-fifa-museum",
+      "name": "FIFA Museum",
+      "category": "museum",
+      "lat": 47.3635785,
+      "lon": 8.5315195,
+      "tags": [
+        "historic"
+      ],
+      "address": "Seestrasse 27, 8002, Zürich",
+      "website": "https://www.fifamuseum.com/",
+      "phone": "+41 43 388 25 00",
+      "mapsUrl": "https://maps.google.com/?q=47.3635785,8.5315195",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": "The FIFA Museum is an association football museum owned and operated by FIFA. Entrance fee: Adults CHF 24, Children (Aged 7-15) CHF 14",
+      "area": null
+    },
+    {
+      "id": "osm-node-3932305575-waid",
+      "name": "Waid",
+      "category": "viewpoint",
+      "lat": 47.3996128,
+      "lon": 8.5144127,
+      "tags": [
+        "view",
+        "photo"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3996128,8.5144127",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-3932311906-kirche-enge",
+      "name": "Kirche Enge",
+      "category": "viewpoint",
+      "lat": 47.362471,
+      "lon": 8.5300135,
+      "tags": [
+        "view",
+        "photo"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.362471,8.5300135",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-4191882104-stiftung-sapa",
+      "name": "Stiftung SAPA",
+      "category": "museum",
+      "lat": 47.3883637,
+      "lon": 8.5258809,
+      "tags": [
+        "historic"
+      ],
+      "address": "Limmatstrasse 265, 8005, Zürich",
+      "website": "https://sapa.swiss",
+      "phone": "+41 43 205 29 02",
+      "mapsUrl": "https://maps.google.com/?q=47.3883637,8.5258809",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-4280108823-anthropologisches-museum",
+      "name": "Anthropologisches Museum",
+      "category": "museum",
+      "lat": 47.3978349,
+      "lon": 8.5473329,
+      "tags": [
+        "historic"
+      ],
+      "address": "Winterthurerstrasse 190",
+      "website": "https://www.aim.uzh.ch/museum.html",
+      "phone": "+41 44 635 49 54",
+      "mapsUrl": "https://maps.google.com/?q=47.3978349,8.5473329",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-4792460822-muse-visionnnaire",
+      "name": "museé Visionnnaire",
+      "category": "museum",
+      "lat": 47.373488,
+      "lon": 8.5452815,
+      "tags": [
+        "historic"
+      ],
+      "address": "Predigerplatz 10, 8001, Zürich",
+      "website": "https://www.museevisionnaire.ch/",
+      "phone": "+41 44 251 66 57",
+      "mapsUrl": "https://maps.google.com/?q=47.373488,8.5452815",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-4845833740-migros-museum-f-r-gegenwartskunst",
+      "name": "Migros Museum für Gegenwartskunst",
+      "category": "museum",
+      "lat": 47.3893345,
+      "lon": 8.5250469,
+      "tags": [
+        "historic"
+      ],
+      "address": "Limmatstrasse 270, 8005, Zürich",
+      "website": "https://www.migrosmuseum.ch",
+      "phone": "+41 44 277 20 50",
+      "mapsUrl": "https://maps.google.com/?q=47.3893345,8.5250469",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-4938375428-schweizer-finanzmuseum",
+      "name": "Schweizer Finanzmuseum",
+      "category": "museum",
+      "lat": 47.3915157,
+      "lon": 8.5068388,
+      "tags": [
+        "historic"
+      ],
+      "address": null,
+      "website": "https://www.finanzmuseum.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3915157,8.5068388",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-5010158763-hedwig-st-nzi-terasse",
+      "name": "Hedwig Stünzi-Terasse",
+      "category": "viewpoint",
+      "lat": 47.3525031,
+      "lon": 8.5646301,
+      "tags": [
+        "view",
+        "photo"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3525031,8.5646301",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-5014587444-vrenelisg-rtli",
+      "name": "Vrenelisgärtli",
+      "category": "viewpoint",
+      "lat": 47.3913845,
+      "lon": 8.5522289,
+      "tags": [
+        "view",
+        "photo"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3913845,8.5522289",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-5289258708-b-rkliplatz",
+      "name": "Bürkliplatz",
+      "category": "market",
+      "lat": 47.3672808,
+      "lon": 8.5408271,
+      "tags": [
+        "city"
+      ],
+      "address": null,
+      "website": "https://www.zuercher-maerkte.ch/b%C3%BCrkliplatz.html",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3672808,8.5408271",
+      "indoorOutdoor": "indoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-5291538866-rathausbr-cke",
+      "name": "Rathausbrücke",
+      "category": "market",
+      "lat": 47.3717267,
+      "lon": 8.5420995,
+      "tags": [
+        "city"
+      ],
+      "address": null,
+      "website": "https://www.zuercher-maerkte.ch/zusatz.php?Lang=de&SeiteID=Maerkte&SeiteIDNr=7",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3717267,8.5420995",
+      "indoorOutdoor": "indoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-5291538867-milchbuck",
+      "name": "Milchbuck",
+      "category": "market",
+      "lat": 47.3951726,
+      "lon": 8.5403822,
+      "tags": [
+        "city"
+      ],
+      "address": null,
+      "website": "https://www.zuercher-maerkte.ch/zusatz.php?Lang=de&SeiteID=Maerkte&SeiteIDNr=5",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3951726,8.5403822",
+      "indoorOutdoor": "indoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-5291538868-marktplatz-oerlikon",
+      "name": "Marktplatz Oerlikon",
+      "category": "market",
+      "lat": 47.4102298,
+      "lon": 8.5445649,
+      "tags": [
+        "city"
+      ],
+      "address": null,
+      "website": "https://www.zuercher-maerkte.ch/Maerkte.php?Lang=de&ziel=6",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4102298,8.5445649",
+      "indoorOutdoor": "indoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-5291538869-altstetten-lindenplatz",
+      "name": "Altstetten Lindenplatz",
+      "category": "market",
+      "lat": 47.3875139,
+      "lon": 8.4857735,
+      "tags": [
+        "city"
+      ],
+      "address": null,
+      "website": "https://www.zuercher-maerkte.ch/altstetten.html",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3875139,8.4857735",
+      "indoorOutdoor": "indoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-5347227007-the-jeans-museum",
+      "name": "The Jeans Museum",
+      "category": "museum",
+      "lat": 47.3736904,
+      "lon": 8.522651,
+      "tags": [
+        "historic"
+      ],
+      "address": "Köchlistrasse 27, 8004, Zürich",
+      "website": "https://jeansmuseum.org/",
+      "phone": "+41 79 578 00 51",
+      "mapsUrl": "https://maps.google.com/?q=47.3736904,8.522651",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-5543639586-museum-strauhof",
+      "name": "Museum Strauhof",
+      "category": "museum",
+      "lat": 47.3717214,
+      "lon": 8.5400169,
+      "tags": [
+        "historic"
+      ],
+      "address": "Augustinergasse 9, 8001, Zürich",
+      "website": "https://strauhof.ch/",
+      "phone": "+41 44 221 93 51",
+      "mapsUrl": "https://maps.google.com/?q=47.3717214,8.5400169",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-5547966026-kraftwerk-h-ngg",
+      "name": "Kraftwerk Höngg",
+      "category": "museum",
+      "lat": 47.4016598,
+      "lon": 8.4866981,
+      "tags": [
+        "historic"
+      ],
+      "address": null,
+      "website": "https://www.ewz.ch/de/ueber-ewz/unternehmen/fuehrungen.html",
+      "phone": "+41 58 319 47 00",
+      "mapsUrl": "https://maps.google.com/?q=47.4016598,8.4866981",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": "Kraftwerk-Museum mit betriebsfähiger Jonval-Turbine (1898) und Francis-Turbine",
+      "area": null
+    },
+    {
+      "id": "osm-node-5570717646-pavillon-le-corbusier",
+      "name": "Pavillon Le Corbusier",
+      "category": "museum",
+      "lat": 47.356045,
+      "lon": 8.5510181,
+      "tags": [
+        "historic"
+      ],
+      "address": "Höschgasse 8, 8008, Zürich",
+      "website": "https://www.pavillon-le-corbusier.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.356045,8.5510181",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-6499882199-uhrenmuseum-zum-r-sli",
+      "name": "Uhrenmuseum zum Rösli",
+      "category": "museum",
+      "lat": 47.390144,
+      "lon": 8.5443605,
+      "tags": [
+        "historic"
+      ],
+      "address": "Röslistrasse 46",
+      "website": "https://www.uhrenmuseumroesli.ch",
+      "phone": "+41 43 343 18 03",
+      "mapsUrl": "https://maps.google.com/?q=47.390144,8.5443605",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-6499882200-moulagenmuseum",
+      "name": "Moulagenmuseum",
+      "category": "museum",
+      "lat": 47.38042,
+      "lon": 8.5486001,
+      "tags": [
+        "historic"
+      ],
+      "address": "Haldenbachstrasse 14, 8091, Zürich",
+      "website": "https://www.moulagen.uzh.ch",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.38042,8.5486001",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-6517065867-heimatschutzzentrum-in-der-villa-patumbah",
+      "name": "Heimatschutzzentrum in der Villa Patumbah",
+      "category": "museum",
+      "lat": 47.3569399,
+      "lon": 8.5597407,
+      "tags": [
+        "historic"
+      ],
+      "address": null,
+      "website": "https://www.heimatschutzzentrum.ch/",
+      "phone": "+41 44 254 57 90",
+      "mapsUrl": "https://maps.google.com/?q=47.3569399,8.5597407",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-6925480834-alpenpanorama",
+      "name": "Alpenpanorama",
+      "category": "viewpoint",
+      "lat": 47.4211206,
+      "lon": 8.5942577,
+      "tags": [
+        "view",
+        "photo"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4211206,8.5942577",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-7676120610-safaribus",
+      "name": "Safaribus",
+      "category": "viewpoint",
+      "lat": 47.3874253,
+      "lon": 8.5798715,
+      "tags": [
+        "view",
+        "photo"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3874253,8.5798715",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-7679608751-k-mpf-gem-se",
+      "name": "Kämpf Gemüse",
+      "category": "market",
+      "lat": 47.374569,
+      "lon": 8.4960123,
+      "tags": [
+        "city"
+      ],
+      "address": null,
+      "website": null,
+      "phone": "+41 56 634 12 17",
+      "mapsUrl": "https://maps.google.com/?q=47.374569,8.4960123",
+      "indoorOutdoor": "indoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-9291427950-m-hlerama",
+      "name": "Mühlerama",
+      "category": "museum",
+      "lat": 47.3515728,
+      "lon": 8.5610673,
+      "tags": [
+        "historic"
+      ],
+      "address": null,
+      "website": "https://muehlerama.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3515728,8.5610673",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-10680040405-moneymuseum",
+      "name": "MoneyMuseum",
+      "category": "museum",
+      "lat": 47.3888091,
+      "lon": 8.5514852,
+      "tags": [
+        "historic"
+      ],
+      "address": "Hadlaubstrasse 106, 8006",
+      "website": "https://moneymuseum.com/",
+      "phone": "+41 44 350 73 80",
+      "mapsUrl": "https://maps.google.com/?q=47.3888091,8.5514852",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-10680579405-urania-observatoire-z-rich",
+      "name": "Urania Observatoire Zürich",
+      "category": "museum",
+      "lat": 47.3743137,
+      "lon": 8.5393918,
+      "tags": [
+        "historic"
+      ],
+      "address": "8001",
+      "website": "https://urania-sternwarte.ch/",
+      "phone": "+41 34 317 16 40",
+      "mapsUrl": "https://maps.google.com/?q=47.3743137,8.5393918",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-11188999885-foodsavemarkt",
+      "name": "foodsaveMARKT",
+      "category": "market",
+      "lat": 47.392652,
+      "lon": 8.4921987,
+      "tags": [
+        "city"
+      ],
+      "address": "Geerenweg, 23a, 8048, Zürich",
+      "website": "https://www.foodsavemarkt.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.392652,8.4921987",
+      "indoorOutdoor": "indoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-11216071021-fcz-museum",
+      "name": "FCZ Museum",
+      "category": "museum",
+      "lat": 47.3726213,
+      "lon": 8.5305118,
+      "tags": [
+        "historic"
+      ],
+      "address": null,
+      "website": "https://www.fcz.ch/pages/museum",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3726213,8.5305118",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-11309268614-zunftstadt-z-rich",
+      "name": "Zunftstadt Zürich",
+      "category": "museum",
+      "lat": 47.3716061,
+      "lon": 8.5448153,
+      "tags": [
+        "historic"
+      ],
+      "address": "Obere Zäune 19, 8001, Zürich",
+      "website": "https://www.zunftstadt.ch/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3716061,8.5448153",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-11309276139-luma-westbau",
+      "name": "Luma Westbau",
+      "category": "museum",
+      "lat": 47.3894691,
+      "lon": 8.5249104,
+      "tags": [
+        "historic"
+      ],
+      "address": "Limmatstrasse 270, 8005, Zürich",
+      "website": "https://westbau.com/",
+      "phone": "+41 44 9244020",
+      "mapsUrl": "https://maps.google.com/?q=47.3894691,8.5249104",
+      "indoorOutdoor": "indoor",
+      "durationMins": 60,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-node-12146684114-streuli",
+      "name": "Streuli",
+      "category": "park",
+      "lat": 47.3632472,
+      "lon": 8.565104,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3632472,8.565104",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-4533222-kasernenwiese",
+      "name": "Kasernenwiese",
+      "category": "park",
+      "lat": 47.3767158,
+      "lon": 8.5317966,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3767158,8.5317966",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-4592592-mentona-moser-anlage",
+      "name": "Mentona-Moser-Anlage",
+      "category": "park",
+      "lat": 47.3745754,
+      "lon": 8.5283127,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3745754,8.5283127",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-4626910-platzpromenade",
+      "name": "Platzpromenade",
+      "category": "park",
+      "lat": 47.3808466,
+      "lon": 8.5400158,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3808466,8.5400158",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-4743823-b-ckeranlage",
+      "name": "Bäckeranlage",
+      "category": "park",
+      "lat": 47.3778163,
+      "lon": 8.5236128,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3778163,8.5236128",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-5068727-rieterpark",
+      "name": "Rieterpark",
+      "category": "park",
+      "lat": 47.357878,
+      "lon": 8.5305136,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.357878,8.5305136",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-5940133-belvoirpark",
+      "name": "Belvoirpark",
+      "category": "park",
+      "lat": 47.356953,
+      "lon": 8.5334758,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.356953,8.5334758",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-8041566-mfo-park",
+      "name": "MFO-Park",
+      "category": "park",
+      "lat": 47.4121112,
+      "lon": 8.5402318,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": "8050, Zürich",
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4121112,8.5402318",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-10753580-pestalozzianlage",
+      "name": "Pestalozzianlage",
+      "category": "park",
+      "lat": 47.3755915,
+      "lon": 8.5387409,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3755915,8.5387409",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-11557378-louis-h-fliger-park",
+      "name": "Louis-Häfliger-Park",
+      "category": "park",
+      "lat": 47.4125813,
+      "lon": 8.5336226,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4125813,8.5336226",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-11567023-blatterwiese",
+      "name": "Blatterwiese",
+      "category": "park",
+      "lat": 47.3545453,
+      "lon": 8.5511413,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3545453,8.5511413",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-12993474-stolzewiese",
+      "name": "Stolzewiese",
+      "category": "park",
+      "lat": 47.3864003,
+      "lon": 8.546772,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3864003,8.546772",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-12993481-beckenhof",
+      "name": "Beckenhof",
+      "category": "park",
+      "lat": 47.3849003,
+      "lon": 8.5408567,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3849003,8.5408567",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-22944392-pfingstweidpark",
+      "name": "Pfingstweidpark",
+      "category": "park",
+      "lat": 47.3878188,
+      "lon": 8.5129224,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3878188,8.5129224",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-24491481-alfred-altherr-terrasse",
+      "name": "Alfred-Altherr-Terrasse",
+      "category": "park",
+      "lat": 47.395091,
+      "lon": 8.5525326,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.395091,8.5525326",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-24518883-fritschiwiese",
+      "name": "Fritschiwiese",
+      "category": "park",
+      "lat": 47.3761404,
+      "lon": 8.5120801,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": "https://www.stadt-zuerich.ch/ted/de/index/gsz/natur-erleben/park-und-gruenanlagen/parkanlagen-von-az/fritschiwiese.html",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3761404,8.5120801",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-24593473-klingenpark",
+      "name": "Klingenpark",
+      "category": "park",
+      "lat": 47.3825704,
+      "lon": 8.5351408,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3825704,8.5351408",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-24639854-landiwiese",
+      "name": "Landiwiese",
+      "category": "park",
+      "lat": 47.3504188,
+      "lon": 8.5353147,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3504188,8.5353147",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-27039271-saffa-insel",
+      "name": "Saffa-Insel",
+      "category": "park",
+      "lat": 47.3497311,
+      "lon": 8.5366096,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3497311,8.5366096",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-28854288-wipkingerpark",
+      "name": "Wipkingerpark",
+      "category": "park",
+      "lat": 47.3924823,
+      "lon": 8.5218918,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3924823,8.5218918",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-28943682-kasernenwiese",
+      "name": "Kasernenwiese",
+      "category": "park",
+      "lat": 47.3761995,
+      "lon": 8.5309375,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3761995,8.5309375",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-29349058-sch-tze-areal",
+      "name": "Schütze-Areal",
+      "category": "park",
+      "lat": 47.3895071,
+      "lon": 8.5236208,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": "Zürich",
+      "website": "https://www.stadt-zuerich.ch/areal-schuetze",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3895071,8.5236208",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-29995256-chinagarten-z-rich",
+      "name": "Chinagarten Zürich",
+      "category": "park",
+      "lat": 47.354972,
+      "lon": 8.5519914,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": "8008",
+      "website": "https://www.stadt-zuerich.ch/de/stadtleben/sport-und-erholung/park-und-gruenanlagen/chinagarten.html",
+      "phone": "+41444121561",
+      "mapsUrl": "https://maps.google.com/?q=47.354972,8.5519914",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-31433899-kurt-guggenheim-anlage",
+      "name": "Kurt-Guggenheim-Anlage",
+      "category": "park",
+      "lat": 47.3669359,
+      "lon": 8.5400549,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3669359,8.5400549",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-33856876-gustav-ammann-park",
+      "name": "Gustav-Ammann-Park",
+      "category": "park",
+      "lat": 47.411265,
+      "lon": 8.534494,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.411265,8.534494",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": "Gartendenkmal in Privatbesitz, seit 1997 tagsüber öffentlich zugänglich; Unterhalt durch Grün Stadt Zürich, Gartendenkmalpflege",
+      "area": null
+    },
+    {
+      "id": "osm-way-34112328-heiligfeld",
+      "name": "Heiligfeld",
+      "category": "park",
+      "lat": 47.3796335,
+      "lon": 8.503786,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3796335,8.503786",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-34129797-hardaupark",
+      "name": "Hardaupark",
+      "category": "park",
+      "lat": 47.379498,
+      "lon": 8.5095681,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.379498,8.5095681",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-34621155-gemeinschaftszentrum-loogarten",
+      "name": "Gemeinschaftszentrum Loogarten",
+      "category": "park",
+      "lat": 47.3879572,
+      "lon": 8.4727653,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": "+41 44 413 30 20",
+      "mapsUrl": "https://maps.google.com/?q=47.3879572,8.4727653",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-36333312-schindlergut",
+      "name": "Schindlergut",
+      "category": "park",
+      "lat": 47.3861084,
+      "lon": 8.5367367,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3861084,8.5367367",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-36917336-neum-nsteranlage",
+      "name": "Neumünsteranlage",
+      "category": "park",
+      "lat": 47.3607575,
+      "lon": 8.5592629,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3607575,8.5592629",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": "Gartendenkmal der Stadt Zürich, ehemaliger Friedhof Neumünster (1835-1876); Unterhalt durch Grün Stadt Zürich, Gartendenkmalpflege",
+      "area": null
+    },
+    {
+      "id": "osm-way-37065137-bullingerhof",
+      "name": "Bullingerhof",
+      "category": "park",
+      "lat": 47.3793204,
+      "lon": 8.5132225,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3793204,8.5132225",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-37134457-landenbergpark",
+      "name": "Landenbergpark",
+      "category": "park",
+      "lat": 47.3922485,
+      "lon": 8.5274561,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3922485,8.5274561",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-37208605-gz-buchegg",
+      "name": "GZ Buchegg",
+      "category": "park",
+      "lat": 47.3996114,
+      "lon": 8.5353393,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3996114,8.5353393",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-37380208-freibad-dolder",
+      "name": "Freibad Dolder",
+      "category": "park",
+      "lat": 47.3759114,
+      "lon": 8.5752471,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": "https://www.doldersports.com/dolder-funpark/bad/",
+      "phone": "+41 44 267 70 80",
+      "mapsUrl": "https://maps.google.com/?q=47.3759114,8.5752471",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-37726776-stadelhoferplatz",
+      "name": "Stadelhoferplatz",
+      "category": "park",
+      "lat": 47.3660975,
+      "lon": 8.5476238,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3660975,8.5476238",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-38001301-leutschenpark",
+      "name": "Leutschenpark",
+      "category": "park",
+      "lat": 47.417553,
+      "lon": 8.5561095,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.417553,8.5561095",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-39487464-seeburgpark",
+      "name": "Seeburgpark",
+      "category": "park",
+      "lat": 47.3604163,
+      "lon": 8.5562698,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3604163,8.5562698",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-41832322-j-r-von-salis-anlage",
+      "name": "J.-R.-von-Salis-Anlage",
+      "category": "park",
+      "lat": 47.3725284,
+      "lon": 8.5470479,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3725284,8.5470479",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-60711594-emil-oberh-nsli-anlage",
+      "name": "Emil-Oberhänsli-Anlage",
+      "category": "park",
+      "lat": 47.417635,
+      "lon": 8.5451713,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.417635,8.5451713",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-87680819-irchelpark",
+      "name": "Irchelpark",
+      "category": "park",
+      "lat": 47.3980974,
+      "lon": 8.5445027,
+      "tags": [
+        "park",
+        "green"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3980974,8.5445027",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-192471206-roter-platz",
+      "name": "Roter Platz",
+      "category": "market",
+      "lat": 47.4326236,
+      "lon": 8.5648124,
+      "tags": [
+        "city"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4326236,8.5648124",
+      "indoorOutdoor": "indoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "morning",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-way-303186336-loorenkopf-turm",
+      "name": "Loorenkopf-Turm",
+      "category": "viewpoint",
+      "lat": 47.3697599,
+      "lon": 8.5989706,
+      "tags": [
+        "view",
+        "photo"
+      ],
+      "address": "Loorenkopfstrasse 99, 8053, Zürich",
+      "website": "https://www.stadt-zuerich.ch/prd/de/index/stadtarchiv/bilder_u_texte/Loorenkopfturm.html",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3697599,8.5989706",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 45,
+      "bestTimeOfDay": "sunset",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-132474-albisg-etli-uetliberg-uto-kulm",
+      "name": "Albisgüetli - Uetliberg Uto Kulm",
+      "category": "walk",
+      "lat": 47.3489627,
+      "lon": 8.4998611,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3489627,8.4998611",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-175309-albisrieden-altstetten",
+      "name": "Albisrieden - Altstetten",
+      "category": "walk",
+      "lat": 47.3779717,
+      "lon": 8.4790121,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3779717,8.4790121",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-176643-uitikon-leerbreiti",
+      "name": "Uitikon - Leerbreiti",
+      "category": "walk",
+      "lat": 47.3679735,
+      "lon": 8.4478256,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3679735,8.4478256",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-223317-mtlerw-g",
+      "name": "Ämtlerwäg",
+      "category": "walk",
+      "lat": 47.273726,
+      "lon": 8.4660953,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": "https://ggaffoltern.ch/aemtlerwaeg/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.273726,8.4660953",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": "Der Weg ist auch fahrradtauglich.",
+      "area": null
+    },
+    {
+      "id": "osm-relation-300454-pfaffhausen-lorenchopf",
+      "name": "Pfaffhausen - Lorenchopf",
+      "category": "walk",
+      "lat": 47.3669796,
+      "lon": 8.6094415,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3669796,8.6094415",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-300460-lorenchopf-adlisberg",
+      "name": "Lorenchopf - Adlisberg",
+      "category": "walk",
+      "lat": 47.3708481,
+      "lon": 8.5947561,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3708481,8.5947561",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-300462-weierholz-degenried",
+      "name": "Weierholz - Degenried",
+      "category": "walk",
+      "lat": 47.3684703,
+      "lon": 8.5836298,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3684703,8.5836298",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-300463-hinteradlisberg-adlisberg",
+      "name": "Hinteradlisberg - Adlisberg",
+      "category": "walk",
+      "lat": 47.3732305,
+      "lon": 8.5907687,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3732305,8.5907687",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-300470-degenried-dolder",
+      "name": "Degenried - Dolder",
+      "category": "walk",
+      "lat": 47.3715325,
+      "lon": 8.5778306,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3715325,8.5778306",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-300475-pfaffhausen-geeren",
+      "name": "Pfaffhausen - Geeren",
+      "category": "walk",
+      "lat": 47.3699544,
+      "lon": 8.613965,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3699544,8.613965",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-311031-witikon-trichtenhusen",
+      "name": "Witikon - Trichtenhusen",
+      "category": "walk",
+      "lat": 47.3551049,
+      "lon": 8.5983308,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3551049,8.5983308",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-365971-waldh-sli-strickhof",
+      "name": "Waldhüsli - Strickhof",
+      "category": "walk",
+      "lat": 47.3957104,
+      "lon": 8.5575103,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3957104,8.5575103",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-376605-z-rich-affoltern-chatzenr-ti",
+      "name": "Zürich Affoltern - Chatzenrüti",
+      "category": "walk",
+      "lat": 47.4290052,
+      "lon": 8.5036142,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4290052,8.5036142",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-398013-tobelhof-hinteradlisberg",
+      "name": "Tobelhof - Hinteradlisberg",
+      "category": "walk",
+      "lat": 47.3787951,
+      "lon": 8.5885254,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3787951,8.5885254",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-531357-limmat-uferweg",
+      "name": "Limmat-Uferweg",
+      "category": "walk",
+      "lat": 47.402273,
+      "lon": 8.4627689,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.402273,8.4627689",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-538115-unterengstringen-glaubeneich",
+      "name": "Unterengstringen - Glaubeneich",
+      "category": "walk",
+      "lat": 47.4175812,
+      "lon": 8.457447,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4175812,8.457447",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-538157-unterengstringen-altberg",
+      "name": "Unterengstringen - Altberg",
+      "category": "walk",
+      "lat": 47.4249284,
+      "lon": 8.4340752,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4249284,8.4340752",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": "markierter Wanderweg",
+      "area": null
+    },
+    {
+      "id": "osm-relation-556022-benglen-pfaffhausen",
+      "name": "Benglen - Pfaffhausen",
+      "category": "walk",
+      "lat": 47.3627112,
+      "lon": 8.6266226,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3627112,8.6266226",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-1140625-z-rich-pfaffhausen-m-seren-witikon-zentrum",
+      "name": "Zürich/Pfaffhausen Müseren - Witikon Zentrum",
+      "category": "walk",
+      "lat": 47.3617207,
+      "lon": 8.6074991,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3617207,8.6074991",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-1140626-s-essbl-tz-herrenholz",
+      "name": "Süessblätz - Herrenholz",
+      "category": "walk",
+      "lat": 47.350781,
+      "lon": 8.629008,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.350781,8.629008",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-2120110-burgwis-rehalp",
+      "name": "Burgwis - Rehalp",
+      "category": "walk",
+      "lat": 47.3545095,
+      "lon": 8.5793536,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3545095,8.5793536",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-2120597-rehalp-zollikon-allmend",
+      "name": "Rehalp - Zollikon Allmend",
+      "category": "walk",
+      "lat": 47.3472751,
+      "lon": 8.5837514,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3472751,8.5837514",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-2120598-zollikon-allmend-rumensee",
+      "name": "Zollikon Allmend - Rumensee",
+      "category": "walk",
+      "lat": 47.3360095,
+      "lon": 8.5877857,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3360095,8.5877857",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-2553496-planetenweg",
+      "name": "Planetenweg",
+      "category": "walk",
+      "lat": 47.3243801,
+      "lon": 8.4992441,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": "https://uetlibergverein.ch/planetenweg/",
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3243801,8.4992441",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": "Astronomischer Lehrpfad mit Informationen über das Sonnensystem im Massstab von 1:1 Mia. Nature trail with information about the solar system in scale of 1:1 bn.",
+      "area": null
+    },
+    {
+      "id": "osm-relation-3072990-gubrist-glaubeneich",
+      "name": "Gubrist - Glaubeneich",
+      "category": "walk",
+      "lat": 47.4213011,
+      "lon": 8.4620646,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4213011,8.4620646",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": "markierter Wanderweg",
+      "area": null
+    },
+    {
+      "id": "osm-relation-7657216-geeren-waldmannsburg",
+      "name": "Geeren - Waldmannsburg",
+      "category": "walk",
+      "lat": 47.3774179,
+      "lon": 8.6117064,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3774179,8.6117064",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-7696359-waldgarten-waldh-sli",
+      "name": "Waldgarten - Waldhüsli",
+      "category": "walk",
+      "lat": 47.3985629,
+      "lon": 8.5599931,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3985629,8.5599931",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-7792959-waldmannsburg-f-llanden-rohr",
+      "name": "Waldmannsburg - Fällanden Rohr",
+      "category": "walk",
+      "lat": 47.3711166,
+      "lon": 8.6338698,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3711166,8.6338698",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-7792960-waldmannsburg-hermikon",
+      "name": "Waldmannsburg - Hermikon",
+      "category": "walk",
+      "lat": 47.3803948,
+      "lon": 8.6255008,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3803948,8.6255008",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-7804734-milchbuck",
+      "name": "Milchbuck",
+      "category": "walk",
+      "lat": 47.3974512,
+      "lon": 8.5418858,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3974512,8.5418858",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-7804736-milchbuck-strickhof",
+      "name": "Milchbuck - Strickhof",
+      "category": "walk",
+      "lat": 47.3957295,
+      "lon": 8.5466869,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3957295,8.5466869",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-8171579-burgwis-witikon",
+      "name": "Burgwis - Witikon",
+      "category": "walk",
+      "lat": 47.3612639,
+      "lon": 8.5834606,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3612639,8.5834606",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-8171715-witikon-pfaffhausen",
+      "name": "Witikon - Pfaffhausen",
+      "category": "walk",
+      "lat": 47.3635755,
+      "lon": 8.6072407,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3635755,8.6072407",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-8275281-z-rich-affoltern-chatzensee-strandbad",
+      "name": "Zürich Affoltern - Chatzensee Strandbad",
+      "category": "walk",
+      "lat": 47.4261909,
+      "lon": 8.5010035,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4261909,8.5010035",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-8295133-witikon-degenried",
+      "name": "Witikon - Degenried",
+      "category": "walk",
+      "lat": 47.3634242,
+      "lon": 8.5868399,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3634242,8.5868399",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-8427089-sparrenberg-weiningen",
+      "name": "Sparrenberg - Weiningen",
+      "category": "walk",
+      "lat": 47.4191279,
+      "lon": 8.4435689,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.4191279,8.4435689",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-8456895-leimbach-wollishofen",
+      "name": "Leimbach - Wollishofen",
+      "category": "walk",
+      "lat": 47.3352449,
+      "lon": 8.5248122,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3352449,8.5248122",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-8456896-ris-leimbach",
+      "name": "Ris - Leimbach",
+      "category": "walk",
+      "lat": 47.3284113,
+      "lon": 8.5119797,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3284113,8.5119797",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-8456897-ris-ober-leimbach",
+      "name": "Ris - Ober Leimbach",
+      "category": "walk",
+      "lat": 47.322105,
+      "lon": 8.5089987,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.322105,8.5089987",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
+    },
+    {
+      "id": "osm-relation-8456915-ober-leimbach-sood-oberleimbach",
+      "name": "Ober Leimbach - Sood Oberleimbach",
+      "category": "walk",
+      "lat": 47.3208113,
+      "lon": 8.5171173,
+      "tags": [
+        "view",
+        "photo",
+        "street"
+      ],
+      "address": null,
+      "website": null,
+      "phone": null,
+      "mapsUrl": "https://maps.google.com/?q=47.3208113,8.5171173",
+      "indoorOutdoor": "outdoor",
+      "durationMins": 75,
+      "bestTimeOfDay": "afternoon",
+      "description": null,
+      "area": null
     }
   ]
 }

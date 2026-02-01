@@ -213,6 +213,30 @@ function isSimilar(place: Place, selected: Place[]): boolean {
   });
 }
 
+const CUISINE_NAME_KEYWORDS: Record<string, string[]> = {
+  mexican: ['mexican', 'taco', 'taqueria', 'burrito', 'cantina', 'quesadilla', 'mezcal', 'margarita', 'nacho'],
+  italian: ['italian', 'pasta', 'pizza', 'trattoria', 'osteria', 'ristorante'],
+  sushi: ['sushi', 'ramen', 'izakaya', 'omakase'],
+  asian: ['asian', 'thai', 'vietnam', 'chinese', 'korean', 'bao', 'noodle'],
+  burger: ['burger', 'grill', 'steakhouse'],
+  swiss: ['swiss', 'fondue', 'raclette', 'roesti', 'rösti'],
+  vegan: ['vegan', 'vegetarian', 'plant', 'green'],
+  brunch: ['brunch', 'breakfast', 'eggs'],
+  coffee: ['coffee', 'cafe', 'café', 'espresso'],
+};
+
+function matchesCuisine(place: Place, cuisines: string[]): boolean {
+  const name = place.name.toLowerCase();
+  return cuisines.some(cuisine => {
+    if (place.tags.includes(cuisine as any)) {
+      return true;
+    }
+    const keywords = CUISINE_NAME_KEYWORDS[cuisine];
+    if (!keywords) return false;
+    return keywords.some(keyword => name.includes(keyword));
+  });
+}
+
 const intentFallback: Intent = {
   raw: '',
   cuisine: [],
@@ -247,7 +271,23 @@ export async function generateItineraries(
   }
 
   const places = placesResult.places;
-  const scoredPlaces = places.map(place => ({
+  let candidates = places;
+  if (intent.cuisine.length > 0) {
+    const cuisineFiltered = places.filter(
+      place => place.category === 'restaurant' && matchesCuisine(place, intent.cuisine)
+    );
+    if (cuisineFiltered.length === 0) {
+      return {
+        status: 'error',
+        itineraries: [],
+        error: `I couldn't find ${intent.cuisine.join('/')} restaurants in the dataset yet. Try another cuisine or ask for a restaurant.`,
+        source: placesResult.source,
+      };
+    }
+    candidates = cuisineFiltered;
+  }
+
+  const scoredPlaces = candidates.map(place => ({
     place,
     score: scorePlace(place, intent, context),
   }));
