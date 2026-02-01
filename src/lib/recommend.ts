@@ -6,11 +6,9 @@ import {
   RecommendationContext,
   CreativeMetrics,
 } from '../types';
-import PlaceDB from '../data/places_zurich.json';
 import { computeAllMetrics } from './metrics';
 import { computeMainCharacterScore } from './mainCharacter';
-
-const places: Place[] = PlaceDB.places as Place[];
+import { getPlaces, PlacesSource } from './places';
 
 function getDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
   const R = 6371;
@@ -29,6 +27,17 @@ function getDistance(lat1: number, lon1: number, lat2: number, lon2: number): nu
 function countSharedTags(a: Place, b: Place): number {
   const tags = new Set(a.tags);
   return b.tags.filter(tag => tags.has(tag)).length;
+}
+
+function isInSeason(
+  seasonality: { startMonth: number; endMonth: number },
+  date: Date
+): boolean {
+  const month = date.getMonth() + 1;
+  if (seasonality.startMonth <= seasonality.endMonth) {
+    return month >= seasonality.startMonth && month <= seasonality.endMonth;
+  }
+  return month >= seasonality.startMonth || month <= seasonality.endMonth;
 }
 
 export function scorePlace(
@@ -93,6 +102,18 @@ export function scorePlace(
 
   const { weather, daylight, userLocation } = context;
 
+  if (place.isOpen === false) {
+    score -= 50;
+  }
+
+  if (place.popularity !== undefined) {
+    score += (place.popularity - 50) / 5;
+  }
+
+  if (place.seasonality && !isInSeason(place.seasonality, context.now)) {
+    score -= 15;
+  }
+
   if (userLocation) {
     const distanceKm = getDistance(userLocation.lat, userLocation.lon, place.lat, place.lon);
     score += Math.max(0, 18 - distanceKm * 6);
@@ -149,7 +170,8 @@ function buildWhy(metrics: CreativeMetrics): string {
 function selectSatellite(
   anchor: Place,
   intent: Intent,
-  context: RecommendationContext
+  context: RecommendationContext,
+  places: Place[]
 ): { satellite: Place; reason: string } {
   const candidates = places.filter(place => place.id !== anchor.id);
   const withDistance = candidates.map(candidate => ({
@@ -201,11 +223,30 @@ const intentFallback: Intent = {
   indoorPreference: 'no-preference',
 };
 
-export function generateItineraries(
+export type RecommendationResult = {
+  status: 'ready' | 'error';
+  itineraries: Itinerary[];
+  error?: string;
+  source?: PlacesSource;
+  updatedAt?: Date;
+};
+
+export async function generateItineraries(
   intent: Intent,
   context: RecommendationContext,
   userElevation: number
-): Itinerary[] {
+): Promise<RecommendationResult> {
+  const placesResult = await getPlaces();
+  if (placesResult.status === 'error') {
+    return {
+      status: 'error',
+      itineraries: [],
+      error: placesResult.error ?? 'Unable to load places',
+      source: placesResult.source,
+    };
+  }
+
+  const places = placesResult.places;
   const scoredPlaces = places.map(place => ({
     place,
     score: scorePlace(place, intent, context),
@@ -234,7 +275,7 @@ export function generateItineraries(
 
   const itineraries = selectedAnchors.map(anchor => {
     const metrics = computeAllMetrics(anchor, context.weather, context.daylight, userElevation);
-    const { satellite, reason } = selectSatellite(anchor, intent, context);
+    const { satellite, reason } = selectSatellite(anchor, intent, context, places);
     const mainCharacterScore = computeMainCharacterScore({ metrics, sun: context.daylight });
 
     return {
@@ -250,13 +291,29 @@ export function generateItineraries(
 
   itineraries.sort((a, b) => b.mainCharacterScore - a.mainCharacterScore);
 
-  return itineraries.slice(0, 3);
+  return {
+    status: 'ready',
+    itineraries: itineraries.slice(0, 3),
+    source: placesResult.source,
+    updatedAt: placesResult.updatedAt,
+  };
 }
 
-export function generateGreetingItineraries(
+export async function generateGreetingItineraries(
   context: RecommendationContext,
   userElevation: number
-): Itinerary[] {
+): Promise<RecommendationResult> {
+  const placesResult = await getPlaces();
+  if (placesResult.status === 'error') {
+    return {
+      status: 'error',
+      itineraries: [],
+      error: placesResult.error ?? 'Unable to load places',
+      source: placesResult.source,
+    };
+  }
+
+  const places = placesResult.places;
   const sample = [...places]
     .sort(() => Math.random() - 0.5)
     .slice(0, 6);
@@ -269,9 +326,9 @@ export function generateGreetingItineraries(
     }
   }
 
-  return anchors.map(anchor => {
+  const itineraries = anchors.map(anchor => {
     const metrics = computeAllMetrics(anchor, context.weather, context.daylight, userElevation);
-    const { satellite, reason } = selectSatellite(anchor, { ...intentFallback, raw: '' }, context);
+    const { satellite, reason } = selectSatellite(anchor, { ...intentFallback, raw: '' }, context, places);
     const mainCharacterScore = computeMainCharacterScore({ metrics, sun: context.daylight });
 
     return {
@@ -284,4 +341,11 @@ export function generateGreetingItineraries(
       metrics,
     };
   });
+
+  return {
+    status: 'ready',
+    itineraries,
+    source: placesResult.source,
+    updatedAt: placesResult.updatedAt,
+  };
 }
