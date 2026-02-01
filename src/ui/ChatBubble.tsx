@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: typography.size.body,
     fontWeight: typography.weight.regular,
+    fontFamily: typography.family.regular,
     lineHeight: typography.size.body * typography.lineHeight.normal,
   },
   assistantContainer: {
@@ -136,6 +137,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontWeight: typography.weight.bold,
     fontSize: typography.size.md,
+    fontFamily: typography.family.bold,
   },
   assistantBlur: {
     borderRadius: radius.xl,
@@ -168,6 +170,7 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     fontSize: typography.size.body,
     fontWeight: typography.weight.regular,
+    fontFamily: typography.family.regular,
     lineHeight: typography.size.body * typography.lineHeight.normal,
   },
   carouselContainer: {

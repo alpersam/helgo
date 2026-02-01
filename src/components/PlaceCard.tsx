@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import { Itinerary } from '../types';
+import { colors, typography } from '../ui/theme';
 import { MetricRow } from './MetricRow';
 
 interface PlaceCardProps {
@@ -17,9 +18,9 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({ itinerary, index }) => {
 
 
   const getScoreColor = (score: number) => {
-    if (score >= 70) return '#4CAF50';
-    if (score >= 40) return '#FF9800';
-    return '#9E9E9E';
+    if (score >= 70) return colors.success;
+    if (score >= 40) return colors.accent;
+    return colors.text.tertiary;
   };
 
   return (
@@ -99,12 +100,12 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({ itinerary, index }) => {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderRadius: 16,
     padding: 16,
     marginVertical: 8,
     marginHorizontal: 4,
-    shadowColor: '#000',
+    shadowColor: colors.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -120,33 +121,37 @@ const styles = StyleSheet.create({
     width: 28,
     height: 28,
     borderRadius: 14,
-    backgroundColor: '#667EEA',
+    backgroundColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
   },
   numberText: {
-    color: '#FFF',
+    color: colors.white,
     fontWeight: 'bold',
     fontSize: 14,
+    fontFamily: typography.family.bold,
   },
   scoreContainer: {
     alignItems: 'flex-end',
   },
   scoreLabel: {
     fontSize: 11,
-    color: '#888',
+    color: colors.text.tertiary,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
+    fontFamily: typography.family.regular,
   },
   score: {
     fontSize: 20,
     fontWeight: 'bold',
+    fontFamily: typography.family.bold,
   },
   placeName: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#1A1A2E',
+    color: colors.text.primary,
     marginBottom: 8,
+    fontFamily: typography.family.bold,
   },
   tagsRow: {
     flexDirection: 'row',
@@ -154,7 +159,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   tag: {
-    backgroundColor: '#F0F4FF',
+    backgroundColor: colors.glass.lightSubtle,
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 12,
@@ -163,40 +168,44 @@ const styles = StyleSheet.create({
   },
   tagText: {
     fontSize: 12,
-    color: '#667EEA',
+    color: colors.primary,
     fontWeight: '500',
+    fontFamily: typography.family.medium,
   },
   itineraryFlow: {
-    backgroundColor: '#FAFAFA',
+    backgroundColor: colors.glass.lightSubtle,
     borderRadius: 12,
     padding: 12,
     marginVertical: 8,
   },
   flowText: {
     fontSize: 14,
-    color: '#333',
+    color: colors.text.primary,
+    fontFamily: typography.family.regular,
   },
   boldText: {
     fontWeight: '700',
-    color: '#1A1A2E',
+    color: colors.text.primary,
+    fontFamily: typography.family.bold,
   },
   arrow: {
     fontSize: 16,
-    color: '#667EEA',
+    color: colors.accent,
     textAlign: 'center',
     marginVertical: 4,
   },
   reason: {
     fontSize: 12,
-    color: '#666',
+    color: colors.text.secondary,
     fontStyle: 'italic',
     marginTop: 6,
+    fontFamily: typography.family.regular,
   },
   metricsContainer: {
     marginTop: 8,
     paddingTop: 8,
     borderTopWidth: 1,
-    borderTopColor: '#EEE',
+    borderTopColor: colors.glass.lightBorder,
   },
   buttonsRow: {
     flexDirection: 'row',
@@ -205,14 +214,15 @@ const styles = StyleSheet.create({
   },
   mapButton: {
     flex: 1,
-    backgroundColor: '#4CAF50',
+    backgroundColor: colors.primary,
     borderRadius: 10,
     paddingVertical: 12,
     alignItems: 'center',
   },
   mapButtonText: {
-    color: '#FFF',
+    color: colors.white,
     fontWeight: '600',
     fontSize: 14,
+    fontFamily: typography.family.semibold,
   },
 });

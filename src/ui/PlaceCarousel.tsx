@@ -11,7 +11,7 @@ import Animated, {
 import { Itinerary } from '../types';
 import { PlaceCard } from './PlaceCard';
 import { PlaceDetailSheet } from './PlaceDetailSheet';
-import { spacing } from './theme';
+import { colors, spacing } from './theme';
 
 interface PlaceCarouselProps {
   itineraries: Itinerary[];
@@ -203,6 +203,6 @@ const styles = StyleSheet.create({
   dot: {
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#667EEA',
+    backgroundColor: colors.text.tertiary,
   },
 });

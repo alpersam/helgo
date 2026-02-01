@@ -469,6 +469,7 @@ const styles = StyleSheet.create({
     fontWeight: typography.weight.medium,
     marginLeft: spacing.xs,
     textTransform: 'capitalize',
+    fontFamily: typography.family.medium,
   },
   closeButton: {
     position: 'absolute',
@@ -490,6 +491,7 @@ const styles = StyleSheet.create({
     fontWeight: typography.weight.bold,
     color: colors.text.primary,
     marginBottom: spacing.xs,
+    fontFamily: typography.family.bold,
   },
   scoreRow: {
     flexDirection: 'row',
@@ -499,11 +501,13 @@ const styles = StyleSheet.create({
     fontSize: typography.size.sm,
     color: colors.text.tertiary,
     marginRight: spacing.sm,
+    fontFamily: typography.family.regular,
   },
   scoreValue: {
     fontSize: typography.size.body,
     fontWeight: typography.weight.bold,
     color: colors.success,
+    fontFamily: typography.family.bold,
   },
   description: {
     fontSize: typography.size.md,
@@ -511,6 +515,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xl,
     marginBottom: spacing.md,
     lineHeight: typography.size.md * typography.lineHeight.relaxed,
+    fontFamily: typography.family.regular,
   },
   tagsRow: {
     flexDirection: 'row',
@@ -532,6 +537,7 @@ const styles = StyleSheet.create({
     fontSize: typography.size.sm,
     color: colors.primary,
     fontWeight: typography.weight.medium,
+    fontFamily: typography.family.medium,
   },
   infoSection: {
     paddingHorizontal: spacing.xl,
@@ -570,16 +576,19 @@ const styles = StyleSheet.create({
     fontSize: typography.size.xs,
     color: colors.text.tertiary,
     marginBottom: 2,
+    fontFamily: typography.family.regular,
   },
   infoValue: {
     fontSize: typography.size.sm,
     color: colors.text.primary,
     fontWeight: typography.weight.semibold,
     textTransform: 'capitalize',
+    fontFamily: typography.family.semibold,
   },
   addressText: {
     fontSize: typography.size.sm,
     color: colors.text.secondary,
+    fontFamily: typography.family.regular,
   },
   itinerarySection: {
     paddingHorizontal: spacing.xl,
@@ -592,6 +601,7 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: typography.letterSpacing.wide,
     marginBottom: spacing.sm,
+    fontFamily: typography.family.semibold,
   },
   itineraryCard: {
     backgroundColor: 'rgba(0,0,0,0.03)',
@@ -621,16 +631,19 @@ const styles = StyleSheet.create({
     fontSize: typography.size.md,
     fontWeight: typography.weight.semibold,
     color: colors.text.primary,
+    fontFamily: typography.family.semibold,
   },
   stepCategory: {
     fontSize: typography.size.sm,
     color: colors.text.tertiary,
     textTransform: 'capitalize',
+    fontFamily: typography.family.regular,
   },
   stepReason: {
     fontSize: typography.size.sm,
     color: colors.text.tertiary,
     fontStyle: 'italic',
+    fontFamily: typography.family.regular,
   },
   stepConnector: {
     width: 2,
@@ -667,11 +680,13 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
     textAlign: 'center',
     marginBottom: spacing.xxs,
+    fontFamily: typography.family.regular,
   },
   metricScore: {
     fontSize: typography.size.body,
     fontWeight: typography.weight.bold,
     color: colors.text.primary,
+    fontFamily: typography.family.bold,
   },
   gettingThereSection: {
     paddingHorizontal: spacing.xl,
@@ -681,6 +696,7 @@ const styles = StyleSheet.create({
     fontSize: typography.size.sm,
     color: colors.text.secondary,
     lineHeight: typography.size.sm * typography.lineHeight.relaxed,
+    fontFamily: typography.family.regular,
   },
   actionsRow: {
     flexDirection: 'row',

@@ -151,6 +151,7 @@ const styles = StyleSheet.create({
     fontWeight: typography.weight.medium,
     color: colors.primary,
     letterSpacing: typography.letterSpacing.normal,
+    fontFamily: typography.family.medium,
   },
   labelAccent: {
     color: colors.white,

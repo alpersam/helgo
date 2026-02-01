@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { colors, typography } from '../ui/theme';
 
 interface MetricRowProps {
   emoji: string;
@@ -33,11 +34,12 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 13,
-    color: '#555',
+    color: colors.text.secondary,
     flex: 1,
+    fontFamily: typography.family.regular,
   },
   scoreContainer: {
-    backgroundColor: '#E8F5E9',
+    backgroundColor: colors.glass.lightSubtle,
     borderRadius: 8,
     paddingHorizontal: 8,
     paddingVertical: 2,
@@ -45,6 +47,7 @@ const styles = StyleSheet.create({
   score: {
     fontSize: 12,
     fontWeight: '600',
-    color: '#2E7D32',
+    color: colors.success,
+    fontFamily: typography.family.semibold,
   },
 });

@@ -1712,7 +1712,8 @@
       "durationMins": 45,
       "bestTimeOfDay": "sunset",
       "description": null,
-      "area": null
+      "area": null,
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/B%C3%BCrkliplatz_-_SNB_2012-03-27_17-03-18_%28P7000%29.JPG"
     },
     {
       "id": "osm-node-309750020-b-rkliplatz",
@@ -1732,7 +1733,8 @@
       "durationMins": 45,
       "bestTimeOfDay": "sunset",
       "description": null,
-      "area": null
+      "area": null,
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/B%C3%BCrkliplatz_-_SNB_2012-03-27_17-03-18_%28P7000%29.JPG"
     },
     {
       "id": "osm-node-309750022-quaibr-cke",
@@ -2548,7 +2550,8 @@
       "durationMins": 60,
       "bestTimeOfDay": "afternoon",
       "description": null,
-      "area": null
+      "area": null,
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/B%C3%B6rse_%26_EWZ_Unterwerk_Selnau_%28Haus_Konstruktiv%29_-_Sihlbr%C3%BCcke_2011-08-13_19-58-22_ShiftN.jpg"
     },
     {
       "id": "osm-node-567497557-f-hrlibuck",
@@ -3148,7 +3151,8 @@
       "durationMins": 45,
       "bestTimeOfDay": "morning",
       "description": null,
-      "area": null
+      "area": null,
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/B%C3%BCrkliplatz_-_SNB_2012-03-27_17-03-18_%28P7000%29.JPG"
     },
     {
       "id": "osm-node-5291538866-rathausbr-cke",
@@ -3167,7 +3171,8 @@
       "durationMins": 45,
       "bestTimeOfDay": "morning",
       "description": null,
-      "area": null
+      "area": null,
+      "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/7340_-_Z%C3%BCrich_-_Limmat_at_Rathausbr%C3%BCcke.JPG"
     },
     {
       "id": "osm-node-5291538867-milchbuck",

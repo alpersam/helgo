@@ -214,6 +214,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: typography.size.body,
     color: colors.text.primary,
+    fontFamily: typography.family.regular,
     paddingVertical: spacing.sm,
   },
   buttonWrapper: {

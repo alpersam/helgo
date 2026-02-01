@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: typography.size.xl,
     fontWeight: typography.weight.bold,
+    fontFamily: typography.family.bold,
   },
   titleContainer: {
     marginLeft: spacing.md,
@@ -116,11 +117,13 @@ const styles = StyleSheet.create({
     fontWeight: typography.weight.bold,
     color: colors.text.primary,
     letterSpacing: typography.letterSpacing.tight,
+    fontFamily: typography.family.bold,
   },
   subtitle: {
     fontSize: typography.size.sm,
     color: colors.text.tertiary,
     marginTop: -2,
+    fontFamily: typography.family.regular,
   },
   weatherPill: {
     flexDirection: 'row',
@@ -139,5 +142,6 @@ const styles = StyleSheet.create({
     fontSize: typography.size.md,
     fontWeight: typography.weight.semibold,
     color: colors.text.primary,
+    fontFamily: typography.family.semibold,
   },
 });

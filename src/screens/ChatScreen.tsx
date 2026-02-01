@@ -564,6 +564,7 @@ const styles = StyleSheet.create({
   loadingText: {
     fontSize: typography.size.sm,
     color: colors.text.tertiary,
+    fontFamily: typography.family.regular,
   },
   bottomSection: {
     backgroundColor: 'transparent',

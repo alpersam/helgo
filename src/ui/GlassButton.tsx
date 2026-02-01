@@ -214,6 +214,7 @@ const styles = StyleSheet.create({
   label: {
     fontWeight: typography.weight.semibold,
     letterSpacing: typography.letterSpacing.normal,
+    fontFamily: typography.family.semibold,
   },
   iconLeft: {
     marginRight: spacing.sm,

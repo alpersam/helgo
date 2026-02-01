@@ -1,22 +1,31 @@
 /**
  * Helgo Design System
- * Liquid Glass Aesthetic - iOS-native feel
+ * Classy neutral aesthetic
  */
+
+import { Platform } from 'react-native';
+
+const serifFamily = Platform.select({
+  ios: 'Georgia',
+  android: 'serif',
+  web: 'Georgia',
+  default: 'serif',
+});
 
 export const colors = {
   // Primary accent
-  primary: '#667EEA',
-  primaryLight: '#8B9CF5',
-  primaryDark: '#4C5FD5',
+  primary: '#2F2F33',
+  primaryLight: '#4A4A52',
+  primaryDark: '#1B1B1E',
 
   // Secondary accent (Helgo brand)
-  accent: '#FF6B6B',
-  accentLight: '#FF8A8A',
-  accentDark: '#E54B4B',
+  accent: '#B79B5B',
+  accentLight: '#C9B07A',
+  accentDark: '#9B8349',
 
   // Success / Nature
-  success: '#34C759',
-  successLight: '#4ADE80',
+  success: '#4A7C5A',
+  successLight: '#6FA382',
 
   // Neutrals
   white: '#FFFFFF',
@@ -24,39 +33,39 @@ export const colors = {
 
   // Glass tints
   glass: {
-    light: 'rgba(255, 255, 255, 0.72)',
-    lightSubtle: 'rgba(255, 255, 255, 0.45)',
-    lightBorder: 'rgba(255, 255, 255, 0.28)',
-    dark: 'rgba(0, 0, 0, 0.35)',
-    darkSubtle: 'rgba(0, 0, 0, 0.18)',
+    light: 'rgba(255, 255, 255, 0.82)',
+    lightSubtle: 'rgba(255, 255, 255, 0.55)',
+    lightBorder: 'rgba(0, 0, 0, 0.06)',
+    dark: 'rgba(0, 0, 0, 0.28)',
+    darkSubtle: 'rgba(0, 0, 0, 0.14)',
   },
 
   // Backgrounds
   background: {
-    primary: '#F2F2F7',
+    primary: '#F4F3F1',
     gradient: {
-      start: '#E8ECFF',
-      middle: '#F5E6FF',
-      end: '#FFE6EC',
+      start: '#F7F6F4',
+      middle: '#EFEDEA',
+      end: '#E7E5E2',
     },
   },
 
   // Text
   text: {
-    primary: '#1C1C1E',
-    secondary: '#6B6B6B',
-    tertiary: '#8E8E93',
+    primary: '#1F1F21',
+    secondary: '#57575C',
+    tertiary: '#7A7A80',
     inverse: '#FFFFFF',
-    muted: '#AEAEB2',
+    muted: '#9A9AA1',
   },
 
   // Semantic
   semantic: {
-    fog: '#94A3B8',
-    reflection: '#60A5FA',
-    glow: '#FBBF24',
-    green: '#22C55E',
-    shelter: '#A78BFA',
+    fog: '#8C939C',
+    reflection: '#7C93A9',
+    glow: '#C0A15A',
+    green: '#5C8C6E',
+    shelter: '#8C7C9A',
   },
 } as const;
 
@@ -86,10 +95,10 @@ export const radius = {
 export const typography = {
   // Font family (iOS system font)
   family: {
-    regular: 'System',
-    medium: 'System',
-    semibold: 'System',
-    bold: 'System',
+    regular: serifFamily ?? 'serif',
+    medium: serifFamily ?? 'serif',
+    semibold: serifFamily ?? 'serif',
+    bold: serifFamily ?? 'serif',
   },
 
   // Font sizes
