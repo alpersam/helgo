@@ -52,30 +52,48 @@ const HELGO_GREETINGS = [
   "Hey, I'm Helgo - your Zurich micro-guide. What sounds nice right now?",
   "Gruezi! Want a gentle suggestion for Zurich? Tell me your mood.",
   "Hi there. Anything in particular you feel like doing today?",
+  "Welcome! I know Zurich well. What are you feeling?",
+  "Hey! Looking for something specific or just exploring?",
+  "Hoi! Ready to find your next spot in Zurich?",
 ];
 
 const HELGO_RESPONSES = [
   "Here are my top picks for you:",
   "Perfect! Check these out:",
   "Based on the vibes right now, try these:",
+  "Found some good options:",
+  "Here's what I'd recommend:",
+  "These should fit nicely:",
+  "Take a look at these:",
+  "Some spots that match:",
 ];
 
 const HELGO_CLARIFIERS = [
   "I can help with food, views, walks, parks, and museums. What are you in the mood for?",
   "Quick check: are you looking for a restaurant, a stroll, a viewpoint, or something indoors?",
   "Give me a vibe or category to work with - e.g., \"mexican restaurant\" or \"sunset walk\".",
+  "What kind of experience? Food, nature, culture, or just wandering?",
+  "Help me narrow it down - eating, drinking, walking, or exploring?",
+  "Any preferences? Cafes, views, parks, museums - I can work with anything.",
 ];
 
 const HELGO_PRELUDES = [
   "Give me a second - I'll shape a quick two-stop plan.",
   "Alright, let me curate something that fits the moment.",
   "On it. I'll pull a short, easy-to-do plan for you.",
+  "Let me find the right spots...",
+  "Searching for the best matches...",
+  "One moment while I check what's good right now...",
 ];
 
 const HELGO_AFTERGLOWS = [
   "Want me to refine it - calmer, or more scenic?",
   "If you want a different mood, say the word.",
   "Want a shorter route or something more atmospheric?",
+  "Let me know if you'd like alternatives.",
+  "I can adjust if these don't feel right.",
+  "Happy to tweak the vibe if needed.",
+  "Need something different? Just say so.",
 ];
 
 const FALLBACK_LOCATION = { lat: ZURICH_LAT, lon: ZURICH_LON };
@@ -311,23 +329,42 @@ const ChatScreenContent: React.FC = () => {
   };
 
   const isAmbiguousIntent = (intent: Intent) => {
-    return (
-      intent.cuisine.length === 0 &&
-      intent.categoryPreference.length === 0 &&
-      intent.vibes.length === 0 &&
-      intent.constraints.length === 0 &&
-      !intent.timeBudgetMins &&
-      !intent.groupContext &&
-      intent.photoMode === 'none' &&
-      intent.indoorPreference === 'no-preference'
-    );
+    // Count how many meaningful signals we have
+    const signals = [
+      intent.cuisine.length > 0,
+      intent.categoryPreference.length > 0,
+      intent.vibes.length > 0,
+      intent.constraints.length > 0,
+      !!intent.timeBudgetMins,
+      !!intent.groupContext,
+      intent.photoMode !== 'none',
+      intent.indoorPreference !== 'no-preference',
+    ].filter(Boolean).length;
+
+    // Only ambiguous if we have zero signals - allow generic recs with minimal input
+    return signals === 0;
   };
 
   const mergeIntent = (current: Intent, previous: Intent | null): Intent => {
     if (!previous) return current;
+
+    // Detect if user is starting fresh (new category that conflicts with previous)
+    const foodCategories = new Set<PlaceCategory>(['restaurant', 'cafe', 'bar']);
+    const activityCategories = new Set<PlaceCategory>(['park', 'walk', 'viewpoint', 'museum', 'activity', 'sightseeing']);
+
+    const prevIsFood = previous.categoryPreference.some(c => foodCategories.has(c));
+    const currIsActivity = current.categoryPreference.some(c => activityCategories.has(c));
+    const currIsFood = current.categoryPreference.some(c => foodCategories.has(c));
+    const prevIsActivity = previous.categoryPreference.some(c => activityCategories.has(c));
+
+    // If switching from food to activity or vice versa, don't carry over cuisine
+    const isCategorySwitch = (prevIsFood && currIsActivity) || (prevIsActivity && currIsFood);
+
     return {
       ...current,
-      cuisine: current.cuisine.length > 0 ? current.cuisine : previous.cuisine,
+      cuisine: current.cuisine.length > 0
+        ? current.cuisine
+        : (isCategorySwitch ? [] : previous.cuisine),
       categoryPreference:
         current.categoryPreference.length > 0
           ? current.categoryPreference
@@ -518,6 +555,14 @@ const ChatScreenContent: React.FC = () => {
   };
 
   const pushItinerarySummary = () => {
+    const summaryText = buildItinerarySummary();
+    const summaryMessage: ChatMessage = {
+      id: `assistant-summary-${Date.now()}`,
+      type: 'assistant',
+      text: summaryText,
+      timestamp: new Date(),
+    };
+    setMessages(prev => [...prev, summaryMessage]);
     setShowRecap(true);
   };
 
@@ -558,15 +603,27 @@ const ChatScreenContent: React.FC = () => {
     }
     setIsLoading(true);
 
-    const preludeMessage: ChatMessage = {
-      id: `assistant-prelude-${Date.now()}`,
-      type: 'assistant',
-      text: HELGO_PRELUDES[Math.floor(Math.random() * HELGO_PRELUDES.length)],
-      timestamp: new Date(),
-    };
-    setMessages(prev => [...prev, preludeMessage]);
+    // Skip prelude for quick follow-ups and refinements
+    const quickFollowUpPhrases = [
+      'more', 'another', 'different', 'else', 'instead', 'other',
+      'budget', 'indoor', 'outdoor', 'nearby', 'closer', 'quieter',
+    ];
+    const isQuickFollowUp = quickFollowUpPhrases.some(phrase =>
+      normalizedInput.includes(phrase)
+    ) || normalizedInput.length < 20;
 
-    await new Promise(resolve => setTimeout(resolve, 600));
+    if (!isQuickFollowUp) {
+      const preludeMessage: ChatMessage = {
+        id: `assistant-prelude-${Date.now()}`,
+        type: 'assistant',
+        text: HELGO_PRELUDES[Math.floor(Math.random() * HELGO_PRELUDES.length)],
+        timestamp: new Date(),
+      };
+      setMessages(prev => [...prev, preludeMessage]);
+      await new Promise(resolve => setTimeout(resolve, 600));
+    } else {
+      await new Promise(resolve => setTimeout(resolve, 300));
+    }
 
     const rawIntent = parseIntent(userMessage.text!);
     const intent = mergeIntent(rawIntent, lastIntentRef.current);
@@ -583,6 +640,12 @@ const ChatScreenContent: React.FC = () => {
       'sport',
       'wellness',
     ]);
+
+    const wantsItinerary =
+      itineraryPendingRef.current ||
+      assistantMode === 'itinerary' ||
+      isItineraryRequest(userMessage.text!);
+
     if (rawIntent.categoryPreference.length > 0) {
       intent.categoryPreference = rawIntent.categoryPreference;
       if (rawIntent.categoryPreference.some(category => nonFoodCategories.has(category))) {
@@ -600,11 +663,6 @@ const ChatScreenContent: React.FC = () => {
     if (wantsItinerary && (hasNonFoodCategory || isNextActivityRequest)) {
       intent.cuisine = [];
     }
-
-    const wantsItinerary =
-      itineraryPendingRef.current ||
-      assistantMode === 'itinerary' ||
-      isItineraryRequest(userMessage.text!);
     if (wantsItinerary && !lastIntentRef.current && isAmbiguousIntent(intent)) {
       const askPref: ChatMessage = {
         id: `assistant-intent-${Date.now()}`,
@@ -721,7 +779,9 @@ const ChatScreenContent: React.FC = () => {
       scrollViewRef.current?.scrollToEnd({ animated: true });
     }, 100);
 
-    if (!wantsItinerary) {
+    // Only show afterglow occasionally and not for quick follow-ups
+    const shouldShowAfterglow = !wantsItinerary && !isQuickFollowUp && Math.random() > 0.5;
+    if (shouldShowAfterglow) {
       const afterglow: ChatMessage = {
         id: `assistant-afterglow-${Date.now()}`,
         type: 'assistant',
@@ -974,7 +1034,7 @@ const ChatScreenContent: React.FC = () => {
             value={inputText}
             onChangeText={setInputText}
             onSubmit={handleSend}
-            placeholder="What are you in the mood for-"
+            placeholder="What are you in the mood for?"
             disabled={isLoading}
           />
 
@@ -990,14 +1050,15 @@ const LoadingDot: React.FC<{ delay: number }> = ({ delay }) => {
   const opacity = useSharedValue(0.3);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       opacity.value = withRepeat(
         withTiming(1, { duration: 600 }),
         -1,
         true
       );
     }, delay);
-  }, []);
+    return () => clearTimeout(timer);
+  }, [delay, opacity]);
 
   const animatedStyle = useAnimatedStyle(() => ({
     opacity: opacity.value,
