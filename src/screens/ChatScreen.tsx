@@ -19,7 +19,7 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 
-import { ChatMessage, WeatherData, SunData } from '../types';
+import { ChatMessage, WeatherData, DaylightData } from '../types';
 import {
   Header,
   InputBar,
@@ -31,9 +31,9 @@ import {
 } from '../ui';
 import {
   fetchWeather,
-  getSunData,
+  getDaylightData,
   getUserElevation,
-  parseUserQuery,
+  parseIntent,
   generateItineraries,
   generateGreetingItineraries,
 } from '../lib';
@@ -66,7 +66,7 @@ const ChatScreenContent: React.FC = () => {
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [weather, setWeather] = useState<WeatherData | null>(null);
-  const [sun, setSun] = useState<SunData | null>(null);
+  const [daylight, setDaylight] = useState<DaylightData | null>(null);
   const scrollViewRef = useRef<ScrollView>(null);
 
   // Animated gradient blobs
@@ -101,10 +101,10 @@ const ChatScreenContent: React.FC = () => {
   const initializeChat = async () => {
     setIsLoading(true);
     const weatherData = await fetchWeather();
-    const sunData = getSunData();
+    const sunData = getDaylightData();
 
     setWeather(weatherData);
-    setSun(sunData);
+    setDaylight(sunData);
 
     const greeting: ChatMessage = {
       id: 'greeting',
@@ -118,7 +118,7 @@ const ChatScreenContent: React.FC = () => {
   };
 
   const handleSend = async () => {
-    if (!inputText.trim() || !weather || !sun) return;
+    if (!inputText.trim() || !weather || !daylight) return;
 
     const userMessage: ChatMessage = {
       id: `user-${Date.now()}`,
@@ -133,14 +133,26 @@ const ChatScreenContent: React.FC = () => {
 
     await new Promise(resolve => setTimeout(resolve, 600));
 
-    const query = parseUserQuery(userMessage.text!);
+    const intent = parseIntent(userMessage.text!);
     const userElevation = getUserElevation();
+    const latestDaylight = getDaylightData();
+    setDaylight(latestDaylight);
+    const context = {
+      userLocation: undefined,
+      now: new Date(),
+      weather,
+      daylight: latestDaylight,
+    };
 
     let itineraries;
-    if (query.cuisines.length === 0 && query.vibes.length === 0 && query.categories.length === 0) {
-      itineraries = generateGreetingItineraries(weather, sun, userElevation);
+    if (
+      intent.cuisine.length === 0 &&
+      intent.vibes.length === 0 &&
+      intent.categoryPreference.length === 0
+    ) {
+      itineraries = generateGreetingItineraries(context, userElevation);
     } else {
-      itineraries = generateItineraries(query, weather, sun, userElevation);
+      itineraries = generateItineraries(intent, context, userElevation);
     }
 
     const assistantMessage: ChatMessage = {

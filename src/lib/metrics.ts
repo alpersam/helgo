@@ -139,7 +139,8 @@ export function computeWindShelter(input: MetricInput): CreativeMetrics['windShe
   const isWindy = weather.windSpeed > 20;
   const hasShelter = place.tags.includes('oldtown') ||
                      place.tags.includes('narrow') ||
-                     place.tags.includes('cozy');
+                     place.tags.includes('cozy') ||
+                     place.indoorOutdoor === 'indoor';
 
   if (isWindy && hasShelter) {
     return {

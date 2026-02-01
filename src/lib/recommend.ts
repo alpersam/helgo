@@ -1,103 +1,19 @@
 import {
   Place,
   PlaceCategory,
-  UserQuery,
+  Intent,
   Itinerary,
-  WeatherData,
-  SunData,
+  RecommendationContext,
   CreativeMetrics,
 } from '../types';
-import PlaceDB from '../data/PlaceDB.json';
+import PlaceDB from '../data/places_zurich.json';
 import { computeAllMetrics } from './metrics';
 import { computeMainCharacterScore } from './mainCharacter';
 
 const places: Place[] = PlaceDB.places as Place[];
 
-// Keyword dictionaries
-const CUISINE_KEYWORDS: Record<string, string[]> = {
-  mexican: ['mexican', 'tacos', 'taco', 'burrito', 'mezcal'],
-  italian: ['italian', 'pasta', 'pizza', 'risotto'],
-  sushi: ['sushi', 'japanese', 'ramen', 'asian'],
-  burger: ['burger', 'burgers', 'fries'],
-  asian: ['asian', 'chinese', 'thai', 'vietnamese'],
-  swiss: ['swiss', 'fondue', 'raclette', 'rösti'],
-  vegan: ['vegan', 'vegetarian', 'veggie', 'plant-based'],
-  brunch: ['brunch', 'breakfast', 'eggs'],
-  coffee: ['coffee', 'café', 'cafe', 'espresso'],
-};
-
-const VIBE_KEYWORDS: Record<string, string[]> = {
-  hip: ['hip', 'trendy', 'cool', 'hipster', 'modern'],
-  cozy: ['cozy', 'warm', 'comfortable', 'intimate'],
-  romantic: ['romantic', 'date', 'couple', 'love'],
-  quiet: ['quiet', 'peaceful', 'calm', 'relax', 'chill'],
-  cheap: ['cheap', 'budget', 'affordable', 'inexpensive'],
-  view: ['view', 'panorama', 'scenic', 'overlook', 'skyline'],
-  lake: ['lake', 'water', 'lakeside', 'waterfront'],
-  oldtown: ['oldtown', 'old town', 'historic', 'traditional', 'charming'],
-  photo: ['photo', 'instagram', 'instagrammable', 'photogenic', 'pictures'],
-  walk: ['walk', 'stroll', 'wander', 'explore'],
-  green: ['green', 'nature', 'park', 'garden', 'trees'],
-};
-
-const CATEGORY_KEYWORDS: Record<PlaceCategory, string[]> = {
-  cafe: ['café', 'cafe', 'coffee', 'tea'],
-  restaurant: ['restaurant', 'eat', 'food', 'lunch', 'dinner', 'hungry'],
-  viewpoint: ['viewpoint', 'view', 'lookout', 'panorama'],
-  walk: ['walk', 'stroll', 'hike', 'wander'],
-};
-
-/**
- * Parse user input to extract search criteria
- */
-export function parseUserQuery(input: string): UserQuery {
-  const lower = input.toLowerCase();
-
-  const cuisines: string[] = [];
-  const vibes: string[] = [];
-  const categories: PlaceCategory[] = [];
-
-  // Match cuisines
-  for (const [cuisine, keywords] of Object.entries(CUISINE_KEYWORDS)) {
-    if (keywords.some(kw => lower.includes(kw))) {
-      cuisines.push(cuisine);
-    }
-  }
-
-  // Match vibes
-  for (const [vibe, keywords] of Object.entries(VIBE_KEYWORDS)) {
-    if (keywords.some(kw => lower.includes(kw))) {
-      vibes.push(vibe);
-    }
-  }
-
-  // Match categories
-  for (const [category, keywords] of Object.entries(CATEGORY_KEYWORDS)) {
-    if (keywords.some(kw => lower.includes(kw))) {
-      categories.push(category as PlaceCategory);
-    }
-  }
-
-  // Check for time constraint
-  const hasTimeConstraint =
-    /\d+\s*(hour|hr|minute|min)/.test(lower) ||
-    lower.includes('quick') ||
-    lower.includes('short');
-
-  return {
-    raw: input,
-    cuisines,
-    vibes,
-    categories,
-    hasTimeConstraint,
-  };
-}
-
-/**
- * Calculate distance between two points (Haversine formula)
- */
 function getDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
-  const R = 6371; // Earth's radius in km
+  const R = 6371;
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
   const dLon = ((lon2 - lon1) * Math.PI) / 180;
   const a =
@@ -110,220 +26,248 @@ function getDistance(lat1: number, lon1: number, lat2: number, lon2: number): nu
   return R * c;
 }
 
-/**
- * Score a place based on query match
- */
-function scorePlace(place: Place, query: UserQuery): number {
+function countSharedTags(a: Place, b: Place): number {
+  const tags = new Set(a.tags);
+  return b.tags.filter(tag => tags.has(tag)).length;
+}
+
+export function scorePlace(
+  place: Place,
+  intent: Intent,
+  context: RecommendationContext
+): number {
   let score = 0;
 
-  // Cuisine match (high weight)
-  for (const cuisine of query.cuisines) {
+  if (intent.categoryPreference.length > 0) {
+    score += intent.categoryPreference.includes(place.category) ? 40 : -10;
+  }
+
+  for (const cuisine of intent.cuisine) {
     if (place.tags.includes(cuisine as any)) {
-      score += 50;
+      score += 35;
     }
   }
 
-  // Vibe match
-  for (const vibe of query.vibes) {
+  for (const vibe of intent.vibes) {
     if (place.tags.includes(vibe as any)) {
-      score += 30;
+      score += 20;
     }
   }
 
-  // Category match
-  if (query.categories.length > 0) {
-    if (query.categories.includes(place.category)) {
-      score += 40;
-    }
-  } else {
-    // Default boost for restaurants/cafes when no category specified
-    if (place.category === 'restaurant' || place.category === 'cafe') {
+  if (intent.constraints.includes('budget')) {
+    if (place.price === 'budget') score += 15;
+    if (place.price === 'high') score -= 10;
+  }
+
+  if (intent.constraints.includes('quiet') && place.tags.includes('quiet')) {
+    score += 10;
+  }
+
+  if (intent.constraints.includes('rain')) {
+    score += place.indoorOutdoor === 'indoor' ? 20 : -5;
+  }
+
+  if (intent.constraints.includes('family-friendly')) {
+    if (place.tags.includes('park') || place.tags.includes('green')) {
       score += 10;
     }
   }
 
-  // Time constraint bonus for walks
-  if (query.hasTimeConstraint && place.category === 'walk') {
-    score += 20;
+  if (intent.indoorPreference !== 'no-preference') {
+    if (place.indoorOutdoor === intent.indoorPreference) score += 20;
+    if (place.indoorOutdoor === 'mixed') score += 10;
+    if (place.indoorOutdoor !== 'mixed' && place.indoorOutdoor !== intent.indoorPreference) score -= 10;
   }
 
-  // Base score for having any tags (variety bonus)
-  score += Math.min(place.tags.length * 2, 10);
+  if (intent.timeBudgetMins) {
+    const diff = Math.abs(place.durationMins - intent.timeBudgetMins);
+    if (diff <= 30) score += 15;
+    else if (diff <= 60) score += 5;
+    else score -= 5;
+  }
+
+  if (intent.photoMode !== 'none') {
+    const hasPhoto = place.tags.includes('photo') || place.tags.includes('view') || !!place.photoSpots?.length;
+    score += hasPhoto ? 20 : -5;
+  }
+
+  const { weather, daylight } = context;
+
+  if (weather.precipitation > 0.5 && place.indoorOutdoor === 'indoor') {
+    score += 15;
+  }
+
+  if (weather.precipitation < 0.2 && place.indoorOutdoor === 'outdoor') {
+    score += 10;
+  }
+
+  if (daylight.isEvening && (place.bestTimeOfDay === 'night' || place.bestTimeOfDay === 'sunset')) {
+    score += 10;
+  }
+
+  if (daylight.isGoldenHour && place.bestTimeOfDay === 'sunset') {
+    score += 10;
+  }
+
+  score += Math.min(place.tags.length * 2, 12);
 
   return score;
 }
 
-/**
- * Select a satellite place for an anchor
- */
-function selectSatellite(
-  anchor: Place,
-  metrics: CreativeMetrics,
-  weather: WeatherData,
-  sun: SunData
-): { satellite: Place; reason: string } {
-  const candidates: { place: Place; score: number; reason: string }[] = [];
-
-  for (const place of places) {
-    if (place.id === anchor.id) continue;
-
-    const distance = getDistance(anchor.lat, anchor.lon, place.lat, place.lon);
-
-    // Only consider nearby places (within 2km for walks)
-    if (distance > 2) continue;
-
-    let score = 100 - distance * 50; // Closer is better
-    let reason = '';
-
-    // Match satellite to conditions
-    if (metrics.reflectionPotential.score >= 60 &&
-        (place.tags.includes('oldtown') || place.tags.includes('street') || place.tags.includes('bridge'))) {
-      score += 30;
-      reason = 'for reflections on wet streets';
-    }
-
-    if (metrics.fogEscape.score >= 60 && place.category === 'viewpoint') {
-      score += 35;
-      reason = 'to rise above the fog';
-    }
-
-    if (metrics.greenPocket.score >= 60 &&
-        (place.tags.includes('park') || place.tags.includes('lake') || place.tags.includes('green'))) {
-      score += 25;
-      reason = 'for a green escape';
-    }
-
-    if (metrics.nightGlow.score >= 70 &&
-        (place.tags.includes('bridge') || place.tags.includes('oldtown'))) {
-      score += 30;
-      reason = 'for evening lights';
-    }
-
-    // Photo spots are always good satellites
-    if (place.tags.includes('photo') || place.tags.includes('view')) {
-      score += 15;
-      if (!reason) reason = 'for photos';
-    }
-
-    // Walks are good satellites
-    if (place.category === 'walk' || place.category === 'viewpoint') {
-      score += 10;
-      if (!reason) reason = 'for a peaceful moment';
-    }
-
-    if (!reason) {
-      reason = `to explore ${place.name}`;
-    }
-
-    candidates.push({ place, score, reason });
+function buildAnchorReason(intent: Intent, anchor: Place): string {
+  if (intent.vibes.length > 0) {
+    return `Matches your ${intent.vibes[0]} vibe`;
   }
-
-  // Sort by score and pick best
-  candidates.sort((a, b) => b.score - a.score);
-
-  if (candidates.length > 0) {
-    const chosen = candidates[0];
-    return { satellite: chosen.place, reason: chosen.reason };
+  if (intent.cuisine.length > 0 && anchor.tags.includes(intent.cuisine[0] as any)) {
+    return `Great for ${intent.cuisine[0]} cravings`;
   }
-
-  // Fallback: return Lindenhof as default satellite
-  const lindenhof = places.find(p => p.id === 'lindenhof');
-  return {
-    satellite: lindenhof || anchor,
-    reason: 'for a moment of reflection',
-  };
+  if (intent.categoryPreference.length > 0) {
+    return `Solid ${anchor.category} pick`;
+  }
+  return 'Fits the moment';
 }
 
-/**
- * Generate itineraries based on user query
- */
-export function generateItineraries(
-  query: UserQuery,
-  weather: WeatherData,
-  sun: SunData,
-  userElevation: number
-): Itinerary[] {
-  // Score all places
-  const scoredPlaces = places.map(place => ({
-    place,
-    score: scorePlace(place, query),
+function buildWhy(metrics: CreativeMetrics): string {
+  const metricPairs: Array<{ key: string; score: number; label: string }> = [
+    { key: 'fog', score: metrics.fogEscape.score, label: metrics.fogEscape.label },
+    { key: 'reflection', score: metrics.reflectionPotential.score, label: metrics.reflectionPotential.label },
+    { key: 'night', score: metrics.nightGlow.score, label: metrics.nightGlow.label },
+    { key: 'green', score: metrics.greenPocket.score, label: metrics.greenPocket.label },
+    { key: 'wind', score: metrics.windShelter.score, label: metrics.windShelter.label },
+  ];
+
+  metricPairs.sort((a, b) => b.score - a.score);
+  const top = metricPairs.slice(0, 2).map(metric => metric.label.toLowerCase());
+  return `Why now: ${top.join(' + ')}`;
+}
+
+function selectSatellite(
+  anchor: Place,
+  intent: Intent,
+  context: RecommendationContext
+): { satellite: Place; reason: string } {
+  const candidates = places.filter(place => place.id !== anchor.id);
+  const withDistance = candidates.map(candidate => ({
+    candidate,
+    distance: getDistance(anchor.lat, anchor.lon, candidate.lat, candidate.lon),
   }));
 
-  // Sort by score
+  const nearby = withDistance.filter(entry => entry.distance <= 1);
+  const pool = nearby.length > 0 ? nearby : withDistance;
+
+  const scored = pool.map(({ candidate, distance }) => {
+    let score = scorePlace(candidate, intent, context) + Math.max(0, 20 - distance * 15);
+    if (candidate.category !== anchor.category) score += 8;
+    if (countSharedTags(anchor, candidate) <= 2) score += 5;
+    return { candidate, score, distance };
+  });
+
+  scored.sort((a, b) => b.score - a.score);
+  const chosen = scored[0]?.candidate ?? anchor;
+
+  let reason = 'for a nearby bonus stop';
+  if (chosen.tags.includes('photo') || chosen.tags.includes('view')) {
+    reason = 'for extra photo angles';
+  } else if (chosen.category === 'walk') {
+    reason = 'for a short stroll';
+  } else if (chosen.indoorOutdoor === 'indoor' && context.weather.precipitation > 0.5) {
+    reason = 'to stay warm and dry';
+  }
+
+  return { satellite: chosen, reason };
+}
+
+function isSimilar(place: Place, selected: Place[]): boolean {
+  return selected.some(existing => {
+    const sharedTags = countSharedTags(place, existing);
+    const sameCategory = place.category === existing.category;
+    const sameArea = place.area && existing.area && place.area === existing.area;
+    return (sameCategory && sharedTags >= 3) || sameArea;
+  });
+}
+
+const intentFallback: Intent = {
+  raw: '',
+  cuisine: [],
+  categoryPreference: [],
+  vibes: [],
+  constraints: [],
+  photoMode: 'none',
+  indoorPreference: 'no-preference',
+};
+
+export function generateItineraries(
+  intent: Intent,
+  context: RecommendationContext,
+  userElevation: number
+): Itinerary[] {
+  const scoredPlaces = places.map(place => ({
+    place,
+    score: scorePlace(place, intent, context),
+  }));
+
   scoredPlaces.sort((a, b) => b.score - a.score);
 
-  // Take top candidates (more than 3 to allow diversity)
-  const topCandidates = scoredPlaces.slice(0, 10);
-
-  // Select 3 diverse anchors
   const selectedAnchors: Place[] = [];
   const usedCategories = new Set<PlaceCategory>();
 
-  for (const candidate of topCandidates) {
+  for (const candidate of scoredPlaces) {
     if (selectedAnchors.length >= 3) break;
-
-    // Try to get diverse categories
+    if (isSimilar(candidate.place, selectedAnchors)) continue;
     if (selectedAnchors.length < 2 || !usedCategories.has(candidate.place.category)) {
       selectedAnchors.push(candidate.place);
       usedCategories.add(candidate.place.category);
     }
   }
 
-  // Fill remaining slots if needed
-  for (const candidate of topCandidates) {
+  for (const candidate of scoredPlaces) {
     if (selectedAnchors.length >= 3) break;
     if (!selectedAnchors.includes(candidate.place)) {
       selectedAnchors.push(candidate.place);
     }
   }
 
-  // Generate itineraries
-  const itineraries: Itinerary[] = selectedAnchors.map(anchor => {
-    const metrics = computeAllMetrics(anchor, weather, sun, userElevation);
-    const { satellite, reason } = selectSatellite(anchor, metrics, weather, sun);
-    const mainCharacterScore = computeMainCharacterScore({ metrics, sun });
+  const itineraries = selectedAnchors.map(anchor => {
+    const metrics = computeAllMetrics(anchor, context.weather, context.daylight, userElevation);
+    const { satellite, reason } = selectSatellite(anchor, intent, context);
+    const mainCharacterScore = computeMainCharacterScore({ metrics, sun: context.daylight });
 
     return {
       anchor,
       satellite,
-      anchorReason: `Matches your ${query.vibes.join(', ') || 'vibe'}`,
+      anchorReason: buildAnchorReason(intent, anchor),
       satelliteReason: reason,
       mainCharacterScore,
+      why: buildWhy(metrics),
       metrics,
     };
   });
 
-  // Sort by main character score
   itineraries.sort((a, b) => b.mainCharacterScore - a.mainCharacterScore);
 
   return itineraries.slice(0, 3);
 }
 
-/**
- * Generate a greeting response with random suggestions
- */
 export function generateGreetingItineraries(
-  weather: WeatherData,
-  sun: SunData,
+  context: RecommendationContext,
   userElevation: number
 ): Itinerary[] {
-  // Pick random diverse places for greeting
-  const cafes = places.filter(p => p.category === 'cafe');
-  const viewpoints = places.filter(p => p.category === 'viewpoint');
-  const walks = places.filter(p => p.category === 'walk');
+  const sample = [...places]
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 6);
 
-  const randomPick = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
-
-  const anchors = [
-    randomPick(cafes),
-    randomPick(viewpoints),
-    randomPick(walks),
-  ].filter(Boolean);
+  const anchors: Place[] = [];
+  for (const candidate of sample) {
+    if (anchors.length >= 3) break;
+    if (!isSimilar(candidate, anchors)) {
+      anchors.push(candidate);
+    }
+  }
 
   return anchors.map(anchor => {
-    const metrics = computeAllMetrics(anchor, weather, sun, userElevation);
-    const { satellite, reason } = selectSatellite(anchor, metrics, weather, sun);
-    const mainCharacterScore = computeMainCharacterScore({ metrics, sun });
+    const metrics = computeAllMetrics(anchor, context.weather, context.daylight, userElevation);
+    const { satellite, reason } = selectSatellite(anchor, { ...intentFallback, raw: '' }, context);
+    const mainCharacterScore = computeMainCharacterScore({ metrics, sun: context.daylight });
 
     return {
       anchor,
@@ -331,6 +275,7 @@ export function generateGreetingItineraries(
       anchorReason: 'Perfect for right now',
       satelliteReason: reason,
       mainCharacterScore,
+      why: buildWhy(metrics),
       metrics,
     };
   });

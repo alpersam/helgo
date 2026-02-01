@@ -1,4 +1,12 @@
-export type PlaceCategory = 'cafe' | 'restaurant' | 'viewpoint' | 'walk';
+export type PlaceCategory =
+  | 'cafe'
+  | 'restaurant'
+  | 'viewpoint'
+  | 'walk'
+  | 'bar'
+  | 'museum'
+  | 'market'
+  | 'park';
 
 export type PlaceTag =
   | 'cozy' | 'hip' | 'lake' | 'oldtown' | 'quiet' | 'touristy'
@@ -6,6 +14,14 @@ export type PlaceTag =
   | 'narrow' | 'bridge' | 'city' | 'street' | 'mexican' | 'italian'
   | 'sushi' | 'burger' | 'asian' | 'swiss' | 'brunch' | 'coffee'
   | 'cocktails' | 'beer' | 'wine' | 'vegan' | 'historic';
+
+export type IndoorOutdoor = 'indoor' | 'outdoor' | 'mixed';
+export type PriceLevel = 'budget' | 'mid' | 'high';
+export type TimeOfDay = 'morning' | 'afternoon' | 'sunset' | 'night';
+
+export type PhotoSpot =
+  | { lat: number; lon: number }
+  | { placeId: string };
 
 export interface Place {
   id: string;
@@ -15,8 +31,14 @@ export interface Place {
   lon: number;
   elevation?: number; // meters above sea level
   tags: PlaceTag[];
-  tiktok_url: string;
-  maps_url: string;
+  tiktokUrl: string;
+  mapsUrl: string;
+  indoorOutdoor: IndoorOutdoor;
+  durationMins: number;
+  price?: PriceLevel;
+  bestTimeOfDay?: TimeOfDay;
+  area?: string;
+  photoSpots?: PhotoSpot[];
   description?: string;
 }
 
@@ -33,6 +55,11 @@ export interface SunData {
   isDay: boolean;
   isEvening: boolean;        // 1 hour before/after sunset
   isGoldenHour: boolean;
+}
+
+export interface DaylightData extends SunData {
+  sunrise: Date;
+  sunset: Date;
 }
 
 export interface CreativeMetrics {
@@ -69,6 +96,7 @@ export interface Itinerary {
   anchorReason: string;
   satelliteReason: string;
   mainCharacterScore: number;
+  why: string;
   metrics: CreativeMetrics;
 }
 
@@ -80,10 +108,25 @@ export interface ChatMessage {
   timestamp: Date;
 }
 
-export interface UserQuery {
+export type GroupContext = 'solo' | 'couple' | 'friends' | 'family';
+export type PhotoMode = 'none' | 'casual' | 'focused';
+export type IndoorPreference = 'indoor' | 'outdoor' | 'mixed' | 'no-preference';
+
+export interface Intent {
   raw: string;
-  cuisines: string[];
+  cuisine: string[];
+  categoryPreference: PlaceCategory[];
   vibes: string[];
-  categories: PlaceCategory[];
-  hasTimeConstraint: boolean;
+  constraints: string[];
+  timeBudgetMins?: number;
+  groupContext?: GroupContext;
+  photoMode: PhotoMode;
+  indoorPreference: IndoorPreference;
+}
+
+export interface RecommendationContext {
+  userLocation?: { lat: number; lon: number };
+  now: Date;
+  weather: WeatherData;
+  daylight: DaylightData;
 }
