@@ -44,8 +44,8 @@ import { ZURICH_LAT, ZURICH_LON } from '../lib/weather';
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 const HELGO_GREETINGS = [
-  "Hey, I'm Helgo — your Zürich micro-guide. What sounds nice right now?",
-  "Grüezi! Want a gentle suggestion for Zürich? Tell me your mood.",
+  "Hey, I'm Helgo - your Zurich micro-guide. What sounds nice right now?",
+  "Gruezi! Want a gentle suggestion for Zurich? Tell me your mood.",
   "Hi there. Anything in particular you feel like doing today?",
 ];
 
@@ -58,17 +58,17 @@ const HELGO_RESPONSES = [
 const HELGO_CLARIFIERS = [
   "I can help with food, views, walks, parks, and museums. What are you in the mood for?",
   "Quick check: are you looking for a restaurant, a stroll, a viewpoint, or something indoors?",
-  "Give me a vibe or category to work with — e.g., \"mexican restaurant\" or \"sunset walk\".",
+  "Give me a vibe or category to work with - e.g., \"mexican restaurant\" or \"sunset walk\".",
 ];
 
 const HELGO_PRELUDES = [
-  "Give me a second — I'll shape a quick two-stop plan.",
+  "Give me a second - I'll shape a quick two-stop plan.",
   "Alright, let me curate something that fits the moment.",
   "On it. I'll pull a short, easy-to-do plan for you.",
 ];
 
 const HELGO_AFTERGLOWS = [
-  "Want me to refine it — calmer, or more scenic?",
+  "Want me to refine it - calmer, or more scenic?",
   "If you want a different mood, say the word.",
   "Want a shorter route or something more atmospheric?",
 ];
@@ -136,6 +136,7 @@ const ChatScreenContent: React.FC = () => {
   const [userLocation, setUserLocation] = useState<{ lat: number; lon: number } | null>(null);
   const [followUps, setFollowUps] = useState<SuggestionChip[]>([]);
   const lastIntentRef = useRef<Intent | null>(null);
+  const itineraryPendingRef = useRef(false);
   const scrollViewRef = useRef<ScrollView>(null);
 
   // Animated gradient blobs
@@ -224,6 +225,8 @@ const ChatScreenContent: React.FC = () => {
   const buildFollowUps = (intent: Intent, itineraries: Itinerary[]): SuggestionChip[] => {
     const suggestions: SuggestionChip[] = [];
     const anchor = itineraries[0]?.anchor;
+
+    suggestions.push({ label: 'Build itinerary', icon: 'map', autoSend: true });
 
     if (intent.cuisine.length > 0) {
       const cuisine = intent.cuisine[0];
@@ -394,8 +397,50 @@ const ChatScreenContent: React.FC = () => {
       parts.push("It's a nice evening window.");
     }
 
-    return parts.length > 0 ? parts.join(' ') : 'Okay — give me a second.';
+    return parts.length > 0 ? parts.join(' ') : 'Okay - give me a second.';
   };
+
+  const isItineraryRequest = (text: string) => {
+    const normalized = text.toLowerCase();
+    return (
+      normalized.includes('itinerary') ||
+      normalized.includes('plan') ||
+      normalized.includes('schedule')
+    );
+  };
+
+  const formatDuration = (mins: number) => {
+    if (mins < 60) return `${mins} min`;
+    const hours = Math.floor(mins / 60);
+    const rest = mins % 60;
+    return rest > 0 ? `${hours}h ${rest}m` : `${hours}h`;
+  };
+
+  const buildItineraryText = (intent: Intent, itineraries: Itinerary[]) => {
+    const totalMins = intent.timeBudgetMins ?? 120;
+    const stops: Array<{ title: string; note?: string }> = [];
+    if (itineraries[0]) {
+      stops.push({ title: itineraries[0].anchor.name, note: itineraries[0].anchorReason });
+      stops.push({ title: itineraries[0].satellite.name, note: itineraries[0].satelliteReason });
+    }
+    if (itineraries[1]) {
+      stops.push({ title: itineraries[1].anchor.name, note: itineraries[1].anchorReason });
+    }
+
+    const allocations =
+      stops.length === 2 ? [0.6, 0.4] : stops.length === 3 ? [0.45, 0.2, 0.35] : [1];
+
+    let cursor = 0;
+    const lines = stops.map((stop, index) => {
+      const mins = Math.max(20, Math.round(totalMins * (allocations[index] ?? 0.3)));
+      const window = `${formatDuration(cursor)}-${formatDuration(cursor + mins)}`;
+      cursor += mins;
+      return `- ${window} - ${stop.title}${stop.note ? ` (${stop.note})` : ''}`;
+    });
+
+    return `Here's a ${formatDuration(totalMins)} plan:\n${lines.join('\n')}`;
+  };
+
 
 
   const submitText = async (text: string) => {
@@ -424,6 +469,39 @@ const ChatScreenContent: React.FC = () => {
 
     const rawIntent = parseIntent(userMessage.text!);
     const intent = mergeIntent(rawIntent, lastIntentRef.current);
+
+    const wantsItinerary = itineraryPendingRef.current || isItineraryRequest(userMessage.text!);
+    if (wantsItinerary && lastIntentRef.current) {
+      if (!intent.timeBudgetMins) {
+        itineraryPendingRef.current = true;
+        const askTime: ChatMessage = {
+          id: `assistant-time-${Date.now()}`,
+          type: 'assistant',
+          text: 'How much time do you have- (1 hour, 2 hours, or half day)',
+          timestamp: new Date(),
+        };
+        setMessages(prev => [...prev, askTime]);
+        setFollowUps([
+          { label: '1 hour', icon: 'time', autoSend: true },
+          { label: '2 hours', icon: 'time', autoSend: true },
+          { label: 'Half day', icon: 'time', autoSend: true },
+        ]);
+        setIsLoading(false);
+        return;
+      }
+      itineraryPendingRef.current = false;
+    } else if (wantsItinerary && !lastIntentRef.current) {
+      const askPref: ChatMessage = {
+        id: `assistant-intent-${Date.now()}`,
+        type: 'assistant',
+        text: 'Tell me what kind of plan you want (e.g., date night, sightseeing, food).',
+        timestamp: new Date(),
+      };
+      setMessages(prev => [...prev, askPref]);
+      setIsLoading(false);
+      return;
+    }
+
     if (isAmbiguousIntent(intent)) {
       const clarifier: ChatMessage = {
         id: `assistant-clarify-${Date.now()}`,
@@ -509,6 +587,20 @@ const ChatScreenContent: React.FC = () => {
     setTimeout(() => {
       setMessages(prev => [...prev, afterglow]);
     }, 800);
+
+    if (wantsItinerary) {
+      const itineraryText = buildItineraryText(intent, itineraries);
+      const itineraryMessage: ChatMessage = {
+        id: `assistant-itinerary-${Date.now()}`,
+        type: 'assistant',
+        text: itineraryText,
+        timestamp: new Date(),
+      };
+      setTimeout(() => {
+        setMessages(prev => [...prev, itineraryMessage]);
+      }, 500);
+    }
+
   };
 
   const handleSend = async () => {
@@ -632,7 +724,7 @@ const ChatScreenContent: React.FC = () => {
             value={inputText}
             onChangeText={setInputText}
             onSubmit={handleSend}
-            placeholder="What are you in the mood for?"
+            placeholder="What are you in the mood for-"
             disabled={isLoading}
           />
 
