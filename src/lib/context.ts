@@ -58,7 +58,7 @@ export async function buildRecommendationContext(
   userLocation?: { lat: number; lon: number }
 ): Promise<RecommendationContext> {
   const now = new Date();
-  const weather = await fetchWeather();
+  const weather = await fetchWeather(userLocation?.lat, userLocation?.lon);
   const daylight = getDaylightData(userLocation?.lat, userLocation?.lon, now);
 
   return {

@@ -11,6 +11,7 @@ import {
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
+import * as Location from 'expo-location';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -37,6 +38,7 @@ import {
   generateItineraries,
   generateGreetingItineraries,
 } from '../lib';
+import { ZURICH_LAT, ZURICH_LON } from '../lib/weather';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
@@ -51,6 +53,8 @@ const HELGO_RESPONSES = [
   "Perfect! Check these out:",
   "Based on the vibes right now, try these:",
 ];
+
+const FALLBACK_LOCATION = { lat: ZURICH_LAT, lon: ZURICH_LON };
 
 const SUGGESTIONS = [
   { label: 'Cute café', icon: 'cafe' as const },
@@ -67,6 +71,7 @@ const ChatScreenContent: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [daylight, setDaylight] = useState<DaylightData | null>(null);
+  const [userLocation, setUserLocation] = useState<{ lat: number; lon: number } | null>(null);
   const scrollViewRef = useRef<ScrollView>(null);
 
   // Animated gradient blobs
@@ -98,10 +103,35 @@ const ChatScreenContent: React.FC = () => {
     initializeChat();
   }, []);
 
+  const resolveUserLocation = async () => {
+    try {
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        setUserLocation(FALLBACK_LOCATION);
+        return { location: FALLBACK_LOCATION, permissionDenied: true };
+      }
+
+      const position = await Location.getCurrentPositionAsync({
+        accuracy: Location.Accuracy.Balanced,
+      });
+      const resolved = {
+        lat: position.coords.latitude,
+        lon: position.coords.longitude,
+      };
+      setUserLocation(resolved);
+      return { location: resolved, permissionDenied: false };
+    } catch (error) {
+      console.warn('Location fetch failed, using fallback:', error);
+      setUserLocation(FALLBACK_LOCATION);
+      return { location: FALLBACK_LOCATION, permissionDenied: true };
+    }
+  };
+
   const initializeChat = async () => {
     setIsLoading(true);
-    const weatherData = await fetchWeather();
-    const sunData = getDaylightData();
+    const { location, permissionDenied } = await resolveUserLocation();
+    const weatherData = await fetchWeather(location.lat, location.lon);
+    const sunData = getDaylightData(location.lat, location.lon);
 
     setWeather(weatherData);
     setDaylight(sunData);
@@ -113,7 +143,17 @@ const ChatScreenContent: React.FC = () => {
       timestamp: new Date(),
     };
 
-    setMessages([greeting]);
+    if (permissionDenied) {
+      const fallbackNotice: ChatMessage = {
+        id: 'location-fallback',
+        type: 'assistant',
+        text: "I couldn't access your location, so I'll guide you from Zürich center for now.",
+        timestamp: new Date(),
+      };
+      setMessages([greeting, fallbackNotice]);
+    } else {
+      setMessages([greeting]);
+    }
     setIsLoading(false);
   };
 
@@ -134,11 +174,12 @@ const ChatScreenContent: React.FC = () => {
     await new Promise(resolve => setTimeout(resolve, 600));
 
     const intent = parseIntent(userMessage.text!);
-    const userElevation = getUserElevation();
-    const latestDaylight = getDaylightData();
+    const resolvedLocation = userLocation ?? FALLBACK_LOCATION;
+    const userElevation = await getUserElevation(resolvedLocation.lat, resolvedLocation.lon);
+    const latestDaylight = getDaylightData(resolvedLocation.lat, resolvedLocation.lon);
     setDaylight(latestDaylight);
     const context = {
-      userLocation: undefined,
+      userLocation: resolvedLocation,
       now: new Date(),
       weather,
       daylight: latestDaylight,
